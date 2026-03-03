@@ -1,0 +1,67 @@
+\section{Method}
+\label{sec:method}
+
+We propose \method, a three-phase protocol for evaluating NAS methods under distribution shift, and \sasc, a selection criterion that explicitly balances clean accuracy with generalization.
+
+\subsection{Evaluation Protocol}
+\label{sec:protocol}
+
+Given a NAS search space $\mathcal{A}$ and a search dataset $\mathcal{D}_\text{search}$, standard NAS evaluation selects the architecture $a^* = \arg\max_{a \in \mathcal{A}} \text{Acc}(a, \mathcal{D}_\text{search})$. Our protocol extends this to three evaluation axes:
+
+\paragraph{Axis 1: Cross-Dataset Transfer.}
+Evaluate all architectures on a dataset from the same domain but different distribution. In our experiments: CIFAR-10 (search) $\to$ CIFAR-100 (evaluation). This tests whether NAS ranking generalizes when the label space and class granularity change.
+
+\paragraph{Axis 2: Cross-Domain Transfer.}
+Evaluate on a dataset from a different domain entirely. We use CIFAR-10 $\to$ ImageNet-16-120, which differs in image source, resolution, and semantic content. This is the most challenging generalization test.
+
+\paragraph{Axis 3: Corruption Robustness.}
+Evaluate on corrupted versions of the search dataset following the taxonomy of Hendrycks and Dietterich~\cite{hendrycks2019benchmarking}: 15 corruption types across 4 categories (noise, blur, weather, digital) at 5 severity levels.
+For full-space analysis (all 15,625 architectures), we use a simulation calibrated to published architectural robustness properties~\cite{guo2020robnet}, since retraining all architectures under corruption is prohibitively expensive.
+We validate this simulation with real CIFAR-10-C evaluation on a representative 46-architecture subset (Section~\ref{sec:real_validation}).
+We report the mean corrupted accuracy and the \emph{Corruption Gap} (\cg = clean accuracy $-$ mean corrupted accuracy).
+
+\subsection{Shift-Aware Selection Criterion}
+\label{sec:sasc}
+
+We define \sasc as a weighted composite of three normalized performance components:
+\begin{equation}
+    \text{SASC}(a) = \alpha \cdot \hat{f}_\text{clean}(a) + \beta \cdot \hat{f}_\text{cross}(a) + \gamma \cdot \hat{f}_\text{robust}(a)
+    \label{eq:sasc}
+\end{equation}
+where $\alpha + \beta + \gamma = 1$ and each component is normalized.
+
+\paragraph{Pool-Based Normalization.}
+A critical design choice is \emph{how} to normalize.
+The oracle approach uses min-max normalization over the entire search space $\mathcal{A}$, but this is unrealistic: in practice, a NAS algorithm observes only a candidate pool $\mathcal{P} \subset \mathcal{A}$.
+We therefore propose \textbf{SASC-Pool}, which uses z-score normalization over the observed candidate pool:
+\begin{equation}
+    \hat{f}_m(a) = \frac{f_m(a) - \mu_m(\mathcal{P})}{\sigma_m(\mathcal{P})}
+    \label{eq:zscore}
+\end{equation}
+where $\mu_m(\mathcal{P})$ and $\sigma_m(\mathcal{P})$ are the mean and standard deviation of metric $m$ over the pool $\mathcal{P}$.
+This makes \sasc applicable to any NAS algorithm without access to the full benchmark.
+
+The three components are:
+\begin{itemize}
+    \item $\hat{f}_\text{clean}(a)$: z-scored accuracy on the search dataset (CIFAR-10).
+    \item $\hat{f}_\text{cross}(a)$: average of z-scored accuracy on cross-dataset (CIFAR-100) and cross-domain (ImageNet-16-120) evaluation sets.
+    \item $\hat{f}_\text{robust}(a)$: negated z-scored Corruption Gap, so that higher values indicate greater robustness.
+\end{itemize}
+
+The default weights $\alpha{=}0.4$, $\beta{=}0.3$, $\gamma{=}0.3$ balance clean performance with generalization. We study sensitivity to these weights in Section~\ref{sec:sensitivity} and pool stability in Section~\ref{sec:pool_stability}.
+
+\subsection{Comparison Strategies}
+\label{sec:strategies}
+
+We compare six architecture selection strategies:
+
+\begin{enumerate}
+    \item \textbf{Random}: random sample of $K$ architectures (baseline).
+    \item \textbf{Clean (CIFAR-10)}: top-$K$ by clean CIFAR-10 accuracy (standard NAS).
+    \item \textbf{Clean (CIFAR-100)}: top-$K$ by clean CIFAR-100 accuracy (oracle cross-dataset).
+    \item \textbf{Worst-Case}: top-$K$ by worst-case accuracy across all corruption evaluations (conservative).
+    \item \textbf{SASC-Global}: top-$K$ by \sasc with min-max normalization over the full space (oracle).
+    \item \textbf{SASC-Pool}: top-$K$ by \sasc with z-score normalization over the candidate pool (practical).
+\end{enumerate}
+
+In all experiments, $K = 100$ for strategy comparison and $K = 10$ for the end-to-end NAS algorithm evaluation (Section~\ref{sec:nas_algorithms}).

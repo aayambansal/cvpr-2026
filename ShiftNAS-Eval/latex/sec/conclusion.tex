@@ -1,0 +1,20 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented \method, a standardized protocol for evaluating NAS methods under distribution shift.
+Our experiments on the full NAS-Bench-201 search space reveal a striking finding: while Spearman rank correlations across the architecture space appear reassuringly high ($\rho > 0.7$), the top-100 architectures by clean accuracy overlap only 34\% with cross-dataset rankings and 10\% with cross-domain rankings---dropping to 0\% at $K{=}10$.
+Top-weighted Kendall-$\tau$ is \emph{negative} ($\tau = -0.41$), demonstrating that among architectures that matter, in-distribution and cross-domain performance are inversely correlated.
+
+The proposed SASC-Pool addresses this with a practical, pool-based criterion that uses z-score normalization over the observed candidate pool rather than requiring access to the full search space.
+End-to-end evaluation on four NAS algorithms shows that SASC-Pool consistently improves cross-domain generalization by +0.4--2.8\% on ImageNet-16-120 at zero additional evaluation cost.
+Real CIFAR-10-C evaluation on 46 architectures confirms these findings: top architectures lose up to 51\% accuracy under corruption, and ranking by clean accuracy differs from ranking by corrupted accuracy (60\% top-10 overlap).
+
+\paragraph{Limitations.}
+Our experiments use the NAS-Bench-201 search space, which is relatively small (15,625 architectures) compared to modern NAS spaces.
+The NAS algorithm simulations use proxy scores rather than running actual weight-sharing or gradient-based search.
+Our real CIFAR-10-C validation covers 46 of the 15,625 architectures; extending to the full space would enable direct SASC comparison on real corruption data.
+Our protocol currently focuses on image classification; extending to detection, segmentation, and other tasks is important future work.
+
+\paragraph{Future Work.}
+We plan to extend \method to larger search spaces (NAS-Bench-301, DARTS space), scale the real CIFAR-10-C evaluation to cover more architectures, and develop \sasc variants with adaptive weight selection based on the deployment scenario.
+We also aim to release pre-computed corruption metrics as an extension to existing NAS benchmarks, lowering the barrier to shift-aware NAS evaluation.

@@ -1,0 +1,9 @@
+{
+  "cifar100_clean": 0.34,
+  "imagenet16_clean": 0.1,
+  "mean_corrupted_acc": 0.93,
+  "noise_mean_acc": 0.85,
+  "blur_mean_acc": 0.83,
+  "weather_mean_acc": 0.93,
+  "digital_mean_acc": 0.87
+}

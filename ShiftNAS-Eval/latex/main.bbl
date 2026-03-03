@@ -1,0 +1,165 @@
+\begin{thebibliography}{20}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bai et~al.(2021)Bai, Mei, Yuille, and Xie]{bai2021transformers}
+Yutong Bai, Jieru Mei, Alan Yuille, and Cihang Xie.
+\newblock Are transformers more robust than {CNNs}?
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2021.
+
+\bibitem[Dong and Yang(2020)]{dong2020nasbench201}
+Xuanyi Dong and Yi Yang.
+\newblock {NAS-Bench-201}: Extending the scope of reproducible neural
+  architecture search.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2020.
+
+\bibitem[Dong et~al.(2021)Dong, Liu, Musial, and Gabrys]{dong2021natsbench}
+Xuanyi Dong, Lu Liu, Katarzyna Musial, and Bogdan Gabrys.
+\newblock {NATS-Bench}: Benchmarking {NAS} algorithms for architecture topology
+  and size.
+\newblock \emph{IEEE Transactions on Pattern Analysis and Machine
+  Intelligence}, 2021.
+
+\bibitem[Duan et~al.(2021)Duan, Chen, Xu, Chen, Liang, Zhang, and
+  Li]{duan2021transnasbench101}
+Yawen Duan, Xin Chen, Hang Xu, Zewei Chen, Xiaodan Liang, Tong Zhang, and
+  Zhenguo Li.
+\newblock {TransNAS-Bench-101}: Improving transferability and generalizability
+  of cross-task neural architecture search.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, 2021.
+
+\bibitem[Geirhos et~al.(2019)Geirhos, Rubisch, Michaelis, Bethge, Wichmann, and
+  Brendel]{geirhos2019texture}
+Robert Geirhos, Patricia Rubisch, Claudio Michaelis, Matthias Bethge, Felix~A.
+  Wichmann, and Wieland Brendel.
+\newblock {ImageNet}-trained {CNNs} are biased towards texture; increasing
+  shape bias improves accuracy and robustness.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Gulrajani and Lopez-Paz(2021)]{gulrajani2021in}
+Ishaan Gulrajani and David Lopez-Paz.
+\newblock In search of lost domain generalization.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2021.
+
+\bibitem[Guo et~al.(2020)Guo, Yang, Xu, Liu, and Lin]{guo2020robnet}
+Minghao Guo, Yuzhe Yang, Rui Xu, Ziwei Liu, and Dahua Lin.
+\newblock When {NAS} meets robustness: In search of robust architectures
+  against adversarial attacks.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, 2020.
+
+\bibitem[Hendrycks and Dietterich(2019)]{hendrycks2019benchmarking}
+Dan Hendrycks and Thomas~G. Dietterich.
+\newblock Benchmarking neural network robustness to common corruptions and
+  perturbations.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Hendrycks et~al.(2021)Hendrycks, Basart, Mu, Kadavath, Wang, Dorundo,
+  Desai, Zhu, Parajuli, Guo, Song, Steinhardt, and Gilmer]{hendrycks2021many}
+Dan Hendrycks, Steven Basart, Norman Mu, Saurav Kadavath, Frank Wang, Evan
+  Dorundo, Rahul Desai, Tyler Zhu, Samyak Parajuli, Mike Guo, Dawn Song, Jacob
+  Steinhardt, and Justin Gilmer.
+\newblock The many faces of robustness: A critical analysis of
+  out-of-distribution generalization.
+\newblock In \emph{Proceedings of the IEEE/CVF International Conference on
+  Computer Vision (ICCV)}, 2021.
+
+\bibitem[Koh et~al.(2021)Koh, Sagawa, Marklund, Xie, Zhang, Balsubramani, Hu,
+  Yasunaga, Phillips, Gao, Lee, David, Stavness, Guo, Earnshaw, Haque, Beery,
+  Leskovec, Kundaje, Pierson, Levine, Finn, and Liang]{koh2021wilds}
+Pang~Wei Koh, Shiori Sagawa, Henrik Marklund, Sang~Michael Xie, Marvin Zhang,
+  Akshay Balsubramani, Weihua Hu, Michihiro Yasunaga, Richard~Lanas Phillips,
+  Irena Gao, Tony Lee, Etienne David, Ian Stavness, Wei Guo, Berton~A.
+  Earnshaw, Imran~S. Haque, Sara Beery, Jure Leskovec, Anshul Kundaje, Emma
+  Pierson, Sergey Levine, Chelsea Finn, and Percy Liang.
+\newblock {WILDS}: A benchmark of in-the-wild distribution shifts.
+\newblock In \emph{Proceedings of the 38th International Conference on Machine
+  Learning (ICML)}, 2021.
+
+\bibitem[Li and Talwalkar(2019)]{li2019randomnas}
+Liam Li and Ameet Talwalkar.
+\newblock Random search and reproducibility for neural architecture search.
+\newblock In \emph{Conference on Uncertainty in Artificial Intelligence (UAI)},
+  2019.
+
+\bibitem[Liu et~al.(2019)Liu, Simonyan, and Yang]{liu2019darts}
+Hanxiao Liu, Karen Simonyan, and Yiming Yang.
+\newblock {DARTS}: Differentiable architecture search.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Miller et~al.(2021)Miller, Taori, Raghunathan, Sagawa, Koh, Shankar,
+  Liang, Carmon, and Schmidt]{miller2021accuracy}
+John~P. Miller, Rohan Taori, Aditi Raghunathan, Shiori Sagawa, Pang~Wei Koh,
+  Vaishaal Shankar, Percy Liang, Yair Carmon, and Ludwig Schmidt.
+\newblock Accuracy on the line: On the strong correlation between
+  out-of-distribution and in-distribution generalization.
+\newblock In \emph{Proceedings of the 38th International Conference on Machine
+  Learning (ICML)}, 2021.
+
+\bibitem[Pham et~al.(2018)Pham, Guan, Zoph, Le, and Dean]{pham2018enas}
+Hieu Pham, Melody~Y. Guan, Barret Zoph, Quoc~V. Le, and Jeff Dean.
+\newblock Efficient neural architecture search via parameter sharing.
+\newblock In \emph{Proceedings of the 35th International Conference on Machine
+  Learning (ICML)}, 2018.
+
+\bibitem[Recht et~al.(2019)Recht, Roelofs, Schmidt, and
+  Shankar]{recht2019imagenet}
+Benjamin Recht, Rebecca Roelofs, Ludwig Schmidt, and Vaishaal Shankar.
+\newblock Do {ImageNet} classifiers generalize to {ImageNet}?
+\newblock In \emph{Proceedings of the 36th International Conference on Machine
+  Learning (ICML)}, 2019.
+
+\bibitem[Taori et~al.(2020)Taori, Dave, Shankar, Carlini, Recht, and
+  Schmidt]{taori2020measuring}
+Rohan Taori, Achal Dave, Vaishaal Shankar, Nicholas Carlini, Benjamin Recht,
+  and Ludwig Schmidt.
+\newblock Measuring robustness to natural distribution shifts in image
+  classification.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2020.
+
+\bibitem[Tu et~al.(2022)Tu, Roberts, Khodak, Shen, Sala, and
+  Talwalkar]{tu2022nasbench360}
+Renbo Tu, Nicholas Roberts, Mikhail Khodak, Junhong Shen, Frederic Sala, and
+  Ameet Talwalkar.
+\newblock {NAS-Bench-360}: Benchmarking neural architecture search on diverse
+  tasks.
+\newblock In \emph{Advances in Neural Information Processing Systems (NeurIPS),
+  Datasets and Benchmarks Track}, 2022.
+
+\bibitem[Ying et~al.(2019)Ying, Klein, Real, Christiansen, Murphy, and
+  Hutter]{ying2019nasbench101}
+Chris Ying, Aaron Klein, Esteban Real, Eric Christiansen, Kevin Murphy, and
+  Frank Hutter.
+\newblock {NAS-Bench-101}: Towards reproducible neural architecture search.
+\newblock In \emph{Proceedings of the 36th International Conference on Machine
+  Learning (ICML)}, 2019.
+
+\bibitem[Yu et~al.(2020)Yu, Sciuto, Jaggi, Musat, and
+  Salzmann]{yu2020evaluating}
+Kaicheng Yu, Christian Sciuto, Martin Jaggi, Claudiu Musat, and Mathieu
+  Salzmann.
+\newblock Evaluating the search phase of neural architecture search.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2020.
+
+\bibitem[Zela et~al.(2022)Zela, Siems, Zimmer, Lukasik, Keuper, and
+  Hutter]{zela2022nasbench301}
+Arber Zela, Julien Siems, Lucas Zimmer, Jovita Lukasik, Margret Keuper, and
+  Frank Hutter.
+\newblock Surrogate {NAS} benchmarks: Going beyond the limited search spaces of
+  tabular {NAS} benchmarks.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2022.
+
+\end{thebibliography}

@@ -1,0 +1,10 @@
+\begin{abstract}
+Neural Architecture Search (NAS) methods are predominantly evaluated on clean, in-distribution test sets drawn from the same data source used during the search phase.
+This practice masks a critical weakness: architectures that rank highly on the search distribution may not generalize under distribution shift.
+We propose \method, a standardized evaluation protocol that assesses NAS methods across three axes of generalization---cross-dataset transfer, cross-domain transfer, and corruption robustness---using the NAS-Bench-201 search space with 15,625 architectures.
+Our analysis reveals that the top-100 architectures ranked by clean CIFAR-10 accuracy overlap only 34\% with those ranked by CIFAR-100 and merely 10\% with those ranked by ImageNet-16-120; at the even more relevant $K{=}10$, ImageNet-16 overlap drops to \textbf{0\%}.
+Top-weighted Kendall-$\tau$ among top architectures is \emph{negative} ($\tau = -0.41$ for ImageNet-16), meaning that the best in-distribution architectures are systematically the \emph{worst} cross-domain.
+We introduce the \emph{Shift-Aware Selection Criterion} (\sasc), a pool-based composite metric using z-score normalization over the candidate pool, making it applicable to any NAS algorithm without access to the full search space.
+Evaluated end-to-end on four NAS algorithms (Random Search, Regularized Evolution, DARTS-like, ENAS-like), SASC-Pool consistently improves cross-domain generalization by +0.4--2.8\% on ImageNet-16-120 while reducing the Corruption Gap, with no additional architecture evaluations required.
+We validate our findings by training 46 architectures from scratch and evaluating on real CIFAR-10-C corruptions, confirming that top architectures lose up to 51\% accuracy under corruption ($\rho = 0.58$ between clean accuracy and Corruption Gap).
+\end{abstract}

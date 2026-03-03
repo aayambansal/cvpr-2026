@@ -1,0 +1,23 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{NAS Benchmarks.}
+The development of tabular NAS benchmarks has transformed architecture search research by enabling reproducible, low-cost evaluation.
+NAS-Bench-101~\cite{ying2019nasbench101} pioneered this paradigm with 423K architectures exhaustively evaluated on CIFAR-10.
+NAS-Bench-201~\cite{dong2020nasbench201} extended evaluation to three datasets (CIFAR-10, CIFAR-100, ImageNet-16-120), revealing cross-dataset ranking inconsistencies that motivate our work.
+NATS-Bench~\cite{dong2021natsbench} unified topology and size search, while NAS-Bench-301~\cite{zela2022nasbench301} introduced surrogate models to scale to the full DARTS~\cite{liu2019darts} search space ($10^{21}$ architectures).
+TransNAS-Bench-101~\cite{duan2021transnasbench101} and NAS-Bench-360~\cite{tu2022nasbench360} pushed toward cross-task evaluation, finding that architecture rankings transfer poorly across tasks.
+However, none of these benchmarks systematically evaluate robustness under distribution shift or provide corruption metrics.
+
+\paragraph{NAS Methods.}
+ENAS~\cite{pham2018enas} introduced weight sharing to reduce NAS cost by 1000$\times$, and DARTS~\cite{liu2019darts} reformulated the problem as continuous optimization.
+Critically, Li and Talwalkar~\cite{li2019randomnas} and Yu~\etal~\cite{yu2020evaluating} demonstrated that random search with weight sharing matches or exceeds many sophisticated NAS methods, and that shared-weight evaluation does not faithfully rank architectures.
+These findings underscore the importance of evaluation protocol design---the focus of our work.
+
+\paragraph{Distribution Shift and Robustness.}
+Hendrycks and Dietterich~\cite{hendrycks2019benchmarking} established ImageNet-C and CIFAR-10-C as benchmarks for corruption robustness with 15 corruption types at 5 severity levels.
+Subsequent work introduced natural distribution shift benchmarks~\cite{recht2019imagenet,hendrycks2021many}, domain generalization testbeds such as DomainBed~\cite{gulrajani2021in} and WILDS~\cite{koh2021wilds}, and demonstrated that in-distribution accuracy linearly predicts out-of-distribution accuracy~\cite{taori2020measuring,miller2021accuracy}.
+Geirhos~\etal~\cite{geirhos2019texture} showed that CNNs exhibit texture bias explaining their fragility, while Bai~\etal~\cite{bai2021transformers} found Vision Transformers are more robust, though this is confounded by training recipe.
+Guo~\etal~\cite{guo2020robnet} demonstrated that architecture topology itself encodes robustness---densely connected patterns improve adversarial robustness.
+
+Our work bridges these two lines by bringing distribution shift evaluation into NAS benchmarking, proposing a protocol and selection criterion that explicitly account for generalization beyond the search distribution.
