@@ -45,3 +45,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](UniSpace/latex/main.pdf) | [Code & Data](UniSpace/)
 
 ---
+
+## Paper 4: DenseProxy
+
+**Title:** Space-Aware Proxy Selection for Training-Free Dense Prediction NAS
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** Zero-cost proxies score untrained networks in seconds, enabling efficient neural architecture search (NAS), yet no single proxy works well across all search space types. We show that space-aware proxy selection, a simple strategy that assigns different proxies to macro-level and micro-level search spaces, substantially outperforms any individual proxy for dense prediction tasks. Evaluating 7,344 architectures across five tasks on TransNAS-Bench-101 with real trained ground truth, our Space-Aware selector achieves Spearman ρ=0.631 for semantic segmentation, a +49% improvement over the best single proxy (GradNorm, ρ=0.423). Similar gains appear for surface normal prediction (+24%), object classification (+16%), and scene classification (+22%). The selector is enabled by our proposed Multi-Scale Feature Separability (MSFS) proxy, which achieves ρ=0.706 for segmentation within macro search spaces. Z-score normalization within each space removes inter-space scale artifacts. We also report Spatial Feature Consistency (SFC) as a negative result with detailed failure analysis. All experiments run on a single A10G GPU in under one hour.
+
+[Paper PDF](DenseProxy/latex/main.pdf) | [Code & Data](DenseProxy/)
+
+---

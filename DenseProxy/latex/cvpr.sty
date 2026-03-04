@@ -1,0 +1,80 @@
+% ---------------------------------------------------------------
+% cvpr.sty  -- Simplified CVPR style (based on ieee/cvpr formatting)
+% Suitable for CVPR workshops
+% ---------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cvpr}[2025/01/01 CVPR Workshop Style]
+
+\RequirePackage{times}
+\RequirePackage{graphicx}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+
+% Page layout
+\setlength{\textheight}{8.875in}
+\setlength{\textwidth}{6.875in}
+\setlength{\columnsep}{0.3125in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\parindent}{1pc}
+\setlength{\oddsidemargin}{-.304in}
+\setlength{\evensidemargin}{-.304in}
+
+% Two-column
+\twocolumn
+\sloppy
+
+% Section formatting
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-10pt \@plus -2pt \@minus -2pt}%
+  {4pt \@plus 2pt}%
+  {\normalfont\normalsize\bfseries\MakeUppercase}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-8pt \@plus -2pt \@minus -2pt}%
+  {4pt \@plus 2pt}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+  {-6pt \@plus -2pt \@minus -2pt}%
+  {2pt \@plus 2pt}%
+  {\normalfont\normalsize\bfseries}}
+
+% Title formatting
+\def\maketitle{\par
+  \begingroup
+    \def\thefootnote{\fnsymbol{footnote}}
+    \twocolumn[\@maketitle]
+    \@thanks
+  \endgroup
+  \setcounter{footnote}{0}
+  \let\maketitle\relax
+  \let\@maketitle\relax}
+
+\def\@maketitle{
+  \vbox to 0pt{\vskip -38pt\hbox to \textwidth{%
+    \hfill{\small Sixth Workshop on Neural Architecture Search at CVPR 2026 (CVPR-NAS'26)}}\vss}
+  \begin{center}
+    {\Large\bfseries \@title \par}
+    \vskip 1em
+    {\large \@author \par}
+    \vskip 0.5em
+  \end{center}
+  \vskip 1em
+}
+
+% Abstract
+\renewenvironment{abstract}%
+  {\centerline{\large\bfseries Abstract}\vspace{0.5ex}\begin{quote}\small}%
+  {\par\end{quote}\vskip 1ex}
+
+% Caption
+\long\def\@makecaption#1#2{%
+  \vskip 5pt
+  \setbox\@tempboxa\hbox{#1: #2}%
+  \ifdim\wd\@tempboxa>\hsize
+    {\small #1: #2}\par
+  \else
+    \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi}
+
+\endinput

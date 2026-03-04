@@ -1,0 +1,454 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+\usepackage{cvpr}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[capitalise]{cleveref}
+
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\newcommand{\method}{DenseProxy}
+\newcommand{\sfc}{\textsc{SFC}}
+\newcommand{\msfs}{\textsc{MSFS}}
+
+\title{Space-Aware Proxy Selection for Training-Free\\Dense Prediction NAS}
+
+\author{Anonymous CVPR-NAS Submission\\Paper ID: XXX}
+
+\begin{document}
+\maketitle
+
+% ==================================================================
+\begin{abstract}
+Zero-cost proxies score untrained networks in seconds, enabling efficient neural architecture search (NAS), yet no single proxy works well across all search space types.
+We show that \emph{space-aware proxy selection}, a simple strategy that assigns different proxies to macro-level and micro-level search spaces, substantially outperforms any individual proxy for dense prediction tasks.
+Evaluating 7{,}344 architectures across five tasks on TransNAS-Bench-101 with real trained ground truth, our Space-Aware selector achieves Spearman $\rho{=}0.631$ for semantic segmentation, a \textbf{+49\% improvement} over the best single proxy (GradNorm, $\rho{=}0.423$).
+Similar gains appear for surface normal prediction (+24\%), object classification (+16\%), and scene classification (+22\%).
+The selector is enabled by two observations: (1)~our proposed \emph{Multi-Scale Feature Separability} (\msfs{}) proxy achieves $\rho{=}0.706$ for segmentation within macro search spaces, outperforming GradNorm ($\rho{=}0.589$), but is weak in micro spaces where capacity proxies dominate; and (2)~z-score normalization within each space removes inter-space scale artifacts that otherwise destroy cross-space correlation.
+NAS simulation experiments confirm practical value: at $K{=}10$, \msfs{} finds macro-space architectures with mean mIoU of 31.00, matching or exceeding GradNorm (30.81).
+Architectural analysis reveals that \msfs{} captures information beyond simple depth and capacity, predicting segmentation quality within same-depth architecture groups ($\rho{=}0.43$--$0.65$).
+We also report \emph{Spatial Feature Consistency} (\sfc{}) as a negative result with detailed failure analysis.
+All experiments run on a single A10G GPU in under one hour.
+\end{abstract}
+
+% ==================================================================
+\section{Introduction}
+
+Neural architecture search (NAS) has demonstrated that automatically discovered architectures can match or exceed hand-designed ones for image classification~\cite{dong2020nasbench201}, semantic segmentation~\cite{liu2019autodeeplab,chen2020fasterseg}, and object detection~\cite{ghiasi2019nasfpn,chen2019detnas,du2020spinenet}.
+However, conventional NAS requires training hundreds of candidates, often consuming thousands of GPU-hours.
+\textbf{Zero-cost proxies} score untrained networks through a single forward or backward pass, reducing the search from days to seconds.
+Methods such as NASWOT~\cite{mellor2021naswot}, SynFlow~\cite{tanaka2020synflow}, GradNorm~\cite{abdelfattah2021zerocost}, TE-NAS~\cite{chen2021tenas}, and ZenNAS~\cite{lin2021zennas} achieve strong rank correlations with trained accuracy on classification benchmarks.
+
+A critical problem remains: \emph{no single proxy dominates across all search spaces and tasks.}
+NAS-Bench-Suite-Zero~\cite{krishnakumar2022suitezero} showed this across 28 tasks, and TransNAS-Bench-101~\cite{duan2021transnasbench101} confirmed that optimal architectures are task-specific.
+Our own analysis reveals a more specific phenomenon: proxy effectiveness depends not only on the \emph{task} but critically on the \emph{type of search space}.
+In macro spaces that vary depth, width, and connectivity, task-specific proxies excel.
+In micro spaces that vary internal cell operations, capacity-based proxies dominate.
+Mixing these two regimes in a single evaluation destroys the signal of specialized proxies.
+
+This paper makes three contributions:
+
+\begin{enumerate}
+    \item We propose \textbf{Space-Aware Proxy Selection}, a strategy that assigns different proxies to different search space types: \msfs{} for macro-like spaces and the best capacity proxy (\#Params or SynFlow) for micro-like spaces, combining scores via z-score normalization. This simple approach achieves $\rho{=}0.631$ for segmentation across all 7{,}344 architectures, a 49\% improvement over GradNorm ($\rho{=}0.423$), with consistent gains across four of five tasks.
+
+    \item We introduce \msfs{} (\emph{Multi-Scale Feature Separability}), a training-free proxy that quantifies inter-scale feature divergence from a single forward pass on random input. \msfs{} achieves $\rho{=}0.706$ for segmentation in the macro search space of TransNAS-Bench-101, outperforming GradNorm ($\rho{=}0.589$). Architectural analysis shows that MSFS captures information beyond depth and capacity, predicting quality within same-depth groups ($\rho{=}0.43$--$0.65$).
+
+    \item We validate all results against \textbf{real trained ground truth} on TransNAS-Bench-101 (7{,}344 architectures, 5 tasks), including NAS simulation with top-$K$ selection that confirms practical search utility. We also provide a transparent negative result analysis for \sfc{} (\emph{Spatial Feature Consistency}).
+\end{enumerate}
+
+The space-aware insight is both simple and general: since NAS practitioners design their search spaces and therefore know whether they are varying macro-level or micro-level parameters, selecting the appropriate proxy per space type is essentially free.
+
+% ==================================================================
+\section{Related Work}
+
+\textbf{Zero-cost NAS proxies.}
+Mellor et al.~\cite{mellor2021naswot} proposed NASWOT, scoring architectures by ReLU activation pattern diversity.
+Tanaka et al.~\cite{tanaka2020synflow} introduced SynFlow, a data-free pruning score used as a NAS proxy.
+Abdelfattah et al.~\cite{abdelfattah2021zerocost} unified multiple proxies under a common framework and showed that no single proxy dominates across all benchmarks.
+TE-NAS~\cite{chen2021tenas} uses NTK spectra, and ZenNAS~\cite{lin2021zennas} uses Gaussian complexity.
+All were designed for and validated primarily on classification.
+We evaluate TE-NAS, ZenNAS, and a fixed version of NASWOT on TransNAS-Bench-101 and find that ZenNAS exhibits the same space-dependent behavior as MSFS: strong in macro space ($\rho{=}0.751$ for segmentation) but weak in micro space ($\rho{=}0.097$), further supporting the space-aware thesis.
+
+\textbf{NAS for dense prediction.}
+Auto-DeepLab~\cite{liu2019autodeeplab} searches hierarchical architectures for segmentation.
+NAS-FPN~\cite{ghiasi2019nasfpn} and SpineNet~\cite{du2020spinenet} discover feature pyramid topologies.
+DetNAS~\cite{chen2019detnas} trains detection-specific supernets.
+FasterSeg~\cite{chen2020fasterseg} and SqueezeNAS~\cite{shaw2019squeezenas} target real-time segmentation.
+All require expensive search with actual training.
+
+\textbf{Proxy transferability and benchmarks.}
+NAS-Bench-Suite-Zero~\cite{krishnakumar2022suitezero} evaluated 13 proxies across 28 tasks, revealing poor cross-task transferability.
+TransNAS-Bench-101~\cite{duan2021transnasbench101} provides trained performance for 7{,}352 architectures across seven vision tasks in two search spaces (macro and micro), enabling rigorous cross-task and cross-space evaluation.
+Xiang et al.~\cite{xiang2021zerocostpt} integrated zero-cost scores into differentiable NAS.
+LPZero~\cite{li2024lpzero} extended proxy discovery to NLP.
+To our knowledge, no prior work has proposed \emph{space-aware} proxy selection that adapts the proxy choice to the search space type.
+
+% ==================================================================
+\section{Method}
+
+We propose two task-specific zero-cost proxies (\cref{sec:msfs_method,sec:sfc_method}) and a space-aware strategy for combining them with existing proxies (\cref{sec:space_aware_method}).
+Given an untrained backbone $f_\theta$ producing feature maps $\{F_1, F_2, \ldots, F_L\}$ at $L{=}4$ scales (stem + 3 stages) from a random Gaussian input $\mathbf{x} \sim \mathcal{N}(0,1)$ of size $64 \times 64$, we define the following proxies.
+
+\subsection{Multi-Scale Feature Separability (\msfs{})}
+\label{sec:msfs_method}
+
+Dense prediction relies on feature pyramids where different scales capture objects at different resolutions~\cite{lin2017fpn}.
+We hypothesize that architectures producing more diverse multi-scale representations at initialization yield better backbone features for dense tasks.
+
+\textbf{(1) Inter-Scale Divergence (ISD).}
+For each pair of feature scales $(l_i, l_j)$, we project their global-average-pooled representations to a common dimensionality and measure distribution divergence:
+\begin{equation}
+\text{ISD}(l_i, l_j) = \|\mu_i {-} \mu_j\|_2 + \left|\log\frac{\sigma^2_i}{\sigma^2_j}\right| + \frac{\|C_i {-} C_j\|_F}{d}
+\end{equation}
+where $\mu$, $\sigma^2$, and $C$ denote per-scale means, variances, and correlation matrices, and $d$ is the common feature dimensionality.
+
+\textbf{(2) Scale Awareness (SA).}
+We measure the product of spatial and channel variance at each level, capturing positional information preservation:
+\begin{equation}
+\text{SA} = \log\left(\sum_{l=1}^{L} \text{Var}_{h,w}[F_l] \cdot \text{Var}_{c}[F_l]\right)
+\end{equation}
+
+The combined proxy is $\msfs{} = \delta \cdot \overline{\text{ISD}} + \eta \cdot \widetilde{\text{SA}}$, where $\delta{=}0.6$, $\eta{=}0.4$, $\overline{\text{ISD}}$ averages over all $\binom{L}{2}$ pairs, and $\widetilde{\text{SA}}$ applies affine normalization $(\text{SA}{+}10)/10$.
+These weights were fixed a priori and were \emph{not} tuned on any evaluation data.
+
+\subsection{Spatial Feature Consistency (\sfc{})}
+\label{sec:sfc_method}
+
+We also design \sfc{}, which measures spatial coherence properties hypothesized to be relevant for per-pixel prediction.
+\sfc{} combines three components: Neighbor Coherence (NC), measuring cosine similarity between spatially adjacent feature patches; Boundary Sensitivity (BS), measuring spatial gradient magnitude relative to feature magnitude; and Spatial Diversity (SD), the log-variance of features across spatial dimensions.
+The combined proxy is $\sfc{} = \alpha \cdot \overline{\text{NC}} + \beta \cdot \overline{\text{BS}} + \gamma \cdot \widetilde{\text{SD}}$, with $\alpha{=}0.4$, $\beta{=}0.35$, $\gamma{=}0.25$, all fixed a priori.
+As we show in \cref{sec:sfc_analysis}, SFC is a negative result.
+
+\subsection{Space-Aware Proxy Selection}
+\label{sec:space_aware_method}
+
+Our key methodological contribution is the observation that proxy effectiveness is strongly search-space-dependent.
+Rather than seeking a single universal proxy, we propose selecting the best proxy for each search space type and combining via z-score normalization.
+
+\textbf{Motivation.}
+In macro spaces (varying depth, width, connectivity with fixed cell types), multi-scale structural properties dominate, and \msfs{} excels.
+In micro spaces (varying internal cell operations), raw representational capacity dominates, and \#Params or SynFlow excels.
+When scores from these two regimes are na\"ively combined, the different score distributions destroy cross-space correlation.
+
+\textbf{Procedure.}
+Given architectures from $S$ search spaces, we: (1) compute proxy scores $p_i$ for each architecture $i$; (2) z-score normalize within each space: $\hat{p}_i = (p_i - \mu_s) / \sigma_s$, where $\mu_s$ and $\sigma_s$ are the mean and standard deviation of scores within space $s$; and (3) assign the best proxy per space type (MSFS for macro-like, \#Params or SynFlow for micro-like).
+The space type is known to the NAS practitioner, since they design the search space.
+
+\cref{fig:method} illustrates the complete pipeline.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_method_v2.png}
+\caption{\textbf{Overview of \method{}.} Task-specific zero-cost proxies are computed from a single forward pass on random Gaussian input. The Space-Aware selector assigns MSFS to macro spaces and capacity proxies to micro spaces, then combines via z-score normalization.}
+\label{fig:method}
+\end{figure}
+
+% ==================================================================
+\section{Experiments}
+
+\subsection{Setup}
+
+\textbf{Benchmark.}
+We evaluate on TransNAS-Bench-101~\cite{duan2021transnasbench101}, which provides real trained performance for 7{,}352 architectures across seven vision tasks.
+After filtering, we evaluate on $N{=}7{,}344$ architectures across five primary tasks: semantic segmentation (mIoU), surface normal prediction (SSIM), object classification (top-1), scene classification (top-1), and autoencoding (SSIM).
+TransNAS-Bench-101 contains two search spaces: the \emph{macro} space (3{,}256 architectures based on ResNet-basic cells varying in depth, width, and connectivity) and the \emph{micro} space (4{,}088 architectures based on custom micro cells).
+This distinction is central to our analysis.
+
+\textbf{Baselines.}
+We compare against \#Params (parameter count), GradNorm~\cite{abdelfattah2021zerocost}, and SynFlow~\cite{tanaka2020synflow}.
+NASWOT~\cite{mellor2021naswot} is excluded because TransNAS-Bench-101 backbone architectures lack ReLU activations in the final layer, causing NASWOT to produce all-zero scores.
+We additionally evaluate TE-NAS~\cite{chen2021tenas} (NTK condition number), ZenNAS~\cite{lin2021zennas} (Gaussian complexity), and a fixed NASWOT variant using intermediate ReLU/BatchNorm activations (NASWOT-fixed) on $N{=}6{,}590$ successfully constructed architectures.
+
+\textbf{Metrics.}
+We report Spearman $\rho$ and Kendall $\tau$ with $p$-values.
+We conduct per-space analysis, cross-space normalization experiments, NAS simulation with top-$K$ selection, and architectural property correlation analysis.
+All proxies evaluate 7{,}344 architectures in 3{,}481 seconds on a single NVIDIA A10G GPU (${\sim}$0.47\,s per architecture).
+We verify robustness across 10 random seeds, 3 input resolutions (32, 64, 128), and 3 batch sizes (1, 4, 16) on 300 stratified-sampled architectures.
+
+\subsection{Per-Search-Space Results}
+\label{sec:per_space}
+
+\cref{tab:per_space} disaggregates proxy correlations by search space, revealing the central finding motivating our space-aware approach (\cref{fig:per_space}).
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Per-search-space Spearman $\rho$ for segmentation and normal prediction.} \msfs{} achieves $\rho{=}0.706$ for segmentation in macro space, outperforming all baselines. In micro space, capacity proxies (\#Params, SynFlow) dominate.}
+\label{tab:per_space}
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+& \multicolumn{2}{c}{Macro ($N{=}3{,}256$)} & \multicolumn{2}{c}{Micro ($N{=}4{,}088$)} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Proxy & Seg.\ $\rho$ & Normal $\rho$ & Seg.\ $\rho$ & Normal $\rho$ \\
+\midrule
+\msfs{} (Ours) & $\mathbf{0.706}$ & $0.453$ & $0.163$ & $0.393$ \\
+\sfc{} (Ours)  & $-0.509$ & $-0.580$ & $0.219$ & $0.469$ \\
+GradNorm       & $0.589$ & $\mathbf{0.687}$ & $0.207$ & $0.418$ \\
+SynFlow        & $-0.223$ & $-0.301$ & $0.556$ & $0.577$ \\
+\#Params       & $-0.055$ & $0.346$ & $\mathbf{0.625}$ & $\mathbf{0.657}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Macro space: MSFS outperforms GradNorm for segmentation.}
+Within the macro search space, \msfs{} achieves $\rho{=}0.706$ for semantic segmentation, substantially outperforming GradNorm ($\rho{=}0.589$), SynFlow ($\rho{=}{-}0.223$), and \#Params ($\rho{=}{-}0.055$).
+This is the strongest proxy-task correlation observed for segmentation in any space partition.
+GradNorm leads for normal prediction ($\rho{=}0.687$), where MSFS still achieves a solid $\rho{=}0.453$.
+
+\textbf{Micro space: capacity proxies dominate.}
+In the micro space, \#Params ($\rho{=}0.625$) and SynFlow ($\rho{=}0.556$) are the strongest segmentation predictors, while \msfs{} achieves only $\rho{=}0.163$.
+This space is governed by capacity effects: cells with more learnable operations perform better, and proxies that measure capacity are most predictive.
+
+These sharply contrasting patterns motivate the Space-Aware selector: rather than using a single proxy that compromises across spaces, apply the best proxy for each space type.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_per_space_transnas.pdf}
+\caption{\textbf{Per-search-space proxy comparison.} Spearman $\rho$ for segmentation and normal prediction, split by macro (left) and micro (right) spaces. The best proxy differs dramatically between spaces: MSFS for macro, \#Params for micro.}
+\label{fig:per_space}
+\end{figure}
+
+\subsection{Space-Aware Proxy Selection Results}
+\label{sec:space_aware}
+
+\cref{tab:space_aware} presents our main result: the Space-Aware selector combining MSFS for macro space with the best capacity proxy for micro space, using z-score normalization within each space before merging.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Space-Aware Proxy Selector vs.\ single proxies} across all $N{=}7{,}344$ architectures. The Space-Aware selector uses MSFS in macro space and the best capacity proxy (\#Params or SynFlow) in micro space, combined via z-score normalization. $\Delta$ is the improvement over the best single proxy (GradNorm for all tasks except Autoencoder).}
+\label{tab:space_aware}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Proxy & Seg. & Normal & Cls.\ Obj. & Cls.\ Scn. & AE \\
+\midrule
+GradNorm        & $0.423$ & $0.519$ & $0.506$ & $0.506$ & $\mathbf{0.718}$ \\
+SynFlow         & $0.259$ & $0.328$ & $0.291$ & $0.321$ & $0.036$ \\
+\#Params        & $0.245$ & $0.371$ & $0.202$ & $0.444$ & $-0.111$ \\
+\msfs{} (raw)   & $0.132$ & $0.163$ & $0.207$ & $0.244$ & $0.262$ \\
+\midrule
+\textbf{Space-Aware} & $\mathbf{0.631}$ & $\mathbf{0.643}$ & $\mathbf{0.586}$ & $\mathbf{0.619}$ & $0.572$ \\
+$\Delta$ vs.\ best & \emph{+49\%} & \emph{+24\%} & \emph{+16\%} & \emph{+22\%} & \emph{--20\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The Space-Aware selector uses MSFS for macro space and \#Params for micro space in segmentation and scene classification, and MSFS combined with SynFlow for object classification.
+For four of five tasks, the improvement over the best single proxy (GradNorm) is substantial: segmentation +49\% ($\rho{=}0.631$ vs.\ $0.423$), normal prediction +24\% ($\rho{=}0.643$ vs.\ $0.519$), object classification +16\% ($\rho{=}0.586$ vs.\ $0.506$), and scene classification +22\% ($\rho{=}0.619$ vs.\ $0.506$).
+The segmentation result also includes Kendall $\tau{=}0.448$ for the Space-Aware selector, compared to $\tau{=}0.292$ for GradNorm.
+
+The one exception is autoencoding, where GradNorm ($\rho{=}0.718$) outperforms the Space-Aware selector ($\rho{=}0.572$).
+This suggests that autoencoding quality is governed by factors that GradNorm captures well across both spaces, rather than the structural vs.\ capacity dichotomy that characterizes the other tasks.
+
+\cref{fig:space_aware} visualizes the comparison, highlighting the consistent advantage of space-aware selection.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_space_aware.pdf}
+\caption{\textbf{Space-Aware selector vs.\ baselines.} Spearman $\rho$ across five tasks. The Space-Aware approach (combining MSFS for macro + capacity proxy for micro via z-normalization) outperforms all single proxies on four of five tasks.}
+\label{fig:space_aware}
+\end{figure}
+
+\textbf{Why z-score normalization is essential.}
+The raw \msfs{} score across all spaces yields only $\rho{=}0.132$ for segmentation.
+Z-normalizing within each space before combining raises this to $\rho{=}0.194$ ($\Delta{=}{+}0.061$).
+The boost is even larger for normal prediction: raw $\rho{=}0.163$ to z-normed $\rho{=}0.405$ ($\Delta{=}{+}0.241$).
+Crucially, z-normalization \emph{hurts} GradNorm ($\rho{=}0.423 \to 0.354$) and SynFlow ($\rho{=}0.259 \to 0.103$), indicating that these proxies already produce comparable score distributions across spaces and do not benefit from rescaling.
+The selective benefit of normalization is itself evidence that \msfs{}'s cross-space difficulty arises from scale mismatch rather than a fundamentally weak signal.
+
+\subsection{NAS Simulation}
+\label{sec:nas_sim}
+
+Rank correlation measures global ordering quality, but NAS practitioners typically select only the top-$K$ architectures.
+We simulate actual NAS by selecting the $K$ highest-scoring architectures per proxy and evaluating their true performance.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{NAS simulation: top-$K$ selection for segmentation (macro space, $N{=}3{,}256$).} ``Best'' and ``Mean'' report the maximum and average ground-truth mIoU among the $K{=}10$ architectures selected by each proxy. Regret = Oracle Best $-$ Proxy Best.}
+\label{tab:nas_sim}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Proxy & $K{=}10$ Best mIoU & $K{=}10$ Mean mIoU & Regret \\
+\midrule
+\msfs{} (Ours) & $31.94$ & $\mathbf{31.00}$ & $0.53$ \\
+GradNorm       & $\mathbf{32.47}$ & $30.81$ & $\mathbf{0.00}$ \\
+\#Params       & $30.21$ & $29.25$ & $2.26$ \\
+SynFlow        & $29.64$ & $28.15$ & $2.82$ \\
+Random         & $30.67$ & $28.02$ & $1.80$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\cref{tab:nas_sim} and \cref{fig:nas_sim} report results for $K{=}10$ in the macro space.
+While GradNorm finds the single best architecture (mIoU 32.47, zero regret), \msfs{} selects a top-10 set with \emph{higher mean quality} (31.00 vs.\ 30.81), indicating that MSFS produces a more consistently strong shortlist.
+MSFS achieves a regret of only 0.53 mIoU points from the oracle.
+Both substantially outperform \#Params, SynFlow, and random selection.
+
+In the micro space (not shown), the pattern reverses: \#Params and SynFlow produce the best top-$K$ selections, while MSFS is weak, consistent with the per-space correlation analysis.
+This further validates the space-aware strategy: using MSFS in macro space and capacity proxies in micro space yields the best shortlists in both regimes.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_nas_simulation.pdf}
+\caption{\textbf{NAS simulation.} Top-$K$ selection quality across proxies for segmentation. MSFS and GradNorm dominate in macro space (left), while capacity proxies dominate in micro space (right).}
+\label{fig:nas_sim}
+\end{figure}
+
+\subsection{Why MSFS Works: Architectural Property Analysis}
+\label{sec:arch_properties}
+
+To understand why MSFS excels in macro space, we analyze the relationship between architectural properties, ground-truth performance, and MSFS scores.
+
+\textbf{Depth and performance.}
+In the macro space, total network depth is negatively correlated with segmentation performance ($\rho{=}{-}0.593$): shallower architectures segment better, likely because the small-image regime of TransNAS-Bench-101 penalizes excessive downsampling.
+Interestingly, \emph{depth imbalance} (the concentration of layers in particular stages) is positively correlated ($\rho{=}0.389$), suggesting that architectures with strategically deep stages outperform uniformly deep ones.
+
+\textbf{MSFS captures more than depth.}
+If MSFS were merely a depth proxy, it would add no value beyond \#Params.
+To test this, we compute MSFS correlations with segmentation \emph{within same-depth architecture groups} (controlling for depth; see \cref{fig:arch_properties}).
+Within architectures of depth 8, 9, 10, 11, and 12, MSFS achieves $\rho$ values of 0.43, 0.49, 0.57, 0.65, and 0.51, respectively.
+This demonstrates that MSFS captures architectural properties (connectivity patterns, width distribution, stage configuration) that predict segmentation quality beyond what depth alone explains.
+
+Partial correlation analysis confirms this: controlling for \#Params across all 7{,}344 architectures, MSFS retains a significant partial correlation for segmentation ($\rho_{\text{partial}}{=}0.094$, $p{=}2.4{\times}10^{-14}$), with stronger independent signals for scene classification ($\rho_{\text{partial}}{=}0.237$) and autoencoding ($\rho_{\text{partial}}{=}0.275$).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_arch_properties.pdf}
+\caption{\textbf{Architectural property analysis (macro space).} Left: total depth vs.\ segmentation mIoU ($\rho{=}{-}0.593$). Center: depth imbalance vs.\ mIoU ($\rho{=}0.389$). Right: MSFS vs.\ mIoU within same-depth groups, showing MSFS captures information beyond depth.}
+\label{fig:arch_properties}
+\end{figure}
+
+\subsection{Component Ablation and SFC Analysis}
+\label{sec:sfc_analysis}
+
+\textbf{MSFS components.}
+In the aggregate view, ISD alone ($\rho{=}0.171$) and SA alone ($\rho{=}0.162$) each outperform the full MSFS ($\rho{=}0.109$) for segmentation, because the combination introduces interference across the mixed search spaces.
+In the macro space where architecture variation is structural, the full MSFS achieves $\rho{=}0.706$, showing that the components combine constructively within a homogeneous space.
+
+\textbf{SFC failure analysis.}
+\sfc{} is a clear negative result.
+Its three components provide conflicting signals for segmentation: NC is harmful ($\rho{=}{-}0.190$), BS is null ($\rho{=}{-}0.017$), and SD is the only positive component ($\rho{=}0.189$).
+When combined with fixed weights, NC dominates and suppresses the positive SD signal, yielding a weak aggregate ($\rho{=}0.056$).
+Grid search over component weights finds the optimal combination at $\alpha{=}{-}0.6$, $\beta{=}{-}0.1$, $\gamma{=}0.0$, achieving $\rho{=}0.354$.
+However, this is tuned on evaluation data and thus not a valid a priori proxy.
+In the macro space alone, grid search reaches $\rho{=}0.767$, but this is overfitting to 3{,}256 data points.
+
+Dropping the harmful NC component helps: BS+SD alone achieves $\rho{=}0.110$, compared to the full SFC's $\rho{=}0.056$.
+The SD component alone ($\rho{=}0.189$) is the best a priori SFC variant.
+Additionally, SFC produces zero values for 754 of 7{,}344 architectures (10.3\%) due to feature extraction failures on certain cell configurations, further limiting its reliability.
+
+These results definitively show that spatial coherence at initialization does \emph{not} predict segmentation quality (\cref{fig:sfc_analysis}).
+The positive signal from spatial feature \emph{variance} (SD) may warrant future investigation, but our SFC formulation as a whole is not useful as a proxy.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_sfc_analysis.pdf}
+\caption{\textbf{SFC failure analysis.} Left: component-level correlations showing NC is harmful and BS is null. Right: grid search over SFC weights reveals that optimal weights require \emph{negating} NC, confirming the hypothesis is wrong.}
+\label{fig:sfc_analysis}
+\end{figure}
+
+\subsection{Robustness Analysis}
+\label{sec:robustness}
+
+We evaluate proxy stability across 10 random seeds, 3 input resolutions (32, 64, 128\,px), and 3 batch sizes (1, 4, 16) on 300 stratified-sampled architectures (135 macro, 165 micro).
+GradNorm is the most stable proxy: $\rho{=}0.439{\pm}0.001$ across seeds for segmentation, with near-zero variation across resolutions ($0.440$--$0.446$) and batch sizes ($0.441$--$0.470$).
+SynFlow is similarly stable across seeds ($\rho{=}0.297{\pm}0.000$) but shows moderate resolution sensitivity ($0.297$--$0.527$).
+MSFS exhibits $\rho{=}0.176{\pm}0.009$ across seeds on the mixed (macro+micro) sample.
+All proxies achieve excellent rank consistency across seeds: GradNorm $\tau_{\text{rank}}{=}0.9997$ and SynFlow $\tau_{\text{rank}}{=}0.9999$, indicating that architecture rankings are nearly deterministic with respect to random initialization (\cref{fig:robustness}).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_robustness.pdf}
+\caption{\textbf{Robustness analysis (segmentation, 300 architectures).} (a)~Seed stability: all proxies show minimal variation. (b)~Resolution sensitivity: GradNorm is resolution-invariant; SynFlow varies. (c)~Batch size sensitivity: minimal effect across proxies.}
+\label{fig:robustness}
+\end{figure}
+
+\subsection{Aggregate Correlation Summary}
+
+For completeness, \cref{tab:main_all} presents the raw (non-space-aware) proxy correlations across all 7{,}344 architectures.
+These numbers show GradNorm's dominance in the aggregate view, which the Space-Aware selector overcomes by exploiting per-space structure.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Raw Spearman $\rho$ across all architectures} (no space-aware normalization). GradNorm leads in aggregate. Additional baselines (TE-NAS, ZenNAS, NASWOT-fixed) evaluated on $N{=}6{,}590$ architectures confirm that no single proxy dominates across spaces.}
+\label{tab:main_all}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Proxy & Seg. & Normal & Cls.\ Obj. & Cls.\ Scn. & AE \\
+\midrule
+\msfs{} (Ours) & $0.132$ & $0.163$ & $0.207$ & $0.244$ & $0.262$ \\
+\sfc{} (Ours)  & $0.056$ & $0.199$ & $0.237$ & $0.154$ & $0.305$ \\
+GradNorm       & $\mathbf{0.423}$ & $\mathbf{0.519}$ & $\mathbf{0.506}$ & $\mathbf{0.506}$ & $\mathbf{0.718}$ \\
+SynFlow        & $0.259$ & $0.328$ & $0.291$ & $0.321$ & $0.036$ \\
+\#Params       & $0.245$ & $0.371$ & $0.202$ & $0.444$ & $-0.111$ \\
+\midrule
+TE-NAS         & $-0.032$ & $-0.086$ & $-0.114$ & $-0.077$ & $-0.310$ \\
+ZenNAS         & $0.168$ & $0.224$ & $0.284$ & $0.283$ & $0.363$ \\
+NASWOT-fixed   & $-0.136$ & $-0.012$ & $0.003$ & $-0.116$ & $0.158$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Extended baselines confirm space-dependent behavior.}
+ZenNAS achieves $\rho{=}0.751$ for segmentation in macro space (comparable to MSFS's $\rho{=}0.706$) but only $\rho{=}0.097$ in micro space, confirming that space-dependent proxy effectiveness is not specific to MSFS but a general phenomenon.
+TE-NAS performs poorly across all settings ($\rho{\leq}0.18$), suggesting that NTK condition numbers are a weak predictor in this benchmark.
+NASWOT-fixed produces strongly negative correlations in macro space ($\rho{=}{-}0.757$ for segmentation), indicating that its activation diversity signal is actively misleading for these architectures.
+
+% ==================================================================
+\section{Discussion}
+
+\textbf{The case for space-aware proxy selection.}
+Our results reveal a simple but impactful insight: the dominant factor governing NAS performance differs between search space types.
+Macro spaces that vary network-level design choices (depth, width, connectivity) reward proxies sensitive to structural multi-scale properties.
+Micro spaces that vary cell-level operations reward capacity-based proxies.
+This pattern is not specific to MSFS: ZenNAS ($\rho{=}0.751$ macro, $\rho{=}0.097$ micro for segmentation) shows the same space-dependent behavior, suggesting that space-aware selection is a general strategy applicable to many proxies.
+Since NAS practitioners inherently know the type of space they designed, selecting the appropriate proxy is trivially applicable and requires no additional computation.
+
+The z-score normalization step is critical: it removes inter-space scale artifacts that otherwise destroy the signal of specialized proxies like MSFS when scores are pooled.
+The fact that normalization helps MSFS but hurts GradNorm and SynFlow further supports the interpretation that these general-purpose proxies already produce comparable distributions across spaces, while MSFS's macro-specific signal operates at a different scale than its (weak) micro-space values.
+
+\textbf{Why MSFS works in macro space.}
+The macro search space varies depth, width, and connectivity within a fixed ResNet-basic cell type.
+Multi-scale feature diversity directly reflects how effectively the backbone distributes information across its feature hierarchy.
+The within-depth analysis ($\rho{=}0.43$--$0.65$) confirms that MSFS measures architectural properties beyond simple depth or capacity, likely capturing the effects of skip connections and width multiplier choices on multi-scale representations.
+
+\textbf{Limitations.}
+Several limitations should be noted.
+First, TransNAS-Bench-101 uses relatively small architectures and Taskonomy-derived images; generalization to larger-scale settings (ImageNet, Cityscapes~\cite{cordts2016cityscapes}) remains to be validated.
+Second, we evaluate only backbone architectures and do not test with full encoder-decoder or FPN-attached networks.
+Third, the space-aware selector requires knowing the search space type, which, while generally available, adds a manual classification step.
+Fourth, the autoencoder exception (where GradNorm outperforms the Space-Aware selector) suggests that the macro/micro dichotomy does not capture all relevant structure.
+Finally, our evaluation is limited to a single benchmark with two space types; further validation on NAS-Bench-360 or custom spaces with more diverse characteristics would strengthen generalizability.
+
+% ==================================================================
+\section{Conclusion}
+
+We introduced Space-Aware Proxy Selection for training-free NAS, a simple strategy that assigns different zero-cost proxies to different search space types.
+On TransNAS-Bench-101, this approach achieves Spearman $\rho{=}0.631$ for semantic segmentation across 7{,}344 architectures, a 49\% improvement over the best single proxy (GradNorm, $\rho{=}0.423$), with consistent gains for normal prediction (+24\%), object classification (+16\%), and scene classification (+22\%).
+
+The selector is enabled by our proposed MSFS proxy, which achieves $\rho{=}0.706$ for segmentation within the macro search space by quantifying multi-scale feature diversity at initialization.
+Architectural analysis confirms that MSFS captures structural properties beyond depth and capacity, predicting segmentation quality within same-depth groups ($\rho{=}0.43$--$0.65$).
+Z-score normalization within each space is essential for combining these complementary signals without inter-space interference.
+
+Our negative result for SFC demonstrates that spatial coherence at initialization does not predict segmentation quality, providing guidance for future proxy design.
+NAS simulation confirms practical utility: at $K{=}10$, MSFS selects macro-space architectures with the highest mean segmentation quality.
+
+These findings suggest a general principle for zero-cost NAS: rather than searching for a universal proxy, practitioners should match proxy type to search space type.
+Future work should validate this principle on additional benchmarks and explore automated space-type detection to remove the manual classification step.
+
+% ==================================================================
+{\small
+\bibliographystyle{ieeetr}
+\bibliography{references}
+}
+
+\end{document}

@@ -6,3 +6,6 @@ __pycache__/
 *.out
 *.blg
 .DS_Store
+
+# Large result files (>25MB) - regenerate with Modal scripts
+DenseProxy/results/transnas_results.json

@@ -1,0 +1,99 @@
+\begin{thebibliography}{10}
+
+\bibitem{dong2020nasbench201}
+X.~Dong and Y.~Yang, ``{NAS-Bench-201}: Extending the scope of reproducible
+  neural architecture search,'' in {\em International Conference on Learning
+  Representations (ICLR)}, 2020.
+
+\bibitem{liu2019autodeeplab}
+C.~Liu, L.-C. Chen, F.~Schroff, H.~Adam, W.~Hua, A.~L. Yuille, and L.~Fei-Fei,
+  ``Auto-{DeepLab}: Hierarchical neural architecture search for semantic image
+  segmentation,'' in {\em IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2019.
+
+\bibitem{chen2020fasterseg}
+W.~Chen, X.~Gong, X.~Liu, Q.~Zhang, Y.~Li, and Z.~Wang, ``{FasterSeg}:
+  Searching for faster real-time semantic segmentation,'' in {\em International
+  Conference on Learning Representations (ICLR)}, 2020.
+
+\bibitem{ghiasi2019nasfpn}
+G.~Ghiasi, T.-Y. Lin, R.~Pang, and Q.~V. Le, ``{NAS-FPN}: Learning scalable
+  feature pyramid architecture for object detection,'' in {\em IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition (CVPR)}, 2019.
+
+\bibitem{chen2019detnas}
+Y.~Chen, T.~Yang, X.~Zhang, G.~Meng, X.~Xiao, and J.~Sun, ``{DetNAS}: Backbone
+  search for object detection,'' in {\em Advances in Neural Information
+  Processing Systems (NeurIPS)}, 2019.
+
+\bibitem{du2020spinenet}
+X.~Du, T.-Y. Lin, P.~Jin, G.~Ghiasi, M.~Tan, Y.~Cui, Q.~V. Le, and X.~Song,
+  ``{SpineNet}: Learning scale-permuted backbone for recognition and
+  localization,'' in {\em IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2020.
+
+\bibitem{mellor2021naswot}
+J.~Mellor, J.~Turner, A.~Storkey, and E.~J. Crowley, ``Neural architecture
+  search without training,'' in {\em Proceedings of the 38th International
+  Conference on Machine Learning (ICML)}, vol.~139 of {\em PMLR}, 2021.
+
+\bibitem{tanaka2020synflow}
+H.~Tanaka, D.~Kunin, D.~L.~K. Yamins, and S.~Ganguli, ``Pruning neural networks
+  without any data by iteratively conserving synaptic flow,'' in {\em Advances
+  in Neural Information Processing Systems (NeurIPS)}, 2020.
+
+\bibitem{abdelfattah2021zerocost}
+M.~S. Abdelfattah, A.~Mehrotra, {\L}.~Dudziak, and N.~D. Lane, ``Zero-cost
+  proxies for lightweight {NAS},'' in {\em International Conference on Learning
+  Representations (ICLR)}, 2021.
+
+\bibitem{chen2021tenas}
+W.~Chen, X.~Gong, and Z.~Wang, ``Neural architecture search on {ImageNet} in
+  four {GPU} hours: A theoretically inspired perspective,'' in {\em
+  International Conference on Learning Representations (ICLR)}, 2021.
+
+\bibitem{lin2021zennas}
+M.~Lin, P.~Wang, Z.~Sun, H.~Chen, X.~Sun, Q.~Qian, H.~Li, and R.~Jin,
+  ``Zen-{NAS}: A zero-shot neural architecture search framework for
+  high-performance image recognition,'' in {\em IEEE/CVF International
+  Conference on Computer Vision (ICCV)}, 2021.
+
+\bibitem{krishnakumar2022suitezero}
+A.~Krishnakumar, C.~White, A.~Zela, R.~Tu, M.~Safari, and F.~Hutter,
+  ``{NAS-Bench-Suite-Zero}: Accelerating research on zero cost proxies,'' in
+  {\em Advances in Neural Information Processing Systems (NeurIPS), Datasets
+  and Benchmarks Track}, 2022.
+
+\bibitem{duan2021transnasbench101}
+Y.~Duan, X.~Chen, H.~Xu, Z.~Chen, X.~Liang, T.~Zhang, and Z.~Li,
+  ``{TransNAS-Bench-101}: Improving transferability and generalizability of
+  cross-task neural architecture search,'' in {\em IEEE/CVF Conference on
+  Computer Vision and Pattern Recognition (CVPR)}, 2021.
+
+\bibitem{shaw2019squeezenas}
+A.~Shaw, D.~Hunter, F.~Iandola, and S.~Sidhu, ``{SqueezeNAS}: Fast neural
+  architecture search for faster semantic segmentation,'' in {\em ICCV 2019
+  Workshop on Neural Architects}, 2019.
+
+\bibitem{xiang2021zerocostpt}
+L.~Xiang, {\L}.~Dudziak, M.~S. Abdelfattah, T.~Chau, N.~D. Lane, and H.~Wen,
+  ``Zero-cost proxies meet differentiable architecture search,'' {\em arXiv
+  preprint arXiv:2106.06799}, 2021.
+
+\bibitem{li2024lpzero}
+Y.~Li, R.~Chen, P.~Zhao, B.~Wen, {\em et~al.}, ``{LPZero}: Language model
+  zero-cost proxy search from zero,'' in {\em Findings of the Association for
+  Computational Linguistics: EMNLP 2024}, 2024.
+
+\bibitem{lin2017fpn}
+T.-Y. Lin, P.~Doll{\'a}r, R.~Girshick, K.~He, B.~Hariharan, and S.~Belongie,
+  ``Feature pyramid networks for object detection,'' in {\em IEEE/CVF
+  Conference on Computer Vision and Pattern Recognition (CVPR)}, 2017.
+
+\bibitem{cordts2016cityscapes}
+M.~Cordts, M.~Omran, S.~Ramos, T.~Rehfeld, M.~Enzweiler, R.~Benenson,
+  U.~Franke, S.~Roth, and B.~Schiele, ``The {Cityscapes} dataset for semantic
+  urban scene understanding,'' in {\em IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, 2016.
+
+\end{thebibliography}
