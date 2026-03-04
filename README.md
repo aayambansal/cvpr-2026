@@ -22,12 +22,26 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 
 **Title:** BudgetNAS: Continual Online Neural Architecture Search with Budgeted Architecture Mutation
 
-**Authors:** Aayam Bansal
+**Authors:** Aayam Bansal, Ishaan Gangwani
 
 **Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
 
 **Abstract:** Neural Architecture Search typically assumes a fixed target domain, but real deployments face non-stationary data streams with domain shifts. We propose BudgetNAS, a continual online NAS framework where a deployed model mutates its architecture under a strict per-shift budget: at most B blocks may be added or removed when a domain change is detected. BudgetNAS combines a lightweight accuracy-based trigger with three mutation controllers (fixed, heuristic, and Thompson-sampling bandit) and optional stabilization via warm-starting and selective freezing. On a 3-domain stream (CIFAR-10, CIFAR-100, SVHN), BudgetNAS-Heuristic with B=1 achieves the best efficiency (Gain/M = 20.4) while reducing cross-seed variance by 5.8x compared to unconstrained RandomNAS. We find that (i) B=1 is the budget sweet spot, (ii) stabilization hurts rather than helps, and (iii) the bandit controller excels on gradual domain transitions.
 
 [Paper PDF](BudgetNAS/latex/main.pdf) | [Code & Data](BudgetNAS/)
+
+---
+
+## Paper 3: UniSpace
+
+**Title:** UniSpace: A Unified Modern Vision Backbone Search Space with Factorized Token Mixers
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** We introduce UniSpace, a factorized neural architecture search space that unifies four families of modern vision token mixers (depthwise convolution, multi-head attention, gated MLP, and a lightweight state-space variant) together with orthogonal choices for normalization layers and spatial downsampling strategies. The resulting combinatorial space contains approximately 6.5×10^10 architectures, yet its factorized structure enables systematic analysis of which primitives matter most. Through a scaled sample-and-evaluate protocol that scores 500 architectures with four zero-cost proxies and trains 30 with short schedules, we show that (i) convolution-based mixers and GroupNorm enjoy a statistically modest but consistent advantage in training-free scores, (ii) zero-cost proxies exhibit weak Spearman rank correlation with short-training accuracy in this heterogeneous space, with SNIP as the only statistically significant predictor (ρ = -0.377, p = 0.040) and notably with a negative sign, (iii) a top-k regret analysis shows that proxy-based selection provides only marginal benefit over random sampling, and (iv) NASWOT rankings are highly stable across input resolutions (Spearman ρ = 0.949), validating resolution-agnostic proxy evaluation.
+
+[Paper PDF](UniSpace/latex/main.pdf) | [Code & Data](UniSpace/)
 
 ---

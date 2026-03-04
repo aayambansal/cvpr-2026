@@ -1,0 +1,173 @@
+\begin{thebibliography}{26}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Abdelfattah et~al.(2021)Abdelfattah, Mehrotra, Dudziak, and
+  Lane]{abdelfattah2021zerocost}
+Mohamed~S. Abdelfattah, Abhinav Mehrotra, {\L}ukasz Dudziak, and Nicholas~D.
+  Lane.
+\newblock Zero-cost proxies for lightweight {NAS}.
+\newblock In \emph{ICLR}, 2021.
+
+\bibitem[Dai et~al.(2021)Dai, Liu, Le, and Tan]{dai2021coatnet}
+Zihang Dai, Hanxiao Liu, Quoc~V. Le, and Mingxing Tan.
+\newblock {CoAtNet}: Marrying convolution and attention for all data sizes.
+\newblock In \emph{NeurIPS}, 2021.
+
+\bibitem[Dong and Yang(2020)]{dong2020nasbench201}
+Xuanyi Dong and Yi~Yang.
+\newblock {NAS-Bench-201}: Extending the scope of reproducible neural
+  architecture search.
+\newblock In \emph{ICLR}, 2020.
+
+\bibitem[Dosovitskiy et~al.(2021)Dosovitskiy, Beyer, Kolesnikov,
+  et~al.]{dosovitskiy2021image}
+Alexey Dosovitskiy, Lucas Beyer, Alexander Kolesnikov, et~al.
+\newblock An image is worth 16x16 words: {Transformers} for image recognition
+  at scale.
+\newblock In \emph{ICLR}, 2021.
+
+\bibitem[Gu and Dao(2023)]{gu2023mamba}
+Albert Gu and Tri Dao.
+\newblock Mamba: Linear-time sequence modeling with selective state spaces.
+\newblock \emph{arXiv:2312.00752}, 2023.
+
+\bibitem[Krishnakumar et~al.(2022)Krishnakumar, White, Zela, Tu, Safari, and
+  Hutter]{krishnakumar2022nasbenchsuitezero}
+Arjun Krishnakumar, Colin White, Arber Zela, Renbo Tu, Mahmoud Safari, and
+  Frank Hutter.
+\newblock {NAS-Bench-Suite-Zero}: Accelerating research on zero cost proxies.
+\newblock In \emph{NeurIPS Datasets and Benchmarks}, 2022.
+
+\bibitem[Lee and Ham(2024)]{lee2024aznas}
+Junghyup Lee and Bumsub Ham.
+\newblock {AZ-NAS}: Assembling zero-cost proxies for network architecture
+  search.
+\newblock In \emph{CVPR}, 2024.
+
+\bibitem[Li and Talwalkar(2019)]{li2019random}
+Liam Li and Ameet Talwalkar.
+\newblock Random search and reproducibility for neural architecture search.
+\newblock In \emph{UAI}, 2019.
+
+\bibitem[Liu et~al.(2019)Liu, Simonyan, and Yang]{liu2019darts}
+Hanxiao Liu, Karen Simonyan, and Yiming Yang.
+\newblock {DARTS}: Differentiable architecture search.
+\newblock In \emph{ICLR}, 2019.
+
+\bibitem[Liu et~al.(2021{\natexlab{a}})Liu, Dai, So, and Le]{liu2021gmlp}
+Hanxiao Liu, Zihang Dai, David~R. So, and Quoc~V. Le.
+\newblock Pay attention to {MLPs}.
+\newblock In \emph{NeurIPS}, 2021{\natexlab{a}}.
+
+\bibitem[Liu et~al.(2024)Liu, Tian, Zhao, et~al.]{liu2024vmamba}
+Yue Liu, Yunjie Tian, Yuzhong Zhao, et~al.
+\newblock {VMamba}: Visual state space model.
+\newblock In \emph{NeurIPS}, 2024.
+
+\bibitem[Liu et~al.(2021{\natexlab{b}})Liu, Lin, Cao, Hu, Wei, Zhang, Lin, and
+  Guo]{liu2021swin}
+Ze~Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and
+  Baining Guo.
+\newblock Swin {Transformer}: Hierarchical vision transformer using shifted
+  windows.
+\newblock In \emph{ICCV}, 2021{\natexlab{b}}.
+
+\bibitem[Mehta et~al.(2022)Mehta, White, Zela, et~al.]{mehta2022nasbenchsuite}
+Yash Mehta, Colin White, Arber Zela, et~al.
+\newblock {NAS}-bench-suite: {NAS} evaluation is (now) surprisingly easy.
+\newblock In \emph{ICLR}, 2022.
+
+\bibitem[Mellor et~al.(2021)Mellor, Turner, Storkey, and
+  Crowley]{mellor2021naswot}
+Joseph Mellor, Jack Turner, Amos Storkey, and Elliot~J. Crowley.
+\newblock Neural architecture search without training.
+\newblock In \emph{ICML}, 2021.
+
+\bibitem[Shu et~al.(2022)Shu, Dai, Wu, and Low]{shu2022unifying}
+Yao Shu, Zhongxiang Dai, Zhaoxuan Wu, and Bryan Kian~Hsiang Low.
+\newblock Unifying and boosting gradient-based training-free neural
+  architecture search.
+\newblock In \emph{NeurIPS}, 2022.
+
+\bibitem[Tanaka et~al.(2020)Tanaka, Kunin, Yamins, and
+  Ganguli]{tanaka2020synflow}
+Hidenori Tanaka, Daniel Kunin, Daniel L.~K. Yamins, and Surya Ganguli.
+\newblock Pruning neural networks without any data by iteratively conserving
+  synaptic flow.
+\newblock \emph{NeurIPS}, 2020.
+
+\bibitem[Tolstikhin et~al.(2021)Tolstikhin, Houlsby, Kolesnikov,
+  et~al.]{tolstikhin2021mlpmixer}
+Ilya Tolstikhin, Neil Houlsby, Alexander Kolesnikov, et~al.
+\newblock {MLP-Mixer}: An all-{MLP} architecture for vision.
+\newblock In \emph{NeurIPS}, 2021.
+
+\bibitem[Touvron et~al.(2021)Touvron, Cord, Douze, Massa, Sablayrolles, and
+  J{\'e}gou]{touvron2021training}
+Hugo Touvron, Matthieu Cord, Matthijs Douze, Francisco Massa, Alexandre
+  Sablayrolles, and Herv{\'e} J{\'e}gou.
+\newblock Training data-efficient image transformers \& distillation through
+  attention.
+\newblock In \emph{ICML}, 2021.
+
+\bibitem[Tu et~al.(2022)Tu, Talebi, Zhang, Yang, Milanfar, Bovik, and
+  Li]{tu2022maxvit}
+Zhengzhong Tu, Hossein Talebi, Han Zhang, Feng Yang, Peyman Milanfar, Alan
+  Bovik, and Yinxiao Li.
+\newblock {MaxViT}: Multi-axis vision transformer.
+\newblock In \emph{ECCV}, 2022.
+
+\bibitem[Vasu et~al.(2023)Vasu, Gabriel, Zhu, Tuzel, and
+  Ranjan]{vasu2023fastvit}
+Pavan Kumar~Anasosalu Vasu, James Gabriel, Jeff Zhu, Oncel Tuzel, and Anurag
+  Ranjan.
+\newblock {FastViT}: A fast hybrid vision transformer using structural
+  reparameterization.
+\newblock In \emph{ICCV}, 2023.
+
+\bibitem[White et~al.(2021)White, Nolen, and Savani]{white2021landscape}
+Colin White, Sam Nolen, and Yash Savani.
+\newblock Exploring the loss landscape in neural architecture search.
+\newblock In \emph{UAI}, 2021.
+
+\bibitem[White et~al.(2023)White, Safari, Sukthanker, Ru, Elsken, Zela, Dey,
+  and Hutter]{white2023nasinsights}
+Colin White, Mahmoud Safari, Rhea Sukthanker, Binxin Ru, Thomas Elsken, Arber
+  Zela, Debadeepta Dey, and Frank Hutter.
+\newblock Neural architecture search: Insights from 1000 papers.
+\newblock \emph{arXiv:2301.08727}, 2023.
+
+\bibitem[Ying et~al.(2019)Ying, Klein, Real, Christiansen, Murphy, and
+  Hutter]{ying2019nasbench101}
+Chris Ying, Aaron Klein, Esteban Real, Eric Christiansen, Kevin Murphy, and
+  Frank Hutter.
+\newblock {NAS-Bench-101}: Towards reproducible neural architecture search.
+\newblock In \emph{ICML}, 2019.
+
+\bibitem[Yu et~al.(2024)Yu, Si, Zhou, Luo, Zhou, Feng, Yan, and
+  Wang]{yu2022metaformer}
+Weihao Yu, Chenyang Si, Pan Zhou, Mi~Luo, Yichen Zhou, Jiashi Feng, Shuicheng
+  Yan, and Xinchao Wang.
+\newblock {MetaFormer} baselines for vision.
+\newblock \emph{IEEE TPAMI}, 2024.
+
+\bibitem[Zela et~al.(2022)Zela, Siems, Zimmer, Lukasik, Keuper, and
+  Hutter]{zela2022nasbench301}
+Arber Zela, Julien Siems, Lucas Zimmer, Jovita Lukasik, Margret Keuper, and
+  Frank Hutter.
+\newblock Surrogate {NAS} benchmarks: Going beyond the limited search spaces of
+  tabular {NAS} benchmarks.
+\newblock In \emph{ICLR}, 2022.
+
+\bibitem[Zhu et~al.(2024)Zhu, Liao, Zhang, Wang, Liu, and Wang]{zhu2024vim}
+Lianghui Zhu, Bencheng Liao, Qian Zhang, Xinlong Wang, Wenyu Liu, and Xinggang
+  Wang.
+\newblock Vision {Mamba}: Efficient visual representation learning with
+  bidirectional state space model.
+\newblock In \emph{ICML}, 2024.
+
+\end{thebibliography}

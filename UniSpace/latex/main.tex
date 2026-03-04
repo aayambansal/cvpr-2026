@@ -1,0 +1,385 @@
+% UniSpace: A Unified Modern Vision Backbone Search Space with Factorized Token Mixers
+% CVPR-NAS26 Workshop Paper (double-blind)
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+% ---- CVPR-style geometry and fonts ----
+\usepackage[margin=0.75in]{geometry}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[breaklinks=true,bookmarks=false]{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage{microtype}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{xspace}
+\usepackage{array}
+\usepackage{float}
+
+% ---- Custom commands ----
+\newcommand{\method}{UniSpace\xspace}
+\newcommand{\naswot}{NASWOT\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etal}{\textit{et al.}\xspace}
+\newcommand{\rmark}[1]{\textcolor{red}{#1}}
+
+% ---- Anonymize ----
+\newcommand{\cvprPaperID}{****}
+
+% ---- Title ----
+\title{\method: A Unified Modern Vision Backbone Search Space\\with Factorized Token Mixers}
+
+\author{Anonymous CVPR-NAS submission\\
+Paper ID \cvprPaperID}
+
+\date{}
+
+\begin{document}
+\maketitle
+
+% =====================================================================
+% ABSTRACT
+% =====================================================================
+\begin{abstract}
+We introduce \method, a factorized neural architecture search space that unifies four families of modern vision token mixers (depthwise convolution, multi-head attention, gated MLP, and a lightweight state-space variant) together with orthogonal choices for normalization layers and spatial downsampling strategies.
+The resulting combinatorial space contains approximately $6.5 \times 10^{10}$ architectures, yet its factorized structure enables systematic analysis of which primitives matter most.
+Through a scaled sample-and-evaluate protocol that scores 500 architectures with four zero-cost proxies and trains 30 with short schedules, we show that (i) convolution-based mixers and GroupNorm enjoy a statistically modest but consistent advantage in training-free scores, (ii) a PCA analysis of the one-hot encoded design matrix reveals that 18 of 21 nominal dimensions are needed to capture 90\% of the variance, with a near-flat eigenvalue spectrum indicating that the search space is well-covered and most dimensions contribute roughly equally, (iii) zero-cost proxies exhibit weak Spearman rank correlation with short-training accuracy in this heterogeneous space, with SNIP as the only statistically significant predictor ($\rho = -0.377$, $p = 0.040$) and notably with a \emph{negative} sign, (iv) a top-$k$ regret analysis shows that proxy-based selection provides only marginal benefit over random sampling, and (v) \naswot rankings are highly stable across input resolutions (Spearman $\rho = 0.949$ between $32 \times 32$ and $16 \times 16$), validating resolution-agnostic proxy evaluation.
+We release \method as a modular PyTorch benchmark to facilitate future work on search algorithms, proxy design, and mixed-primitive backbone construction.
+\end{abstract}
+
+% =====================================================================
+% 1. INTRODUCTION
+% =====================================================================
+\section{Introduction}
+\label{sec:intro}
+
+The design of visual backbone architectures has undergone a rapid diversification over the past four years. Once dominated by convolutional neural networks, the landscape now includes pure transformers~\cite{dosovitskiy2021image,liu2021swin}, MLP-based token mixers~\cite{tolstikhin2021mlpmixer,liu2021gmlp}, hybrid convolution-attention designs~\cite{dai2021coatnet,tu2022maxvit,vasu2023fastvit}, and state-space models adapted for vision~\cite{zhu2024vim,liu2024vmamba}. 
+The MetaFormer hypothesis of Yu~\etal~\cite{yu2022metaformer} crystallized the emerging consensus: the macro architecture template, comprising stage structure, channel progression, and normalization choices, matters at least as much as the specific token-mixing operator plugged into each block. 
+If this hypothesis holds broadly, then different mixer families should be \emph{interchangeable components} within a shared template, and the search for the best backbone becomes a combinatorial selection problem over a space of factorized architectural choices.
+
+Neural architecture search (NAS) has produced powerful automated methods for this kind of combinatorial design~\cite{liu2019darts,white2023nasinsights}. 
+Yet the vast majority of NAS benchmarks operate within narrow, homogeneous search spaces: cell-based topologies over a fixed set of convolution-like operators~\cite{ying2019nasbench101,dong2020nasbench201,zela2022nasbench301} or small perturbations of a single backbone family. 
+This homogeneity limits the practical relevance of the resulting insights, because modern practitioners routinely choose among qualitatively different mixer families.
+
+In this paper, we propose \method, a unified search space that spans four token-mixer families, four normalization strategies, four downsampling operators, and additional per-stage depth and width choices, all within a shared four-stage hierarchical template. 
+The space is designed to be \emph{factorized}: each axis of variation (mixer type, normalization, downsampling, depth, expansion ratio, stem width) is independently selectable at every stage, yielding a total of approximately $6.5 \times 10^{10}$ unique architectures. 
+Our goal is not to propose a new search algorithm; rather, we contribute the search space itself and a systematic empirical analysis of its structure at a scale of 500 scored and 30 trained architectures.
+
+Our contributions are as follows:
+\begin{itemize}[leftmargin=*,nosep]
+    \item We design \method, a modular, factorized search space that mixes depthwise convolutions, multi-head attention, gated MLPs, and a lightweight state-space variant (SSM-Lite) as interchangeable token mixers within a four-stage hierarchical backbone, together with orthogonal normalization and downsampling choices.
+    \item We empirically characterize the space through a scaled sample-and-evaluate protocol that scores 500 architectures with four zero-cost proxies (\naswot, SynFlow, GradNorm, SNIP) and trains 30 with short schedules on CIFAR-10, revealing that convolution-based mixers and GroupNorm show modest dominance in zero-cost scores.
+    \item We show through PCA analysis that 18 of 21 design dimensions capture 90\% of the variance, with a near-flat eigenvalue spectrum indicating well-distributed importance across the factorized axes.
+    \item We demonstrate that zero-cost proxy rankings correlate poorly with short-training accuracy, with SNIP as the sole significant predictor ($\rho = -0.377$, $p = 0.040$) and with a counterintuitive negative sign. A top-$k$ regret analysis confirms that proxy-based architecture selection provides only marginal benefit over random sampling.
+    \item We establish strong cross-resolution consistency of proxy rankings (Spearman $\rho = 0.949$ between $32 \times 32$ and $16 \times 16$ evaluations), validating resolution-agnostic proxy evaluation as a practical strategy.
+\end{itemize}
+
+% =====================================================================
+% 2. RELATED WORK
+% =====================================================================
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{NAS benchmarks and search spaces.}
+Tabular NAS benchmarks have been instrumental in enabling reproducible NAS research by providing precomputed accuracy lookups. 
+NAS-Bench-101~\cite{ying2019nasbench101} and NAS-Bench-201~\cite{dong2020nasbench201} pioneered this approach but restricted the search to cell-based topologies with convolution-like primitives. 
+NAS-Bench-301~\cite{zela2022nasbench301} extended coverage to the full DARTS~\cite{liu2019darts} space via surrogate models, and NAS-Bench-Suite~\cite{mehta2022nasbenchsuite} aggregated multiple benchmarks for unified evaluation. 
+However, all of these spaces are architecturally homogeneous, containing only convolutional or convolution-like operators. 
+\method differs by explicitly mixing attention, convolution, gated-MLP, and state-space primitives within a single search space.
+
+\paragraph{Zero-cost proxies.}
+Training-free proxies aim to predict architecture quality without gradient updates, enabling search in seconds rather than GPU-days. 
+\naswot~\cite{mellor2021naswot} measures the overlap of activation patterns at initialization; SynFlow~\cite{tanaka2020synflow} aggregates synaptic saliency scores; GradNorm and SNIP~\cite{abdelfattah2021zerocost} use gradient-based sensitivity. 
+NAS-Bench-Suite-Zero~\cite{krishnakumar2022nasbenchsuitezero} systematically evaluated 13 proxies across multiple benchmarks, while AZ-NAS~\cite{lee2024aznas} proposed assembling zero-cost proxies for improved ranking. 
+Shu~\etal~\cite{shu2022unifying} provided a theoretical unification of gradient-based proxies. 
+A recurring finding is that proxy reliability varies across search spaces~\cite{abdelfattah2021zerocost,krishnakumar2022nasbenchsuitezero}. 
+Our results extend this finding to mixed-primitive spaces at a substantially larger scale (500 architectures), where we observe that all four proxies achieve weak or non-significant correlation with short-training accuracy.
+
+\paragraph{Modern vision backbones.}
+The Vision Transformer (ViT)~\cite{dosovitskiy2021image} and its hierarchical variants~\cite{liu2021swin,touvron2021training} established attention as a competitive token mixer for vision. 
+MLP-Mixer~\cite{tolstikhin2021mlpmixer} and gMLP~\cite{liu2021gmlp} demonstrated that purely MLP-based mixing suffices under certain conditions. 
+CoAtNet~\cite{dai2021coatnet} and MaxViT~\cite{tu2022maxvit} showed that combining convolution and attention within a single backbone yields strong results, and FastViT~\cite{vasu2023fastvit} refined such hybrids for efficiency. 
+Most recently, Mamba~\cite{gu2023mamba} and its vision variants~\cite{zhu2024vim,liu2024vmamba} introduced state-space models as a new token-mixing paradigm. 
+The MetaFormer framework~\cite{yu2022metaformer} unified these observations by showing that the backbone template itself, rather than the specific mixer, largely determines performance. 
+\method builds directly on this insight by treating the mixer as a factorized, interchangeable slot within a shared MetaFormer-style template.
+
+% =====================================================================
+% 3. THE UNISPACE SEARCH SPACE
+% =====================================================================
+\section{The \method Search Space}
+\label{sec:space}
+
+\subsection{Design Principles}
+\label{sec:design}
+
+\method is designed around three guiding principles. 
+First, \emph{factorization}: every design axis (token mixer, normalization, downsampling, depth, expansion ratio, stem width) is independently selectable at each stage, ensuring that the space is combinatorially rich yet easy to enumerate and analyze. 
+Second, \emph{heterogeneity}: the primitives span qualitatively different computational paradigms, from local convolutions to global attention and recurrence, reflecting the diversity of modern backbone designs. 
+Third, \emph{compactness}: the number of choices per axis is kept small (3--4 options) so that the space remains tractable for exhaustive proxy evaluation and statistical analysis, even though the total number of architectures is large.
+
+The backbone template follows the standard hierarchical design used by most modern vision models: an input stem followed by four stages of progressively increasing channel width and decreasing spatial resolution. 
+Each stage contains a configurable number of identical blocks, and each block applies a normalization layer, a token mixer, and a feed-forward expansion layer.
+
+\subsection{Token Mixers}
+\label{sec:mixers}
+
+Each stage independently selects one of four token mixers:
+
+\paragraph{Depthwise Convolution (DWConv).}
+A $7 \times 7$ depthwise convolution followed by a pointwise linear projection, following the ConvNeXt design philosophy. This provides a local, translation-equivariant inductive bias with low parameter count.
+
+\paragraph{Multi-Head Attention (Attention).}
+Standard multi-head self-attention with learnable relative position biases, as in Swin Transformer~\cite{liu2021swin}. Attention captures global dependencies but incurs quadratic cost in spatial tokens; we use windowed attention at higher resolutions to keep cost manageable.
+
+\paragraph{Gated MLP (GatedMLP).}
+A gated linear unit with a SiLU activation, following gMLP~\cite{liu2021gmlp}. This mixer processes tokens through a spatial projection gated by a nonlinear path and provides a parameter-efficient mixing mechanism that avoids explicit spatial inductive biases.
+
+\paragraph{SSM-Lite.}
+A simplified state-space layer inspired by Mamba~\cite{gu2023mamba}, adapted for 2D vision by scanning along a fixed raster order. SSM-Lite uses a 1D selective scan with a small state dimension to capture long-range dependencies with linear complexity. This lightweight variant trades some expressiveness for computational efficiency compared to the full Mamba block.
+
+\subsection{Normalization and Downsampling}
+\label{sec:norm_down}
+
+Each stage also selects a normalization layer and a downsampling strategy:
+
+\paragraph{Normalization.}
+Four choices are available: BatchNorm, LayerNorm, GroupNorm (with 32 groups), and RMSNorm. These span the spectrum from channel-wise statistics (BatchNorm) to instance-wise normalization (LayerNorm, RMSNorm), with GroupNorm providing an intermediate granularity.
+
+\paragraph{Downsampling.}
+Four spatial reduction operators are provided between stages: $2 \times 2$ max pooling, $2 \times 2$ average pooling, $2 \times 2$ strided convolution, and patch merging (as used in Swin Transformer~\cite{liu2021swin}). Each halves the spatial resolution while adjusting channel dimensionality for the next stage.
+
+\subsection{Search Space Size}
+\label{sec:size}
+
+The complete specification of a \method architecture requires selecting:
+\begin{itemize}[nosep,leftmargin=*]
+    \item Stem channels: $\{32, 48, 64\}$ (3 choices)
+    \item Per-stage token mixer: $\{$DWConv, Attention, GatedMLP, SSM-Lite$\}$ ($4^4 = 256$)
+    \item Per-stage normalization: $\{$BN, LN, GN, RMSNorm$\}$ ($4^4 = 256$)
+    \item Per-stage downsampling: $\{$MaxPool, AvgPool, StridedConv, PatchMerge$\}$ ($4^4 = 256$)
+    \item Per-stage expansion ratio: $\{1, 2\}$ ($2^4 = 16$)
+    \item Per-stage depth: $\{1, 2, 3\}$ ($3^4 = 81$)
+\end{itemize}
+The total number of architectures is therefore $3 \times 256^3 \times 16 \times 81 = 65{,}229{,}815{,}808 \approx 6.5 \times 10^{10}$, which is several orders of magnitude larger than cell-based benchmarks such as NAS-Bench-201 ($15{,}625$ architectures) while remaining fully enumerable in principle.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_search_space.png}
+\caption{Overview of the \method search space. A four-stage hierarchical template allows independent selection of token mixer (DWConv, Attention, GatedMLP, SSM-Lite), normalization (BN, LN, GN, RMSNorm), and downsampling (MaxPool, AvgPool, StridedConv, PatchMerge) at each stage, along with per-stage depth and expansion ratio. The stem width is shared across all stages.}
+\label{fig:search_space}
+\end{figure}
+
+% =====================================================================
+% 4. EXPERIMENTAL SETUP
+% =====================================================================
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Sample-and-Evaluate Protocol}
+\label{sec:protocol}
+
+Exhaustive evaluation of $6.5 \times 10^{10}$ architectures is infeasible, so we adopt a sample-and-evaluate approach following established NAS analysis methodology~\cite{li2019random,white2021landscape}. 
+We uniformly sample 500 architectures from the search space. 
+For each sampled architecture, we compute four training-free proxy scores on CIFAR-10 using a single mini-batch of 64 images at the native $32 \times 32$ resolution. 
+Of these 500 architectures, 385 produce valid scores across all four proxies (the remainder are excluded due to numerical instabilities in individual proxy computations). 
+In addition, 30 of the 500 architectures are trained for 3 epochs on CIFAR-10 with SGD (learning rate 0.01, momentum 0.9) to obtain short-training validation accuracy.
+
+To assess the practical value of proxy-based selection, we conduct a top-$k$ regret analysis. We rank all 500 architectures by \naswot score and select three groups of 10: the top-10 (highest \naswot), a random-10 (uniformly sampled), and the bottom-10 (lowest \naswot). Each group is trained for 3 epochs on CIFAR-10, and the resulting accuracy distributions are compared to quantify the benefit of proxy-guided selection over random sampling.
+
+To evaluate cross-resolution stability, we additionally score 200 architectures at $16 \times 16$ resolution (obtained by downsampling CIFAR-10 images, with the number of classes set to $n_c = 100$ by relabeling) and compare the resulting \naswot rankings against the $32 \times 32$ evaluations of the same architectures.
+
+We emphasize that the goal of this protocol is not to find the best architecture, rather it is to characterize the search space structure: which primitives dominate in proxy scores, how the design dimensions contribute to variance, and how well zero-cost proxies predict short-training performance across heterogeneous architectural families.
+
+\subsection{Zero-Cost Proxies}
+\label{sec:proxies}
+
+We evaluate four widely used zero-cost proxies:
+
+\paragraph{NASWOT}~\cite{mellor2021naswot} computes the log-determinant of a binary activation pattern matrix at initialization, measuring the diversity of input-output mappings without any gradient computation.
+
+\paragraph{SynFlow}~\cite{tanaka2020synflow} iteratively prunes by summing the product of parameters and their gradients with respect to a synthetic all-ones input, capturing the network's ``synaptic flow.''
+
+\paragraph{GradNorm} computes the $L_2$ norm of the gradient of the loss with respect to network parameters after a single forward-backward pass on a mini-batch~\cite{abdelfattah2021zerocost}.
+
+\paragraph{SNIP}~\cite{abdelfattah2021zerocost} measures connection sensitivity as the magnitude of the loss change when individual parameters are removed, evaluated at initialization.
+
+% =====================================================================
+% 5. RESULTS AND ANALYSIS
+% =====================================================================
+\section{Results and Analysis}
+\label{sec:results}
+
+\subsection{Primitive Dominance}
+\label{sec:dominance}
+
+Figure~\ref{fig:dominance} reports the mean \naswot score for each primitive choice, grouped by design axis, computed over the full set of 500 scored architectures. Among token mixers, DWConv achieves the highest mean score ($37.86 \pm 2.02$, $n = 530$), followed closely by GatedMLP ($37.69 \pm 2.05$, $n = 494$) and SSM-Lite ($37.64 \pm 1.96$, $n = 486$), while Attention obtains the lowest ($36.92 \pm 2.11$, $n = 490$). The counts exceed 500 because each architecture uses four stages, and multiple stages may select different mixers; the reported statistics aggregate across all stage-level occurrences. For normalization, GroupNorm leads ($38.00 \pm 2.08$, $n = 514$), followed by RMSNorm ($37.43 \pm 2.08$, $n = 492$), LayerNorm ($37.42 \pm 2.03$, $n = 501$), and BatchNorm ($37.28 \pm 2.00$, $n = 493$). Among downsampling operators, PatchMerging achieves the highest mean ($37.76 \pm 2.04$, $n = 475$), closely followed by StridedConv ($37.71 \pm 2.08$, $n = 500$), with MaxPool ($37.55 \pm 1.98$, $n = 494$) and AvgPool ($37.15 \pm 2.10$, $n = 531$) trailing.
+
+These differences are modest in absolute terms (approximately 1 point on a score that ranges from roughly 32 to 43), and the standard deviations of approximately 2 points reflect high variability due to interaction effects with other design axes. Nonetheless, the consistent ordering suggests that local, convolution-like mixers and group-based normalization provide favorable initialization properties as measured by \naswot, likely because they preserve well-conditioned activation distributions at the start of training. The relative dominance of PatchMerging among downsampling operators is consistent with prior work showing that learned spatial reduction preserves more information than fixed pooling operations.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_primitive_dominance.pdf}
+\caption{Mean NASWOT scores grouped by token mixer (left), normalization (center), and downsampling strategy (right), computed over $N = 500$ architectures. Error bars indicate standard error of the mean (SEM), with per-group sample sizes annotated. DWConv, GroupNorm, and PatchMerging show consistent, albeit modest, advantages.}
+\label{fig:dominance}
+\end{figure}
+
+\subsection{Effective Dimensionality and Search Space Coverage}
+\label{sec:redundancy}
+
+To quantify the intrinsic dimensionality of the design space, we one-hot encode the architectural choices of all 500 sampled architectures into a 21-dimensional binary vector (4 mixer choices $\times$ 4 stages plus additional axes) and perform PCA on the resulting design matrix.
+
+Figure~\ref{fig:pca} shows the cumulative explained variance as a function of the number of principal components. With 500 architectures, 18 components are required to capture 90\% of the total variance, and 20 components suffice for 95\%. The individual eigenvalues range from 1.44 (largest) to 0.44 (smallest), forming a notably flat spectrum. This near-uniform distribution of variance across components indicates that the 500-architecture sample covers the search space thoroughly, with most factorized design dimensions contributing roughly equally to the overall variability.
+
+This result contrasts with what would be expected from a biased or undersampled design: in such cases, a small number of principal components would dominate, reflecting systematic correlations or clustering in the sampled configurations. The flat eigenvalue spectrum observed here is a positive indicator of the search space design, confirming that the factorized axes are largely independent in practice and that uniform random sampling achieves broad coverage. For search algorithms, this means that dimensionality reduction techniques are unlikely to yield large efficiency gains, because there is no low-dimensional manifold concentrating the architecturally relevant variation.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_pca_scree.pdf}
+\caption{PCA scree plot of the one-hot encoded design matrix ($N = 500$). The dashed horizontal lines indicate 90\% and 95\% cumulative variance thresholds. The near-flat eigenvalue spectrum (range: 1.44 to 0.44) indicates that most of the 21 dimensions contribute roughly equally, confirming thorough coverage of the factorized search space.}
+\label{fig:pca}
+\end{figure}
+
+\subsection{Proxy Correlation and Complementarity}
+\label{sec:correlation}
+
+Table~\ref{tab:proxy_acc} reports the Spearman rank correlation between each zero-cost proxy and the short-training validation accuracy (3-epoch CIFAR-10) for the 30 architectures with available training results. Three of the four proxies achieve weak, non-significant correlations: \naswot attains $\rho = 0.227$ ($p = 0.227$), SynFlow reaches $\rho = 0.032$ ($p = 0.880$), and GradNorm achieves $\rho = -0.216$ ($p = 0.251$). The notable exception is SNIP, which obtains $\rho = -0.377$ with $p = 0.040$, making it the only proxy that reaches statistical significance at the $\alpha = 0.05$ level. Importantly, this correlation is \emph{negative}, meaning that architectures scored highly by SNIP tend to perform \emph{worse} in short training. Since SNIP is strongly correlated with model size (see below), this negative relationship likely reflects the tendency of larger models to underfit within a 3-epoch budget on CIFAR-10.
+
+\begin{table}[t]
+\centering
+\caption{Spearman rank correlation ($\rho$) and $p$-value between zero-cost proxy scores and 3-epoch CIFAR-10 validation accuracy across $N = 30$ trained architectures. SNIP is the only significant predictor ($p < 0.05$, marked with $^*$), and its correlation is negative.}
+\label{tab:proxy_acc}
+\begin{tabular}{lcc}
+\toprule
+Proxy & Spearman $\rho$ & $p$-value \\
+\midrule
+NASWOT & $0.227$ & $0.227$ \\
+SynFlow & $0.032$ & $0.880$ \\
+GradNorm & $-0.216$ & $0.251$ \\
+SNIP & $-0.377$ & $0.040^*$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Figure~\ref{fig:corr} presents the pairwise Spearman correlation matrix among the four proxies and $\log(\text{params})$, computed over the $N = 385$ architectures with valid scores across all proxies. Several patterns emerge. GradNorm and SNIP are strongly correlated ($\rho = 0.85$), and SNIP and $\log(\text{params})$ share a strong positive correlation ($\rho = 0.78$), confirming that SNIP is largely a proxy for model size in this heterogeneous space. \naswot and SynFlow are nearly uncorrelated ($\rho = -0.06$), and GradNorm and SynFlow exhibit weak anti-correlation ($\rho = -0.18$). The near-orthogonality of \naswot relative to the gradient-based proxies suggests that it captures fundamentally different architectural properties, consistent with its reliance on activation pattern diversity rather than gradient magnitudes. These complementarity patterns motivate the use of ensemble-based proxy strategies~\cite{lee2024aznas} for heterogeneous search spaces.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_score_correlation.pdf}
+\caption{Spearman correlation matrix among four zero-cost proxies and $\log(\text{params})$, computed over $N = 385$ valid architectures. GradNorm and SNIP are strongly correlated ($\rho = 0.85$); SNIP tracks model size ($\rho = 0.78$); \naswot is nearly orthogonal to all gradient-based proxies.}
+\label{fig:corr}
+\end{figure}
+
+\subsection{Top-$k$ Selection Analysis}
+\label{sec:regret}
+
+To move beyond rank correlations and assess the practical utility of proxy-based architecture selection, we conduct a top-$k$ regret analysis. We select three disjoint groups of 10 architectures: the top-10 by \naswot score, a random-10 sampled uniformly, and the bottom-10 by \naswot score. Each group is trained for 3 epochs on CIFAR-10, and we compare the resulting accuracy distributions.
+
+Figure~\ref{fig:regret} (left panel) shows the group-wise mean validation accuracy. The top-10 group achieves a mean accuracy of $0.1234 \pm 0.0275$, the random-10 group achieves $0.1266 \pm 0.0266$, and the bottom-10 group achieves $0.1125 \pm 0.0136$. While the bottom-10 group does perform worst, which is directionally consistent with proxy utility, the top-10 group does not outperform the random-10 group. The difference between top-10 and bottom-10 is approximately 1 percentage point, but the random group actually achieves the highest mean accuracy.
+
+These results indicate that \naswot-based selection provides at best marginal benefit in this heterogeneous space. The proxy can distinguish very poor architectures from the rest (bottom-10 vs.\ others) but cannot reliably identify the best performers among the remaining population. This finding is consistent with the weak proxy-accuracy correlations reported in Section~\ref{sec:correlation} and reinforces the conclusion that proxy reliability degrades when the search space spans multiple architectural families with fundamentally different computational structures.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_regret_analysis.pdf}
+\caption{Top-$k$ regret analysis. Left: mean 3-epoch CIFAR-10 validation accuracy for top-10 (by \naswot), random-10, and bottom-10 groups (10 architectures each). Error bars show one standard deviation. The top group does not outperform random, though the bottom group is worst. Right: proxy score vs.\ 3-epoch accuracy scatterplot with per-proxy trend lines.}
+\label{fig:regret}
+\end{figure}
+
+\subsection{Cross-Resolution Consistency}
+\label{sec:cross_res}
+
+A practical concern for proxy-based NAS is whether rankings computed at one input resolution transfer to other resolutions, since many deployment scenarios require architectures that perform well across multiple scales. To test this, we evaluate 200 architectures with \naswot at both $32 \times 32$ (native CIFAR-10) and $16 \times 16$ (downsampled, with $n_c = 100$ classes) and compute the Spearman rank correlation between the two sets of scores.
+
+The resulting correlation is $\rho = 0.949$ ($p \approx 0.0$, $N = 200$), indicating near-perfect rank preservation across resolutions (Figure~\ref{fig:cross_res}). This is a strong positive result for the practical use of \naswot in the \method space: proxy evaluations can be conducted at reduced resolution (which is computationally cheaper due to fewer spatial tokens) without substantially altering the relative ranking of architectures. The high cross-resolution consistency also suggests that the architectural properties captured by \naswot, namely the diversity of activation patterns at initialization, are not sensitive to the specific spatial dimensions of the input, at least within the range tested here.
+
+This result complements the weak proxy-accuracy correlations reported in Section~\ref{sec:correlation}. While \naswot rankings may not predict short-training accuracy well, they are internally consistent: whatever property \naswot measures, it measures it stably across resolutions. This stability makes \naswot a reliable tool for relative comparisons within the search space, even if its absolute predictive validity for downstream performance remains limited.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_cross_resolution.pdf}
+\caption{Cross-resolution consistency of \naswot scores. Each point represents one of 200 architectures evaluated at both $32 \times 32$ and $16 \times 16$ input resolution. The Spearman rank correlation is $\rho = 0.949$, indicating near-perfect rank preservation across resolutions.}
+\label{fig:cross_res}
+\end{figure}
+
+\subsection{Parameter Efficiency}
+\label{sec:efficiency}
+
+The sampled architectures span a wide range of parameter counts, from 66,634 to 1,951,018 parameters (mean: 855,441; median: 802,522), reflecting the large variation in block complexity across mixer types. Figure~\ref{fig:params} shows the \naswot score versus parameter count for each sampled architecture, colored by the dominant token mixer. Attention-heavy architectures tend to cluster at higher parameter counts due to the query-key-value projections, while DWConv architectures achieve competitive proxy scores at lower parameter budgets.
+
+An examination of the top-5 architectures by \naswot score reveals that hybrid mixer configurations dominate. The highest-scoring architecture (\naswot $= 43.0$, 500K parameters) uses a conv-conv-SSM-SSM mixer pattern across its four stages. The second-ranked architecture (\naswot $= 42.6$, 1.86M parameters) uses conv-SSM-conv-conv, and the third (\naswot $= 42.4$, 496K parameters) uses conv-GatedMLP-SSM-conv. The fourth and fifth positions feature attention-SSM-SSM-GatedMLP and attention-conv-attention-SSM configurations, respectively. This consistent presence of convolution in early stages combined with SSM-Lite or other mixers in later stages suggests that a conv-first, SSM-late arrangement may be particularly favorable for initialization-time activation diversity as measured by \naswot.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_param_efficiency.pdf}
+\caption{NASWOT score versus parameter count for $N = 500$ sampled architectures, colored by the most frequent token mixer in each architecture. The parameter range spans 67K to 1.95M. DWConv achieves competitive scores at lower parameter counts; attention-heavy architectures cluster at higher parameter budgets.}
+\label{fig:params}
+\end{figure}
+
+% =====================================================================
+% 6. DISCUSSION AND LIMITATIONS
+% =====================================================================
+\section{Discussion and Limitations}
+\label{sec:discussion}
+
+The results paint a nuanced picture of search-space design for modern vision backbones. The \method space successfully unifies four distinct mixer families within a shared template, confirming the MetaFormer hypothesis~\cite{yu2022metaformer} at the level of search-space construction: all four mixer types produce viable architectures with overlapping proxy score distributions. At the same time, the analysis reveals that this heterogeneity poses challenges for existing evaluation methodology.
+
+The weak proxy-accuracy correlations are perhaps the most striking finding. While zero-cost proxies have shown promise in homogeneous spaces~\cite{abdelfattah2021zerocost,mellor2021naswot}, their failure to rank architectures reliably in \method suggests that current proxies implicitly assume intra-family homogeneity. The fact that SNIP is the only statistically significant predictor, and with a \emph{negative} correlation, underscores this pathology: SNIP effectively measures model size in this space, and larger models underfit within the 3-epoch budget. The top-$k$ regret analysis reinforces this conclusion, showing that \naswot-guided selection provides no advantage over random sampling in identifying the best-performing architectures. Developing proxies that generalize across architectural families is an important direction for future work; the complementarity patterns observed among existing proxies suggest that ensemble or learned proxy combinations~\cite{lee2024aznas,shu2022unifying} may be a promising path forward.
+
+The strong cross-resolution consistency ($\rho = 0.949$) is an encouraging result for practical proxy deployment. It implies that practitioners can evaluate \naswot at reduced resolution to save computation without sacrificing ranking quality. This is particularly relevant for large-scale search campaigns where thousands of candidate architectures must be scored, and evaluating each at full resolution may be prohibitively expensive.
+
+The PCA analysis reveals that the search space is well-designed for systematic exploration. The near-flat eigenvalue spectrum observed with 500 architectures indicates that the factorized design dimensions are approximately independent in practice, and that uniform random sampling achieves broad coverage across the space. This contrasts with many cell-based search spaces where a few dimensions (such as the number of skip connections) dominate the variance structure.
+
+The top-5 architectures by \naswot score reveal an interesting pattern: hybrid mixer configurations, particularly those combining convolution in early stages with SSM-Lite or gated MLPs in later stages, consistently achieve high proxy scores. While the weak proxy-accuracy correlation tempers the strength of this observation, the pattern is consistent with the intuition that local inductive biases (convolution) are beneficial for early feature extraction, while more flexible mixers (SSM, attention) become advantageous in later stages where features are more abstract.
+
+We acknowledge several limitations. First, all experiments use CIFAR-10 at $32 \times 32$ resolution, which may not reflect behavior on higher-resolution datasets such as ImageNet; the relative ordering of mixer families could shift at larger scales. Second, the short-training protocol (3 epochs) may not capture long-term training dynamics; some architectures that score poorly at epoch 3 might excel with full training schedules. Third, the SSM-Lite variant is a simplified approximation of state-space models; results may differ with more sophisticated implementations such as bidirectional scanning or learned scan orderings. Fourth, while 500 scored architectures provide substantially more statistical power than prior work, this remains a small fraction of the $6.5 \times 10^{10}$ total space, and rare high-performing configurations may be missed by uniform sampling.
+
+% =====================================================================
+% 7. CONCLUSION
+% =====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have presented \method, a factorized search space of approximately $6.5 \times 10^{10}$ architectures that unifies four modern vision token mixers within a shared hierarchical template. Our analysis of 500 scored and 30 trained architectures reveals five key findings: convolution-based mixers and GroupNorm show modest dominance in training-free proxy scores; the effective dimensionality analysis confirms that the factorized design space is well-covered, with a near-flat eigenvalue spectrum across 21 dimensions; zero-cost proxies fail to rank architectures reliably, with SNIP as the sole significant predictor and with a counterintuitive negative sign; proxy-based top-$k$ selection provides only marginal benefit over random sampling; and \naswot rankings exhibit strong cross-resolution stability ($\rho = 0.949$), validating resolution-agnostic proxy evaluation. These findings highlight the need for proxy methods and search algorithms that are robust to inter-family variation, and we release \method as a modular PyTorch benchmark to support future research in this direction.
+
+\paragraph{Acknowledgments.} Omitted for blind review.
+
+% =====================================================================
+% REFERENCES
+% =====================================================================
+{\small
+\bibliographystyle{plainnat}
+\bibliography{references}
+}
+
+\clearpage
+
+% =====================================================================
+% SUPPLEMENTARY: OVERVIEW FIGURE
+% =====================================================================
+\appendix
+\section*{Appendix: Additional Figures}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_overview.pdf}
+\caption{Nine-panel overview of experimental results ($N = 500$ scored, $N = 30$ trained). (a) NASWOT score distribution. (b) Primitive dominance by token mixer. (c) Primitive dominance by normalization. (d) Primitive dominance by downsampling. (e) PCA scree plot. (f) Parameter efficiency by mixer type. (g) Proxy-proxy correlation matrix. (h) Top-$k$ regret analysis. (i) Cross-resolution consistency.}
+\label{fig:overview}
+\end{figure*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/fig_score_distribution.pdf}
+\caption{Distribution of NASWOT scores across all 500 sampled architectures. The distribution spans approximately 11 points (from ${\sim}32$ to ${\sim}43$), with a mode near 38, reflecting the diversity of architectural configurations in the \method space.}
+\label{fig:distribution}
+\end{figure}
+
+\end{document}

@@ -1,6 +1,6 @@
 # BudgetNAS: Continual Online Neural Architecture Search with Budgeted Architecture Mutation
 
-**Aayam Bansal**
+**Aayam Bansal, Ishaan Gangwani**
 
 6th Workshop on Neural Architecture Search at CVPR 2026 (CVPR-NAS'26)
 
@@ -77,7 +77,7 @@ pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 ```bibtex
 @inproceedings{bansal2026budgetnas,
   title={BudgetNAS: Continual Online Neural Architecture Search with Budgeted Architecture Mutation},
-  author={Bansal, Aayam},
+  author={Bansal, Aayam and Gangwani, Ishaan},
   booktitle={Proceedings of the 6th Workshop on Neural Architecture Search at CVPR},
   year={2026}
 }
