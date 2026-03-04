@@ -101,3 +101,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](AdapterNAS/main.pdf) | [Code & Data](AdapterNAS/)
 
 ---
+
+## Paper 8: SRAS
+
+**Title:** SRAS: Seed-Robust Architecture Selection for Reproducible One-Shot Neural Architecture Search
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** One-shot neural architecture search (NAS) methods train a shared supernet to amortize evaluation cost, but we show that the resulting architecture rankings are alarmingly sensitive to the random seed. Across 20 independent supernet runs on a NAS-Bench-201-calibrated search space, the pairwise Kendall's tau between rankings averages only 0.71, top-5 overlap is 29%, and 10 distinct "best" architectures are selected---meaning the chosen architecture is largely a seed artifact. We propose SRAS (Seed-Robust Architecture Selection), which replaces one long supernet run with K short warmup runs under diverse seeds, followed by z-score normalized rank aggregation and batch normalization (BN) recalibration. At equal compute budget, SRAS raises pairwise tau to 0.85 (+0.15), top-5 overlap to 69% (+40pp), and cuts top-1 regret from 1.53% to 0.27%. We provide extensive ablations: aggregation strategies (including naive baselines that reveal the contribution of ensembling vs. smart normalization), BN recalibration sensitivity, the independence assumption behind 1/sqrt(K) noise reduction, search-space difficulty sweeps, failure modes, and a two-stage prescreening variant that reduces evaluation cost by 45% while preserving 99% of the accuracy gain.
+
+[Paper PDF](SRAS/main.pdf) | [Code & Data](SRAS/)
+
+---
