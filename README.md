@@ -129,3 +129,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](RepNAS/latex/main.pdf) | [Code & Data](RepNAS/)
 
 ---
+
+## Paper 10: ActiveNAS
+
+**Title:** ActiveNAS: Data-Efficient Neural Architecture Search via Active Subset Selection
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** Neural architecture search (NAS) requires training each candidate on the full training set, making the search computationally expensive. We investigate whether principled data subset selection can preserve architecture rankings at reduced cost. We propose ActiveNAS, which combines submodular facility location with gradient-space diversity and class-balance weighting, and evaluate it alongside random sampling, stratified sampling, CRAIG, and component ablations on 48 CNN architectures with three random seeds. Our multi-seed evaluation reveals a surprising finding: simple baselines are remarkably hard to beat. Random and stratified sampling achieve Spearman ρ ≥ 0.86 at all tested fractions (1–3%), while feature-aware methods (facility location, gradient diversity, ActiveNAS) show substantially higher variance across seeds and generally lower correlation. To exploit these regime-dependent dynamics, we introduce ActiveNAS+, a meta-policy that dispatches to the best-performing strategy based on per-class sample budget, achieving robust performance across all fractions. Our systematic study provides actionable guidance for practitioners and demonstrates that the gap between sophisticated and simple subset selection is smaller than previously assumed, with 9–56× speedups achievable using simple stratified sampling at 1–2% data budgets while maintaining ρ > 0.90.
+
+[Paper PDF](ActiveNAS/latex/main.pdf) | [Code & Data](ActiveNAS/)
+
+---

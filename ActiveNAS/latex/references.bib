@@ -1,0 +1,208 @@
+% ============================================================
+% references.bib — ActiveNAS: Data-Efficient NAS via Active Subset Selection
+% CVPR-NAS 2026 Workshop Paper (v2 — Major Revision)
+% ============================================================
+
+% --- Neural Architecture Search ---
+
+@inproceedings{zoph2017neural,
+  author    = {Zoph, Barret and Le, Quoc V.},
+  title     = {Neural Architecture Search with Reinforcement Learning},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2017}
+}
+
+@inproceedings{liu2019darts,
+  author    = {Liu, Hanxiao and Simonyan, Karen and Yang, Yiming},
+  title     = {{DARTS}: Differentiable Architecture Search},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2019}
+}
+
+@inproceedings{real2019regularized,
+  author    = {Real, Esteban and Aggarwal, Alok and Huang, Yanping and Le, Quoc V.},
+  title     = {Regularized Evolution for Image Classifier Architecture Search},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {33},
+  pages     = {4780--4789},
+  year      = {2019}
+}
+
+% --- NAS Benchmarks ---
+
+@inproceedings{ying2019nasbench101,
+  author    = {Ying, Chris and Klein, Aaron and Christiansen, Eric and Real, Esteban and Murphy, Kevin and Hutter, Frank},
+  title     = {{NAS-Bench-101}: Towards Reproducible Neural Architecture Search},
+  booktitle = {Proceedings of the 36th International Conference on Machine Learning (ICML)},
+  pages     = {7105--7114},
+  year      = {2019}
+}
+
+@inproceedings{dong2020nasbench201,
+  author    = {Dong, Xuanyi and Yang, Yi},
+  title     = {{NAS-Bench-201}: Extending the Scope of Reproducible Neural Architecture Search},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2020}
+}
+
+@article{siems2020nasbench301,
+  author    = {Siems, Julien and Zimmer, Lucas and Zela, Arber and Lukasik, Jovita and Keuper, Margret and Hutter, Frank},
+  title     = {{NAS-Bench-301} and the Case for Surrogate Benchmarks for Neural Architecture Search},
+  journal   = {arXiv preprint arXiv:2008.09777},
+  year      = {2020}
+}
+
+% --- NAS Efficiency ---
+
+@inproceedings{zhou2020econas,
+  author    = {Zhou, Dongzhan and Zhou, Xinchi and Zhang, Wenwei and Loy, Chen Change and Yi, Shuai and Zhang, Xuesen and Ouyang, Wanli},
+  title     = {{EcoNAS}: Finding Proxies for Economical Neural Architecture Search},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages     = {11396--11404},
+  year      = {2020}
+}
+
+@inproceedings{abdelfattah2021zerocost,
+  author    = {Abdelfattah, Mohamed S. and Mehrotra, Abhinav and Dudziak, {\L}ukasz and Lane, Nicholas D.},
+  title     = {Zero-Cost Proxies for Lightweight {NAS}},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2021}
+}
+
+@inproceedings{chen2021tenas,
+  author    = {Chen, Wuyang and Gong, Xinyu and Wang, Zhangyang},
+  title     = {Neural Architecture Search on {ImageNet} in Four {GPU} Hours: A Theoretically Inspired Perspective},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2021}
+}
+
+@article{na2021accelerating,
+  author    = {Na, Byungggook and Park, Jisoo and Kim, Hyunwoo and Lee, Sungroh},
+  title     = {Accelerating Neural Architecture Search via Proxy Data},
+  journal   = {arXiv preprint arXiv:2106.04042},
+  year      = {2021}
+}
+
+@article{moser2022less,
+  author    = {Moser, Brian B. and Raue, Federico and Frolov, Stanislav and Palacio, Sebastian and Hees, J\"{o}rn and Dengel, Andreas},
+  title     = {Less is More: Proxy Datasets in {NAS} Approaches},
+  journal   = {arXiv preprint arXiv:2210.06692},
+  year      = {2022}
+}
+
+@inproceedings{chu2021fairnas,
+  author    = {Chu, Xiangxiang and Zhang, Bo and Xu, Ruijun},
+  title     = {{FairNAS}: Rethinking Evaluation Fairness of Weight Sharing Neural Architecture Search},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+  pages     = {12239--12248},
+  year      = {2021}
+}
+
+% --- Zero-Cost / Training-Free NAS ---
+
+@inproceedings{tanaka2020synflow,
+  author    = {Tanaka, Hidenori and Kunin, Daniel and Yamins, Daniel L. K. and Ganguli, Surya},
+  title     = {Pruning Neural Networks without Any Data by Iteratively Conserving Synaptic Flow},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {33},
+  pages     = {6377--6389},
+  year      = {2020}
+}
+
+@inproceedings{mellor2021naswot,
+  author    = {Mellor, Joseph and Turner, Jack and Sherborne, Amos and Sherborne, Elliot J.},
+  title     = {Neural Architecture Search without Training},
+  booktitle = {Proceedings of the 38th International Conference on Machine Learning (ICML)},
+  pages     = {7588--7598},
+  year      = {2021}
+}
+
+% --- Data Subset Selection ---
+
+@inproceedings{mirzasoleiman2020craig,
+  author    = {Mirzasoleiman, Baharan and Bilmes, Jeff and Leskovec, Jure},
+  title     = {Coresets for Data-efficient Training of Machine Learning Models},
+  booktitle = {Proceedings of the 37th International Conference on Machine Learning (ICML)},
+  pages     = {6950--6960},
+  year      = {2020}
+}
+
+@inproceedings{killamsetty2021glister,
+  author    = {Killamsetty, Krishnateja and Sivasubramanian, Durga and Ramakrishnan, Ganesh and Iyer, Rishabh},
+  title     = {{GLISTER}: Generalization based Data Subset Selection for Efficient and Robust Learning},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume    = {35},
+  pages     = {8110--8118},
+  year      = {2021}
+}
+
+@inproceedings{killamsetty2021gradmatch,
+  author    = {Killamsetty, Krishnateja and Sivasubramanian, Durga and Ramakrishnan, Ganesh and De, Abir and Iyer, Rishabh},
+  title     = {{GRAD-MATCH}: Gradient Matching based Data Subset Selection for Efficient Learning},
+  booktitle = {Proceedings of the 38th International Conference on Machine Learning (ICML)},
+  pages     = {5464--5474},
+  year      = {2021}
+}
+
+@inproceedings{wei2015submodularity,
+  author    = {Wei, Kai and Iyer, Rishabh and Bilmes, Jeff},
+  title     = {Submodularity in Data Subset Selection and Active Learning},
+  booktitle = {Proceedings of the 32nd International Conference on Machine Learning (ICML)},
+  pages     = {1954--1963},
+  year      = {2015}
+}
+
+@inproceedings{coleman2020selection,
+  author    = {Coleman, Cody and Yeh, Christopher and Mussmann, Stephen and Mirzasoleiman, Baharan and Bailis, Peter and Liang, Percy and Leskovec, Jure and Zaharia, Matei},
+  title     = {Selection via Proxy: Efficient Data Selection for Deep Learning},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2020}
+}
+
+@inproceedings{sorscher2022beyond,
+  author    = {Sorscher, Ben and Geirhos, Robert and Shekhar, Shashank and Ganguli, Surya and Morcos, Ari S.},
+  title     = {Beyond Neural Scaling Laws: Beating Power Law Scaling via Data Pruning},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {35},
+  pages     = {19523--19536},
+  year      = {2022}
+}
+
+@inproceedings{yang2023crest,
+  author    = {Yang, Yu and Kang, Hao and Mirzasoleiman, Baharan},
+  title     = {Towards Sustainable Learning: Coresets for Data-efficient Deep Learning},
+  booktitle = {Proceedings of the 40th International Conference on Machine Learning (ICML)},
+  pages     = {39314--39330},
+  year      = {2023}
+}
+
+% --- Submodular Optimization ---
+
+@article{nemhauser1978analysis,
+  author    = {Nemhauser, George L. and Wolsey, Laurence A. and Fisher, Marshall L.},
+  title     = {An Analysis of Approximations for Maximizing Submodular Set Functions---{I}},
+  journal   = {Mathematical Programming},
+  volume    = {14},
+  number    = {1},
+  pages     = {265--294},
+  year      = {1978}
+}
+
+% --- Backbone Architecture ---
+
+@inproceedings{he2016resnet,
+  author    = {He, Kaiming and Zhang, Xiangyu and Ren, Shaoqing and Sun, Jian},
+  title     = {Deep Residual Learning for Image Recognition},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages     = {770--778},
+  year      = {2016}
+}
+
+% --- Dataset ---
+
+@techreport{krizhevsky2009cifar,
+  author      = {Krizhevsky, Alex},
+  title       = {Learning Multiple Layers of Features from Tiny Images},
+  institution = {University of Toronto},
+  year        = {2009}
+}
