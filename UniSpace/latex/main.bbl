@@ -18,7 +18,7 @@ Zihang Dai, Hanxiao Liu, Quoc~V. Le, and Mingxing Tan.
 \newblock In \emph{NeurIPS}, 2021.
 
 \bibitem[Dong and Yang(2020)]{dong2020nasbench201}
-Xuanyi Dong and Yi~Yang.
+Xuanyi Dong and Yi Yang.
 \newblock {NAS-Bench-201}: Extending the scope of reproducible neural
   architecture search.
 \newblock In \emph{ICLR}, 2020.
@@ -70,7 +70,7 @@ Yue Liu, Yunjie Tian, Yuzhong Zhao, et~al.
 
 \bibitem[Liu et~al.(2021{\natexlab{b}})Liu, Lin, Cao, Hu, Wei, Zhang, Lin, and
   Guo]{liu2021swin}
-Ze~Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and
+Ze Liu, Yutong Lin, Yue Cao, Han Hu, Yixuan Wei, Zheng Zhang, Stephen Lin, and
   Baining Guo.
 \newblock Swin {Transformer}: Hierarchical vision transformer using shifted
   windows.
@@ -150,7 +150,7 @@ Chris Ying, Aaron Klein, Esteban Real, Eric Christiansen, Kevin Murphy, and
 
 \bibitem[Yu et~al.(2024)Yu, Si, Zhou, Luo, Zhou, Feng, Yan, and
   Wang]{yu2022metaformer}
-Weihao Yu, Chenyang Si, Pan Zhou, Mi~Luo, Yichen Zhou, Jiashi Feng, Shuicheng
+Weihao Yu, Chenyang Si, Pan Zhou, Mi Luo, Yichen Zhou, Jiashi Feng, Shuicheng
   Yan, and Xinchao Wang.
 \newblock {MetaFormer} baselines for vision.
 \newblock \emph{IEEE TPAMI}, 2024.

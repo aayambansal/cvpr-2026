@@ -2,46 +2,30 @@
 % CVPR-NAS26 Workshop Paper (double-blind)
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
-% ---- CVPR-style geometry and fonts ----
-\usepackage[margin=0.75in]{geometry}
-\usepackage{times}
-\usepackage{epsfig}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{booktabs}
+\usepackage[review]{cvpr}
+
+% Additional packages not loaded by cvpr.sty
 \usepackage{multirow}
-\usepackage{xcolor}
-\usepackage{enumitem}
-\usepackage[numbers,sort&compress]{natbib}
-\usepackage[breaklinks=true,bookmarks=false]{hyperref}
-\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
-\usepackage{microtype}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{tabularx}
-\usepackage{xspace}
 \usepackage{array}
 \usepackage{float}
+
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2026}
 
 % ---- Custom commands ----
 \newcommand{\method}{UniSpace\xspace}
 \newcommand{\naswot}{NASWOT\xspace}
-\newcommand{\eg}{e.g.,\xspace}
-\newcommand{\ie}{i.e.,\xspace}
-\newcommand{\etal}{\textit{et al.}\xspace}
 \newcommand{\rmark}[1]{\textcolor{red}{#1}}
-
-% ---- Anonymize ----
-\newcommand{\cvprPaperID}{****}
 
 % ---- Title ----
 \title{\method: A Unified Modern Vision Backbone Search Space\\with Factorized Token Mixers}
 
-\author{Anonymous CVPR-NAS submission\\
-Paper ID \cvprPaperID}
-
-\date{}
+\author{Anonymous CVPR-NAS submission}
 
 \begin{document}
 \maketitle
@@ -355,9 +339,10 @@ We have presented \method, a factorized search space of approximately $6.5 \time
 % =====================================================================
 % REFERENCES
 % =====================================================================
-{\small
-\bibliographystyle{plainnat}
-\bibliography{references}
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{references}
 }
 
 \clearpage

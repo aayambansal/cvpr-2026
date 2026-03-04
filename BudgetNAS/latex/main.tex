@@ -1,23 +1,22 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
-\usepackage{cvpr}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{amsmath,amssymb}
-\usepackage{booktabs}
+\usepackage[review]{cvpr}
+
+% Additional packages not loaded by cvpr.sty
 \usepackage{multirow}
 \usepackage{algorithm}
 \usepackage{algorithmic}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage[capitalize]{cleveref}
 
-\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
 
 \definecolor{budgetgreen}{RGB}{0,158,115}
 \definecolor{fixedblue}{RGB}{0,114,178}
 \definecolor{growred}{RGB}{213,94,0}
+
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2026}
 
 \graphicspath{{../figures/}}
 
@@ -26,8 +25,6 @@
 \author{
 Anonymous CVPR-NAS26 Submission
 }
-
-\date{}
 
 \begin{document}
 \maketitle
@@ -353,9 +350,10 @@ We introduced BudgetNAS, a framework for continual online NAS with explicit per-
 % ============================================================
 % REFERENCES
 % ============================================================
-{\small
-\bibliographystyle{plain}
-\bibliography{references}
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{references}
 }
 
 \end{document}

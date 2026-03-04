@@ -1,14 +1,18 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
-\usepackage{cvpr}
-\usepackage{booktabs}
+
+\usepackage[review]{cvpr}
+
+% Additional packages not loaded by cvpr.sty
 \usepackage{multirow}
-\usepackage{xcolor}
-\usepackage{hyperref}
 \usepackage{algorithm}
 \usepackage{algorithmic}
-\usepackage[capitalise]{cleveref}
 
-\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2026}
 
 \newcommand{\method}{DenseProxy}
 \newcommand{\sfc}{\textsc{SFC}}
@@ -16,7 +20,7 @@
 
 \title{Space-Aware Proxy Selection for Training-Free\\Dense Prediction NAS}
 
-\author{Anonymous CVPR-NAS Submission\\Paper ID: XXX}
+\author{Anonymous CVPR-NAS Submission}
 
 \begin{document}
 \maketitle
@@ -446,9 +450,10 @@ These findings suggest a general principle for zero-cost NAS: rather than search
 Future work should validate this principle on additional benchmarks and explore automated space-type detection to remove the manual classification step.
 
 % ==================================================================
-{\small
-\bibliographystyle{ieeetr}
-\bibliography{references}
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{references}
 }
 
 \end{document}

@@ -1,24 +1,18 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
-\usepackage{cvpr}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{times}
-\usepackage{amsmath,amssymb}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{xcolor}
-\usepackage{hyperref}
+
+\usepackage[review]{cvpr}
+
+% Additional packages not loaded by cvpr.sty
 \usepackage{multirow}
-\usepackage{enumitem}
-\usepackage{subcaption}
 
-\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2026}
+
 \graphicspath{{../figures/}}
-
-\def\cvprPaperID{XXX}
-\def\httilde{\mbox{\tt\raisebox{-.5ex}{\symbol{126}}}}
-
-\cvprfinaltrue
 
 \begin{document}
 
@@ -423,9 +417,10 @@ The NAS reproducibility crisis~\cite{li2019random,yang2020nas,lindauer2020best} 
 GreenNAS demonstrates that energy-aware NAS requires more than FLOPs optimization. By combining GPU power modeling, per-operation memory traffic estimation, wall-clock time prediction, and batch-size sensitivity into a composite energy proxy---validated against real NVML measurements on three GPUs (T4, L4, A100)---we achieve 10.5\% higher hypervolume and 25.6\% lower energy than FLOPs-only NAS. Full 200-epoch training confirms that proxy-selected architectures draw 7\% lower power than FLOPs-optimized alternatives. Our proxy ablation confirms that all four surrogates contribute, with memory traffic being the most impactful non-FLOP factor. We release all code, energy models, NVML measurements, and a standardized measurement protocol to establish a reproducible baseline for green NAS research.
 
 % ============================================================
-{\small
-\bibliographystyle{plain}
-\bibliography{references}
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{references}
 }
 
 \end{document}

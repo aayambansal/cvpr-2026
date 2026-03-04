@@ -1,172 +1,191 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{30}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{anthony2020carbontracker}
+\bibitem[Anthony et~al.(2020)Anthony, Kanding, and
+  Selvan]{anthony2020carbontracker}
 Lasse F.~Wolff Anthony, Benjamin Kanding, and Raghavendra Selvan.
 \newblock Carbontracker: Tracking and predicting the carbon footprint of
   training deep learning models, 2020.
 \newblock arXiv:2007.03051.
 
-\bibitem{cai2020onceforall}
-Han Cai, Chuang Gan, Tianzhe Wang, Zhekai Zhang, and Song Han.
-\newblock Once-for-all: Train one network and specialize it for efficient
-  deployment.
-\newblock In {\em ICLR}, 2020.
-
-\bibitem{cai2019proxylessnas}
+\bibitem[Cai et~al.(2019)Cai, Zhu, and Han]{cai2019proxylessnas}
 Han Cai, Ligeng Zhu, and Song Han.
 \newblock {ProxylessNAS}: Direct neural architecture search on target task and
   hardware.
-\newblock In {\em ICLR}, 2019.
+\newblock In \emph{ICLR}, 2019.
 
-\bibitem{chung2023zeus}
+\bibitem[Cai et~al.(2020)Cai, Gan, Wang, Zhang, and Han]{cai2020onceforall}
+Han Cai, Chuang Gan, Tianzhe Wang, Zhekai Zhang, and Song Han.
+\newblock Once-for-all: Train one network and specialize it for efficient
+  deployment.
+\newblock In \emph{ICLR}, 2020.
+
+\bibitem[Chung et~al.(2023)Chung, Gu, Jang, Meng, Bansal, and
+  Chowdhury]{chung2023zeus}
 Jae-Won Chung, Yile Gu, Insu Jang, Luoxi Meng, Nikhil Bansal, and Mosharaf
   Chowdhury.
 \newblock Zeus: Understanding and optimizing {GPU} energy consumption of {DNN}
   training.
-\newblock In {\em NSDI}, 2023.
+\newblock In \emph{NSDI}, 2023.
 
-\bibitem{deb2002nsga2}
-Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T.~Meyarivan.
+\bibitem[Deb et~al.(2002)Deb, Pratap, Agarwal, and Meyarivan]{deb2002nsga2}
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T. Meyarivan.
 \newblock A fast and elitist multiobjective genetic algorithm: {NSGA-II}.
-\newblock {\em IEEE Trans. Evolutionary Computation}, 6(2):182--197, 2002.
+\newblock \emph{IEEE Trans. Evolutionary Computation}, 6\penalty0 (2):\penalty0
+  182--197, 2002.
 
-\bibitem{dodge2022measuring}
+\bibitem[Dodge et~al.(2022)]{dodge2022measuring}
 Jesse Dodge et~al.
 \newblock Measuring the carbon intensity of {AI} in cloud instances.
-\newblock In {\em ACM FAccT}, 2022.
+\newblock In \emph{ACM FAccT}, 2022.
 
-\bibitem{dong2020nasbench201}
-Xuanyi Dong and Yi~Yang.
+\bibitem[Dong and Yang(2020)]{dong2020nasbench201}
+Xuanyi Dong and Yi Yang.
 \newblock {NAS-Bench-201}: Extending the scope of reproducible neural
   architecture search.
-\newblock In {\em ICLR}, 2020.
+\newblock In \emph{ICLR}, 2020.
 
-\bibitem{elsken2019lemonade}
+\bibitem[Elsken et~al.(2019{\natexlab{a}})Elsken, Metzen, and
+  Hutter]{elsken2019lemonade}
 Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
 \newblock Efficient multi-objective neural architecture search via {Lamarckian}
   evolution.
-\newblock In {\em ICLR}, 2019.
+\newblock In \emph{ICLR}, 2019{\natexlab{a}}.
 
-\bibitem{elsken2019survey}
+\bibitem[Elsken et~al.(2019{\natexlab{b}})Elsken, Metzen, and
+  Hutter]{elsken2019survey}
 Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
 \newblock Neural architecture search: A survey.
-\newblock {\em JMLR}, 20(55):1--21, 2019.
+\newblock \emph{JMLR}, 20\penalty0 (55):\penalty0 1--21, 2019{\natexlab{b}}.
 
-\bibitem{garcia2019estimation}
+\bibitem[Garc\'{i}a-Mart\'{i}n et~al.(2019)Garc\'{i}a-Mart\'{i}n, Rodrigues,
+  Riley, and Grahn]{garcia2019estimation}
 Eva Garc\'{i}a-Mart\'{i}n, Crefeda~Faviola Rodrigues, Graham Riley, and
   H\r{a}kan Grahn.
 \newblock Estimation of energy consumption in machine learning.
-\newblock {\em Journal of Parallel and Distributed Computing}, 2019.
+\newblock \emph{Journal of Parallel and Distributed Computing}, 2019.
 
-\bibitem{gupta2021chasing}
+\bibitem[Gupta et~al.(2021)]{gupta2021chasing}
 Udit Gupta et~al.
 \newblock Chasing carbon: The elusive environmental footprint of computing.
-\newblock In {\em HPCA}, 2021.
+\newblock In \emph{HPCA}, 2021.
 
-\bibitem{henderson2020systematic}
+\bibitem[Henderson et~al.(2020)Henderson, Hu, Romoff, Brunskill, Jurafsky, and
+  Pineau]{henderson2020systematic}
 Peter Henderson, Jieru Hu, Joshua Romoff, Emma Brunskill, Dan Jurafsky, and
   Joelle Pineau.
 \newblock Towards the systematic reporting of the energy and carbon footprints
   of machine learning.
-\newblock {\em JMLR}, 21(248):1--43, 2020.
+\newblock \emph{JMLR}, 21\penalty0 (248):\penalty0 1--43, 2020.
 
-\bibitem{krizhevsky2009learning}
+\bibitem[Krizhevsky(2009)]{krizhevsky2009learning}
 Alex Krizhevsky.
 \newblock Learning multiple layers of features from tiny images.
 \newblock 2009.
 \newblock Technical Report.
 
-\bibitem{li2019random}
+\bibitem[Li and Talwalkar(2019)]{li2019random}
 Liam Li and Ameet Talwalkar.
 \newblock Random search and reproducibility for neural architecture search.
-\newblock In {\em UAI}, 2019.
+\newblock In \emph{UAI}, 2019.
 
-\bibitem{lindauer2020best}
+\bibitem[Lindauer and Hutter(2020)]{lindauer2020best}
 Marius Lindauer and Frank Hutter.
 \newblock Best practices for scientific research on neural architecture search.
-\newblock {\em JMLR}, 21(243):1--18, 2020.
+\newblock \emph{JMLR}, 21\penalty0 (243):\penalty0 1--18, 2020.
 
-\bibitem{liu2019darts}
+\bibitem[Liu et~al.(2019)Liu, Simonyan, and Yang]{liu2019darts}
 Hanxiao Liu, Karen Simonyan, and Yiming Yang.
 \newblock {DARTS}: Differentiable architecture search.
-\newblock In {\em ICLR}, 2019.
+\newblock In \emph{ICLR}, 2019.
 
-\bibitem{lu2019nsganet}
+\bibitem[Lu et~al.(2019)Lu, Whalen, Boddeti, Dhebar, Deb, Goodman, and
+  Banzhaf]{lu2019nsganet}
 Zhichao Lu, Ian Whalen, Vishnu Boddeti, Yashesh Dhebar, Kalyanmoy Deb, Erik
   Goodman, and Wolfgang Banzhaf.
 \newblock {NSGA-Net}: Neural architecture search using multi-objective genetic
   algorithm.
-\newblock In {\em GECCO}, 2019.
+\newblock In \emph{GECCO}, 2019.
 
-\bibitem{luccioni2023bloom}
+\bibitem[Luccioni et~al.(2023)Luccioni, Viguier, and
+  Ligozat]{luccioni2023bloom}
 Alexandra~Sasha Luccioni, Sylvain Viguier, and Anne-Laure Ligozat.
 \newblock Estimating the carbon footprint of {BLOOM}, a 176{B} parameter
   language model.
-\newblock {\em JMLR}, 24(253), 2023.
+\newblock \emph{JMLR}, 24\penalty0 (253), 2023.
 
-\bibitem{patterson2021carbon}
+\bibitem[Patterson et~al.(2021)]{patterson2021carbon}
 David Patterson et~al.
 \newblock Carbon emissions and large neural network training, 2021.
 \newblock arXiv:2104.10350.
 
-\bibitem{pham2018efficient}
+\bibitem[Pham et~al.(2018)Pham, Guan, Zoph, Le, and Dean]{pham2018efficient}
 Hieu Pham, Melody~Y. Guan, Barret Zoph, Quoc~V. Le, and Jeff Dean.
 \newblock Efficient neural architecture search via parameter sharing.
-\newblock In {\em ICML}, 2018.
+\newblock In \emph{ICML}, 2018.
 
-\bibitem{schmidt2021codecarbon}
+\bibitem[Schmidt et~al.(2021)]{schmidt2021codecarbon}
 Victor Schmidt et~al.
 \newblock {CodeCarbon}: Estimate and track carbon emissions from machine
   learning computing, 2021.
 \newblock Zenodo.
 
-\bibitem{schwartz2020green}
+\bibitem[Schwartz et~al.(2020)Schwartz, Dodge, Smith, and
+  Etzioni]{schwartz2020green}
 Roy Schwartz, Jesse Dodge, Noah~A. Smith, and Oren Etzioni.
 \newblock Green {AI}.
-\newblock {\em Communications of the ACM}, 63(12):54--63, 2020.
+\newblock \emph{Communications of the ACM}, 63\penalty0 (12):\penalty0 54--63,
+  2020.
 
-\bibitem{strubell2019energy}
+\bibitem[Strubell et~al.(2019)Strubell, Ganesh, and
+  McCallum]{strubell2019energy}
 Emma Strubell, Ananya Ganesh, and Andrew McCallum.
 \newblock Energy and policy considerations for deep learning in {NLP}.
-\newblock In {\em Proc. ACL}, 2019.
+\newblock In \emph{Proc. ACL}, 2019.
 
-\bibitem{tan2019mnasnet}
-Mingxing Tan, Bo~Chen, Ruoming Pang, Vijay Vasudevan, Mark Sandler, Andrew
+\bibitem[Tan et~al.(2019)Tan, Chen, Pang, Vasudevan, Sandler, Howard, and
+  Le]{tan2019mnasnet}
+Mingxing Tan, Bo Chen, Ruoming Pang, Vijay Vasudevan, Mark Sandler, Andrew
   Howard, and Quoc~V. Le.
 \newblock {MnasNet}: Platform-aware neural architecture search for mobile.
-\newblock In {\em CVPR}, 2019.
+\newblock In \emph{CVPR}, 2019.
 
-\bibitem{verdecchia2023systematic}
+\bibitem[Verdecchia et~al.(2023)Verdecchia, Sallou, and
+  Cruz]{verdecchia2023systematic}
 Roberto Verdecchia, June Sallou, and Lu\'{i}s Cruz.
 \newblock A systematic review of green {AI}.
-\newblock {\em WIREs Data Mining and Knowledge Discovery}, 2023.
+\newblock \emph{WIREs Data Mining and Knowledge Discovery}, 2023.
 
-\bibitem{wu2019fbnet}
+\bibitem[Wu et~al.(2019)]{wu2019fbnet}
 Bichen Wu et~al.
 \newblock {FBNet}: Hardware-aware efficient {ConvNet} design via differentiable
   neural architecture search.
-\newblock In {\em CVPR}, 2019.
+\newblock In \emph{CVPR}, 2019.
 
-\bibitem{wu2022sustainable}
+\bibitem[Wu et~al.(2022)]{wu2022sustainable}
 Carole-Jean Wu et~al.
 \newblock Sustainable {AI}: Environmental implications, challenges and
   opportunities.
-\newblock In {\em MLSys}, 2022.
+\newblock In \emph{MLSys}, 2022.
 
-\bibitem{yang2020nas}
+\bibitem[Yang et~al.(2020)Yang, Esperan{\c{c}}a, and Carlucci]{yang2020nas}
 Antoine Yang, Pedro~M. Esperan{\c{c}}a, and Fabio~M. Carlucci.
 \newblock {NAS} evaluation is frustratingly hard.
-\newblock In {\em ICLR}, 2020.
+\newblock In \emph{ICLR}, 2020.
 
-\bibitem{zhao2024cenas}
-Yiyang Zhao, Yunzhuo Liu, Bo~Jiang, and Tian Guo.
+\bibitem[Zhao et~al.(2024)Zhao, Liu, Jiang, and Guo]{zhao2024cenas}
+Yiyang Zhao, Yunzhuo Liu, Bo Jiang, and Tian Guo.
 \newblock {CE-NAS}: An end-to-end carbon-efficient neural architecture search
   framework.
-\newblock In {\em NeurIPS}, 2024.
+\newblock In \emph{NeurIPS}, 2024.
 
-\bibitem{zoph2017neural}
+\bibitem[Zoph and Le(2017)]{zoph2017neural}
 Barret Zoph and Quoc~V. Le.
 \newblock Neural architecture search with reinforcement learning.
-\newblock In {\em ICLR}, 2017.
+\newblock In \emph{ICLR}, 2017.
 
 \end{thebibliography}

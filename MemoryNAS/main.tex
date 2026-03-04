@@ -5,35 +5,25 @@
 % ---------------------------------------------------------------
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
-% ---------------------------------------------------------------
-% Packages
-% ---------------------------------------------------------------
-\usepackage[letterpaper, left=1.73cm, right=1.73cm, top=2.54cm, bottom=2.54cm]{geometry}
-\usepackage{times}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
-\usepackage{xcolor}
-\definecolor{linkblue}{rgb}{0,0,0.5}
-\usepackage[pagebackref=false,breaklinks=true,colorlinks=true,linkcolor=linkblue,citecolor=linkblue,urlcolor=linkblue,bookmarks=false]{hyperref}
-\usepackage[numbers,sort&compress]{natbib}
-\usepackage{booktabs}
+\usepackage[review]{cvpr}
+
+% Additional packages not loaded by cvpr.sty
 \usepackage{multirow}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 \usepackage{float}
-\usepackage{subcaption}
-\usepackage{microtype}
-\usepackage{enumitem}
+
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+\def\paperID{*****}
+\def\confName{CVPR}
+\def\confYear{2026}
 
 % ---------------------------------------------------------------
 % Custom commands
 % ---------------------------------------------------------------
 \newcommand{\ours}{\textsc{MemoryNAS}}
-\newcommand{\eg}{e.g.,\xspace}
-\newcommand{\ie}{i.e.,\xspace}
-\newcommand{\etal}{\textit{et al.}\xspace}
-\newcommand{\xspace}{}
 
 % ---------------------------------------------------------------
 % Title
@@ -41,11 +31,8 @@
 \title{\ours{}: Multi-Objective Neural Architecture Search \\ with Peak Memory as a First-Class Constraint}
 
 \author{
-Anonymous CVPR-NAS Submission \\
-Paper ID: \textit{[Redacted]}
+Anonymous CVPR-NAS Submission
 }
-
-\date{}
 
 \begin{document}
 \maketitle
@@ -354,9 +341,10 @@ We presented \ours{}, a multi-objective NAS framework that elevates peak GPU mem
 % ---------------------------------------------------------------
 % References
 % ---------------------------------------------------------------
-{\small
-\bibliographystyle{plainnat}
-\bibliography{references}
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{references}
 }
 
 \end{document}

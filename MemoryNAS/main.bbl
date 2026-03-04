@@ -54,13 +54,13 @@ Kalyanmoy Deb and Himanshu Jain.
 \newblock \emph{IEEE Trans. Evolutionary Computation}, 18\penalty0 (4), 2014.
 
 \bibitem[Deb et~al.(2002)Deb, Pratap, Agarwal, and Meyarivan]{deb2002nsga2}
-Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T.~Meyarivan.
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T. Meyarivan.
 \newblock A fast and elitist multiobjective genetic algorithm: {NSGA-II}.
 \newblock \emph{IEEE Trans. Evolutionary Computation}, 6\penalty0 (2), 2002.
 
 \bibitem[Dehghani et~al.(2022)Dehghani, Arnab, Beyer, Vaswani, and
   Tay]{dehghani2022efficiency}
-Mostafa Dehghani, Anurag Arnab, Lucas Beyer, Ashish Vaswani, and Yi~Tay.
+Mostafa Dehghani, Anurag Arnab, Lucas Beyer, Ashish Vaswani, and Yi Tay.
 \newblock The efficiency misnomer.
 \newblock In \emph{ICLR}, 2022.
 
@@ -79,14 +79,14 @@ Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
 
 \bibitem[Gao et~al.(2020)Gao, Liu, Zhang, Li, Zhu, Lin, and
   Yang]{gao2020estimating}
-Yanjie Gao, Yu~Liu, Hongyu Zhang, Zhengxian Li, Yonghao Zhu, Haoxiang Lin, and
+Yanjie Gao, Yu Liu, Hongyu Zhang, Zhengxian Li, Yonghao Zhu, Haoxiang Lin, and
   Mao Yang.
 \newblock Estimating {GPU} memory consumption of deep learning models.
 \newblock In \emph{ESEC/FSE}, 2020.
 
 \bibitem[Howard et~al.(2017)Howard, Zhu, Chen, Kalenichenko, Wang, Weyand,
   Andreetto, and Adam]{howard2017mobilenets}
-Andrew~G. Howard, Menglong Zhu, Bo~Chen, Dmitry Kalenichenko, Weijun Wang,
+Andrew~G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenko, Weijun Wang,
   Tobias Weyand, Marco Andreetto, and Hartwig Adam.
 \newblock {MobileNets}: Efficient convolutional neural networks for mobile
   vision applications.
@@ -99,18 +99,18 @@ Edgar Liberis, {\L}ukasz Dudziak, and Nicholas~D. Lane.
 \newblock In \emph{EuroMLSys}, 2021.
 
 \bibitem[Lin et~al.(2020)Lin, Chen, Lin, Cohn, Gan, and Han]{lin2020mcunet}
-Ji~Lin, Wei-Ming Chen, Yujun Lin, John Cohn, Chuang Gan, and Song Han.
+Ji Lin, Wei-Ming Chen, Yujun Lin, John Cohn, Chuang Gan, and Song Han.
 \newblock {MCUNet}: Tiny deep learning on {IoT} devices.
 \newblock In \emph{NeurIPS}, 2020.
 
 \bibitem[Lin et~al.(2021)Lin, Chen, Cai, Gan, and Han]{lin2021mcunetv2}
-Ji~Lin, Wei-Ming Chen, Han Cai, Chuang Gan, and Song Han.
+Ji Lin, Wei-Ming Chen, Han Cai, Chuang Gan, and Song Han.
 \newblock {MCUNetV2}: Memory-efficient patch-based inference for tiny deep
   learning.
 \newblock In \emph{NeurIPS}, 2021.
 
 \bibitem[Liu et~al.(2020)Liu, Wu, Ma, and Seok]{liu2020memnas}
-Peiye Liu, Bo~Wu, Huadong Ma, and Mingoo Seok.
+Peiye Liu, Bo Wu, Huadong Ma, and Mingoo Seok.
 \newblock {MemNAS}: Memory-efficient neural architecture search with
   augment-trim learning.
 \newblock In \emph{CVPR}, 2020.
@@ -151,13 +151,13 @@ Mingxing Tan and Quoc~V. Le.
 
 \bibitem[Tan et~al.(2019)Tan, Chen, Pang, Vasudevan, Sandler, Howard, and
   Le]{tan2019mnasnet}
-Mingxing Tan, Bo~Chen, Ruoming Pang, Vijay Vasudevan, Mark Sandler, Andrew
+Mingxing Tan, Bo Chen, Ruoming Pang, Vijay Vasudevan, Mark Sandler, Andrew
   Howard, and Quoc~V. Le.
 \newblock {MnasNet}: Platform-aware neural architecture search for mobile.
 \newblock In \emph{CVPR}, 2019.
 
 \bibitem[Wang et~al.(2019)Wang, Liu, Lin, Lin, and Han]{wang2019haq}
-Kuan Wang, Zhijian Liu, Yujun Lin, Ji~Lin, and Song Han.
+Kuan Wang, Zhijian Liu, Yujun Lin, Ji Lin, and Song Han.
 \newblock {HAQ}: Hardware-aware automated quantization with mixed precision.
 \newblock In \emph{CVPR}, 2019.
 
@@ -171,7 +171,7 @@ Bichen Wu, Xiaoliang Dai, Peizhao Zhang, Yanghan Wang, Fei Sun, Yiming Wu,
 
 \bibitem[Yang et~al.(2018)Yang, Howard, Chen, Zhang, Go, Sandler, Sze, and
   Adam]{yang2018netadapt}
-Tien-Ju Yang, Andrew Howard, Bo~Chen, Xiao Zhang, Alec Go, Mark Sandler,
+Tien-Ju Yang, Andrew Howard, Bo Chen, Xiao Zhang, Alec Go, Mark Sandler,
   Vivienne Sze, and Hartwig Adam.
 \newblock {NetAdapt}: Platform-aware neural network adaptation for mobile
   devices.
