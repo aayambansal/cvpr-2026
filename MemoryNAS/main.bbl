@@ -1,0 +1,180 @@
+\begin{thebibliography}{27}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Benmeziane et~al.(2021)Benmeziane, El~Maghraoui, Ouarnoughi, Niar,
+  Wistuba, and Wang]{benmeziane2021hwnas}
+Hadjer Benmeziane, Kaoutar El~Maghraoui, Hamza Ouarnoughi, Smail Niar, Martin
+  Wistuba, and Naigang Wang.
+\newblock Hardware-aware neural architecture search: Survey and taxonomy.
+\newblock In \emph{IJCAI}, 2021.
+
+\bibitem[Blank and Deb(2020)]{blank2020pymoo}
+Julian Blank and Kalyanmoy Deb.
+\newblock pymoo: Multi-objective optimization in {Python}.
+\newblock \emph{IEEE Access}, 8, 2020.
+
+\bibitem[Cai et~al.(2019)Cai, Zhu, and Han]{cai2019proxylessnas}
+Han Cai, Ligeng Zhu, and Song Han.
+\newblock {ProxylessNAS}: Direct neural architecture search on target task and
+  hardware.
+\newblock In \emph{ICLR}, 2019.
+
+\bibitem[Cai et~al.(2020)Cai, Gan, Wang, Zhang, and Han]{cai2020once}
+Han Cai, Chuang Gan, Tianzhe Wang, Zhekai Zhang, and Song Han.
+\newblock Once-for-all: Train one network and specialize it for efficient
+  deployment.
+\newblock In \emph{ICLR}, 2020.
+
+\bibitem[Canziani et~al.(2017)Canziani, Paszke, and
+  Culurciello]{canziani2017analysis}
+Alfredo Canziani, Adam Paszke, and Eugenio Culurciello.
+\newblock An analysis of deep neural network models for practical applications.
+\newblock \emph{arXiv:1605.07678}, 2017.
+
+\bibitem[Chen et~al.(2023)Chen, Kao, He, Zhuo, Wen, Lee, and Chan]{chen2023run}
+Jierun Chen, Shiu-hong Kao, Hao He, Weipeng Zhuo, Song Wen, Chul-Ho Lee, and
+  S.-H.~Gary Chan.
+\newblock Run, don't walk: Chasing higher {FLOPS} for faster neural networks.
+\newblock In \emph{CVPR}, 2023.
+
+\bibitem[Chen et~al.(2016)Chen, Xu, Zhang, and Guestrin]{chen2016training}
+Tianqi Chen, Bing Xu, Chiyuan Zhang, and Carlos Guestrin.
+\newblock Training deep nets with sublinear memory cost.
+\newblock \emph{arXiv:1604.06174}, 2016.
+
+\bibitem[Deb and Jain(2014)]{deb2014nsga3}
+Kalyanmoy Deb and Himanshu Jain.
+\newblock An evolutionary many-objective optimization algorithm using
+  reference-point-based nondominated sorting approach, part {I}: Solving
+  problems with box constraints.
+\newblock \emph{IEEE Trans. Evolutionary Computation}, 18\penalty0 (4), 2014.
+
+\bibitem[Deb et~al.(2002)Deb, Pratap, Agarwal, and Meyarivan]{deb2002nsga2}
+Kalyanmoy Deb, Amrit Pratap, Sameer Agarwal, and T.~Meyarivan.
+\newblock A fast and elitist multiobjective genetic algorithm: {NSGA-II}.
+\newblock \emph{IEEE Trans. Evolutionary Computation}, 6\penalty0 (2), 2002.
+
+\bibitem[Dehghani et~al.(2022)Dehghani, Arnab, Beyer, Vaswani, and
+  Tay]{dehghani2022efficiency}
+Mostafa Dehghani, Anurag Arnab, Lucas Beyer, Ashish Vaswani, and Yi~Tay.
+\newblock The efficiency misnomer.
+\newblock In \emph{ICLR}, 2022.
+
+\bibitem[Elsken et~al.(2019{\natexlab{a}})Elsken, Metzen, and
+  Hutter]{elsken2019lemonade}
+Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
+\newblock Efficient multi-objective neural architecture search via {Lamarckian}
+  evolution.
+\newblock In \emph{ICLR}, 2019{\natexlab{a}}.
+
+\bibitem[Elsken et~al.(2019{\natexlab{b}})Elsken, Metzen, and
+  Hutter]{elsken2019survey}
+Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
+\newblock Neural architecture search: A survey.
+\newblock \emph{JMLR}, 20, 2019{\natexlab{b}}.
+
+\bibitem[Gao et~al.(2020)Gao, Liu, Zhang, Li, Zhu, Lin, and
+  Yang]{gao2020estimating}
+Yanjie Gao, Yu~Liu, Hongyu Zhang, Zhengxian Li, Yonghao Zhu, Haoxiang Lin, and
+  Mao Yang.
+\newblock Estimating {GPU} memory consumption of deep learning models.
+\newblock In \emph{ESEC/FSE}, 2020.
+
+\bibitem[Howard et~al.(2017)Howard, Zhu, Chen, Kalenichenko, Wang, Weyand,
+  Andreetto, and Adam]{howard2017mobilenets}
+Andrew~G. Howard, Menglong Zhu, Bo~Chen, Dmitry Kalenichenko, Weijun Wang,
+  Tobias Weyand, Marco Andreetto, and Hartwig Adam.
+\newblock {MobileNets}: Efficient convolutional neural networks for mobile
+  vision applications.
+\newblock \emph{arXiv:1704.04861}, 2017.
+
+\bibitem[Liberis et~al.(2021)Liberis, Dudziak, and Lane]{liberis2021munas}
+Edgar Liberis, {\L}ukasz Dudziak, and Nicholas~D. Lane.
+\newblock $\mu${NAS}: Constrained neural architecture search for
+  microcontrollers.
+\newblock In \emph{EuroMLSys}, 2021.
+
+\bibitem[Lin et~al.(2020)Lin, Chen, Lin, Cohn, Gan, and Han]{lin2020mcunet}
+Ji~Lin, Wei-Ming Chen, Yujun Lin, John Cohn, Chuang Gan, and Song Han.
+\newblock {MCUNet}: Tiny deep learning on {IoT} devices.
+\newblock In \emph{NeurIPS}, 2020.
+
+\bibitem[Lin et~al.(2021)Lin, Chen, Cai, Gan, and Han]{lin2021mcunetv2}
+Ji~Lin, Wei-Ming Chen, Han Cai, Chuang Gan, and Song Han.
+\newblock {MCUNetV2}: Memory-efficient patch-based inference for tiny deep
+  learning.
+\newblock In \emph{NeurIPS}, 2021.
+
+\bibitem[Liu et~al.(2020)Liu, Wu, Ma, and Seok]{liu2020memnas}
+Peiye Liu, Bo~Wu, Huadong Ma, and Mingoo Seok.
+\newblock {MemNAS}: Memory-efficient neural architecture search with
+  augment-trim learning.
+\newblock In \emph{CVPR}, 2020.
+
+\bibitem[Liu et~al.(2023)Liu, Peng, Zheng, Yang, Hu, and
+  Yuan]{liu2023efficientvit}
+Xinyu Liu, Houwen Peng, Ningxin Zheng, Yuqing Yang, Han Hu, and Yixuan Yuan.
+\newblock {EfficientViT}: Memory efficient vision transformer with cascaded
+  group attention.
+\newblock In \emph{CVPR}, 2023.
+
+\bibitem[Lu et~al.(2019)Lu, Whalen, Boddeti, Dhebar, Deb, Goodman, and
+  Banzhaf]{lu2019nsganet}
+Zhichao Lu, Ian Whalen, Vishnu Boddeti, Yashesh Dhebar, Kalyanmoy Deb, Erik
+  Goodman, and Wolfgang Banzhaf.
+\newblock {NSGA-Net}: Neural architecture search using multi-objective genetic
+  algorithm.
+\newblock In \emph{GECCO}, 2019.
+
+\bibitem[Ma et~al.(2018)Ma, Zhang, Zheng, and Sun]{ma2018shufflenetv2}
+Ningning Ma, Xiangyu Zhang, Hai-Tao Zheng, and Jian Sun.
+\newblock {ShuffleNet V2}: Practical guidelines for efficient {CNN}
+  architecture design.
+\newblock In \emph{ECCV}, 2018.
+
+\bibitem[Sandler et~al.(2018)Sandler, Howard, Zhu, Zhmoginov, and
+  Chen]{sandler2018mobilenetv2}
+Mark Sandler, Andrew Howard, Menglong Zhu, Andrey Zhmoginov, and Liang-Chieh
+  Chen.
+\newblock {MobileNetV2}: Inverted residuals and linear bottlenecks.
+\newblock In \emph{CVPR}, 2018.
+
+\bibitem[Tan and Le(2019)]{tan2019efficientnet}
+Mingxing Tan and Quoc~V. Le.
+\newblock {EfficientNet}: Rethinking model scaling for convolutional neural
+  networks.
+\newblock In \emph{ICML}, 2019.
+
+\bibitem[Tan et~al.(2019)Tan, Chen, Pang, Vasudevan, Sandler, Howard, and
+  Le]{tan2019mnasnet}
+Mingxing Tan, Bo~Chen, Ruoming Pang, Vijay Vasudevan, Mark Sandler, Andrew
+  Howard, and Quoc~V. Le.
+\newblock {MnasNet}: Platform-aware neural architecture search for mobile.
+\newblock In \emph{CVPR}, 2019.
+
+\bibitem[Wang et~al.(2019)Wang, Liu, Lin, Lin, and Han]{wang2019haq}
+Kuan Wang, Zhijian Liu, Yujun Lin, Ji~Lin, and Song Han.
+\newblock {HAQ}: Hardware-aware automated quantization with mixed precision.
+\newblock In \emph{CVPR}, 2019.
+
+\bibitem[Wu et~al.(2019)Wu, Dai, Zhang, Wang, Sun, Wu, Tian, Vajda, Jia, and
+  Keutzer]{wu2019fbnet}
+Bichen Wu, Xiaoliang Dai, Peizhao Zhang, Yanghan Wang, Fei Sun, Yiming Wu,
+  Yuandong Tian, Peter Vajda, Yangqing Jia, and Kurt Keutzer.
+\newblock {FBNet}: Hardware-aware efficient {ConvNet} design via differentiable
+  neural architecture search.
+\newblock In \emph{CVPR}, 2019.
+
+\bibitem[Yang et~al.(2018)Yang, Howard, Chen, Zhang, Go, Sandler, Sze, and
+  Adam]{yang2018netadapt}
+Tien-Ju Yang, Andrew Howard, Bo~Chen, Xiao Zhang, Alec Go, Mark Sandler,
+  Vivienne Sze, and Hartwig Adam.
+\newblock {NetAdapt}: Platform-aware neural network adaptation for mobile
+  devices.
+\newblock In \emph{ECCV}, 2018.
+
+\end{thebibliography}

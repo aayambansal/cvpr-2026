@@ -1,0 +1,758 @@
+{
+  "FP-Large": {
+    "params_m": 8.758,
+    "flops_m": 693.1,
+    "gpu_peak_total_bs1": 44621312,
+    "gpu_peak_total_bs8": 65067520,
+    "gpu_peak_total_bs32": 127752704,
+    "gpu_peak_act_bs1": 8619520,
+    "gpu_peak_act_bs8": 29065728,
+    "gpu_peak_act_bs32": 91750912,
+    "weight_memory": 36001792,
+    "analytical_memory": 1486848,
+    "cifar10_acc": 94.26,
+    "cifar100_acc": 75.49,
+    "train_time_c10": 1638.3,
+    "train_time_c100": 1602.1,
+    "config": {
+      "width_mults": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "depths": [
+        2,
+        3,
+        4,
+        4,
+        4,
+        4,
+        2
+      ],
+      "expansions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "kernels": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  },
+  "FP-Med": {
+    "params_m": 2.248,
+    "flops_m": 199.3,
+    "gpu_peak_total_bs1": 105251840,
+    "gpu_peak_total_bs8": 117101568,
+    "gpu_peak_total_bs32": 158290944,
+    "gpu_peak_act_bs1": 1880576,
+    "gpu_peak_act_bs8": 13730304,
+    "gpu_peak_act_bs32": 54919680,
+    "weight_memory": 103371264,
+    "analytical_memory": 995328,
+    "cifar10_acc": 93.37,
+    "cifar100_acc": 74.26,
+    "train_time_c10": 811.6,
+    "train_time_c100": 832.5,
+    "config": {
+      "width_mults": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        3,
+        3,
+        1
+      ],
+      "expansions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "FP-Small": {
+    "params_m": 0.825,
+    "flops_m": 68.9,
+    "gpu_peak_total_bs1": 43776512,
+    "gpu_peak_total_bs8": 50229760,
+    "gpu_peak_total_bs32": 71979520,
+    "gpu_peak_act_bs1": 1354240,
+    "gpu_peak_act_bs8": 7807488,
+    "gpu_peak_act_bs32": 29557248,
+    "weight_memory": 42422272,
+    "analytical_memory": 552960,
+    "cifar10_acc": 91.99,
+    "cifar100_acc": 71.74,
+    "train_time_c10": 575.3,
+    "train_time_c100": 576.4,
+    "config": {
+      "width_mults": [
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75,
+        0.75
+      ],
+      "depths": [
+        1,
+        2,
+        2,
+        3,
+        2,
+        2,
+        1
+      ],
+      "expansions": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "FP-Tiny": {
+    "params_m": 0.328,
+    "flops_m": 22.9,
+    "gpu_peak_total_bs1": 29120000,
+    "gpu_peak_total_bs8": 32417792,
+    "gpu_peak_total_bs32": 45402112,
+    "gpu_peak_act_bs1": 471040,
+    "gpu_peak_act_bs8": 3768832,
+    "gpu_peak_act_bs32": 16753152,
+    "weight_memory": 28648960,
+    "analytical_memory": 307200,
+    "cifar10_acc": 88.63,
+    "cifar100_acc": 65.86,
+    "train_time_c10": 439.0,
+    "train_time_c100": 427.0,
+    "config": {
+      "width_mults": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "depths": [
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "expansions": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "FP-HighCap": {
+    "params_m": 3.515,
+    "flops_m": 380.7,
+    "gpu_peak_total_bs1": 22941184,
+    "gpu_peak_total_bs8": 39979520,
+    "gpu_peak_total_bs32": 92441088,
+    "gpu_peak_act_bs1": 8619520,
+    "gpu_peak_act_bs8": 25657856,
+    "gpu_peak_act_bs32": 78119424,
+    "weight_memory": 14321664,
+    "analytical_memory": 1241088,
+    "cifar10_acc": 93.87,
+    "cifar100_acc": 75.24,
+    "train_time_c10": 1263.3,
+    "train_time_c100": 1248.3,
+    "config": {
+      "width_mults": [
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25,
+        1.25
+      ],
+      "depths": [
+        2,
+        3,
+        3,
+        4,
+        3,
+        3,
+        1
+      ],
+      "expansions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "kernels": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ]
+    }
+  },
+  "FP-Wide": {
+    "params_m": 2.616,
+    "flops_m": 287.3,
+    "gpu_peak_total_bs1": 62728192,
+    "gpu_peak_total_bs8": 80004096,
+    "gpu_peak_total_bs32": 141640704,
+    "gpu_peak_act_bs1": 3270144,
+    "gpu_peak_act_bs8": 20546048,
+    "gpu_peak_act_bs32": 82182656,
+    "weight_memory": 59458048,
+    "analytical_memory": 1486848,
+    "cifar10_acc": 93.62,
+    "cifar100_acc": 73.86,
+    "train_time_c10": 1495.7,
+    "train_time_c100": 1503.9,
+    "config": {
+      "width_mults": [
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
+      ],
+      "depths": [
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1
+      ],
+      "expansions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "kernels": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ]
+    }
+  },
+  "MN-A": {
+    "params_m": 0.52,
+    "flops_m": 61.4,
+    "gpu_peak_total_bs1": 43607040,
+    "gpu_peak_total_bs8": 48338432,
+    "gpu_peak_total_bs32": 65115648,
+    "gpu_peak_act_bs1": 675840,
+    "gpu_peak_act_bs8": 5407232,
+    "gpu_peak_act_bs32": 22184448,
+    "weight_memory": 42931200,
+    "analytical_memory": 516096,
+    "cifar10_acc": 92.36,
+    "cifar100_acc": 70.87,
+    "train_time_c10": 496.8,
+    "train_time_c100": 450.8,
+    "config": {
+      "width_mults": [
+        0.5,
+        0.75,
+        1.0,
+        1.0,
+        0.75,
+        0.5,
+        0.5
+      ],
+      "depths": [
+        2,
+        2,
+        3,
+        3,
+        2,
+        2,
+        1
+      ],
+      "expansions": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "MN-B": {
+    "params_m": 1.338,
+    "flops_m": 108.3,
+    "gpu_peak_total_bs1": 31285248,
+    "gpu_peak_total_bs8": 36279808,
+    "gpu_peak_total_bs32": 58690048,
+    "gpu_peak_act_bs1": 2444288,
+    "gpu_peak_act_bs8": 7438848,
+    "gpu_peak_act_bs32": 29849088,
+    "weight_memory": 28840960,
+    "analytical_memory": 602112,
+    "cifar10_acc": 92.46,
+    "cifar100_acc": 71.94,
+    "train_time_c10": 518.9,
+    "train_time_c100": 514.6,
+    "config": {
+      "width_mults": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        3,
+        3,
+        1
+      ],
+      "expansions": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "MN-C": {
+    "params_m": 0.788,
+    "flops_m": 75.6,
+    "gpu_peak_total_bs1": 34392064,
+    "gpu_peak_total_bs8": 37755392,
+    "gpu_peak_total_bs32": 49843712,
+    "gpu_peak_act_bs1": 471040,
+    "gpu_peak_act_bs8": 3834368,
+    "gpu_peak_act_bs32": 15922688,
+    "weight_memory": 33921024,
+    "analytical_memory": 307200,
+    "cifar10_acc": 92.02,
+    "cifar100_acc": 71.23,
+    "train_time_c10": 516.5,
+    "train_time_c100": 521.9,
+    "config": {
+      "width_mults": [
+        0.5,
+        0.5,
+        0.75,
+        1.0,
+        1.0,
+        0.75,
+        0.5
+      ],
+      "depths": [
+        2,
+        3,
+        3,
+        4,
+        3,
+        2,
+        1
+      ],
+      "expansions": [
+        3,
+        3,
+        4,
+        4,
+        3,
+        3,
+        3
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        5,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "MN-D": {
+    "params_m": 1.053,
+    "flops_m": 71.6,
+    "gpu_peak_total_bs1": 30556672,
+    "gpu_peak_total_bs8": 34771968,
+    "gpu_peak_total_bs32": 49222656,
+    "gpu_peak_act_bs1": 602112,
+    "gpu_peak_act_bs8": 4817408,
+    "gpu_peak_act_bs32": 19268096,
+    "weight_memory": 29954560,
+    "analytical_memory": 372736,
+    "cifar10_acc": 91.67,
+    "cifar100_acc": 69.33,
+    "train_time_c10": 708.0,
+    "train_time_c100": 712.3,
+    "config": {
+      "width_mults": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "depths": [
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3
+      ],
+      "expansions": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "MN-E": {
+    "params_m": 0.45,
+    "flops_m": 64.5,
+    "gpu_peak_total_bs1": 10560512,
+    "gpu_peak_total_bs8": 17637376,
+    "gpu_peak_total_bs32": 40214528,
+    "gpu_peak_act_bs1": 8619520,
+    "gpu_peak_act_bs8": 15696384,
+    "gpu_peak_act_bs32": 38273536,
+    "weight_memory": 1940992,
+    "analytical_memory": 552960,
+    "cifar10_acc": 91.96,
+    "cifar100_acc": 70.27,
+    "train_time_c10": 587.6,
+    "train_time_c100": 566.4,
+    "config": {
+      "width_mults": [
+        0.75,
+        0.75,
+        1.0,
+        0.75,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "depths": [
+        2,
+        3,
+        3,
+        3,
+        2,
+        2,
+        1
+      ],
+      "expansions": [
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "MN-F": {
+    "params_m": 0.46,
+    "flops_m": 45.6,
+    "gpu_peak_total_bs1": 25299968,
+    "gpu_peak_total_bs8": 29195776,
+    "gpu_peak_total_bs32": 42728960,
+    "gpu_peak_act_bs1": 528384,
+    "gpu_peak_act_bs8": 4424192,
+    "gpu_peak_act_bs32": 17957376,
+    "weight_memory": 24771584,
+    "analytical_memory": 442368,
+    "cifar10_acc": 91.33,
+    "cifar100_acc": 70.71,
+    "train_time_c10": 495.3,
+    "train_time_c100": 503.8,
+    "config": {
+      "width_mults": [
+        0.5,
+        0.75,
+        0.75,
+        0.75,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "depths": [
+        2,
+        2,
+        3,
+        3,
+        3,
+        2,
+        1
+      ],
+      "expansions": [
+        3,
+        3,
+        3,
+        4,
+        3,
+        3,
+        3
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "MBv2-1.0": {
+    "params_m": 2.248,
+    "flops_m": 199.3,
+    "gpu_peak_total_bs1": 34698752,
+    "gpu_peak_total_bs8": 46548480,
+    "gpu_peak_total_bs32": 88196608,
+    "gpu_peak_act_bs1": 1880576,
+    "gpu_peak_act_bs8": 13730304,
+    "gpu_peak_act_bs32": 55378432,
+    "weight_memory": 32818176,
+    "analytical_memory": 995328,
+    "cifar10_acc": 93.46,
+    "cifar100_acc": 74.04,
+    "train_time_c10": 769.3,
+    "train_time_c100": 774.6,
+    "config": {
+      "width_mults": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        3,
+        3,
+        1
+      ],
+      "expansions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  },
+  "MBv2-0.5": {
+    "params_m": 0.701,
+    "flops_m": 59.1,
+    "gpu_peak_total_bs1": 41728512,
+    "gpu_peak_total_bs8": 47385088,
+    "gpu_peak_total_bs32": 68127232,
+    "gpu_peak_act_bs1": 1257984,
+    "gpu_peak_act_bs8": 6914560,
+    "gpu_peak_act_bs32": 27656704,
+    "weight_memory": 40470528,
+    "analytical_memory": 503808,
+    "cifar10_acc": 92.16,
+    "cifar100_acc": 70.84,
+    "train_time_c10": 567.1,
+    "train_time_c100": 553.7,
+    "config": {
+      "width_mults": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "depths": [
+        1,
+        2,
+        3,
+        4,
+        3,
+        3,
+        1
+      ],
+      "expansions": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "kernels": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ]
+    }
+  }
+}
