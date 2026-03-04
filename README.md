@@ -59,3 +59,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](DenseProxy/latex/main.pdf) | [Code & Data](DenseProxy/)
 
 ---
+
+## Paper 5: MemoryNAS
+
+**Title:** MemoryNAS: Multi-Objective Neural Architecture Search with Peak Memory as a First-Class Constraint
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** We introduce MemoryNAS, a multi-objective neural architecture search framework that elevates peak GPU memory from a neglected byproduct to a first-class optimization objective alongside accuracy and FLOPs. While hardware-aware NAS methods predominantly optimize for latency or FLOPs, we demonstrate that these proxies correlate poorly with actual peak memory footprint---the binding constraint on memory-limited deployment targets such as edge GPUs, mobile NPUs, and microcontrollers. Our approach integrates an analytical memory estimator into NSGA-III-based search over a MobileNetV2-style space with >10^15 candidate architectures, treating peak memory as both an optimization objective and a hard constraint. We validate the estimator against real GPU measurements on 50 random architectures, achieving a ranking Spearman rho = 0.995---near-perfect ordinal fidelity for guiding search. We train 14 representative architectures on CIFAR-10/100 using an NVIDIA A10G GPU, revealing that architectures selected by FLOPs-only NAS can consume 2.7x more memory than MemoryNAS-selected alternatives at comparable accuracy (e.g., 158 MB vs. 59 MB at ~93% CIFAR-10 accuracy). We show that FLOPs, parameters, and peak memory are fundamentally different axes: an architecture with 4x fewer parameters and FLOPs can use more peak memory than a larger model.
+
+[Paper PDF](MemoryNAS/main.pdf) | [Code & Data](MemoryNAS/)
+
+---
