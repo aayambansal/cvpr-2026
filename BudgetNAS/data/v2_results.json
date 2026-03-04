@@ -1,0 +1,4753 @@
+{
+ "seeds": {
+  "42": {
+   "fixed": {
+    "method": "Fixed Backbone",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.2425,
+      "ta": 0.2985,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3035,
+      "ta": 0.367,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.3695,
+      "ta": 0.4025,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4245,
+      "ta": 0.43,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0735,
+      "ta": 0.0675,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.086,
+      "ta": 0.1035,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.098,
+      "ta": 0.104,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.107,
+      "ta": 0.1005,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.198,
+      "ta": 0.2155,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2035,
+      "ta": 0.265,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2835,
+      "ta": 0.271,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2955,
+      "ta": 0.2625,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 42.21470904350281,
+     "mut": 0
+    }
+   },
+   "growing": {
+    "method": "Growing (Naive)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.211,
+      "ta": 0.31,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.345,
+      "ta": 0.373,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.4195,
+      "ta": 0.429,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4315,
+      "ta": 0.4455,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0745,
+      "ta": 0.105,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.109,
+      "ta": 0.1235,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.142,
+      "ta": 0.1535,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.1485,
+      "ta": 0.1525,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.209,
+      "ta": 0.2605,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.309,
+      "ta": 0.33,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.3575,
+      "ta": 0.4015,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.418,
+      "ta": 0.4415,
+      "p": 1767210,
+      "bl": 7
+     }
+    ],
+    "arch": [
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "a": "add_2"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "a": "add_2"
+     }
+    ],
+    "over": {
+     "t": 55.1663932800293,
+     "mut": 4
+    }
+   },
+   "ewc": {
+    "method": "EWC",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.231,
+      "ta": 0.2735,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3525,
+      "ta": 0.35,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.3945,
+      "ta": 0.4205,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4315,
+      "ta": 0.4245,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.067,
+      "ta": 0.0695,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.087,
+      "ta": 0.119,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.114,
+      "ta": 0.1145,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.12,
+      "ta": 0.129,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.204,
+      "ta": 0.2405,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2345,
+      "ta": 0.2715,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2735,
+      "ta": 0.274,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2725,
+      "ta": 0.268,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 35.27792835235596,
+     "mut": 0
+    }
+   },
+   "er": {
+    "method": "Exp. Replay",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.315,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.373,
+      "ta": 0.3775,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.431,
+      "ta": 0.4225,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4445,
+      "ta": 0.447,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0445,
+      "ta": 0.0673758865248227,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.0725,
+      "ta": 0.10372340425531915,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.084,
+      "ta": 0.11170212765957446,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.0845,
+      "ta": 0.10726950354609929,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.198,
+      "ta": 0.22296099290780141,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.229,
+      "ta": 0.2557624113475177,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.252,
+      "ta": 0.24645390070921985,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2745,
+      "ta": 0.2522163120567376,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 40.60017681121826,
+     "mut": 0
+    }
+   },
+   "den": {
+    "method": "DEN-style",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.221,
+      "ta": 0.3175,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.2775,
+      "ta": 0.3725,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.401,
+      "ta": 0.4195,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.438,
+      "ta": 0.441,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0735,
+      "ta": 0.0725,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.1075,
+      "ta": 0.1295,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.124,
+      "ta": 0.125,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.13,
+      "ta": 0.1215,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.2015,
+      "ta": 0.247,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2645,
+      "ta": 0.2845,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2795,
+      "ta": 0.2735,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2715,
+      "ta": 0.2685,
+      "p": 1176362,
+      "bl": 5
+     }
+    ],
+    "arch": [
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "a": "den_expand"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "a": "den_expand"
+     }
+    ],
+    "over": {
+     "t": 39.31468915939331,
+     "mut": 2
+    }
+   },
+   "rnas": {
+    "method": "RandomNAS (B=3)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.232,
+      "ta": 0.302,
+      "p": 1505834,
+      "bl": 4
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.254,
+      "ta": 0.3405,
+      "p": 2686506,
+      "bl": 5
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.3925,
+      "ta": 0.4025,
+      "p": 2686506,
+      "bl": 5
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4665,
+      "ta": 0.47,
+      "p": 3867178,
+      "bl": 6
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0995,
+      "ta": 0.118,
+      "p": 3890308,
+      "bl": 6
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.104,
+      "ta": 0.1595,
+      "p": 3890308,
+      "bl": 6
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.1855,
+      "ta": 0.208,
+      "p": 3890308,
+      "bl": 6
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.209,
+      "ta": 0.2005,
+      "p": 3890308,
+      "bl": 6
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.221,
+      "ta": 0.2825,
+      "p": 3867178,
+      "bl": 6
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.33,
+      "ta": 0.385,
+      "p": 5047850,
+      "bl": 7
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.4645,
+      "ta": 0.4925,
+      "p": 6228522,
+      "bl": 8
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.3875,
+      "ta": 0.5685,
+      "p": 5047850,
+      "bl": 7
+     }
+    ],
+    "arch": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "ci": 0,
+      "m": "add_ds"
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "ci": 1,
+      "m": "add_blk"
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "ci": 3,
+      "m": "add_blk"
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "ci": 1,
+      "m": "add_blk"
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "ci": 2,
+      "m": "add_blk"
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "ci": 3,
+      "m": "rm_blk"
+     }
+    ],
+    "over": {
+     "t": 55.03760004043579,
+     "mut": 6
+    }
+   },
+   "bnas": {
+    "method": "BudgetNAS (B=3)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.218,
+      "ta": 0.313,
+      "p": 880938,
+      "bl": 4,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.306,
+      "ta": 0.3975,
+      "p": 1176362,
+      "bl": 5,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.347,
+      "ta": 0.4215,
+      "p": 1471786,
+      "bl": 6,
+      "dr": "False",
+      "mut": "add_blk"
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.432,
+      "ta": 0.4475,
+      "p": 1471786,
+      "bl": 6,
+      "dr": "False",
+      "mut": null
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0845,
+      "ta": 0.097,
+      "p": 1778820,
+      "bl": 7,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.127,
+      "ta": 0.141,
+      "p": 2074244,
+      "bl": 8,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.1365,
+      "ta": 0.16,
+      "p": 3006084,
+      "bl": 9,
+      "dr": "False",
+      "mut": "add_ds"
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.094,
+      "ta": 0.112,
+      "p": 3006084,
+      "bl": 9,
+      "dr": "False",
+      "mut": null
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.2365,
+      "ta": 0.272,
+      "p": 4229674,
+      "bl": 10,
+      "dr": false,
+      "mut": "add_ds"
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.3155,
+      "ta": 0.349,
+      "p": 2982954,
+      "bl": 9,
+      "dr": false,
+      "mut": "rm_blk"
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.299,
+      "ta": 0.34,
+      "p": 4229674,
+      "bl": 10,
+      "dr": "False",
+      "mut": "add_ds"
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.3685,
+      "ta": 0.388,
+      "p": 4229674,
+      "bl": 10,
+      "dr": "False",
+      "mut": null
+     }
+    ],
+    "arch": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "ci": 0,
+      "m": "add_blk",
+      "op": 585514,
+      "np": 880938,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "ci": 1,
+      "m": "add_blk",
+      "op": 880938,
+      "np": 1176362,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "ci": 2,
+      "m": "add_blk",
+      "op": 1176362,
+      "np": 1471786,
+      "rem": 0,
+      "dr": "False"
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "ci": 0,
+      "m": "add_blk",
+      "op": 1483396,
+      "np": 1778820,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "ci": 1,
+      "m": "add_blk",
+      "op": 1778820,
+      "np": 2074244,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "ci": 2,
+      "m": "add_ds",
+      "op": 2074244,
+      "np": 3006084,
+      "rem": 0,
+      "dr": "False"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "ci": 0,
+      "m": "add_ds",
+      "op": 2982954,
+      "np": 4229674,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "ci": 1,
+      "m": "rm_blk",
+      "op": 4229674,
+      "np": 2982954,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "ci": 2,
+      "m": "add_ds",
+      "op": 2982954,
+      "np": 4229674,
+      "rem": 0,
+      "dr": "False"
+     }
+    ],
+    "over": {
+     "t": 67.95825290679932,
+     "mut": 9
+    },
+    "ctrl_log": [
+     {
+      "m": "add_blk",
+      "rem": 2,
+      "acc": 0.218,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 1,
+      "acc": 0.306,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 0,
+      "acc": 0.347,
+      "drift": "False"
+     },
+     {
+      "m": "add_blk",
+      "rem": 2,
+      "acc": 0.0845,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 1,
+      "acc": 0.127,
+      "drift": false
+     },
+     {
+      "m": "add_ds",
+      "rem": 0,
+      "acc": 0.1365,
+      "drift": "False"
+     },
+     {
+      "m": "add_ds",
+      "rem": 2,
+      "acc": 0.2365,
+      "drift": false
+     },
+     {
+      "m": "rm_blk",
+      "rem": 1,
+      "acc": 0.3155,
+      "drift": false
+     },
+     {
+      "m": "add_ds",
+      "rem": 0,
+      "acc": 0.299,
+      "drift": "False"
+     }
+    ]
+   }
+  },
+  "123": {
+   "fixed": {
+    "method": "Fixed Backbone",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.225,
+      "ta": 0.286,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3135,
+      "ta": 0.377,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.383,
+      "ta": 0.42,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4415,
+      "ta": 0.435,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0595,
+      "ta": 0.078,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.073,
+      "ta": 0.101,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.0935,
+      "ta": 0.1135,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.1065,
+      "ta": 0.095,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.2,
+      "ta": 0.186,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2185,
+      "ta": 0.249,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.256,
+      "ta": 0.2715,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.28,
+      "ta": 0.2855,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 34.09413194656372,
+     "mut": 0
+    }
+   },
+   "growing": {
+    "method": "Growing (Naive)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1755,
+      "ta": 0.2935,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3265,
+      "ta": 0.376,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.4105,
+      "ta": 0.4315,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4385,
+      "ta": 0.449,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0825,
+      "ta": 0.1105,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.113,
+      "ta": 0.15,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.1515,
+      "ta": 0.1765,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.167,
+      "ta": 0.157,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.182,
+      "ta": 0.2235,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2875,
+      "ta": 0.291,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.345,
+      "ta": 0.3515,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.357,
+      "ta": 0.388,
+      "p": 1767210,
+      "bl": 7
+     }
+    ],
+    "arch": [
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "a": "add_2"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "a": "add_2"
+     }
+    ],
+    "over": {
+     "t": 51.04286313056946,
+     "mut": 4
+    }
+   },
+   "ewc": {
+    "method": "EWC",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.2275,
+      "ta": 0.314,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3815,
+      "ta": 0.397,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.4445,
+      "ta": 0.437,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4575,
+      "ta": 0.4465,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.064,
+      "ta": 0.0825,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.1005,
+      "ta": 0.1145,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.113,
+      "ta": 0.137,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.126,
+      "ta": 0.1175,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.1805,
+      "ta": 0.2315,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2505,
+      "ta": 0.275,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.286,
+      "ta": 0.279,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2875,
+      "ta": 0.2955,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 35.60884690284729,
+     "mut": 0
+    }
+   },
+   "er": {
+    "method": "Exp. Replay",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.2505,
+      "ta": 0.3245,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3445,
+      "ta": 0.3865,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.4165,
+      "ta": 0.426,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4465,
+      "ta": 0.4465,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0525,
+      "ta": 0.0726950354609929,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.081,
+      "ta": 0.0975177304964539,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.0875,
+      "ta": 0.11879432624113476,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.0925,
+      "ta": 0.1148049645390071,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.2325,
+      "ta": 0.1976950354609929,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.254,
+      "ta": 0.2398049645390071,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2405,
+      "ta": 0.2553191489361702,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.27,
+      "ta": 0.26108156028368795,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 39.84936809539795,
+     "mut": 0
+    }
+   },
+   "den": {
+    "method": "DEN-style",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.2695,
+      "ta": 0.3125,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3135,
+      "ta": 0.367,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.3885,
+      "ta": 0.4225,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4395,
+      "ta": 0.438,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0785,
+      "ta": 0.083,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.112,
+      "ta": 0.1165,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.123,
+      "ta": 0.144,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.132,
+      "ta": 0.1275,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.199,
+      "ta": 0.2375,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.259,
+      "ta": 0.276,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2855,
+      "ta": 0.2895,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.285,
+      "ta": 0.31,
+      "p": 1176362,
+      "bl": 5
+     }
+    ],
+    "arch": [
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "a": "den_expand"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "a": "den_expand"
+     }
+    ],
+    "over": {
+     "t": 39.5503249168396,
+     "mut": 2
+    }
+   },
+   "rnas": {
+    "method": "RandomNAS (B=3)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.225,
+      "ta": 0.286,
+      "p": 290090,
+      "bl": 2
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.2695,
+      "ta": 0.2925,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.298,
+      "ta": 0.3275,
+      "p": 290090,
+      "bl": 2
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.3255,
+      "ta": 0.334,
+      "p": 290090,
+      "bl": 2
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.048,
+      "ta": 0.06,
+      "p": 301700,
+      "bl": 2
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.0725,
+      "ta": 0.0905,
+      "p": 301700,
+      "bl": 2
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.092,
+      "ta": 0.103,
+      "p": 301700,
+      "bl": 2
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.0935,
+      "ta": 0.077,
+      "p": 1233540,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.245,
+      "ta": 0.215,
+      "p": 1210410,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.1915,
+      "ta": 0.2685,
+      "p": 816426,
+      "bl": 2
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.247,
+      "ta": 0.246,
+      "p": 2063146,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.191,
+      "ta": 0.2595,
+      "p": 3309866,
+      "bl": 4
+     }
+    ],
+    "arch": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "ci": 0,
+      "m": "rm_blk"
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "ci": 1,
+      "m": "rm_blk"
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "ci": 2,
+      "m": "rm_blk"
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "ci": 3,
+      "m": "add_ds"
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "ci": 1,
+      "m": "rm_blk"
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "ci": 2,
+      "m": "add_ds"
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "ci": 3,
+      "m": "add_ds"
+     }
+    ],
+    "over": {
+     "t": 47.384546995162964,
+     "mut": 7
+    }
+   },
+   "bnas": {
+    "method": "BudgetNAS (B=3)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.225,
+      "ta": 0.286,
+      "p": 880938,
+      "bl": 4,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3345,
+      "ta": 0.38,
+      "p": 1176362,
+      "bl": 5,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.3485,
+      "ta": 0.43,
+      "p": 1471786,
+      "bl": 6,
+      "dr": "False",
+      "mut": "add_blk"
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.4335,
+      "ta": 0.463,
+      "p": 1471786,
+      "bl": 6,
+      "dr": "False",
+      "mut": null
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0675,
+      "ta": 0.1055,
+      "p": 1778820,
+      "bl": 7,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.115,
+      "ta": 0.144,
+      "p": 2074244,
+      "bl": 8,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.12,
+      "ta": 0.167,
+      "p": 3006084,
+      "bl": 9,
+      "dr": "False",
+      "mut": "add_ds"
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.09,
+      "ta": 0.105,
+      "p": 3006084,
+      "bl": 9,
+      "dr": "False",
+      "mut": null
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.1895,
+      "ta": 0.2525,
+      "p": 4229674,
+      "bl": 10,
+      "dr": false,
+      "mut": "add_ds"
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.306,
+      "ta": 0.3395,
+      "p": 2982954,
+      "bl": 9,
+      "dr": false,
+      "mut": "rm_blk"
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.3055,
+      "ta": 0.373,
+      "p": 4229674,
+      "bl": 10,
+      "dr": "False",
+      "mut": "add_ds"
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.301,
+      "ta": 0.412,
+      "p": 4229674,
+      "bl": 10,
+      "dr": "False",
+      "mut": null
+     }
+    ],
+    "arch": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "ci": 0,
+      "m": "add_blk",
+      "op": 585514,
+      "np": 880938,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "ci": 1,
+      "m": "add_blk",
+      "op": 880938,
+      "np": 1176362,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "ci": 2,
+      "m": "add_blk",
+      "op": 1176362,
+      "np": 1471786,
+      "rem": 0,
+      "dr": "False"
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "ci": 0,
+      "m": "add_blk",
+      "op": 1483396,
+      "np": 1778820,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "ci": 1,
+      "m": "add_blk",
+      "op": 1778820,
+      "np": 2074244,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "ci": 2,
+      "m": "add_ds",
+      "op": 2074244,
+      "np": 3006084,
+      "rem": 0,
+      "dr": "False"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "ci": 0,
+      "m": "add_ds",
+      "op": 2982954,
+      "np": 4229674,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "ci": 1,
+      "m": "rm_blk",
+      "op": 4229674,
+      "np": 2982954,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "ci": 2,
+      "m": "add_ds",
+      "op": 2982954,
+      "np": 4229674,
+      "rem": 0,
+      "dr": "False"
+     }
+    ],
+    "over": {
+     "t": 59.7096688747406,
+     "mut": 9
+    },
+    "ctrl_log": [
+     {
+      "m": "add_blk",
+      "rem": 2,
+      "acc": 0.225,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 1,
+      "acc": 0.3345,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 0,
+      "acc": 0.3485,
+      "drift": "False"
+     },
+     {
+      "m": "add_blk",
+      "rem": 2,
+      "acc": 0.0675,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 1,
+      "acc": 0.115,
+      "drift": false
+     },
+     {
+      "m": "add_ds",
+      "rem": 0,
+      "acc": 0.12,
+      "drift": "False"
+     },
+     {
+      "m": "add_ds",
+      "rem": 2,
+      "acc": 0.1895,
+      "drift": false
+     },
+     {
+      "m": "rm_blk",
+      "rem": 1,
+      "acc": 0.306,
+      "drift": false
+     },
+     {
+      "m": "add_ds",
+      "rem": 0,
+      "acc": 0.3055,
+      "drift": "False"
+     }
+    ]
+   }
+  },
+  "7": {
+   "fixed": {
+    "method": "Fixed Backbone",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.303,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3175,
+      "ta": 0.3685,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.393,
+      "ta": 0.4165,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.414,
+      "ta": 0.423,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.053,
+      "ta": 0.0635,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.094,
+      "ta": 0.092,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.1015,
+      "ta": 0.1025,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.1105,
+      "ta": 0.1005,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.202,
+      "ta": 0.1965,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2215,
+      "ta": 0.2365,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2655,
+      "ta": 0.2655,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2705,
+      "ta": 0.285,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 36.37337517738342,
+     "mut": 0
+    }
+   },
+   "growing": {
+    "method": "Growing (Naive)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.303,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3175,
+      "ta": 0.3685,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.393,
+      "ta": 0.4165,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.414,
+      "ta": 0.423,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.076,
+      "ta": 0.095,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.114,
+      "ta": 0.1125,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.125,
+      "ta": 0.1385,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.148,
+      "ta": 0.139,
+      "p": 1187972,
+      "bl": 5
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.1755,
+      "ta": 0.2345,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2305,
+      "ta": 0.3005,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.287,
+      "ta": 0.3455,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.3395,
+      "ta": 0.396,
+      "p": 1767210,
+      "bl": 7
+     }
+    ],
+    "arch": [
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "a": "add_2"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "a": "add_2"
+     }
+    ],
+    "over": {
+     "t": 58.96202802658081,
+     "mut": 4
+    }
+   },
+   "ewc": {
+    "method": "EWC",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.303,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3175,
+      "ta": 0.3685,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.393,
+      "ta": 0.4165,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.414,
+      "ta": 0.423,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0855,
+      "ta": 0.0825,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.1,
+      "ta": 0.105,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.125,
+      "ta": 0.1285,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.1295,
+      "ta": 0.1175,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.2065,
+      "ta": 0.222,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2425,
+      "ta": 0.2475,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2775,
+      "ta": 0.255,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2685,
+      "ta": 0.2835,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 49.507362842559814,
+     "mut": 0
+    }
+   },
+   "er": {
+    "method": "Exp. Replay",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.303,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3175,
+      "ta": 0.3685,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.393,
+      "ta": 0.4165,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.414,
+      "ta": 0.423,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0495,
+      "ta": 0.0678191489361702,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.0855,
+      "ta": 0.09796099290780141,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.0845,
+      "ta": 0.11657801418439716,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.0995,
+      "ta": 0.1023936170212766,
+      "p": 597124,
+      "bl": 3
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.19,
+      "ta": 0.21143617021276595,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2465,
+      "ta": 0.22739361702127658,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2555,
+      "ta": 0.23448581560283688,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2655,
+      "ta": 0.2717198581560284,
+      "p": 585514,
+      "bl": 3
+     }
+    ],
+    "arch": [],
+    "over": {
+     "t": 53.06558275222778,
+     "mut": 0
+    }
+   },
+   "den": {
+    "method": "DEN-style",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.303,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.3175,
+      "ta": 0.3685,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.393,
+      "ta": 0.4165,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.414,
+      "ta": 0.423,
+      "p": 585514,
+      "bl": 3
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0745,
+      "ta": 0.0925,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.111,
+      "ta": 0.105,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.1225,
+      "ta": 0.121,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.137,
+      "ta": 0.104,
+      "p": 892548,
+      "bl": 4
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.1735,
+      "ta": 0.216,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2385,
+      "ta": 0.2535,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.2735,
+      "ta": 0.2715,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.2795,
+      "ta": 0.2965,
+      "p": 1176362,
+      "bl": 5
+     }
+    ],
+    "arch": [
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "a": "den_expand"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "a": "den_expand"
+     }
+    ],
+    "over": {
+     "t": 52.32599091529846,
+     "mut": 2
+    }
+   },
+   "rnas": {
+    "method": "RandomNAS (B=3)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.303,
+      "p": 880938,
+      "bl": 4
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.2765,
+      "ta": 0.3775,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.3765,
+      "ta": 0.413,
+      "p": 1176362,
+      "bl": 5
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.387,
+      "ta": 0.4665,
+      "p": 1471786,
+      "bl": 6
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.071,
+      "ta": 0.112,
+      "p": 1483396,
+      "bl": 6
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.1245,
+      "ta": 0.1275,
+      "p": 1483396,
+      "bl": 6
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.155,
+      "ta": 0.166,
+      "p": 1483396,
+      "bl": 6
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.175,
+      "ta": 0.174,
+      "p": 1483396,
+      "bl": 6
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.231,
+      "ta": 0.2415,
+      "p": 1471786,
+      "bl": 6
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.2985,
+      "ta": 0.2905,
+      "p": 1471786,
+      "bl": 6
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.322,
+      "ta": 0.3805,
+      "p": 1767210,
+      "bl": 7
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.367,
+      "ta": 0.435,
+      "p": 2687530,
+      "bl": 8
+     }
+    ],
+    "arch": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "ci": 0,
+      "m": "add_blk"
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "ci": 1,
+      "m": "add_blk"
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "ci": 3,
+      "m": "add_blk"
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "ci": 2,
+      "m": "add_blk"
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "ci": 3,
+      "m": "add_ds"
+     }
+    ],
+    "over": {
+     "t": 60.9728057384491,
+     "mut": 5
+    }
+   },
+   "bnas": {
+    "method": "BudgetNAS (B=3)",
+    "timeline": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "chunk": 0,
+      "acc": 0.1875,
+      "ta": 0.303,
+      "p": 880938,
+      "bl": 4,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "chunk": 1,
+      "acc": 0.2765,
+      "ta": 0.3775,
+      "p": 1176362,
+      "bl": 5,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "chunk": 2,
+      "acc": 0.3765,
+      "ta": 0.413,
+      "p": 1471786,
+      "bl": 6,
+      "dr": "False",
+      "mut": "add_blk"
+     },
+     {
+      "step": 3,
+      "ds": "cifar10",
+      "chunk": 3,
+      "acc": 0.388,
+      "ta": 0.4385,
+      "p": 1471786,
+      "bl": 6,
+      "dr": "False",
+      "mut": null
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "chunk": 0,
+      "acc": 0.0915,
+      "ta": 0.11,
+      "p": 1778820,
+      "bl": 7,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "chunk": 1,
+      "acc": 0.1115,
+      "ta": 0.13,
+      "p": 2074244,
+      "bl": 8,
+      "dr": false,
+      "mut": "add_blk"
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "chunk": 2,
+      "acc": 0.126,
+      "ta": 0.16,
+      "p": 3006084,
+      "bl": 9,
+      "dr": "False",
+      "mut": "add_ds"
+     },
+     {
+      "step": 7,
+      "ds": "cifar100",
+      "chunk": 3,
+      "acc": 0.0945,
+      "ta": 0.123,
+      "p": 3006084,
+      "bl": 9,
+      "dr": "False",
+      "mut": null
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "chunk": 0,
+      "acc": 0.1465,
+      "ta": 0.266,
+      "p": 4229674,
+      "bl": 10,
+      "dr": false,
+      "mut": "add_ds"
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "chunk": 1,
+      "acc": 0.293,
+      "ta": 0.3195,
+      "p": 2982954,
+      "bl": 9,
+      "dr": false,
+      "mut": "rm_blk"
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "chunk": 2,
+      "acc": 0.279,
+      "ta": 0.33,
+      "p": 4229674,
+      "bl": 10,
+      "dr": "False",
+      "mut": "add_ds"
+     },
+     {
+      "step": 11,
+      "ds": "svhn",
+      "chunk": 3,
+      "acc": 0.265,
+      "ta": 0.364,
+      "p": 4229674,
+      "bl": 10,
+      "dr": "False",
+      "mut": null
+     }
+    ],
+    "arch": [
+     {
+      "step": 0,
+      "ds": "cifar10",
+      "ci": 0,
+      "m": "add_blk",
+      "op": 585514,
+      "np": 880938,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 1,
+      "ds": "cifar10",
+      "ci": 1,
+      "m": "add_blk",
+      "op": 880938,
+      "np": 1176362,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 2,
+      "ds": "cifar10",
+      "ci": 2,
+      "m": "add_blk",
+      "op": 1176362,
+      "np": 1471786,
+      "rem": 0,
+      "dr": "False"
+     },
+     {
+      "step": 4,
+      "ds": "cifar100",
+      "ci": 0,
+      "m": "add_blk",
+      "op": 1483396,
+      "np": 1778820,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 5,
+      "ds": "cifar100",
+      "ci": 1,
+      "m": "add_blk",
+      "op": 1778820,
+      "np": 2074244,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 6,
+      "ds": "cifar100",
+      "ci": 2,
+      "m": "add_ds",
+      "op": 2074244,
+      "np": 3006084,
+      "rem": 0,
+      "dr": "False"
+     },
+     {
+      "step": 8,
+      "ds": "svhn",
+      "ci": 0,
+      "m": "add_ds",
+      "op": 2982954,
+      "np": 4229674,
+      "rem": 2,
+      "dr": false
+     },
+     {
+      "step": 9,
+      "ds": "svhn",
+      "ci": 1,
+      "m": "rm_blk",
+      "op": 4229674,
+      "np": 2982954,
+      "rem": 1,
+      "dr": false
+     },
+     {
+      "step": 10,
+      "ds": "svhn",
+      "ci": 2,
+      "m": "add_ds",
+      "op": 2982954,
+      "np": 4229674,
+      "rem": 0,
+      "dr": "False"
+     }
+    ],
+    "over": {
+     "t": 65.63528895378113,
+     "mut": 9
+    },
+    "ctrl_log": [
+     {
+      "m": "add_blk",
+      "rem": 2,
+      "acc": 0.1875,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 1,
+      "acc": 0.2765,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 0,
+      "acc": 0.3765,
+      "drift": "False"
+     },
+     {
+      "m": "add_blk",
+      "rem": 2,
+      "acc": 0.0915,
+      "drift": false
+     },
+     {
+      "m": "add_blk",
+      "rem": 1,
+      "acc": 0.1115,
+      "drift": false
+     },
+     {
+      "m": "add_ds",
+      "rem": 0,
+      "acc": 0.126,
+      "drift": "False"
+     },
+     {
+      "m": "add_ds",
+      "rem": 2,
+      "acc": 0.1465,
+      "drift": false
+     },
+     {
+      "m": "rm_blk",
+      "rem": 1,
+      "acc": 0.293,
+      "drift": false
+     },
+     {
+      "m": "add_ds",
+      "rem": 0,
+      "acc": 0.279,
+      "drift": "False"
+     }
+    ]
+   }
+  }
+ },
+ "budget_sweep": {
+  "0": {
+   "method": "BudgetNAS (B=0)",
+   "timeline": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "chunk": 0,
+     "acc": 0.2425,
+     "ta": 0.2985,
+     "p": 585514,
+     "bl": 3,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "chunk": 1,
+     "acc": 0.3035,
+     "ta": 0.367,
+     "p": 585514,
+     "bl": 3,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 2,
+     "ds": "cifar10",
+     "chunk": 2,
+     "acc": 0.3695,
+     "ta": 0.4025,
+     "p": 585514,
+     "bl": 3,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 3,
+     "ds": "cifar10",
+     "chunk": 3,
+     "acc": 0.4245,
+     "ta": 0.43,
+     "p": 585514,
+     "bl": 3,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "chunk": 0,
+     "acc": 0.081,
+     "ta": 0.0785,
+     "p": 597124,
+     "bl": 3,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "chunk": 1,
+     "acc": 0.1075,
+     "ta": 0.1175,
+     "p": 597124,
+     "bl": 3,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 6,
+     "ds": "cifar100",
+     "chunk": 2,
+     "acc": 0.111,
+     "ta": 0.1205,
+     "p": 597124,
+     "bl": 3,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 7,
+     "ds": "cifar100",
+     "chunk": 3,
+     "acc": 0.1205,
+     "ta": 0.1145,
+     "p": 597124,
+     "bl": 3,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "chunk": 0,
+     "acc": 0.241,
+     "ta": 0.2215,
+     "p": 585514,
+     "bl": 3,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "chunk": 1,
+     "acc": 0.1945,
+     "ta": 0.2715,
+     "p": 585514,
+     "bl": 3,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 10,
+     "ds": "svhn",
+     "chunk": 2,
+     "acc": 0.2545,
+     "ta": 0.267,
+     "p": 585514,
+     "bl": 3,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 11,
+     "ds": "svhn",
+     "chunk": 3,
+     "acc": 0.242,
+     "ta": 0.2565,
+     "p": 585514,
+     "bl": 3,
+     "dr": "False",
+     "mut": null
+    }
+   ],
+   "arch": [],
+   "over": {
+    "t": 34.13398814201355,
+    "mut": 0
+   },
+   "ctrl_log": []
+  },
+  "1": {
+   "method": "BudgetNAS (B=1)",
+   "timeline": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "chunk": 0,
+     "acc": 0.2425,
+     "ta": 0.2985,
+     "p": 880938,
+     "bl": 4,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "chunk": 1,
+     "acc": 0.2865,
+     "ta": 0.3775,
+     "p": 880938,
+     "bl": 4,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 2,
+     "ds": "cifar10",
+     "chunk": 2,
+     "acc": 0.388,
+     "ta": 0.411,
+     "p": 880938,
+     "bl": 4,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 3,
+     "ds": "cifar10",
+     "chunk": 3,
+     "acc": 0.4175,
+     "ta": 0.467,
+     "p": 880938,
+     "bl": 4,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "chunk": 0,
+     "acc": 0.092,
+     "ta": 0.089,
+     "p": 1187972,
+     "bl": 5,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "chunk": 1,
+     "acc": 0.104,
+     "ta": 0.117,
+     "p": 1187972,
+     "bl": 5,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 6,
+     "ds": "cifar100",
+     "chunk": 2,
+     "acc": 0.121,
+     "ta": 0.1425,
+     "p": 1187972,
+     "bl": 5,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 7,
+     "ds": "cifar100",
+     "chunk": 3,
+     "acc": 0.1355,
+     "ta": 0.1445,
+     "p": 1187972,
+     "bl": 5,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "chunk": 0,
+     "acc": 0.156,
+     "ta": 0.2455,
+     "p": 1471786,
+     "bl": 6,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "chunk": 1,
+     "acc": 0.257,
+     "ta": 0.286,
+     "p": 1471786,
+     "bl": 6,
+     "dr": false,
+     "mut": null
+    },
+    {
+     "step": 10,
+     "ds": "svhn",
+     "chunk": 2,
+     "acc": 0.287,
+     "ta": 0.3525,
+     "p": 1471786,
+     "bl": 6,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 11,
+     "ds": "svhn",
+     "chunk": 3,
+     "acc": 0.37,
+     "ta": 0.388,
+     "p": 1471786,
+     "bl": 6,
+     "dr": "False",
+     "mut": null
+    }
+   ],
+   "arch": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 585514,
+     "np": 880938,
+     "rem": 0,
+     "dr": false
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 892548,
+     "np": 1187972,
+     "rem": 0,
+     "dr": false
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 1176362,
+     "np": 1471786,
+     "rem": 0,
+     "dr": false
+    }
+   ],
+   "over": {
+    "t": 57.86857485771179,
+    "mut": 3
+   },
+   "ctrl_log": [
+    {
+     "m": "add_blk",
+     "rem": 0,
+     "acc": 0.2425,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 0,
+     "acc": 0.092,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 0,
+     "acc": 0.156,
+     "drift": false
+    }
+   ]
+  },
+  "2": {
+   "method": "BudgetNAS (B=2)",
+   "timeline": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "chunk": 0,
+     "acc": 0.2425,
+     "ta": 0.2985,
+     "p": 880938,
+     "bl": 4,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "chunk": 1,
+     "acc": 0.2865,
+     "ta": 0.3775,
+     "p": 1176362,
+     "bl": 5,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 2,
+     "ds": "cifar10",
+     "chunk": 2,
+     "acc": 0.342,
+     "ta": 0.4175,
+     "p": 1176362,
+     "bl": 5,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 3,
+     "ds": "cifar10",
+     "chunk": 3,
+     "acc": 0.3885,
+     "ta": 0.4635,
+     "p": 1176362,
+     "bl": 5,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "chunk": 0,
+     "acc": 0.0675,
+     "ta": 0.098,
+     "p": 1483396,
+     "bl": 6,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "chunk": 1,
+     "acc": 0.1075,
+     "ta": 0.136,
+     "p": 1778820,
+     "bl": 7,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 6,
+     "ds": "cifar100",
+     "chunk": 2,
+     "acc": 0.106,
+     "ta": 0.144,
+     "p": 1778820,
+     "bl": 7,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 7,
+     "ds": "cifar100",
+     "chunk": 3,
+     "acc": 0.148,
+     "ta": 0.1755,
+     "p": 1778820,
+     "bl": 7,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "chunk": 0,
+     "acc": 0.172,
+     "ta": 0.238,
+     "p": 2062634,
+     "bl": 8,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "chunk": 1,
+     "acc": 0.248,
+     "ta": 0.301,
+     "p": 2982954,
+     "bl": 9,
+     "dr": false,
+     "mut": "add_ds"
+    },
+    {
+     "step": 10,
+     "ds": "svhn",
+     "chunk": 2,
+     "acc": 0.31,
+     "ta": 0.3085,
+     "p": 2982954,
+     "bl": 9,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 11,
+     "ds": "svhn",
+     "chunk": 3,
+     "acc": 0.3365,
+     "ta": 0.3845,
+     "p": 2982954,
+     "bl": 9,
+     "dr": "False",
+     "mut": null
+    }
+   ],
+   "arch": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 585514,
+     "np": 880938,
+     "rem": 1,
+     "dr": false
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "ci": 1,
+     "m": "add_blk",
+     "op": 880938,
+     "np": 1176362,
+     "rem": 0,
+     "dr": false
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 1187972,
+     "np": 1483396,
+     "rem": 1,
+     "dr": false
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "ci": 1,
+     "m": "add_blk",
+     "op": 1483396,
+     "np": 1778820,
+     "rem": 0,
+     "dr": false
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 1767210,
+     "np": 2062634,
+     "rem": 1,
+     "dr": false
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "ci": 1,
+     "m": "add_ds",
+     "op": 2062634,
+     "np": 2982954,
+     "rem": 0,
+     "dr": false
+    }
+   ],
+   "over": {
+    "t": 168.95222306251526,
+    "mut": 6
+   },
+   "ctrl_log": [
+    {
+     "m": "add_blk",
+     "rem": 1,
+     "acc": 0.2425,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 0,
+     "acc": 0.2865,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 1,
+     "acc": 0.0675,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 0,
+     "acc": 0.1075,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 1,
+     "acc": 0.172,
+     "drift": false
+    },
+    {
+     "m": "add_ds",
+     "rem": 0,
+     "acc": 0.248,
+     "drift": false
+    }
+   ]
+  },
+  "3": {
+   "method": "BudgetNAS (B=3)",
+   "timeline": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "chunk": 0,
+     "acc": 0.2425,
+     "ta": 0.2985,
+     "p": 880938,
+     "bl": 4,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "chunk": 1,
+     "acc": 0.2865,
+     "ta": 0.3775,
+     "p": 1176362,
+     "bl": 5,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 2,
+     "ds": "cifar10",
+     "chunk": 2,
+     "acc": 0.342,
+     "ta": 0.4175,
+     "p": 1471786,
+     "bl": 6,
+     "dr": "False",
+     "mut": "add_blk"
+    },
+    {
+     "step": 3,
+     "ds": "cifar10",
+     "chunk": 3,
+     "acc": 0.3515,
+     "ta": 0.433,
+     "p": 1471786,
+     "bl": 6,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "chunk": 0,
+     "acc": 0.094,
+     "ta": 0.093,
+     "p": 1778820,
+     "bl": 7,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "chunk": 1,
+     "acc": 0.1365,
+     "ta": 0.1395,
+     "p": 2074244,
+     "bl": 8,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 6,
+     "ds": "cifar100",
+     "chunk": 2,
+     "acc": 0.128,
+     "ta": 0.1615,
+     "p": 3006084,
+     "bl": 9,
+     "dr": "False",
+     "mut": "add_ds"
+    },
+    {
+     "step": 7,
+     "ds": "cifar100",
+     "chunk": 3,
+     "acc": 0.1015,
+     "ta": 0.122,
+     "p": 3006084,
+     "bl": 9,
+     "dr": "False",
+     "mut": null
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "chunk": 0,
+     "acc": 0.256,
+     "ta": 0.2625,
+     "p": 4229674,
+     "bl": 10,
+     "dr": false,
+     "mut": "add_ds"
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "chunk": 1,
+     "acc": 0.2975,
+     "ta": 0.337,
+     "p": 2982954,
+     "bl": 9,
+     "dr": false,
+     "mut": "rm_blk"
+    },
+    {
+     "step": 10,
+     "ds": "svhn",
+     "chunk": 2,
+     "acc": 0.291,
+     "ta": 0.3295,
+     "p": 4229674,
+     "bl": 10,
+     "dr": "False",
+     "mut": "add_ds"
+    },
+    {
+     "step": 11,
+     "ds": "svhn",
+     "chunk": 3,
+     "acc": 0.3165,
+     "ta": 0.3825,
+     "p": 4229674,
+     "bl": 10,
+     "dr": "False",
+     "mut": null
+    }
+   ],
+   "arch": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 585514,
+     "np": 880938,
+     "rem": 2,
+     "dr": false
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "ci": 1,
+     "m": "add_blk",
+     "op": 880938,
+     "np": 1176362,
+     "rem": 1,
+     "dr": false
+    },
+    {
+     "step": 2,
+     "ds": "cifar10",
+     "ci": 2,
+     "m": "add_blk",
+     "op": 1176362,
+     "np": 1471786,
+     "rem": 0,
+     "dr": "False"
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 1483396,
+     "np": 1778820,
+     "rem": 2,
+     "dr": false
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "ci": 1,
+     "m": "add_blk",
+     "op": 1778820,
+     "np": 2074244,
+     "rem": 1,
+     "dr": false
+    },
+    {
+     "step": 6,
+     "ds": "cifar100",
+     "ci": 2,
+     "m": "add_ds",
+     "op": 2074244,
+     "np": 3006084,
+     "rem": 0,
+     "dr": "False"
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "ci": 0,
+     "m": "add_ds",
+     "op": 2982954,
+     "np": 4229674,
+     "rem": 2,
+     "dr": false
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "ci": 1,
+     "m": "rm_blk",
+     "op": 4229674,
+     "np": 2982954,
+     "rem": 1,
+     "dr": false
+    },
+    {
+     "step": 10,
+     "ds": "svhn",
+     "ci": 2,
+     "m": "add_ds",
+     "op": 2982954,
+     "np": 4229674,
+     "rem": 0,
+     "dr": "False"
+    }
+   ],
+   "over": {
+    "t": 350.569495677948,
+    "mut": 9
+   },
+   "ctrl_log": [
+    {
+     "m": "add_blk",
+     "rem": 2,
+     "acc": 0.2425,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 1,
+     "acc": 0.2865,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 0,
+     "acc": 0.342,
+     "drift": "False"
+    },
+    {
+     "m": "add_blk",
+     "rem": 2,
+     "acc": 0.094,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 1,
+     "acc": 0.1365,
+     "drift": false
+    },
+    {
+     "m": "add_ds",
+     "rem": 0,
+     "acc": 0.128,
+     "drift": "False"
+    },
+    {
+     "m": "add_ds",
+     "rem": 2,
+     "acc": 0.256,
+     "drift": false
+    },
+    {
+     "m": "rm_blk",
+     "rem": 1,
+     "acc": 0.2975,
+     "drift": false
+    },
+    {
+     "m": "add_ds",
+     "rem": 0,
+     "acc": 0.291,
+     "drift": "False"
+    }
+   ]
+  },
+  "5": {
+   "method": "BudgetNAS (B=5)",
+   "timeline": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "chunk": 0,
+     "acc": 0.2425,
+     "ta": 0.2985,
+     "p": 880938,
+     "bl": 4,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "chunk": 1,
+     "acc": 0.2865,
+     "ta": 0.3775,
+     "p": 1176362,
+     "bl": 5,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 2,
+     "ds": "cifar10",
+     "chunk": 2,
+     "acc": 0.342,
+     "ta": 0.4175,
+     "p": 1471786,
+     "bl": 6,
+     "dr": "False",
+     "mut": "add_blk"
+    },
+    {
+     "step": 3,
+     "ds": "cifar10",
+     "chunk": 3,
+     "acc": 0.3515,
+     "ta": 0.433,
+     "p": 1767210,
+     "bl": 7,
+     "dr": "False",
+     "mut": "add_blk"
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "chunk": 0,
+     "acc": 0.098,
+     "ta": 0.114,
+     "p": 2074244,
+     "bl": 8,
+     "dr": false,
+     "mut": "add_blk"
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "chunk": 1,
+     "acc": 0.118,
+     "ta": 0.153,
+     "p": 3006084,
+     "bl": 9,
+     "dr": false,
+     "mut": "add_ds"
+    },
+    {
+     "step": 6,
+     "ds": "cifar100",
+     "chunk": 2,
+     "acc": 0.102,
+     "ta": 0.1025,
+     "p": 4252804,
+     "bl": 10,
+     "dr": "False",
+     "mut": "add_ds"
+    },
+    {
+     "step": 7,
+     "ds": "cifar100",
+     "chunk": 3,
+     "acc": 0.103,
+     "ta": 0.1225,
+     "p": 3006084,
+     "bl": 9,
+     "dr": "False",
+     "mut": "rm_blk"
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "chunk": 0,
+     "acc": 0.2185,
+     "ta": 0.2675,
+     "p": 4229674,
+     "bl": 10,
+     "dr": false,
+     "mut": "add_ds"
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "chunk": 1,
+     "acc": 0.3015,
+     "ta": 0.3405,
+     "p": 2982954,
+     "bl": 9,
+     "dr": false,
+     "mut": "rm_blk"
+    },
+    {
+     "step": 10,
+     "ds": "svhn",
+     "chunk": 2,
+     "acc": 0.292,
+     "ta": 0.33,
+     "p": 4229674,
+     "bl": 10,
+     "dr": "False",
+     "mut": "add_ds"
+    },
+    {
+     "step": 11,
+     "ds": "svhn",
+     "chunk": 3,
+     "acc": 0.256,
+     "ta": 0.3655,
+     "p": 2982954,
+     "bl": 9,
+     "dr": "False",
+     "mut": "rm_blk"
+    }
+   ],
+   "arch": [
+    {
+     "step": 0,
+     "ds": "cifar10",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 585514,
+     "np": 880938,
+     "rem": 4,
+     "dr": false
+    },
+    {
+     "step": 1,
+     "ds": "cifar10",
+     "ci": 1,
+     "m": "add_blk",
+     "op": 880938,
+     "np": 1176362,
+     "rem": 3,
+     "dr": false
+    },
+    {
+     "step": 2,
+     "ds": "cifar10",
+     "ci": 2,
+     "m": "add_blk",
+     "op": 1176362,
+     "np": 1471786,
+     "rem": 2,
+     "dr": "False"
+    },
+    {
+     "step": 3,
+     "ds": "cifar10",
+     "ci": 3,
+     "m": "add_blk",
+     "op": 1471786,
+     "np": 1767210,
+     "rem": 1,
+     "dr": "False"
+    },
+    {
+     "step": 4,
+     "ds": "cifar100",
+     "ci": 0,
+     "m": "add_blk",
+     "op": 1778820,
+     "np": 2074244,
+     "rem": 4,
+     "dr": false
+    },
+    {
+     "step": 5,
+     "ds": "cifar100",
+     "ci": 1,
+     "m": "add_ds",
+     "op": 2074244,
+     "np": 3006084,
+     "rem": 3,
+     "dr": false
+    },
+    {
+     "step": 6,
+     "ds": "cifar100",
+     "ci": 2,
+     "m": "add_ds",
+     "op": 3006084,
+     "np": 4252804,
+     "rem": 2,
+     "dr": "False"
+    },
+    {
+     "step": 7,
+     "ds": "cifar100",
+     "ci": 3,
+     "m": "rm_blk",
+     "op": 4252804,
+     "np": 3006084,
+     "rem": 1,
+     "dr": "False"
+    },
+    {
+     "step": 8,
+     "ds": "svhn",
+     "ci": 0,
+     "m": "add_ds",
+     "op": 2982954,
+     "np": 4229674,
+     "rem": 4,
+     "dr": false
+    },
+    {
+     "step": 9,
+     "ds": "svhn",
+     "ci": 1,
+     "m": "rm_blk",
+     "op": 4229674,
+     "np": 2982954,
+     "rem": 3,
+     "dr": false
+    },
+    {
+     "step": 10,
+     "ds": "svhn",
+     "ci": 2,
+     "m": "add_ds",
+     "op": 2982954,
+     "np": 4229674,
+     "rem": 2,
+     "dr": "False"
+    },
+    {
+     "step": 11,
+     "ds": "svhn",
+     "ci": 3,
+     "m": "rm_blk",
+     "op": 4229674,
+     "np": 2982954,
+     "rem": 1,
+     "dr": "False"
+    }
+   ],
+   "over": {
+    "t": 366.7130970954895,
+    "mut": 12
+   },
+   "ctrl_log": [
+    {
+     "m": "add_blk",
+     "rem": 4,
+     "acc": 0.2425,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 3,
+     "acc": 0.2865,
+     "drift": false
+    },
+    {
+     "m": "add_blk",
+     "rem": 2,
+     "acc": 0.342,
+     "drift": "False"
+    },
+    {
+     "m": "add_blk",
+     "rem": 1,
+     "acc": 0.3515,
+     "drift": "False"
+    },
+    {
+     "m": "add_blk",
+     "rem": 4,
+     "acc": 0.098,
+     "drift": false
+    },
+    {
+     "m": "add_ds",
+     "rem": 3,
+     "acc": 0.118,
+     "drift": false
+    },
+    {
+     "m": "add_ds",
+     "rem": 2,
+     "acc": 0.102,
+     "drift": "False"
+    },
+    {
+     "m": "rm_blk",
+     "rem": 1,
+     "acc": 0.103,
+     "drift": "False"
+    },
+    {
+     "m": "add_ds",
+     "rem": 4,
+     "acc": 0.2185,
+     "drift": false
+    },
+    {
+     "m": "rm_blk",
+     "rem": 3,
+     "acc": 0.3015,
+     "drift": false
+    },
+    {
+     "m": "add_ds",
+     "rem": 2,
+     "acc": 0.292,
+     "drift": "False"
+    },
+    {
+     "m": "rm_blk",
+     "rem": 1,
+     "acc": 0.256,
+     "drift": "False"
+    }
+   ]
+  }
+ },
+ "gradual": {
+  "fixed": {
+   "method": "Fixed (Gradual)",
+   "timeline": [
+    {
+     "step": 0,
+     "label": "cifar10",
+     "acc": 0.3025,
+     "p": 585514,
+     "bl": 3
+    },
+    {
+     "step": 1,
+     "label": "cifar10",
+     "acc": 0.3285,
+     "p": 585514,
+     "bl": 3
+    },
+    {
+     "step": 2,
+     "label": "cifar10",
+     "acc": 0.327,
+     "p": 585514,
+     "bl": 3
+    },
+    {
+     "step": 3,
+     "label": "blend_cifar10_cifar100",
+     "acc": 0.0105,
+     "p": 597124,
+     "bl": 3
+    },
+    {
+     "step": 4,
+     "label": "cifar100",
+     "acc": 0.074,
+     "p": 597124,
+     "bl": 3
+    },
+    {
+     "step": 5,
+     "label": "cifar100",
+     "acc": 0.089,
+     "p": 597124,
+     "bl": 3
+    },
+    {
+     "step": 6,
+     "label": "cifar100",
+     "acc": 0.113,
+     "p": 597124,
+     "bl": 3
+    },
+    {
+     "step": 7,
+     "label": "blend_cifar100_svhn",
+     "acc": 0.1605,
+     "p": 585514,
+     "bl": 3
+    },
+    {
+     "step": 8,
+     "label": "svhn",
+     "acc": 0.2085,
+     "p": 585514,
+     "bl": 3
+    },
+    {
+     "step": 9,
+     "label": "svhn",
+     "acc": 0.213,
+     "p": 585514,
+     "bl": 3
+    },
+    {
+     "step": 10,
+     "label": "svhn",
+     "acc": 0.2935,
+     "p": 585514,
+     "bl": 3
+    }
+   ],
+   "over": {
+    "t": 201.44650220870972
+   }
+  },
+  "bnas": {
+   "method": "BudgetNAS (Gradual)",
+   "timeline": [
+    {
+     "step": 0,
+     "label": "cifar10",
+     "acc": 0.3025,
+     "p": 880938,
+     "bl": 4
+    },
+    {
+     "step": 1,
+     "label": "cifar10",
+     "acc": 0.39,
+     "p": 1176362,
+     "bl": 5
+    },
+    {
+     "step": 2,
+     "label": "cifar10",
+     "acc": 0.4025,
+     "p": 1471786,
+     "bl": 6
+    },
+    {
+     "step": 3,
+     "label": "blend_cifar10_cifar100",
+     "acc": 0.015,
+     "p": 1778820,
+     "bl": 7
+    },
+    {
+     "step": 4,
+     "label": "cifar100",
+     "acc": 0.0915,
+     "p": 2074244,
+     "bl": 8
+    },
+    {
+     "step": 5,
+     "label": "cifar100",
+     "acc": 0.1395,
+     "p": 3006084,
+     "bl": 9
+    },
+    {
+     "step": 6,
+     "label": "cifar100",
+     "acc": 0.129,
+     "p": 3006084,
+     "bl": 9
+    },
+    {
+     "step": 7,
+     "label": "blend_cifar100_svhn",
+     "acc": 0.173,
+     "p": 4229674,
+     "bl": 10
+    },
+    {
+     "step": 8,
+     "label": "svhn",
+     "acc": 0.2255,
+     "p": 2982954,
+     "bl": 9
+    },
+    {
+     "step": 9,
+     "label": "svhn",
+     "acc": 0.2705,
+     "p": 4229674,
+     "bl": 10
+    },
+    {
+     "step": 10,
+     "label": "svhn",
+     "acc": 0.4155,
+     "p": 4229674,
+     "bl": 10
+    }
+   ],
+   "over": {
+    "t": 43.349353313446045
+   }
+  }
+ },
+ "aggregated": {
+  "fixed": {
+   "cifar10": {
+    "fm": 42.66666666666667,
+    "fs": 1.1330882087855698,
+    "am": 33.45833333333333,
+    "a_s": 0.5213497439872342,
+    "p": 585514,
+    "bl": 3
+   },
+   "cifar100": {
+    "fm": 10.8,
+    "fs": 0.17795130420052202,
+    "am": 8.8,
+    "a_s": 0.3492551598282639,
+    "p": 597124,
+    "bl": 3
+   },
+   "svhn": {
+    "fm": 28.200000000000003,
+    "fs": 1.0303721010715807,
+    "am": 24.120833333333334,
+    "a_s": 0.281612420811929,
+    "p": 585514,
+    "bl": 3
+   },
+   "wt": 37.560738722483315,
+   "mut": 0.0
+  },
+  "growing": {
+   "cifar10": {
+    "fm": 42.8,
+    "fs": 1.030372101071583,
+    "am": 33.916666666666664,
+    "a_s": 0.9747506803736474,
+    "p": 585514,
+    "bl": 3
+   },
+   "cifar100": {
+    "fm": 15.45,
+    "fs": 0.8841191473249903,
+    "am": 12.091666666666667,
+    "a_s": 0.5478493304631205,
+    "p": 1187972,
+    "bl": 5
+   },
+   "svhn": {
+    "fm": 37.15,
+    "fs": 3.364768441760392,
+    "am": 29.145833333333332,
+    "a_s": 2.665702950859717,
+    "p": 1767210,
+    "bl": 7
+   },
+   "wt": 55.05709481239319,
+   "mut": 4.0
+  },
+  "ewc": {
+   "cifar10": {
+    "fm": 43.43333333333333,
+    "fs": 1.787145458234694,
+    "am": 35.270833333333336,
+    "a_s": 2.0311720070496797,
+    "p": 585514,
+    "bl": 3
+   },
+   "cifar100": {
+    "fm": 12.516666666666667,
+    "fs": 0.39228674319799434,
+    "am": 10.262500000000001,
+    "a_s": 0.5449579494480896,
+    "p": 597124,
+    "bl": 3
+   },
+   "svhn": {
+    "fm": 27.616666666666667,
+    "fs": 0.8178562764256846,
+    "am": 24.866666666666667,
+    "a_s": 0.20420917924738094,
+    "p": 585514,
+    "bl": 3
+   },
+   "wt": 40.13137936592102,
+   "mut": 0.0
+  },
+  "er": {
+   "cifar10": {
+    "fm": 43.5,
+    "fs": 1.487167329746949,
+    "am": 35.05,
+    "a_s": 1.6067565673326678,
+    "p": 585514,
+    "bl": 3
+   },
+   "cifar100": {
+    "fm": 9.216666666666667,
+    "fs": 0.6128258770283411,
+    "am": 7.6499999999999995,
+    "a_s": 0.3667140120948022,
+    "p": 597124,
+    "bl": 3
+   },
+   "svhn": {
+    "fm": 27.0,
+    "fs": 0.367423461417477,
+    "am": 24.233333333333338,
+    "a_s": 0.49078310439088735,
+    "p": 585514,
+    "bl": 3
+   },
+   "wt": 44.505042552948,
+   "mut": 0.0
+  },
+  "den": {
+   "cifar10": {
+    "fm": 43.05,
+    "fs": 1.1683321445547934,
+    "am": 33.837500000000006,
+    "a_s": 1.049255688571665,
+    "p": 585514,
+    "bl": 3
+   },
+   "cifar100": {
+    "fm": 13.3,
+    "fs": 0.29439202887759514,
+    "am": 11.045833333333334,
+    "a_s": 0.12090515107122433,
+    "p": 892548,
+    "bl": 4
+   },
+   "svhn": {
+    "fm": 27.866666666666667,
+    "fs": 0.5542763049438614,
+    "am": 25.087500000000002,
+    "a_s": 0.6906367834590522,
+    "p": 1176362,
+    "bl": 5
+   },
+   "wt": 43.730334997177124,
+   "mut": 2.0
+  },
+  "rnas": {
+   "cifar10": {
+    "fm": 39.300000000000004,
+    "fs": 5.77191476028536,
+    "am": 30.754166666666666,
+    "a_s": 2.3172885855863754,
+    "p": 3867178,
+    "bl": 6
+   },
+   "cifar100": {
+    "fm": 15.916666666666664,
+    "fs": 4.846361751068756,
+    "am": 11.9125,
+    "a_s": 3.103543002226112,
+    "p": 3890308,
+    "bl": 6
+   },
+   "svhn": {
+    "fm": 31.516666666666666,
+    "fs": 8.81970647029833,
+    "am": 29.13333333333333,
+    "a_s": 5.47525050162598,
+    "p": 5047850,
+    "bl": 7
+   },
+   "wt": 54.46498425801595,
+   "mut": 6.0
+  },
+  "bnas": {
+   "cifar10": {
+    "fm": 41.78333333333333,
+    "fs": 2.110423864745868,
+    "am": 32.275,
+    "a_s": 1.1726483559305692,
+    "p": 1471786,
+    "bl": 6
+   },
+   "cifar100": {
+    "fm": 9.283333333333331,
+    "fs": 0.20138409955990969,
+    "am": 10.483333333333334,
+    "a_s": 0.5105484523747215,
+    "p": 3006084,
+    "bl": 9
+   },
+   "svhn": {
+    "fm": 31.15,
+    "fs": 4.290104893822527,
+    "am": 27.541666666666664,
+    "a_s": 2.4086721214994973,
+    "p": 4229674,
+    "bl": 10
+   },
+   "wt": 64.43440357844035,
+   "mut": 9.0
+  }
+ }
+}

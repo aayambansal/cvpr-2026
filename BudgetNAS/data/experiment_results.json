@@ -1,0 +1,644 @@
+{
+  "fixed_backbone": {
+    "method": "fixed_backbone",
+    "timeline": [
+      {
+        "step": 0,
+        "dataset": "cifar10",
+        "chunk": 0,
+        "test_acc": 0.368,
+        "test_loss": 1.7093379288911819,
+        "train_acc": 0.4226666666666667,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 11390976000000
+      },
+      {
+        "step": 1,
+        "dataset": "cifar10",
+        "chunk": 1,
+        "test_acc": 0.4902,
+        "test_loss": 1.4339475005865097,
+        "train_acc": 0.507,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 22781952000000
+      },
+      {
+        "step": 2,
+        "dataset": "cifar10",
+        "chunk": 2,
+        "test_acc": 0.5362,
+        "test_loss": 1.2591205358505249,
+        "train_acc": 0.5756666666666667,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 34172928000000
+      },
+      {
+        "step": 3,
+        "dataset": "cifar10",
+        "chunk": 3,
+        "test_acc": 0.5878,
+        "test_loss": 1.1530070781707764,
+        "train_acc": 0.616,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 45563904000000
+      },
+      {
+        "step": 4,
+        "dataset": "cifar10",
+        "chunk": 4,
+        "test_acc": 0.5932,
+        "test_loss": 1.1120224319398404,
+        "train_acc": 0.622,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 56954880000000
+      },
+      {
+        "step": 5,
+        "dataset": "cifar100",
+        "chunk": 0,
+        "test_acc": 0.081,
+        "test_loss": 4.059973984956741,
+        "train_acc": 0.10733333333333334,
+        "num_params": 597124,
+        "num_blocks": 3,
+        "cumulative_flops": 68345856000000
+      },
+      {
+        "step": 6,
+        "dataset": "cifar100",
+        "chunk": 1,
+        "test_acc": 0.1074,
+        "test_loss": 3.902091783285141,
+        "train_acc": 0.147,
+        "num_params": 597124,
+        "num_blocks": 3,
+        "cumulative_flops": 79736832000000
+      },
+      {
+        "step": 7,
+        "dataset": "cifar100",
+        "chunk": 2,
+        "test_acc": 0.1336,
+        "test_loss": 3.699156588315964,
+        "train_acc": 0.162,
+        "num_params": 597124,
+        "num_blocks": 3,
+        "cumulative_flops": 91127808000000
+      },
+      {
+        "step": 8,
+        "dataset": "cifar100",
+        "chunk": 3,
+        "test_acc": 0.1534,
+        "test_loss": 3.5879851937294007,
+        "train_acc": 0.17766666666666667,
+        "num_params": 597124,
+        "num_blocks": 3,
+        "cumulative_flops": 102518784000000
+      },
+      {
+        "step": 9,
+        "dataset": "cifar100",
+        "chunk": 4,
+        "test_acc": 0.1634,
+        "test_loss": 3.5279921114444734,
+        "train_acc": 0.17133333333333334,
+        "num_params": 597124,
+        "num_blocks": 3,
+        "cumulative_flops": 113909760000000
+      },
+      {
+        "step": 10,
+        "dataset": "svhn",
+        "chunk": 0,
+        "test_acc": 0.2678,
+        "test_loss": 2.083135661482811,
+        "train_acc": 0.2996666666666667,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 125300736000000
+      },
+      {
+        "step": 11,
+        "dataset": "svhn",
+        "chunk": 1,
+        "test_acc": 0.3432,
+        "test_loss": 2.0645837783813477,
+        "train_acc": 0.432,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 136691712000000
+      },
+      {
+        "step": 12,
+        "dataset": "svhn",
+        "chunk": 2,
+        "test_acc": 0.4772,
+        "test_loss": 1.5164693176746369,
+        "train_acc": 0.5746666666666667,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 148082688000000
+      },
+      {
+        "step": 13,
+        "dataset": "svhn",
+        "chunk": 3,
+        "test_acc": 0.5962,
+        "test_loss": 1.2272806018590927,
+        "train_acc": 0.679,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 159473664000000
+      },
+      {
+        "step": 14,
+        "dataset": "svhn",
+        "chunk": 4,
+        "test_acc": 0.63,
+        "test_loss": 1.1376331895589828,
+        "train_acc": 0.6773333333333333,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 170864640000000
+      }
+    ],
+    "arch_changes": [],
+    "compute_log": []
+  },
+  "growing_backbone": {
+    "method": "growing_backbone",
+    "timeline": [
+      {
+        "step": 0,
+        "dataset": "cifar10",
+        "chunk": 0,
+        "test_acc": 0.386,
+        "test_loss": 1.6623685777187347,
+        "train_acc": 0.424,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 11390976000000
+      },
+      {
+        "step": 1,
+        "dataset": "cifar10",
+        "chunk": 1,
+        "test_acc": 0.4552,
+        "test_loss": 1.5110901772975922,
+        "train_acc": 0.5153333333333333,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 22781952000000
+      },
+      {
+        "step": 2,
+        "dataset": "cifar10",
+        "chunk": 2,
+        "test_acc": 0.542,
+        "test_loss": 1.2548848986625671,
+        "train_acc": 0.5793333333333334,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 34172928000000
+      },
+      {
+        "step": 3,
+        "dataset": "cifar10",
+        "chunk": 3,
+        "test_acc": 0.5742,
+        "test_loss": 1.1566940277814866,
+        "train_acc": 0.595,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 45563904000000
+      },
+      {
+        "step": 4,
+        "dataset": "cifar10",
+        "chunk": 4,
+        "test_acc": 0.5934,
+        "test_loss": 1.1083947546780109,
+        "train_acc": 0.6026666666666667,
+        "num_params": 585514,
+        "num_blocks": 3,
+        "cumulative_flops": 56954880000000
+      },
+      {
+        "step": 5,
+        "dataset": "cifar100",
+        "chunk": 0,
+        "test_acc": 0.1452,
+        "test_loss": 3.5899640023708344,
+        "train_acc": 0.18633333333333332,
+        "num_params": 1187972,
+        "num_blocks": 5,
+        "cumulative_flops": 79670476800000
+      },
+      {
+        "step": 6,
+        "dataset": "cifar100",
+        "chunk": 1,
+        "test_acc": 0.1832,
+        "test_loss": 3.3933950543403624,
+        "train_acc": 0.259,
+        "num_params": 1187972,
+        "num_blocks": 5,
+        "cumulative_flops": 102386073600000
+      },
+      {
+        "step": 7,
+        "dataset": "cifar100",
+        "chunk": 2,
+        "test_acc": 0.2192,
+        "test_loss": 3.177303618192673,
+        "train_acc": 0.286,
+        "num_params": 1187972,
+        "num_blocks": 5,
+        "cumulative_flops": 125101670400000
+      },
+      {
+        "step": 8,
+        "dataset": "cifar100",
+        "chunk": 3,
+        "test_acc": 0.2566,
+        "test_loss": 2.8968528509140015,
+        "train_acc": 0.30933333333333335,
+        "num_params": 1187972,
+        "num_blocks": 5,
+        "cumulative_flops": 147817267200000
+      },
+      {
+        "step": 9,
+        "dataset": "cifar100",
+        "chunk": 4,
+        "test_acc": 0.2758,
+        "test_loss": 2.793091577291489,
+        "train_acc": 0.30366666666666664,
+        "num_params": 1187972,
+        "num_blocks": 5,
+        "cumulative_flops": 170532864000000
+      },
+      {
+        "step": 10,
+        "dataset": "svhn",
+        "chunk": 0,
+        "test_acc": 0.5196,
+        "test_loss": 1.9960620194673537,
+        "train_acc": 0.6636666666666666,
+        "num_params": 1767210,
+        "num_blocks": 7,
+        "cumulative_flops": 204573081600000
+      },
+      {
+        "step": 11,
+        "dataset": "svhn",
+        "chunk": 1,
+        "test_acc": 0.5334,
+        "test_loss": 1.7826161563396454,
+        "train_acc": 0.88,
+        "num_params": 1767210,
+        "num_blocks": 7,
+        "cumulative_flops": 238613299200000
+      },
+      {
+        "step": 12,
+        "dataset": "svhn",
+        "chunk": 2,
+        "test_acc": 0.804,
+        "test_loss": 0.6807219743728637,
+        "train_acc": 0.92,
+        "num_params": 1767210,
+        "num_blocks": 7,
+        "cumulative_flops": 272653516800000
+      },
+      {
+        "step": 13,
+        "dataset": "svhn",
+        "chunk": 3,
+        "test_acc": 0.89,
+        "test_loss": 0.34827167354524136,
+        "train_acc": 0.9296666666666666,
+        "num_params": 1767210,
+        "num_blocks": 7,
+        "cumulative_flops": 306693734400000
+      },
+      {
+        "step": 14,
+        "dataset": "svhn",
+        "chunk": 4,
+        "test_acc": 0.9098,
+        "test_loss": 0.3088689636439085,
+        "train_acc": 0.9306666666666666,
+        "num_params": 1767210,
+        "num_blocks": 7,
+        "cumulative_flops": 340733952000000
+      }
+    ],
+    "arch_changes": [
+      {
+        "step": 5,
+        "dataset": "cifar100",
+        "action": "add_2_blocks + new_classifier",
+        "new_blocks": 5
+      },
+      {
+        "step": 10,
+        "dataset": "svhn",
+        "action": "add_2_blocks + new_classifier",
+        "new_blocks": 7
+      }
+    ],
+    "compute_log": []
+  },
+  "budget_nas": {
+    "method": "budget_nas",
+    "timeline": [
+      {
+        "step": 0,
+        "dataset": "cifar10",
+        "chunk": 0,
+        "test_acc": 0.3654,
+        "test_loss": 1.6477639123797416,
+        "train_acc": 0.4086666666666667,
+        "num_params": 880938,
+        "num_blocks": 4,
+        "cumulative_flops": 2278195200000,
+        "drift_detected": false,
+        "mutation_applied": "add_block"
+      },
+      {
+        "step": 1,
+        "dataset": "cifar10",
+        "chunk": 1,
+        "test_acc": 0.4454,
+        "test_loss": 1.5755961924791335,
+        "train_acc": 0.5076666666666667,
+        "num_params": 1176362,
+        "num_blocks": 5,
+        "cumulative_flops": 5688852480000,
+        "drift_detected": false,
+        "mutation_applied": "add_block"
+      },
+      {
+        "step": 2,
+        "dataset": "cifar10",
+        "chunk": 2,
+        "test_acc": 0.517,
+        "test_loss": 1.36168672144413,
+        "train_acc": 0.566,
+        "num_params": 1176362,
+        "num_blocks": 5,
+        "cumulative_flops": 10231971840000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      },
+      {
+        "step": 3,
+        "dataset": "cifar10",
+        "chunk": 3,
+        "test_acc": 0.5532,
+        "test_loss": 1.3185005903244018,
+        "train_acc": 0.6353333333333333,
+        "num_params": 1176362,
+        "num_blocks": 5,
+        "cumulative_flops": 14775091200000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      },
+      {
+        "step": 4,
+        "dataset": "cifar10",
+        "chunk": 4,
+        "test_acc": 0.6214,
+        "test_loss": 1.0377928122878075,
+        "train_acc": 0.6586666666666666,
+        "num_params": 1176362,
+        "num_blocks": 5,
+        "cumulative_flops": 19318210560000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      },
+      {
+        "step": 5,
+        "dataset": "cifar100",
+        "chunk": 0,
+        "test_acc": 0.1462,
+        "test_loss": 3.6214156270027162,
+        "train_acc": 0.192,
+        "num_params": 1483396,
+        "num_blocks": 6,
+        "cumulative_flops": 23861329920000,
+        "drift_detected": false,
+        "mutation_applied": "add_block"
+      },
+      {
+        "step": 6,
+        "dataset": "cifar100",
+        "chunk": 1,
+        "test_acc": 0.1768,
+        "test_loss": 3.413644951581955,
+        "train_acc": 0.245,
+        "num_params": 1778820,
+        "num_blocks": 7,
+        "cumulative_flops": 29536911360000,
+        "drift_detected": false,
+        "mutation_applied": "add_block"
+      },
+      {
+        "step": 7,
+        "dataset": "cifar100",
+        "chunk": 2,
+        "test_acc": 0.1886,
+        "test_loss": 3.360621672868729,
+        "train_acc": 0.2806666666666667,
+        "num_params": 2074244,
+        "num_blocks": 8,
+        "cumulative_flops": 36344954880000,
+        "drift_detected": "False",
+        "mutation_applied": "add_block"
+      },
+      {
+        "step": 8,
+        "dataset": "cifar100",
+        "chunk": 3,
+        "test_acc": 0.2326,
+        "test_loss": 3.1028570175170898,
+        "train_acc": 0.3456666666666667,
+        "num_params": 2074244,
+        "num_blocks": 8,
+        "cumulative_flops": 44285460480000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      },
+      {
+        "step": 9,
+        "dataset": "cifar100",
+        "chunk": 4,
+        "test_acc": 0.288,
+        "test_loss": 2.7381596863269806,
+        "train_acc": 0.37666666666666665,
+        "num_params": 2074244,
+        "num_blocks": 8,
+        "cumulative_flops": 52225966080000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      },
+      {
+        "step": 10,
+        "dataset": "svhn",
+        "chunk": 0,
+        "test_acc": 0.7174,
+        "test_loss": 0.8909886106848717,
+        "train_acc": 0.773,
+        "num_params": 2062634,
+        "num_blocks": 8,
+        "cumulative_flops": 60166471680000,
+        "drift_detected": false,
+        "mutation_applied": null
+      },
+      {
+        "step": 11,
+        "dataset": "svhn",
+        "chunk": 1,
+        "test_acc": 0.8162,
+        "test_loss": 0.60254707634449,
+        "train_acc": 0.8953333333333333,
+        "num_params": 2062634,
+        "num_blocks": 8,
+        "cumulative_flops": 68106977280000,
+        "drift_detected": false,
+        "mutation_applied": null
+      },
+      {
+        "step": 12,
+        "dataset": "svhn",
+        "chunk": 2,
+        "test_acc": 0.872,
+        "test_loss": 0.4432581730186939,
+        "train_acc": 0.934,
+        "num_params": 2062634,
+        "num_blocks": 8,
+        "cumulative_flops": 76047482880000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      },
+      {
+        "step": 13,
+        "dataset": "svhn",
+        "chunk": 3,
+        "test_acc": 0.9058,
+        "test_loss": 0.3207237273454666,
+        "train_acc": 0.9373333333333334,
+        "num_params": 2062634,
+        "num_blocks": 8,
+        "cumulative_flops": 83987988480000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      },
+      {
+        "step": 14,
+        "dataset": "svhn",
+        "chunk": 4,
+        "test_acc": 0.915,
+        "test_loss": 0.2911869440227747,
+        "train_acc": 0.929,
+        "num_params": 2062634,
+        "num_blocks": 8,
+        "cumulative_flops": 91928494080000,
+        "drift_detected": "False",
+        "mutation_applied": null
+      }
+    ],
+    "arch_changes": [
+      {
+        "step": 0,
+        "dataset": "cifar10",
+        "chunk": 0,
+        "mutation": "add_block",
+        "old_params": 585514,
+        "new_params": 880938,
+        "budget_remaining": 2,
+        "drift_detected": false
+      },
+      {
+        "step": 1,
+        "dataset": "cifar10",
+        "chunk": 1,
+        "mutation": "add_block",
+        "old_params": 880938,
+        "new_params": 1176362,
+        "budget_remaining": 1,
+        "drift_detected": false
+      },
+      {
+        "step": 5,
+        "dataset": "cifar100",
+        "chunk": 0,
+        "mutation": "add_block",
+        "old_params": 1187972,
+        "new_params": 1483396,
+        "budget_remaining": 2,
+        "drift_detected": false
+      },
+      {
+        "step": 6,
+        "dataset": "cifar100",
+        "chunk": 1,
+        "mutation": "add_block",
+        "old_params": 1483396,
+        "new_params": 1778820,
+        "budget_remaining": 1,
+        "drift_detected": false
+      },
+      {
+        "step": 7,
+        "dataset": "cifar100",
+        "chunk": 2,
+        "mutation": "add_block",
+        "old_params": 1778820,
+        "new_params": 2074244,
+        "budget_remaining": 0,
+        "drift_detected": "False"
+      }
+    ],
+    "compute_log": [],
+    "mutation_log": [
+      {
+        "mutation": "add_block",
+        "budget_remaining": 2,
+        "val_acc": 0.3654,
+        "drift_detected": false
+      },
+      {
+        "mutation": "add_block",
+        "budget_remaining": 1,
+        "val_acc": 0.4454,
+        "drift_detected": false
+      },
+      {
+        "mutation": "add_block",
+        "budget_remaining": 2,
+        "val_acc": 0.1462,
+        "drift_detected": false
+      },
+      {
+        "mutation": "add_block",
+        "budget_remaining": 1,
+        "val_acc": 0.1768,
+        "drift_detected": false
+      },
+      {
+        "mutation": "add_block",
+        "budget_remaining": 0,
+        "val_acc": 0.1886,
+        "drift_detected": "False"
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+\begin{thebibliography}{10}
+
+\bibitem{cai2020once}
+Han Cai, Chuang Gan, Tianzhe Wang, Zhekai Zhang, and Song Han.
+\newblock Once-for-all: Train one network and specialize it for efficient
+  deployment.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2020.
+
+\bibitem{cai2019proxylessnas}
+Han Cai, Ligeng Zhu, and Song Han.
+\newblock {ProxylessNAS}: Direct neural architecture search on target task and
+  hardware.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2019.
+
+\bibitem{chapelle2011empirical}
+Olivier Chapelle and Lihong Li.
+\newblock An empirical evaluation of {Thompson} sampling.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2011.
+
+\bibitem{chaudhry2019er}
+Arslan Chaudhry, Marcus Rohrbach, Mohamed Elhoseiny, Thalaiyasingam Ajanthan,
+  Puneet~K. Dokania, Philip H.~S. Torr, and Marc'Aurelio Ranzato.
+\newblock On tiny episodic memories in continual learning.
+\newblock In {\em arXiv preprint arXiv:1902.10486}, 2019.
+
+\bibitem{chen2016net2net}
+Tianqi Chen, Ian Goodfellow, and Jonathon Shlens.
+\newblock {Net2Net}: Accelerating learning via knowledge transfer.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2016.
+
+\bibitem{elsken2019lemonade}
+Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
+\newblock Efficient multi-objective neural architecture search via {Lamarckian}
+  evolution.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2019.
+
+\bibitem{elsken2019survey}
+Thomas Elsken, Jan~Hendrik Metzen, and Frank Hutter.
+\newblock Neural architecture search: A survey.
+\newblock {\em Journal of Machine Learning Research}, 20(55):1--21, 2019.
+
+\bibitem{gurbuz2022nispa}
+Mustafa~Burak Gurbuz and Constantine Dovrolis.
+\newblock {NISPA}: Neuro-inspired stability-plasticity adaptation for continual
+  learning in sparse networks.
+\newblock In {\em International Conference on Machine Learning (ICML)}, 2022.
+
+\bibitem{kirkpatrick2017ewc}
+James Kirkpatrick, Razvan Pascanu, Neil Rabinowitz, Joel Veness, Guillaume
+  Desjardins, Andrei~A. Rusu, Kieran Milan, John Quan, Tiago Ramalho, Agnieszka
+  Grabska-Barwinska, Demis Hassabis, Charles Blundell, Daan Wierstra, and Raia
+  Hadsell.
+\newblock Overcoming catastrophic forgetting in neural networks.
+\newblock In {\em Proceedings of the National Academy of Sciences (PNAS)},
+  volume 114, pages 3521--3526, 2017.
+
+\bibitem{li2019learn}
+Xilai Li, Yingbo Zhou, Tianfu Wu, Richard Socher, and Caiming Xiong.
+\newblock Learn to grow: A continual structure learning framework for
+  overcoming catastrophic forgetting.
+\newblock In {\em International Conference on Machine Learning (ICML)}, 2019.
+
+\bibitem{liu2019darts}
+Hanxiao Liu, Karen Simonyan, and Yiming Yang.
+\newblock {DARTS}: Differentiable architecture search.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2019.
+
+\bibitem{lopez2017gem}
+David Lopez-Paz and Marc'Aurelio Ranzato.
+\newblock Gradient episodic memory for continual learning.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2017.
+
+\bibitem{mallya2018packnet}
+Arun Mallya and Svetlana Lazebnik.
+\newblock {PackNet}: Adding multiple tasks to a single network by iterative
+  pruning.
+\newblock In {\em IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2018.
+
+\bibitem{pham2018enas}
+Hieu Pham, Melody~Y. Guan, Barret Zoph, Quoc~V. Le, and Jeff Dean.
+\newblock Efficient neural architecture search via parameter sharing.
+\newblock In {\em Proceedings of the 35th International Conference on Machine
+  Learning (ICML)}, 2018.
+
+\bibitem{tan2019mnasnet}
+Mingxing Tan, Bo~Chen, Ruoming Pang, Vijay Vasudevan, Mark Sandler, Andrew
+  Howard, and Quoc~V. Le.
+\newblock {MnasNet}: Platform-aware neural architecture search for mobile.
+\newblock In {\em IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2019.
+
+\bibitem{tan2019efficientnet}
+Mingxing Tan and Quoc~V. Le.
+\newblock {EfficientNet}: Rethinking model scaling for convolutional neural
+  networks.
+\newblock In {\em Proceedings of the 36th International Conference on Machine
+  Learning (ICML)}, 2019.
+
+\bibitem{thompson1933likelihood}
+William~R. Thompson.
+\newblock On the likelihood that one unknown probability exceeds another in
+  view of the evidence of two samples.
+\newblock {\em Biometrika}, 25(3/4):285--294, 1933.
+
+\bibitem{veniat2021efficient}
+Tom Veniat, Ludovic Denoyer, and Marc'Aurelio Ranzato.
+\newblock Efficient continual learning with modular networks and task-driven
+  priors.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2021.
+
+\bibitem{wei2016morphism}
+Tao Wei, Changhu Wang, Yong Rui, and Chang~Wen Chen.
+\newblock Network morphism.
+\newblock In {\em Proceedings of the 33rd International Conference on Machine
+  Learning (ICML)}, 2016.
+
+\bibitem{wortsman2020supermasks}
+Mitchell Wortsman, Vivek Ramanujan, Rosanne Liu, Aniruddha Kembhavi, Mohammad
+  Rastegari, Jason Yosinski, and Ali Farhadi.
+\newblock Supermasks in superposition.
+\newblock In {\em Advances in Neural Information Processing Systems (NeurIPS)},
+  2020.
+
+\bibitem{wu2019fbnet}
+Bichen Wu, Xiaoliang Dai, Peizhao Zhang, Yanghan Wang, Fei Sun, Yiming Wu,
+  Yuandong Tian, Peter Vajda, Yangqing Jia, and Kurt Keutzer.
+\newblock {FBNet}: Hardware-aware efficient convnet design via differentiable
+  neural architecture search.
+\newblock In {\em IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2019.
+
+\bibitem{yang2018netadapt}
+Tien-Ju Yang, Andrew Howard, Bo~Chen, Xiao Zhang, Alec Go, Mark Sandler,
+  Vivienne Sze, and Hartwig Adam.
+\newblock {NetAdapt}: Platform-aware neural network adaptation for mobile
+  applications.
+\newblock In {\em European Conference on Computer Vision (ECCV)}, 2018.
+
+\bibitem{yoon2018lifelong}
+Jaehong Yoon, Eunho Yang, Jeongtae Lee, and Sung~Ju Hwang.
+\newblock Lifelong learning with dynamically expandable networks.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2018.
+
+\bibitem{yu2019slimmable}
+Jiahui Yu, Linjie Yang, Ning Xu, Jianchao Yang, and Thomas~S. Huang.
+\newblock Slimmable neural networks.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2019.
+
+\bibitem{zoph2017neural}
+Barret Zoph and Quoc~V. Le.
+\newblock Neural architecture search with reinforcement learning.
+\newblock In {\em International Conference on Learning Representations (ICLR)},
+  2017.
+
+\end{thebibliography}
