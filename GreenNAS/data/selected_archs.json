@@ -1,0 +1,119 @@
+[
+  {
+    "method": "GreenNAS",
+    "arch": [
+      "conv_1x1",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_3x3",
+      "conv_1x1"
+    ],
+    "pred_acc": 86.6524233992086,
+    "pred_energy": 2.557730199574439
+  },
+  {
+    "method": "GreenNAS",
+    "arch": [
+      "conv_1x1",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_3x3",
+      "conv_1x1"
+    ],
+    "pred_acc": 86.6524233992086,
+    "pred_energy": 2.557730199574439
+  },
+  {
+    "method": "GreenNAS",
+    "arch": [
+      "conv_1x1",
+      "conv_1x1",
+      "conv_1x1",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_3x3"
+    ],
+    "pred_acc": 85.25122568139052,
+    "pred_energy": 2.547163307219909
+  },
+  {
+    "method": "FLOPs-only",
+    "arch": [
+      "conv_3x3",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_1x1"
+    ],
+    "pred_acc": 86.78640414330654,
+    "pred_energy": 2.881835133296073
+  },
+  {
+    "method": "FLOPs-only",
+    "arch": [
+      "conv_3x3",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_1x1"
+    ],
+    "pred_acc": 86.78640414330654,
+    "pred_energy": 2.881835133296073
+  },
+  {
+    "method": "FLOPs-only",
+    "arch": [
+      "conv_1x1",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_3x3"
+    ],
+    "pred_acc": 86.38271229486064,
+    "pred_energy": 2.585327059970294
+  },
+  {
+    "method": "Random",
+    "arch": [
+      "conv_3x3",
+      "conv_3x3",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_1x1",
+      "conv_1x1"
+    ],
+    "pred_acc": 85.46660249865656,
+    "pred_energy": 2.612134099914655
+  },
+  {
+    "method": "Random",
+    "arch": [
+      "conv_1x1",
+      "conv_1x1",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_3x3",
+      "conv_3x3"
+    ],
+    "pred_acc": 83.79199995664283,
+    "pred_energy": 2.5178028420109437
+  },
+  {
+    "method": "Random",
+    "arch": [
+      "skip_connect",
+      "conv_1x1",
+      "conv_1x1",
+      "conv_3x3",
+      "conv_1x1",
+      "conv_3x3"
+    ],
+    "pred_acc": 81.97702003977925,
+    "pred_energy": 2.329486109875197
+  }
+]

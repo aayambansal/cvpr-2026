@@ -1,0 +1,4208 @@
+{
+  "gpu": "Tesla T4",
+  "tdp_w": 70.0,
+  "idle_power_w": 25.45248275862069,
+  "n_architectures": 100,
+  "measurements": [
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "zero",
+        "conv_3x3",
+        "zero",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|zero|conv_3x3|zero|conv_3x3",
+      "accuracy": 60.31,
+      "param_count": 244762,
+      "measured": {
+        "train_wall_s": 24.58105206489563,
+        "avg_power_w": 63.127426086956525,
+        "std_power_w": 14.21907022953199,
+        "energy_kwh": 0.0004310384853795358,
+        "energy_j": 1551.738547366329,
+        "throughput": 3254.5393007913012,
+        "total_samples": 80000,
+        "n_power_readings": 230,
+        "power_percentiles": {
+          "p10": 32.413999999999994,
+          "p50": 69.032,
+          "p90": 70.9383
+        },
+        "latency_ms": 2.7692317962646484,
+        "inf_power_w": 36.76775,
+        "inf_energy_j": 0.10181842237710953,
+        "bs_sensitivity": 0.11832446677223249
+      },
+      "proxy": {
+        "params": 244746,
+        "flops": 6817024,
+        "mem_gb": 1.2465421557426453,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0028343960368011328,
+        "proxy_wall_s": 34.01275244161359,
+        "n_useful": 4,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "conv_3x3|conv_1x1|avg_pool_3x3|skip_connect|conv_1x1|zero",
+      "accuracy": 56.96,
+      "param_count": 78042,
+      "measured": {
+        "train_wall_s": 16.952489376068115,
+        "avg_power_w": 60.09733544303798,
+        "std_power_w": 15.146631325613635,
+        "energy_kwh": 0.00028299984461891754,
+        "energy_j": 1018.7994406281031,
+        "throughput": 4719.070941459268,
+        "total_samples": 80000,
+        "n_power_readings": 158,
+        "power_percentiles": {
+          "p10": 32.8521,
+          "p50": 66.37549999999999,
+          "p90": 75.9752
+        },
+        "latency_ms": 2.270817756652832,
+        "inf_power_w": 37.90566666666667,
+        "inf_energy_j": 0.08607686094443004,
+        "bs_sensitivity": 0.11699746262588137
+      },
+      "proxy": {
+        "params": 78026,
+        "flops": 4633856,
+        "mem_gb": 0.5349847674369812,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0023432521948700295,
+        "proxy_wall_s": 28.119026338440356,
+        "n_useful": 3,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "skip_connect|skip_connect|skip_connect|skip_connect|conv_1x1|conv_1x1",
+      "accuracy": 41.22,
+      "param_count": 17818,
+      "measured": {
+        "train_wall_s": 16.773470640182495,
+        "avg_power_w": 48.538,
+        "std_power_w": 11.632292375053774,
+        "energy_kwh": 0.00022615297720366055,
+        "energy_j": 814.1507179331779,
+        "throughput": 4769.43631500759,
+        "total_samples": 80000,
+        "n_power_readings": 158,
+        "power_percentiles": {
+          "p10": 33.1023,
+          "p50": 45.968,
+          "p90": 65.10480000000001
+        },
+        "latency_ms": 1.604914665222168,
+        "inf_power_w": 33.8905,
+        "inf_energy_j": 0.05439136046171189,
+        "bs_sensitivity": 0.06855420684111942
+      },
+      "proxy": {
+        "params": 17802,
+        "flops": 3196160,
+        "mem_gb": 0.23007410764694214,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0018884451894066383,
+        "proxy_wall_s": 22.661342272879658,
+        "n_useful": 2,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|conv_3x3|conv_3x3|conv_3x3|avg_pool_3x3|avg_pool_3x3",
+      "accuracy": 54.66,
+      "param_count": 184538,
+      "measured": {
+        "train_wall_s": 25.49774694442749,
+        "avg_power_w": 65.918230125523,
+        "std_power_w": 10.39315312441534,
+        "energy_kwh": 0.0004668795418792006,
+        "energy_j": 1680.766350765122,
+        "throughput": 3137.5321189892006,
+        "total_samples": 80000,
+        "n_power_readings": 239,
+        "power_percentiles": {
+          "p10": 62.195800000000006,
+          "p50": 68.963,
+          "p90": 70.586
+        },
+        "latency_ms": 2.2890567779541016,
+        "inf_power_w": 39.03366666666667,
+        "inf_energy_j": 0.08935027925173442,
+        "bs_sensitivity": 0.08118462360817572
+      },
+      "proxy": {
+        "params": 184522,
+        "flops": 7296256,
+        "mem_gb": 1.0178033709526062,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0039004098271155606,
+        "proxy_wall_s": 46.804917925386725,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|avg_pool_3x3|conv_1x1|conv_1x1",
+      "accuracy": 47.92,
+      "param_count": 38746,
+      "measured": {
+        "train_wall_s": 16.467766046524048,
+        "avg_power_w": 62.3634193548387,
+        "std_power_w": 13.491765604761259,
+        "energy_kwh": 0.0002852739443879871,
+        "energy_j": 1026.9861997967535,
+        "throughput": 4857.975257481028,
+        "total_samples": 80000,
+        "n_power_readings": 155,
+        "power_percentiles": {
+          "p10": 34.6446,
+          "p50": 67.788,
+          "p90": 73.5796
+        },
+        "latency_ms": 2.990126609802246,
+        "inf_power_w": 43.687333333333335,
+        "inf_energy_j": 0.13063065791130066,
+        "bs_sensitivity": 0.09258583433817227
+      },
+      "proxy": {
+        "params": 38730,
+        "flops": 3994880,
+        "mem_gb": 0.3317109942436218,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0017938792356687898,
+        "proxy_wall_s": 21.526550828025478,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_1x1|conv_3x3|avg_pool_3x3|conv_3x3|conv_3x3",
+      "accuracy": 63.37,
+      "param_count": 251738,
+      "measured": {
+        "train_wall_s": 30.911269664764404,
+        "avg_power_w": 66.55574315068493,
+        "std_power_w": 9.035592301115276,
+        "energy_kwh": 0.000571478478963783,
+        "energy_j": 2057.3225242696185,
+        "throughput": 2588.052864460355,
+        "total_samples": 80000,
+        "n_power_readings": 292,
+        "power_percentiles": {
+          "p10": 66.4627,
+          "p50": 68.62049999999999,
+          "p90": 70.8657
+        },
+        "latency_ms": 2.9630661010742188,
+        "inf_power_w": 39.626666666666665,
+        "inf_energy_j": 0.1174164326985677,
+        "bs_sensitivity": 0.08676290594311108
+      },
+      "proxy": {
+        "params": 251722,
+        "flops": 7402752,
+        "mem_gb": 1.2465669512748718,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0033241657070063693,
+        "proxy_wall_s": 39.88998848407643,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3",
+        "skip_connect"
+      ],
+      "arch_str": "conv_3x3|skip_connect|skip_connect|conv_3x3|conv_3x3|skip_connect",
+      "accuracy": 60.0,
+      "param_count": 184538,
+      "measured": {
+        "train_wall_s": 22.175455808639526,
+        "avg_power_w": 65.6093701923077,
+        "std_power_w": 10.734252715403619,
+        "energy_kwh": 0.0004041438025922752,
+        "energy_j": 1454.9176893321905,
+        "throughput": 3607.5921365653335,
+        "total_samples": 80000,
+        "n_power_readings": 208,
+        "power_percentiles": {
+          "p10": 58.338400000000014,
+          "p50": 68.669,
+          "p90": 70.433
+        },
+        "latency_ms": 2.052783966064453,
+        "inf_power_w": 40.513333333333335,
+        "inf_energy_j": 0.08316512107849122,
+        "bs_sensitivity": 0.07971579668741463
+      },
+      "proxy": {
+        "params": 184522,
+        "flops": 5858560,
+        "mem_gb": 0.9416314959526062,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0031318507734303916,
+        "proxy_wall_s": 37.5822092811647,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "zero",
+        "conv_1x1",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "zero|conv_3x3|zero|conv_1x1|conv_1x1|avg_pool_3x3",
+      "accuracy": 57.39,
+      "param_count": 78042,
+      "measured": {
+        "train_wall_s": 15.939430475234985,
+        "avg_power_w": 62.50787333333332,
+        "std_power_w": 14.080392127729334,
+        "energy_kwh": 0.0002767610836531837,
+        "energy_j": 996.3399011514614,
+        "throughput": 5018.999902430366,
+        "total_samples": 80000,
+        "n_power_readings": 150,
+        "power_percentiles": {
+          "p10": 34.9589,
+          "p50": 68.03999999999999,
+          "p90": 74.6057
+        },
+        "latency_ms": 2.3534297943115234,
+        "inf_power_w": 36.67933333333333,
+        "inf_energy_j": 0.08632223590215046,
+        "bs_sensitivity": 0.08305182706802146
+      },
+      "proxy": {
+        "params": 78026,
+        "flops": 4633856,
+        "mem_gb": 0.5603753924369812,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002167508280254777,
+        "proxy_wall_s": 26.010099363057325,
+        "n_useful": 3,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect"
+      ],
+      "arch_str": "conv_3x3|skip_connect|conv_1x1|conv_1x1|conv_1x1|skip_connect",
+      "accuracy": 54.15,
+      "param_count": 85018,
+      "measured": {
+        "train_wall_s": 16.290241718292236,
+        "avg_power_w": 64.28107843137255,
+        "std_power_w": 12.860165814567177,
+        "energy_kwh": 0.00029087619598876674,
+        "energy_j": 1047.1543055595603,
+        "throughput": 4910.915466046668,
+        "total_samples": 80000,
+        "n_power_readings": 153,
+        "power_percentiles": {
+          "p10": 34.5062,
+          "p50": 68.627,
+          "p90": 72.543
+        },
+        "latency_ms": 2.488374710083008,
+        "inf_power_w": 46.325666666666656,
+        "inf_energy_j": 0.1152756173610687,
+        "bs_sensitivity": 0.08422470973179161
+      },
+      "proxy": {
+        "params": 85002,
+        "flops": 4261120,
+        "mem_gb": 0.5096189379692078,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0020798183328717807,
+        "proxy_wall_s": 24.95781999446137,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "skip_connect|conv_1x1|conv_3x3|conv_3x3|conv_1x1|conv_3x3",
+      "accuracy": 59.77,
+      "param_count": 198490,
+      "measured": {
+        "train_wall_s": 25.661298751831055,
+        "avg_power_w": 66.05068181818181,
+        "std_power_w": 9.88377143497995,
+        "energy_kwh": 0.0004708184108051386,
+        "energy_j": 1694.946278898499,
+        "throughput": 3117.5351167404037,
+        "total_samples": 80000,
+        "n_power_readings": 242,
+        "power_percentiles": {
+          "p10": 65.5193,
+          "p50": 68.823,
+          "p90": 70.6796
+        },
+        "latency_ms": 2.9653310775756836,
+        "inf_power_w": 44.64825,
+        "inf_energy_j": 0.13239684328436852,
+        "bs_sensitivity": 0.09151060267599352
+      },
+      "proxy": {
+        "params": 198474,
+        "flops": 6071552,
+        "mem_gb": 0.9924623370170593,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0027263975541401276,
+        "proxy_wall_s": 32.71677064968153,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_3x3|conv_1x1|conv_1x1|conv_3x3",
+      "accuracy": 59.4,
+      "param_count": 258714,
+      "measured": {
+        "train_wall_s": 31.40681481361389,
+        "avg_power_w": 66.7769595959596,
+        "std_power_w": 8.478864295557232,
+        "energy_kwh": 0.0005825698899573555,
+        "energy_j": 2097.25160384648,
+        "throughput": 2547.217872132721,
+        "total_samples": 80000,
+        "n_power_readings": 297,
+        "power_percentiles": {
+          "p10": 66.972,
+          "p50": 68.627,
+          "p90": 70.3092
+        },
+        "latency_ms": 3.3942461013793945,
+        "inf_power_w": 38.170500000000004,
+        "inf_energy_j": 0.12956007081270218,
+        "bs_sensitivity": 0.10592790778263536
+      },
+      "proxy": {
+        "params": 258698,
+        "flops": 7030016,
+        "mem_gb": 1.2465917468070984,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0029229542816702056,
+        "proxy_wall_s": 35.075451380042466,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "avg_pool_3x3",
+        "zero",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "zero"
+      ],
+      "arch_str": "zero|avg_pool_3x3|zero|avg_pool_3x3|conv_3x3|zero",
+      "accuracy": 42.37,
+      "param_count": 64090,
+      "measured": {
+        "train_wall_s": 15.721011400222778,
+        "avg_power_w": 55.97960810810811,
+        "std_power_w": 12.225492448841928,
+        "energy_kwh": 0.0002444600159021031,
+        "energy_j": 880.0560572475711,
+        "throughput": 5088.731123168472,
+        "total_samples": 80000,
+        "n_power_readings": 148,
+        "power_percentiles": {
+          "p10": 35.1053,
+          "p50": 58.309,
+          "p90": 69.8708
+        },
+        "latency_ms": 1.5839338302612305,
+        "inf_power_w": 43.8645,
+        "inf_energy_j": 0.06947846549749374,
+        "bs_sensitivity": 0.060783784023993474
+      },
+      "proxy": {
+        "params": 64074,
+        "flops": 4900096,
+        "mem_gb": 0.5603258013725281,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0028952126047603085,
+        "proxy_wall_s": 34.74255125712371,
+        "n_useful": 1,
+        "n_zero": 3
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "zero",
+        "zero",
+        "conv_1x1",
+        "zero",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_3x3|zero|zero|conv_1x1|zero|conv_1x1",
+      "accuracy": 39.08,
+      "param_count": 78042,
+      "measured": {
+        "train_wall_s": 17.48622965812683,
+        "avg_power_w": 48.12284337349397,
+        "std_power_w": 11.114551477850169,
+        "energy_kwh": 0.00023374641417527292,
+        "energy_j": 841.4870910309825,
+        "throughput": 4575.028554701586,
+        "total_samples": 80000,
+        "n_power_readings": 166,
+        "power_percentiles": {
+          "p10": 33.9705,
+          "p50": 47.3525,
+          "p90": 64.692
+        },
+        "latency_ms": 2.349376678466797,
+        "inf_power_w": 38.28933333333333,
+        "inf_energy_j": 0.08995606676737467,
+        "bs_sensitivity": 0.0989695222113007
+      },
+      "proxy": {
+        "params": 78026,
+        "flops": 4154624,
+        "mem_gb": 0.5603753924369812,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0017274179759377215,
+        "proxy_wall_s": 20.729015711252657,
+        "n_useful": 3,
+        "n_zero": 3
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_3x3|skip_connect|skip_connect|skip_connect",
+      "accuracy": 54.19,
+      "param_count": 78042,
+      "measured": {
+        "train_wall_s": 19.258774757385254,
+        "avg_power_w": 58.834133333333334,
+        "std_power_w": 15.908728774690537,
+        "energy_kwh": 0.00031474258942017734,
+        "energy_j": 1133.0733219126384,
+        "throughput": 4153.950654068583,
+        "total_samples": 80000,
+        "n_power_readings": 180,
+        "power_percentiles": {
+          "p10": 33.763,
+          "p50": 64.84899999999999,
+          "p90": 76.1704
+        },
+        "latency_ms": 2.0449161529541016,
+        "inf_power_w": 44.068333333333335,
+        "inf_energy_j": 0.090116046667099,
+        "bs_sensitivity": 0.05478542477494459
+      },
+      "proxy": {
+        "params": 78026,
+        "flops": 4154624,
+        "mem_gb": 0.4842035174369812,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002220965969062785,
+        "proxy_wall_s": 26.65159162875342,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "avg_pool_3x3",
+        "skip_connect",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "skip_connect"
+      ],
+      "arch_str": "zero|avg_pool_3x3|skip_connect|avg_pool_3x3|conv_3x3|skip_connect",
+      "accuracy": 44.97,
+      "param_count": 64090,
+      "measured": {
+        "train_wall_s": 23.61729621887207,
+        "avg_power_w": 50.815555555555555,
+        "std_power_w": 14.062259469438134,
+        "energy_kwh": 0.0003333683411339183,
+        "energy_j": 1200.126028082106,
+        "throughput": 3387.3479528987627,
+        "total_samples": 80000,
+        "n_power_readings": 216,
+        "power_percentiles": {
+          "p10": 33.852000000000004,
+          "p50": 49.8845,
+          "p90": 70.727
+        },
+        "latency_ms": 1.4766454696655273,
+        "inf_power_w": 52.167,
+        "inf_energy_j": 0.07703216421604157,
+        "bs_sensitivity": 0.06935291494536484
+      },
+      "proxy": {
+        "params": 64074,
+        "flops": 4900096,
+        "mem_gb": 0.5095445513725281,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003161439051175049,
+        "proxy_wall_s": 37.93726861410059,
+        "n_useful": 1,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "zero",
+        "zero",
+        "zero",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "conv_1x1|zero|zero|zero|conv_1x1|zero",
+      "accuracy": 36.55,
+      "param_count": 17818,
+      "measured": {
+        "train_wall_s": 16.82732105255127,
+        "avg_power_w": 44.71115723270441,
+        "std_power_w": 9.567937371310267,
+        "energy_kwh": 0.00020899138816272693,
+        "energy_j": 752.3689973858169,
+        "throughput": 4754.173272748654,
+        "total_samples": 80000,
+        "n_power_readings": 159,
+        "power_percentiles": {
+          "p10": 31.8606,
+          "p50": 44.732,
+          "p90": 56.697
+        },
+        "latency_ms": 1.8994808197021484,
+        "inf_power_w": 32.4275,
+        "inf_energy_j": 0.06159541428089142,
+        "bs_sensitivity": 0.14007047821313517
+      },
+      "proxy": {
+        "params": 17802,
+        "flops": 3196160,
+        "mem_gb": 0.33163660764694214,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0013289058740268934,
+        "proxy_wall_s": 15.946870488322721,
+        "n_useful": 2,
+        "n_zero": 4
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|avg_pool_3x3|conv_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3",
+      "accuracy": 48.92,
+      "param_count": 64090,
+      "measured": {
+        "train_wall_s": 15.707776069641113,
+        "avg_power_w": 63.68481756756756,
+        "std_power_w": 12.645694331891677,
+        "energy_kwh": 0.00027787412594091606,
+        "energy_j": 1000.3468533872978,
+        "throughput": 5093.018874557193,
+        "total_samples": 80000,
+        "n_power_readings": 148,
+        "power_percentiles": {
+          "p10": 35.929500000000004,
+          "p50": 68.73599999999999,
+          "p90": 70.9102
+        },
+        "latency_ms": 1.5637874603271484,
+        "inf_power_w": 55.54900000000001,
+        "inf_energy_j": 0.08686682963371278,
+        "bs_sensitivity": 0.068321814470561
+      },
+      "proxy": {
+        "params": 64074,
+        "flops": 6337792,
+        "mem_gb": 0.5603258013725281,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.004185222330460848,
+        "proxy_wall_s": 50.22266796553017,
+        "n_useful": 1,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|avg_pool_3x3|conv_3x3|conv_1x1|avg_pool_3x3",
+      "accuracy": 57.06,
+      "param_count": 191514,
+      "measured": {
+        "train_wall_s": 26.253353118896484,
+        "avg_power_w": 65.6215120967742,
+        "std_power_w": 10.13937660685607,
+        "energy_kwh": 0.00047855131368681954,
+        "energy_j": 1722.7847292725503,
+        "throughput": 3047.229800997042,
+        "total_samples": 80000,
+        "n_power_readings": 248,
+        "power_percentiles": {
+          "p10": 54.34640000000002,
+          "p50": 68.8275,
+          "p90": 70.5252
+        },
+        "latency_ms": 2.8492212295532227,
+        "inf_power_w": 36.829499999999996,
+        "inf_energy_j": 0.1049353932738304,
+        "bs_sensitivity": 0.0975593441241428
+      },
+      "proxy": {
+        "params": 191498,
+        "flops": 6923520,
+        "mem_gb": 1.0178281664848328,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003379314317363611,
+        "proxy_wall_s": 40.551771808363334,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|conv_3x3|conv_3x3|conv_3x3|conv_3x3|conv_3x3",
+      "accuracy": 59.39,
+      "param_count": 311962,
+      "measured": {
+        "train_wall_s": 35.668259143829346,
+        "avg_power_w": 66.79237982195845,
+        "std_power_w": 8.576370113203096,
+        "energy_kwh": 0.0006617688645340811,
+        "energy_j": 2382.367912322692,
+        "throughput": 2242.8905116284627,
+        "total_samples": 80000,
+        "n_power_readings": 337,
+        "power_percentiles": {
+          "p10": 67.0182,
+          "p50": 68.767,
+          "p90": 70.096
+        },
+        "latency_ms": 3.3996105194091797,
+        "inf_power_w": 38.272499999999994,
+        "inf_energy_j": 0.1301115936040878,
+        "bs_sensitivity": 0.10065802647096228
+      },
+      "proxy": {
+        "params": 311946,
+        "flops": 7881984,
+        "mem_gb": 1.4753057360649109,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003277187261146497,
+        "proxy_wall_s": 39.32624713375797,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_3x3|avg_pool_3x3|conv_1x1|avg_pool_3x3",
+      "accuracy": 54.93,
+      "param_count": 85018,
+      "measured": {
+        "train_wall_s": 18.11331558227539,
+        "avg_power_w": 65.16722674418604,
+        "std_power_w": 12.160286034578839,
+        "energy_kwh": 0.0003278873732330941,
+        "energy_j": 1180.3945436391386,
+        "throughput": 4416.640323888754,
+        "total_samples": 80000,
+        "n_power_readings": 172,
+        "power_percentiles": {
+          "p10": 34.462700000000005,
+          "p50": 69.221,
+          "p90": 70.7369
+        },
+        "latency_ms": 2.6873350143432617,
+        "inf_power_w": 44.88,
+        "inf_energy_j": 0.1206075954437256,
+        "bs_sensitivity": 0.07673754528675782
+      },
+      "proxy": {
+        "params": 85002,
+        "flops": 5219584,
+        "mem_gb": 0.5604001879692078,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0025476368872888394,
+        "proxy_wall_s": 30.571642647466078,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|skip_connect|skip_connect|skip_connect",
+      "accuracy": 39.99,
+      "param_count": 24794,
+      "measured": {
+        "train_wall_s": 16.055561304092407,
+        "avg_power_w": 55.316940397351,
+        "std_power_w": 12.649916487032547,
+        "energy_kwh": 0.00024670681325124854,
+        "energy_j": 888.1445277044947,
+        "throughput": 4982.697177931037,
+        "total_samples": 80000,
+        "n_power_readings": 151,
+        "power_percentiles": {
+          "p10": 34.732,
+          "p50": 56.588,
+          "p90": 71.457
+        },
+        "latency_ms": 1.9757747650146484,
+        "inf_power_w": 41.149,
+        "inf_energy_j": 0.08130115580558778,
+        "bs_sensitivity": 0.08077893995694309
+      },
+      "proxy": {
+        "params": 24778,
+        "flops": 3302656,
+        "mem_gb": 0.2554895281791687,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0017655235668789812,
+        "proxy_wall_s": 21.186282802547776,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_3x3|conv_1x1|conv_1x1|avg_pool_3x3",
+      "accuracy": 59.51,
+      "param_count": 198490,
+      "measured": {
+        "train_wall_s": 26.80840039253235,
+        "avg_power_w": 66.43115748031495,
+        "std_power_w": 9.52143356623898,
+        "energy_kwh": 0.0004946980745199038,
+        "energy_j": 1780.9130682716536,
+        "throughput": 2984.1392559283213,
+        "total_samples": 80000,
+        "n_power_readings": 254,
+        "power_percentiles": {
+          "p10": 66.4284,
+          "p50": 68.81,
+          "p90": 70.4638
+        },
+        "latency_ms": 2.9489994049072266,
+        "inf_power_w": 38.852666666666664,
+        "inf_energy_j": 0.11457649087905883,
+        "bs_sensitivity": 0.07581246691668213
+      },
+      "proxy": {
+        "params": 198474,
+        "flops": 6550784,
+        "mem_gb": 1.0178529620170593,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0029415940891719746,
+        "proxy_wall_s": 35.29912907006369,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_3x3|avg_pool_3x3|conv_3x3|conv_3x3",
+      "accuracy": 64.68,
+      "param_count": 304986,
+      "measured": {
+        "train_wall_s": 35.30711388587952,
+        "avg_power_w": 66.91249552238807,
+        "std_power_w": 8.39477725336188,
+        "energy_kwh": 0.0006562464166103775,
+        "energy_j": 2362.487099797359,
+        "throughput": 2265.8323265554322,
+        "total_samples": 80000,
+        "n_power_readings": 335,
+        "power_percentiles": {
+          "p10": 66.9128,
+          "p50": 68.852,
+          "p90": 70.60079999999999
+        },
+        "latency_ms": 3.022432327270508,
+        "inf_power_w": 48.31999999999999,
+        "inf_energy_j": 0.1460439300537109,
+        "bs_sensitivity": 0.08230845055084143
+      },
+      "proxy": {
+        "params": 304970,
+        "flops": 8254720,
+        "mem_gb": 1.4752809405326843,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0037067373248407644,
+        "proxy_wall_s": 44.48084789808917,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "skip_connect|avg_pool_3x3|conv_1x1|skip_connect|conv_3x3|conv_3x3",
+      "accuracy": 56.58,
+      "param_count": 131290,
+      "measured": {
+        "train_wall_s": 19.693925142288208,
+        "avg_power_w": 64.03375,
+        "std_power_w": 11.374942352099502,
+        "energy_kwh": 0.0003502988552999993,
+        "energy_j": 1261.0758790799975,
+        "throughput": 4062.166349369241,
+        "total_samples": 80000,
+        "n_power_readings": 184,
+        "power_percentiles": {
+          "p10": 36.781400000000005,
+          "p50": 68.34700000000001,
+          "p90": 70.2128
+        },
+        "latency_ms": 2.1730661392211914,
+        "inf_power_w": 37.381,
+        "inf_energy_j": 0.08123138535022735,
+        "bs_sensitivity": 0.1058971043913118
+      },
+      "proxy": {
+        "params": 131274,
+        "flops": 5485824,
+        "mem_gb": 0.7383081316947937,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0029325947224749776,
+        "proxy_wall_s": 35.19113666969973,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "zero"
+      ],
+      "arch_str": "conv_1x1|skip_connect|skip_connect|avg_pool_3x3|conv_3x3|zero",
+      "accuracy": 58.92,
+      "param_count": 71066,
+      "measured": {
+        "train_wall_s": 17.974218130111694,
+        "avg_power_w": 60.307822485207105,
+        "std_power_w": 14.63735917605911,
+        "energy_kwh": 0.0003011072100836576,
+        "energy_j": 1083.9859563011673,
+        "throughput": 4450.81946935863,
+        "total_samples": 80000,
+        "n_power_readings": 169,
+        "power_percentiles": {
+          "p10": 34.514,
+          "p50": 64.692,
+          "p90": 76.62440000000001
+        },
+        "latency_ms": 1.833200454711914,
+        "inf_power_w": 40.074,
+        "inf_energy_j": 0.07346367502212524,
+        "bs_sensitivity": 0.10575502693112496
+      },
+      "proxy": {
+        "params": 71050,
+        "flops": 4527360,
+        "mem_gb": 0.5095693469047546,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0025669021424435438,
+        "proxy_wall_s": 30.802825709322526,
+        "n_useful": 2,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "arch_str": "skip_connect|skip_connect|skip_connect|skip_connect|skip_connect|skip_connect",
+      "accuracy": 40.35,
+      "param_count": 3866,
+      "measured": {
+        "train_wall_s": 16.699360132217407,
+        "avg_power_w": 30.14887898089172,
+        "std_power_w": 2.9362872725838347,
+        "energy_kwh": 0.00013985194102348627,
+        "energy_j": 503.46698768455053,
+        "throughput": 4790.602715708801,
+        "total_samples": 80000,
+        "n_power_readings": 157,
+        "power_percentiles": {
+          "p10": 26.989600000000003,
+          "p50": 29.363,
+          "p90": 34.111599999999996
+        },
+        "latency_ms": 0.6815195083618164,
+        "inf_power_w": 27.846,
+        "inf_energy_j": 0.01897759222984314,
+        "bs_sensitivity": 0.026191739586497825
+      },
+      "proxy": {
+        "params": 3850,
+        "flops": 2983168,
+        "mem_gb": 0.179243266582489,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0022326257324840762,
+        "proxy_wall_s": 26.791508789808915,
+        "n_useful": 0,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_3x3|avg_pool_3x3|avg_pool_3x3|conv_3x3",
+      "accuracy": 58.38,
+      "param_count": 244762,
+      "measured": {
+        "train_wall_s": 30.347332000732422,
+        "avg_power_w": 66.36772027972027,
+        "std_power_w": 9.232068805649472,
+        "energy_kwh": 0.000559467567072337,
+        "energy_j": 2014.083241460413,
+        "throughput": 2636.146070371828,
+        "total_samples": 80000,
+        "n_power_readings": 286,
+        "power_percentiles": {
+          "p10": 66.759,
+          "p50": 68.781,
+          "p90": 70.286
+        },
+        "latency_ms": 2.625584602355957,
+        "inf_power_w": 48.946666666666665,
+        "inf_energy_j": 0.12851361433664957,
+        "bs_sensitivity": 0.0550586838240308
+      },
+      "proxy": {
+        "params": 244746,
+        "flops": 7775488,
+        "mem_gb": 1.2465421557426453,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003795153032400997,
+        "proxy_wall_s": 45.541836388811966,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "skip_connect|zero|conv_3x3|conv_1x1|conv_3x3|conv_1x1",
+      "accuracy": 56.84,
+      "param_count": 138266,
+      "measured": {
+        "train_wall_s": 19.803645372390747,
+        "avg_power_w": 64.67138502673797,
+        "std_power_w": 11.331018035142163,
+        "energy_kwh": 0.00035575810411412766,
+        "energy_j": 1280.7291748108596,
+        "throughput": 4039.660299690682,
+        "total_samples": 80000,
+        "n_power_readings": 187,
+        "power_percentiles": {
+          "p10": 40.366400000000006,
+          "p50": 68.473,
+          "p90": 70.5662
+        },
+        "latency_ms": 2.559185028076172,
+        "inf_power_w": 45.86333333333332,
+        "inf_energy_j": 0.11737275600433347,
+        "bs_sensitivity": 0.09614302974681666
+      },
+      "proxy": {
+        "params": 138250,
+        "flops": 5113088,
+        "mem_gb": 0.7637235522270203,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0023333378903215786,
+        "proxy_wall_s": 28.00005468385894,
+        "n_useful": 4,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "arch_str": "zero|zero|conv_1x1|skip_connect|skip_connect|skip_connect",
+      "accuracy": 38.59,
+      "param_count": 10842,
+      "measured": {
+        "train_wall_s": 16.21599531173706,
+        "avg_power_w": 32.56567763157895,
+        "std_power_w": 4.257725728172466,
+        "energy_kwh": 0.00014669024327700688,
+        "energy_j": 528.0848757972248,
+        "throughput": 4933.400538300377,
+        "total_samples": 80000,
+        "n_power_readings": 152,
+        "power_percentiles": {
+          "p10": 27.0774,
+          "p50": 32.122,
+          "p90": 38.629200000000004
+        },
+        "latency_ms": 1.2848377227783203,
+        "inf_power_w": 27.499,
+        "inf_energy_j": 0.03533175253868103,
+        "bs_sensitivity": 0.019352306645398127
+      },
+      "proxy": {
+        "params": 10826,
+        "flops": 3089664,
+        "mem_gb": 0.2554399371147156,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.001926940127388535,
+        "proxy_wall_s": 23.12328152866242,
+        "n_useful": 1,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|conv_3x3|avg_pool_3x3|conv_1x1",
+      "accuracy": 56.4,
+      "param_count": 91994,
+      "measured": {
+        "train_wall_s": 18.493324756622314,
+        "avg_power_w": 64.5343620689655,
+        "std_power_w": 11.829453788895695,
+        "energy_kwh": 0.0003315152543618966,
+        "energy_j": 1193.4549157028277,
+        "throughput": 4325.885207382877,
+        "total_samples": 80000,
+        "n_power_readings": 174,
+        "power_percentiles": {
+          "p10": 38.4332,
+          "p50": 68.894,
+          "p90": 70.6194
+        },
+        "latency_ms": 2.9726028442382812,
+        "inf_power_w": 48.473333333333336,
+        "inf_energy_j": 0.14409196853637696,
+        "bs_sensitivity": 0.08095657250147714
+      },
+      "proxy": {
+        "params": 91978,
+        "flops": 4846848,
+        "mem_gb": 0.5604249835014343,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0021764508535031847,
+        "proxy_wall_s": 26.117410242038215,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "zero|zero|conv_1x1|conv_1x1|conv_1x1|zero",
+      "accuracy": 38.64,
+      "param_count": 24794,
+      "measured": {
+        "train_wall_s": 15.24941635131836,
+        "avg_power_w": 48.303772413793105,
+        "std_power_w": 10.020655081308274,
+        "energy_kwh": 0.00020461231579923814,
+        "energy_j": 736.6043368772573,
+        "throughput": 5246.102418410509,
+        "total_samples": 80000,
+        "n_power_readings": 145,
+        "power_percentiles": {
+          "p10": 34.2166,
+          "p50": 47.479,
+          "p90": 62.696
+        },
+        "latency_ms": 2.2177696228027344,
+        "inf_power_w": 43.41433333333333,
+        "inf_energy_j": 0.09628298966089884,
+        "bs_sensitivity": 0.07700263032737761
+      },
+      "proxy": {
+        "params": 24778,
+        "flops": 3302656,
+        "mem_gb": 0.3316614031791687,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0013731849964614298,
+        "proxy_wall_s": 16.478219957537156,
+        "n_useful": 3,
+        "n_zero": 3
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|conv_3x3|conv_1x1|conv_1x1|conv_3x3|conv_3x3",
+      "accuracy": 56.96,
+      "param_count": 205466,
+      "measured": {
+        "train_wall_s": 27.44359588623047,
+        "avg_power_w": 66.16327307692308,
+        "std_power_w": 9.852480664125531,
+        "energy_kwh": 0.0005043772580092748,
+        "energy_j": 1815.7581288333893,
+        "throughput": 2915.0698884958856,
+        "total_samples": 80000,
+        "n_power_readings": 260,
+        "power_percentiles": {
+          "p10": 65.9662,
+          "p50": 68.8595,
+          "p90": 70.989
+        },
+        "latency_ms": 3.27908992767334,
+        "inf_power_w": 39.9235,
+        "inf_energy_j": 0.13091274672746658,
+        "bs_sensitivity": 0.08941093493932267
+      },
+      "proxy": {
+        "params": 205450,
+        "flops": 6178048,
+        "mem_gb": 1.0178777575492859,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002568721302193914,
+        "proxy_wall_s": 30.82465562632697,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "zero",
+        "zero",
+        "conv_3x3"
+      ],
+      "arch_str": "zero|conv_3x3|conv_1x1|zero|zero|conv_3x3",
+      "accuracy": 59.91,
+      "param_count": 131290,
+      "measured": {
+        "train_wall_s": 17.48027276992798,
+        "avg_power_w": 65.10552760736196,
+        "std_power_w": 11.3167335600913,
+        "energy_kwh": 0.00031612843927965653,
+        "energy_j": 1138.0623814067635,
+        "throughput": 4576.587622684427,
+        "total_samples": 80000,
+        "n_power_readings": 163,
+        "power_percentiles": {
+          "p10": 40.6254,
+          "p50": 68.67,
+          "p90": 70.63900000000001
+        },
+        "latency_ms": 2.2497177124023438,
+        "inf_power_w": 38.96866666666667,
+        "inf_energy_j": 0.08766849962870281,
+        "bs_sensitivity": 0.07860060694284307
+      },
+      "proxy": {
+        "params": 131274,
+        "flops": 5006592,
+        "mem_gb": 0.7890893816947937,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002081650955414013,
+        "proxy_wall_s": 24.979811464968154,
+        "n_useful": 3,
+        "n_zero": 3
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3",
+        "skip_connect"
+      ],
+      "arch_str": "skip_connect|skip_connect|skip_connect|skip_connect|conv_3x3|skip_connect",
+      "accuracy": 51.81,
+      "param_count": 64090,
+      "measured": {
+        "train_wall_s": 15.350712776184082,
+        "avg_power_w": 58.13557638888889,
+        "std_power_w": 14.00835398450781,
+        "energy_kwh": 0.0002478951486732618,
+        "energy_j": 892.4225352237424,
+        "throughput": 5211.484389449087,
+        "total_samples": 80000,
+        "n_power_readings": 144,
+        "power_percentiles": {
+          "p10": 34.7106,
+          "p50": 59.207,
+          "p90": 74.7736
+        },
+        "latency_ms": 1.1254549026489258,
+        "inf_power_w": 37.88849999999999,
+        "inf_energy_j": 0.04264179807901382,
+        "bs_sensitivity": 0.05172025617584953
+      },
+      "proxy": {
+        "params": 64074,
+        "flops": 3941632,
+        "mem_gb": 0.4333726763725281,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0026028948669913825,
+        "proxy_wall_s": 31.234738403896593,
+        "n_useful": 1,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "zero",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "zero",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|zero|conv_3x3|avg_pool_3x3|zero|conv_3x3",
+      "accuracy": 60.73,
+      "param_count": 131290,
+      "measured": {
+        "train_wall_s": 18.95271587371826,
+        "avg_power_w": 65.67856983240223,
+        "std_power_w": 10.577767071682807,
+        "energy_kwh": 0.0003457742425071342,
+        "energy_j": 1244.7872730256831,
+        "throughput": 4221.030934724033,
+        "total_samples": 80000,
+        "n_power_readings": 179,
+        "power_percentiles": {
+          "p10": 61.79840000000001,
+          "p50": 68.627,
+          "p90": 70.82499999999999
+        },
+        "latency_ms": 2.296328544616699,
+        "inf_power_w": 37.321333333333335,
+        "inf_energy_j": 0.08570204305648804,
+        "bs_sensitivity": 0.08128380835105047
+      },
+      "proxy": {
+        "params": 131274,
+        "flops": 5485824,
+        "mem_gb": 0.7890893816947937,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002566020382165605,
+        "proxy_wall_s": 30.792244585987262,
+        "n_useful": 3,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "skip_connect",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|skip_connect|conv_3x3|conv_1x1|conv_1x1|conv_3x3",
+      "accuracy": 57.64,
+      "param_count": 145242,
+      "measured": {
+        "train_wall_s": 21.57987117767334,
+        "avg_power_w": 65.21329411764705,
+        "std_power_w": 10.531894260180001,
+        "energy_kwh": 0.00039091513503626275,
+        "energy_j": 1407.294486130546,
+        "throughput": 3707.1583672273478,
+        "total_samples": 80000,
+        "n_power_readings": 204,
+        "power_percentiles": {
+          "p10": 51.170700000000004,
+          "p50": 68.326,
+          "p90": 71.1396
+        },
+        "latency_ms": 2.8464794158935547,
+        "inf_power_w": 49.316,
+        "inf_energy_j": 0.14037697887420655,
+        "bs_sensitivity": 0.1283016832281689
+      },
+      "proxy": {
+        "params": 145226,
+        "flops": 5219584,
+        "mem_gb": 0.7637483477592468,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0023438259363057325,
+        "proxy_wall_s": 28.12591123566879,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|conv_1x1|avg_pool_3x3|avg_pool_3x3",
+      "accuracy": 50.44,
+      "param_count": 31770,
+      "measured": {
+        "train_wall_s": 15.353499174118042,
+        "avg_power_w": 62.85854861111112,
+        "std_power_w": 13.731724864762105,
+        "energy_kwh": 0.0002680829650519315,
+        "energy_j": 965.0986741869533,
+        "throughput": 5210.538594020244,
+        "total_samples": 80000,
+        "n_power_readings": 144,
+        "power_percentiles": {
+          "p10": 34.860400000000006,
+          "p50": 67.8085,
+          "p90": 76.12010000000001
+        },
+        "latency_ms": 2.911686897277832,
+        "inf_power_w": 36.56,
+        "inf_energy_j": 0.10645127296447754,
+        "bs_sensitivity": 0.10890290554377555
+      },
+      "proxy": {
+        "params": 31754,
+        "flops": 4367616,
+        "mem_gb": 0.33168619871139526,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0021317981722514543,
+        "proxy_wall_s": 25.58157806701745,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|conv_1x1|avg_pool_3x3|avg_pool_3x3",
+      "accuracy": 50.3,
+      "param_count": 10842,
+      "measured": {
+        "train_wall_s": 17.87632465362549,
+        "avg_power_w": 56.17741071428571,
+        "std_power_w": 14.10826476764357,
+        "energy_kwh": 0.0002789571200357307,
+        "energy_j": 1004.2456321286304,
+        "throughput": 4475.192834662199,
+        "total_samples": 80000,
+        "n_power_readings": 168,
+        "power_percentiles": {
+          "p10": 34.146300000000004,
+          "p50": 56.182500000000005,
+          "p90": 72.8539
+        },
+        "latency_ms": 1.5478134155273438,
+        "inf_power_w": 52.406,
+        "inf_energy_j": 0.08111470985412597,
+        "bs_sensitivity": 0.05881801498757764
+      },
+      "proxy": {
+        "params": 10826,
+        "flops": 5485824,
+        "mem_gb": 0.3316118121147156,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003622617010116149,
+        "proxy_wall_s": 43.47140412139379,
+        "n_useful": 1,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|conv_1x1",
+      "accuracy": 49.71,
+      "param_count": 24794,
+      "measured": {
+        "train_wall_s": 17.13164258003235,
+        "avg_power_w": 58.95233125,
+        "std_power_w": 15.17278711119099,
+        "energy_kwh": 0.0002805417411762977,
+        "energy_j": 1009.9502682346716,
+        "throughput": 4669.721518311581,
+        "total_samples": 80000,
+        "n_power_readings": 160,
+        "power_percentiles": {
+          "p10": 34.1482,
+          "p50": 64.2505,
+          "p90": 75.7801
+        },
+        "latency_ms": 2.279520034790039,
+        "inf_power_w": 45.52866666666667,
+        "inf_energy_j": 0.1037835078239441,
+        "bs_sensitivity": 0.08407285741491516
+      },
+      "proxy": {
+        "params": 24778,
+        "flops": 4740352,
+        "mem_gb": 0.3316614031791687,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0025340826205641495,
+        "proxy_wall_s": 30.408991446769797,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_3x3|conv_1x1|conv_1x1|conv_3x3|conv_1x1",
+      "accuracy": 56.11,
+      "param_count": 152218,
+      "measured": {
+        "train_wall_s": 23.412195920944214,
+        "avg_power_w": 65.47242986425339,
+        "std_power_w": 11.195257303889205,
+        "energy_kwh": 0.00042579259872282753,
+        "energy_j": 1532.8533554021792,
+        "throughput": 3417.022489908055,
+        "total_samples": 80000,
+        "n_power_readings": 221,
+        "power_percentiles": {
+          "p10": 43.252,
+          "p50": 69.172,
+          "p90": 70.673
+        },
+        "latency_ms": 3.4036636352539062,
+        "inf_power_w": 45.175,
+        "inf_energy_j": 0.1537605047225952,
+        "bs_sensitivity": 0.10471549393426116
+      },
+      "proxy": {
+        "params": 152202,
+        "flops": 5326080,
+        "mem_gb": 0.7891637682914734,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0022144883227176223,
+        "proxy_wall_s": 26.573859872611468,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "zero|zero|conv_3x3|conv_1x1|conv_1x1|conv_3x3",
+      "accuracy": 38.15,
+      "param_count": 138266,
+      "measured": {
+        "train_wall_s": 17.772521495819092,
+        "avg_power_w": 66.01635714285715,
+        "std_power_w": 10.27696053552019,
+        "energy_kwh": 0.000325910312888083,
+        "energy_j": 1173.2771263970988,
+        "throughput": 4501.33088986949,
+        "total_samples": 80000,
+        "n_power_readings": 168,
+        "power_percentiles": {
+          "p10": 55.4627,
+          "p50": 69.18700000000001,
+          "p90": 70.6422
+        },
+        "latency_ms": 2.6824474334716797,
+        "inf_power_w": 38.169333333333334,
+        "inf_energy_j": 0.10238723023732503,
+        "bs_sensitivity": 0.09205521874809498
+      },
+      "proxy": {
+        "params": 138250,
+        "flops": 5113088,
+        "mem_gb": 0.7891141772270203,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0021259300778485495,
+        "proxy_wall_s": 25.511160934182595,
+        "n_useful": 4,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "avg_pool_3x3",
+        "zero",
+        "zero",
+        "avg_pool_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|avg_pool_3x3|zero|zero|avg_pool_3x3|conv_1x1",
+      "accuracy": 48.68,
+      "param_count": 17818,
+      "measured": {
+        "train_wall_s": 15.511707782745361,
+        "avg_power_w": 56.300020408163256,
+        "std_power_w": 13.741464673277388,
+        "energy_kwh": 0.00024258596242611907,
+        "energy_j": 873.3094647340287,
+        "throughput": 5157.394731803095,
+        "total_samples": 80000,
+        "n_power_readings": 147,
+        "power_percentiles": {
+          "p10": 34.219,
+          "p50": 57.009,
+          "p90": 74.619
+        },
+        "latency_ms": 1.9518136978149414,
+        "inf_power_w": 44.549499999999995,
+        "inf_energy_j": 0.08695232433080673,
+        "bs_sensitivity": 0.070633012851257
+      },
+      "proxy": {
+        "params": 17802,
+        "flops": 4154624,
+        "mem_gb": 0.33163660764694214,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002220965969062785,
+        "proxy_wall_s": 26.65159162875342,
+        "n_useful": 2,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "skip_connect",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|conv_3x3|conv_3x3|conv_3x3|skip_connect|conv_3x3",
+      "accuracy": 61.58,
+      "param_count": 251738,
+      "measured": {
+        "train_wall_s": 29.640997648239136,
+        "avg_power_w": 66.68294285714286,
+        "std_power_w": 8.547741308398736,
+        "energy_kwh": 0.000549041375668399,
+        "energy_j": 1976.5489524062361,
+        "throughput": 2698.964486600285,
+        "total_samples": 80000,
+        "n_power_readings": 280,
+        "power_percentiles": {
+          "p10": 66.7395,
+          "p50": 68.66,
+          "p90": 70.0253
+        },
+        "latency_ms": 2.992391586303711,
+        "inf_power_w": 41.75,
+        "inf_energy_j": 0.12493234872817993,
+        "bs_sensitivity": 0.09572403960892376
+      },
+      "proxy": {
+        "params": 251722,
+        "flops": 6923520,
+        "mem_gb": 1.2211763262748718,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0031089691719745224,
+        "proxy_wall_s": 37.30763006369427,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "conv_3x3",
+        "zero",
+        "zero",
+        "zero"
+      ],
+      "arch_str": "zero|zero|conv_3x3|zero|zero|zero",
+      "accuracy": 10.0,
+      "param_count": 64090,
+      "measured": {
+        "train_wall_s": 15.115981578826904,
+        "avg_power_w": 30.675138888888885,
+        "std_power_w": 2.581036894918803,
+        "energy_kwh": 0.00012880134288122255,
+        "energy_j": 463.68483437240116,
+        "throughput": 5292.411847872106,
+        "total_samples": 80000,
+        "n_power_readings": 144,
+        "power_percentiles": {
+          "p10": 27.3906,
+          "p50": 30.2935,
+          "p90": 33.6563
+        },
+        "latency_ms": 1.5103816986083984,
+        "inf_power_w": 34.007,
+        "inf_energy_j": 0.051363550424575806,
+        "bs_sensitivity": 0.05902775778053683
+      },
+      "proxy": {
+        "params": 64074,
+        "flops": 3941632,
+        "mem_gb": 0.5603258013725281,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0016388597310686486,
+        "proxy_wall_s": 19.666316772823784,
+        "n_useful": 1,
+        "n_zero": 5
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "zero|conv_3x3|conv_3x3|conv_3x3|conv_3x3|conv_3x3",
+      "accuracy": 61.73,
+      "param_count": 304986,
+      "measured": {
+        "train_wall_s": 31.27470350265503,
+        "avg_power_w": 66.7224372881356,
+        "std_power_w": 8.928218431162053,
+        "energy_kwh": 0.0005796456786558152,
+        "energy_j": 2086.7244431609347,
+        "throughput": 2557.9778875668158,
+        "total_samples": 80000,
+        "n_power_readings": 295,
+        "power_percentiles": {
+          "p10": 66.4276,
+          "p50": 68.908,
+          "p90": 71.331
+        },
+        "latency_ms": 3.114938735961914,
+        "inf_power_w": 40.622249999999994,
+        "inf_energy_j": 0.12653582006692884,
+        "bs_sensitivity": 0.0896436586894244
+      },
+      "proxy": {
+        "params": 304970,
+        "flops": 7775488,
+        "mem_gb": 1.4752809405326843,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0032329081387119612,
+        "proxy_wall_s": 38.794897664543534,
+        "n_useful": 5,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "skip_connect",
+        "conv_3x3",
+        "skip_connect"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_3x3|skip_connect|conv_3x3|skip_connect",
+      "accuracy": 56.75,
+      "param_count": 244762,
+      "measured": {
+        "train_wall_s": 27.91997766494751,
+        "avg_power_w": 66.41138113207548,
+        "std_power_w": 9.52376328236438,
+        "energy_kwh": 0.0005150567438627399,
+        "energy_j": 1854.2042779058638,
+        "throughput": 2865.3318050621874,
+        "total_samples": 80000,
+        "n_power_readings": 265,
+        "power_percentiles": {
+          "p10": 66.808,
+          "p50": 68.81,
+          "p90": 70.182
+        },
+        "latency_ms": 2.434849739074707,
+        "inf_power_w": 39.102666666666664,
+        "inf_energy_j": 0.09520911773045858,
+        "bs_sensitivity": 0.0853217143237162
+      },
+      "proxy": {
+        "params": 244746,
+        "flops": 6817024,
+        "mem_gb": 1.1957609057426453,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0033273344779839384,
+        "proxy_wall_s": 39.92801373580726,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "zero",
+        "zero",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "zero|conv_3x3|zero|zero|conv_1x1|zero",
+      "accuracy": 10.0,
+      "param_count": 71066,
+      "measured": {
+        "train_wall_s": 16.134570360183716,
+        "avg_power_w": 31.50753289473684,
+        "std_power_w": 3.968878437487034,
+        "energy_kwh": 0.00014121125176831513,
+        "energy_j": 508.36050636593444,
+        "throughput": 4958.29750740813,
+        "total_samples": 80000,
+        "n_power_readings": 152,
+        "power_percentiles": {
+          "p10": 26.9378,
+          "p50": 30.9005,
+          "p90": 35.6852
+        },
+        "latency_ms": 1.923203468322754,
+        "inf_power_w": 31.029500000000002,
+        "inf_energy_j": 0.059676042020320896,
+        "bs_sensitivity": 0.052677134990643526
+      },
+      "proxy": {
+        "params": 71050,
+        "flops": 4048128,
+        "mem_gb": 0.5603505969047546,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.001683138853503185,
+        "proxy_wall_s": 20.19766624203822,
+        "n_useful": 2,
+        "n_zero": 4
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "zero"
+      ],
+      "arch_str": "conv_3x3|zero|conv_3x3|conv_1x1|conv_3x3|zero",
+      "accuracy": 59.94,
+      "param_count": 191514,
+      "measured": {
+        "train_wall_s": 18.61559772491455,
+        "avg_power_w": 66.01261403508771,
+        "std_power_w": 10.934358728800488,
+        "energy_kwh": 0.000341351185457567,
+        "energy_j": 1228.8642676472411,
+        "throughput": 4297.471463563613,
+        "total_samples": 80000,
+        "n_power_readings": 171,
+        "power_percentiles": {
+          "p10": 51.074,
+          "p50": 69.343,
+          "p90": 71.237
+        },
+        "latency_ms": 2.6187896728515625,
+        "inf_power_w": 45.06333333333333,
+        "inf_energy_j": 0.11801139195760091,
+        "bs_sensitivity": 0.09654178048045822
+      },
+      "proxy": {
+        "params": 191498,
+        "flops": 5965056,
+        "mem_gb": 1.0178281664848328,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0024801630573248416,
+        "proxy_wall_s": 29.761956687898095,
+        "n_useful": 4,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|conv_3x3|conv_1x1|conv_3x3",
+      "accuracy": 57.59,
+      "param_count": 152218,
+      "measured": {
+        "train_wall_s": 23.111052751541138,
+        "avg_power_w": 66.3469128440367,
+        "std_power_w": 9.403051937054052,
+        "energy_kwh": 0.0004259297229556762,
+        "energy_j": 1533.3470026404343,
+        "throughput": 3461.5472025464214,
+        "total_samples": 80000,
+        "n_power_readings": 218,
+        "power_percentiles": {
+          "p10": 65.758,
+          "p50": 68.669,
+          "p90": 70.967
+        },
+        "latency_ms": 3.280162811279297,
+        "inf_power_w": 41.670249999999996,
+        "inf_energy_j": 0.1366852043867111,
+        "bs_sensitivity": 0.10820731777854302
+      },
+      "proxy": {
+        "params": 152202,
+        "flops": 5326080,
+        "mem_gb": 0.7891637682914734,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0022144883227176223,
+        "proxy_wall_s": 26.573859872611468,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "zero",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|zero|conv_3x3|conv_3x3|conv_1x1|conv_3x3",
+      "accuracy": 59.53,
+      "param_count": 198490,
+      "measured": {
+        "train_wall_s": 25.3412868976593,
+        "avg_power_w": 65.7374375,
+        "std_power_w": 9.331203197038798,
+        "energy_kwh": 0.000462742017667902,
+        "energy_j": 1665.8712636044472,
+        "throughput": 3156.903606477434,
+        "total_samples": 80000,
+        "n_power_readings": 240,
+        "power_percentiles": {
+          "p10": 65.9931,
+          "p50": 68.221,
+          "p90": 70.0883
+        },
+        "latency_ms": 3.010869026184082,
+        "inf_power_w": 42.24533333333333,
+        "inf_energy_j": 0.12719516563415526,
+        "bs_sensitivity": 0.09984415497694456
+      },
+      "proxy": {
+        "params": 198474,
+        "flops": 6071552,
+        "mem_gb": 1.0178529620170593,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002524442179759378,
+        "proxy_wall_s": 30.293306157112532,
+        "n_useful": 5,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "skip_connect",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|skip_connect|conv_1x1|conv_1x1|conv_1x1|conv_3x3",
+      "accuracy": 54.28,
+      "param_count": 91994,
+      "measured": {
+        "train_wall_s": 17.39649748802185,
+        "avg_power_w": 65.66538787878788,
+        "std_power_w": 10.398443487594744,
+        "energy_kwh": 0.0003173188209120317,
+        "energy_j": 1142.347755283314,
+        "throughput": 4598.626824456074,
+        "total_samples": 80000,
+        "n_power_readings": 165,
+        "power_percentiles": {
+          "p10": 54.77620000000001,
+          "p50": 69.091,
+          "p90": 70.182
+        },
+        "latency_ms": 2.8880834579467773,
+        "inf_power_w": 41.93666666666667,
+        "inf_energy_j": 0.12111659328142803,
+        "bs_sensitivity": 0.07383811923955831
+      },
+      "proxy": {
+        "params": 91978,
+        "flops": 4367616,
+        "mem_gb": 0.5350343585014343,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.001961254318471338,
+        "proxy_wall_s": 23.53505182165605,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|conv_1x1|conv_1x1|conv_1x1",
+      "accuracy": 39.76,
+      "param_count": 45722,
+      "measured": {
+        "train_wall_s": 15.627984285354614,
+        "avg_power_w": 63.36616326530613,
+        "std_power_w": 13.175557442435696,
+        "energy_kwh": 0.00027507927881483863,
+        "energy_j": 990.285403733419,
+        "throughput": 5119.022296110834,
+        "total_samples": 80000,
+        "n_power_readings": 147,
+        "power_percentiles": {
+          "p10": 34.712,
+          "p50": 69.287,
+          "p90": 71.8968
+        },
+        "latency_ms": 3.3282041549682617,
+        "inf_power_w": 39.67875,
+        "inf_energy_j": 0.1320589806139469,
+        "bs_sensitivity": 0.10623456461155266
+      },
+      "proxy": {
+        "params": 45706,
+        "flops": 3622144,
+        "mem_gb": 0.3317357897758484,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0015060223637650392,
+        "proxy_wall_s": 18.07226836518047,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "zero|conv_1x1|conv_1x1|conv_1x1|conv_1x1|conv_1x1",
+      "accuracy": 40.39,
+      "param_count": 38746,
+      "measured": {
+        "train_wall_s": 15.482669353485107,
+        "avg_power_w": 59.27699319727892,
+        "std_power_w": 13.594193845391354,
+        "energy_kwh": 0.00025493502387284876,
+        "energy_j": 917.7660859422555,
+        "throughput": 5167.067653097702,
+        "total_samples": 80000,
+        "n_power_readings": 147,
+        "power_percentiles": {
+          "p10": 34.296,
+          "p50": 63.572,
+          "p90": 74.4164
+        },
+        "latency_ms": 2.9081106185913086,
+        "inf_power_w": 39.34766666666667,
+        "inf_energy_j": 0.11442736725012462,
+        "bs_sensitivity": 0.06348282902528819
+      },
+      "proxy": {
+        "params": 38730,
+        "flops": 3515648,
+        "mem_gb": 0.3317109942436218,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0014617432413305028,
+        "proxy_wall_s": 17.540918895966033,
+        "n_useful": 5,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|skip_connect|skip_connect|conv_1x1|zero",
+      "accuracy": 40.09,
+      "param_count": 24794,
+      "measured": {
+        "train_wall_s": 15.540110111236572,
+        "avg_power_w": 51.294163265306125,
+        "std_power_w": 11.178404643843757,
+        "energy_kwh": 0.00022142137366850092,
+        "energy_j": 797.1169452066033,
+        "throughput": 5147.968671222894,
+        "total_samples": 80000,
+        "n_power_readings": 147,
+        "power_percentiles": {
+          "p10": 34.534,
+          "p50": 51.666,
+          "p90": 67.26320000000001
+        },
+        "latency_ms": 2.0575523376464844,
+        "inf_power_w": 41.202,
+        "inf_energy_j": 0.08477527141571045,
+        "bs_sensitivity": 0.07164794658042951
+      },
+      "proxy": {
+        "params": 24778,
+        "flops": 3302656,
+        "mem_gb": 0.2808801531791687,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0016700898605611987,
+        "proxy_wall_s": 20.041078326734382,
+        "n_useful": 3,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|conv_3x3|conv_1x1|conv_1x1",
+      "accuracy": 55.89,
+      "param_count": 98970,
+      "measured": {
+        "train_wall_s": 19.040494918823242,
+        "avg_power_w": 64.92312222222222,
+        "std_power_w": 11.87028689565091,
+        "energy_kwh": 0.000343380105218434,
+        "energy_j": 1236.1683787863624,
+        "throughput": 4201.571458151164,
+        "total_samples": 80000,
+        "n_power_readings": 180,
+        "power_percentiles": {
+          "p10": 37.4551,
+          "p50": 69.259,
+          "p90": 70.46379999999999
+        },
+        "latency_ms": 3.3216476440429688,
+        "inf_power_w": 36.75275,
+        "inf_energy_j": 0.12207968544960021,
+        "bs_sensitivity": 0.09570871279753325
+      },
+      "proxy": {
+        "params": 98954,
+        "flops": 4474112,
+        "mem_gb": 0.5604497790336609,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0018602553432413309,
+        "proxy_wall_s": 22.32306411889597,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|conv_1x1|avg_pool_3x3|conv_3x3|avg_pool_3x3|conv_3x3",
+      "accuracy": 55.97,
+      "param_count": 131290,
+      "measured": {
+        "train_wall_s": 21.139893770217896,
+        "avg_power_w": 65.37352261306532,
+        "std_power_w": 10.728869754043872,
+        "energy_kwh": 0.00038388592317364955,
+        "energy_j": 1381.9893234251383,
+        "throughput": 3784.314191431976,
+        "total_samples": 80000,
+        "n_power_readings": 199,
+        "power_percentiles": {
+          "p10": 50.27540000000001,
+          "p50": 68.838,
+          "p90": 70.40039999999999
+        },
+        "latency_ms": 2.3696422576904297,
+        "inf_power_w": 44.31666666666666,
+        "inf_energy_j": 0.1050146460533142,
+        "bs_sensitivity": 0.09118646342983988
+      },
+      "proxy": {
+        "params": 131274,
+        "flops": 6444288,
+        "mem_gb": 0.7890893816947937,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003444967424931757,
+        "proxy_wall_s": 41.33960909918108,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "zero",
+        "zero",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|zero|zero|conv_1x1|conv_1x1",
+      "accuracy": 38.53,
+      "param_count": 31770,
+      "measured": {
+        "train_wall_s": 15.524410009384155,
+        "avg_power_w": 58.60310884353742,
+        "std_power_w": 13.65653021893944,
+        "energy_kwh": 0.0002527163026421226,
+        "energy_j": 909.7786895116415,
+        "throughput": 5153.174900150267,
+        "total_samples": 80000,
+        "n_power_readings": 147,
+        "power_percentiles": {
+          "p10": 34.256,
+          "p50": 61.62,
+          "p90": 74.3204
+        },
+        "latency_ms": 2.5446414947509766,
+        "inf_power_w": 37.934666666666665,
+        "inf_energy_j": 0.09653012688954671,
+        "bs_sensitivity": 0.09196447189577521
+      },
+      "proxy": {
+        "params": 31754,
+        "flops": 3409152,
+        "mem_gb": 0.33168619871139526,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.001417464118895966,
+        "proxy_wall_s": 17.009569426751593,
+        "n_useful": 4,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "zero",
+        "zero",
+        "conv_3x3",
+        "zero"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|zero|zero|conv_3x3|zero",
+      "accuracy": 56.83,
+      "param_count": 184538,
+      "measured": {
+        "train_wall_s": 17.011528968811035,
+        "avg_power_w": 63.8873,
+        "std_power_w": 12.205841065244131,
+        "energy_kwh": 0.0003018946263025337,
+        "energy_j": 1086.8206546891213,
+        "throughput": 4702.693105756228,
+        "total_samples": 80000,
+        "n_power_readings": 160,
+        "power_percentiles": {
+          "p10": 37.1691,
+          "p50": 68.53649999999999,
+          "p90": 70.85679999999999
+        },
+        "latency_ms": 2.239823341369629,
+        "inf_power_w": 38.671666666666674,
+        "inf_energy_j": 0.08661770164966585,
+        "bs_sensitivity": 0.06778145886675031
+      },
+      "proxy": {
+        "params": 184522,
+        "flops": 5858560,
+        "mem_gb": 1.0178033709526062,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002435883934890305,
+        "proxy_wall_s": 29.23060721868366,
+        "n_useful": 3,
+        "n_zero": 3
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "skip_connect",
+        "avg_pool_3x3",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|skip_connect|avg_pool_3x3|skip_connect|skip_connect|conv_3x3",
+      "accuracy": 53.17,
+      "param_count": 64090,
+      "measured": {
+        "train_wall_s": 15.158342599868774,
+        "avg_power_w": 61.65297202797203,
+        "std_power_w": 13.590784238189046,
+        "energy_kwh": 0.00025959913119447955,
+        "energy_j": 934.5568723001263,
+        "throughput": 5277.621842423099,
+        "total_samples": 80000,
+        "n_power_readings": 143,
+        "power_percentiles": {
+          "p10": 37.803,
+          "p50": 67.251,
+          "p90": 74.981
+        },
+        "latency_ms": 1.3189315795898438,
+        "inf_power_w": 44.391999999999996,
+        "inf_energy_j": 0.058550010681152335,
+        "bs_sensitivity": 0.029417527415816557
+      },
+      "proxy": {
+        "params": 64074,
+        "flops": 4900096,
+        "mem_gb": 0.4841539263725281,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003235825852379169,
+        "proxy_wall_s": 38.82991022855003,
+        "n_useful": 1,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3",
+      "accuracy": 45.8,
+      "param_count": 3866,
+      "measured": {
+        "train_wall_s": 15.383651733398438,
+        "avg_power_w": 58.53382758620689,
+        "std_power_w": 14.936345092953319,
+        "energy_kwh": 0.00025012889394694356,
+        "energy_j": 900.4640182089969,
+        "throughput": 5200.325734514468,
+        "total_samples": 80000,
+        "n_power_readings": 145,
+        "power_percentiles": {
+          "p10": 34.161,
+          "p50": 58.567,
+          "p90": 77.44800000000001
+        },
+        "latency_ms": 1.0737180709838867,
+        "inf_power_w": 45.541,
+        "inf_energy_j": 0.04889819467067718,
+        "bs_sensitivity": 0.07524072884604023
+      },
+      "proxy": {
+        "params": 3850,
+        "flops": 5858560,
+        "mem_gb": 0.331587016582489,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.004384591082802548,
+        "proxy_wall_s": 52.615092993630576,
+        "n_useful": 0,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_1x1|conv_3x3|conv_3x3|conv_1x1|conv_3x3",
+      "accuracy": 60.78,
+      "param_count": 258714,
+      "measured": {
+        "train_wall_s": 31.39349341392517,
+        "avg_power_w": 66.88042617449663,
+        "std_power_w": 8.387608024864894,
+        "energy_kwh": 0.0005832250607304358,
+        "energy_j": 2099.610218629569,
+        "throughput": 2548.298749208793,
+        "total_samples": 80000,
+        "n_power_readings": 298,
+        "power_percentiles": {
+          "p10": 66.8566,
+          "p50": 68.614,
+          "p90": 70.497
+        },
+        "latency_ms": 3.284454345703125,
+        "inf_power_w": 37.66975,
+        "inf_energy_j": 0.1237245740890503,
+        "bs_sensitivity": 0.10548398678439003
+      },
+      "proxy": {
+        "params": 258698,
+        "flops": 7030016,
+        "mem_gb": 1.2465917468070984,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0029229542816702056,
+        "proxy_wall_s": 35.075451380042466,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "zero"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_3x3|conv_1x1|conv_3x3|zero",
+      "accuracy": 56.93,
+      "param_count": 145242,
+      "measured": {
+        "train_wall_s": 15.132337093353271,
+        "avg_power_w": 64.10139436619718,
+        "std_power_w": 12.635569992748978,
+        "energy_kwh": 0.0002694455299175756,
+        "energy_j": 970.003907703272,
+        "throughput": 5286.69163966346,
+        "total_samples": 80000,
+        "n_power_readings": 142,
+        "power_percentiles": {
+          "p10": 34.1669,
+          "p50": 68.881,
+          "p90": 71.6311
+        },
+        "latency_ms": 2.9790401458740234,
+        "inf_power_w": 43.379333333333335,
+        "inf_energy_j": 0.12922877550125123,
+        "bs_sensitivity": 0.11742808813109246
+      },
+      "proxy": {
+        "params": 145226,
+        "flops": 5219584,
+        "mem_gb": 0.7891389727592468,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002170209200283086,
+        "proxy_wall_s": 26.04251040339703,
+        "n_useful": 5,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "zero|conv_3x3|conv_1x1|conv_3x3|conv_3x3|conv_3x3",
+      "accuracy": 62.62,
+      "param_count": 251738,
+      "measured": {
+        "train_wall_s": 27.940932989120483,
+        "avg_power_w": 66.15287924528302,
+        "std_power_w": 9.182734366916144,
+        "energy_kwh": 0.0005134369905638423,
+        "energy_j": 1848.373166029832,
+        "throughput": 2863.1828447228318,
+        "total_samples": 80000,
+        "n_power_readings": 265,
+        "power_percentiles": {
+          "p10": 66.562,
+          "p50": 68.529,
+          "p90": 70.038
+        },
+        "latency_ms": 2.978205680847168,
+        "inf_power_w": 45.829,
+        "inf_energy_j": 0.13648818814754488,
+        "bs_sensitivity": 0.08748928119813613
+      },
+      "proxy": {
+        "params": 251722,
+        "flops": 6923520,
+        "mem_gb": 1.2465669512748718,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002878675159235669,
+        "proxy_wall_s": 34.54410191082803,
+        "n_useful": 5,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "zero",
+        "zero",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "zero|zero|zero|zero|conv_1x1|zero",
+      "accuracy": 10.0,
+      "param_count": 10842,
+      "measured": {
+        "train_wall_s": 14.890880107879639,
+        "avg_power_w": 29.94083687943262,
+        "std_power_w": 2.603110582339547,
+        "energy_kwh": 0.00012384594786144786,
+        "energy_j": 445.84541230121226,
+        "throughput": 5372.415829046082,
+        "total_samples": 80000,
+        "n_power_readings": 141,
+        "power_percentiles": {
+          "p10": 27.158,
+          "p50": 29.527,
+          "p90": 33.084
+        },
+        "latency_ms": 1.4586448669433594,
+        "inf_power_w": 30.707,
+        "inf_energy_j": 0.04479060792922974,
+        "bs_sensitivity": 0.05191695578293628
+      },
+      "proxy": {
+        "params": 10826,
+        "flops": 3089664,
+        "mem_gb": 0.3316118121147156,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0012846267515923568,
+        "proxy_wall_s": 15.415521019108283,
+        "n_useful": 1,
+        "n_zero": 5
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_3x3|conv_3x3|conv_3x3|conv_3x3",
+      "accuracy": 57.88,
+      "param_count": 365210,
+      "measured": {
+        "train_wall_s": 39.64131307601929,
+        "avg_power_w": 67.24560106382978,
+        "std_power_w": 7.675326902414974,
+        "energy_kwh": 0.0007404733124323256,
+        "energy_j": 2665.703924756372,
+        "throughput": 2018.0966217386829,
+        "total_samples": 80000,
+        "n_power_readings": 376,
+        "power_percentiles": {
+          "p10": 67.2695,
+          "p50": 68.823,
+          "p90": 70.292
+        },
+        "latency_ms": 3.368973731994629,
+        "inf_power_w": 42.797,
+        "inf_energy_j": 0.14418196880817413,
+        "bs_sensitivity": 0.1039958158060057
+      },
+      "proxy": {
+        "params": 365194,
+        "flops": 8733952,
+        "mem_gb": 1.7040197253227234,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003631420240622789,
+        "proxy_wall_s": 43.57704288747347,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_3x3|avg_pool_3x3|avg_pool_3x3|conv_1x1|conv_1x1|avg_pool_3x3",
+      "accuracy": 56.12,
+      "param_count": 78042,
+      "measured": {
+        "train_wall_s": 17.17755913734436,
+        "avg_power_w": 64.20763354037267,
+        "std_power_w": 12.049643444475828,
+        "energy_kwh": 0.0003063695617246352,
+        "energy_j": 1102.9304222086867,
+        "throughput": 4657.239096681576,
+        "total_samples": 80000,
+        "n_power_readings": 161,
+        "power_percentiles": {
+          "p10": 35.642,
+          "p50": 68.698,
+          "p90": 70.28
+        },
+        "latency_ms": 2.322673797607422,
+        "inf_power_w": 42.57933333333333,
+        "inf_energy_j": 0.09889790185292562,
+        "bs_sensitivity": 0.05974073462959517
+      },
+      "proxy": {
+        "params": 78026,
+        "flops": 5592320,
+        "mem_gb": 0.5603753924369812,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002989525022747953,
+        "proxy_wall_s": 35.87430027297544,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "conv_1x1",
+        "conv_3x3",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "arch_str": "skip_connect|skip_connect|conv_1x1|conv_3x3|skip_connect|skip_connect",
+      "accuracy": 51.66,
+      "param_count": 71066,
+      "measured": {
+        "train_wall_s": 15.436897993087769,
+        "avg_power_w": 62.06295862068966,
+        "std_power_w": 13.510044244485025,
+        "energy_kwh": 0.00026612765593800374,
+        "energy_j": 958.0595613768135,
+        "throughput": 5182.3883293017725,
+        "total_samples": 80000,
+        "n_power_readings": 145,
+        "power_percentiles": {
+          "p10": 34.893,
+          "p50": 67.174,
+          "p90": 76.10539999999999
+        },
+        "latency_ms": 1.653909683227539,
+        "inf_power_w": 37.924499999999995,
+        "inf_energy_j": 0.0627236977815628,
+        "bs_sensitivity": 0.07775419568150264
+      },
+      "proxy": {
+        "params": 71050,
+        "flops": 4048128,
+        "mem_gb": 0.45878809690475464,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002391828897083474,
+        "proxy_wall_s": 28.701946765001683,
+        "n_useful": 2,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "arch_str": "skip_connect|conv_3x3|conv_3x3|skip_connect|skip_connect|skip_connect",
+      "accuracy": 55.42,
+      "param_count": 124314,
+      "measured": {
+        "train_wall_s": 16.117095708847046,
+        "avg_power_w": 64.04763157894737,
+        "std_power_w": 12.031368331576232,
+        "energy_kwh": 0.00028673939113413034,
+        "energy_j": 1032.2618080828693,
+        "throughput": 4963.673446208187,
+        "total_samples": 80000,
+        "n_power_readings": 152,
+        "power_percentiles": {
+          "p10": 37.293800000000005,
+          "p50": 68.81,
+          "p90": 70.2714
+        },
+        "latency_ms": 1.6611814498901367,
+        "inf_power_w": 48.462500000000006,
+        "inf_energy_j": 0.08050500601530076,
+        "bs_sensitivity": 0.09171195994094071
+      },
+      "proxy": {
+        "params": 124298,
+        "flops": 4900096,
+        "mem_gb": 0.6875020861625671,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0028952126047603085,
+        "proxy_wall_s": 34.74255125712371,
+        "n_useful": 2,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|conv_1x1|avg_pool_3x3|avg_pool_3x3|conv_1x1|avg_pool_3x3",
+      "accuracy": 45.76,
+      "param_count": 17818,
+      "measured": {
+        "train_wall_s": 15.94513201713562,
+        "avg_power_w": 59.26332450331126,
+        "std_power_w": 14.272959796702077,
+        "energy_kwh": 0.0002624893147165684,
+        "energy_j": 944.9615329796463,
+        "throughput": 5017.205245715562,
+        "total_samples": 80000,
+        "n_power_readings": 151,
+        "power_percentiles": {
+          "p10": 34.257,
+          "p50": 60.844,
+          "p90": 76.562
+        },
+        "latency_ms": 1.8706321716308594,
+        "inf_power_w": 38.245,
+        "inf_energy_j": 0.07154232740402221,
+        "bs_sensitivity": 0.06980541903764494
+      },
+      "proxy": {
+        "params": 17802,
+        "flops": 5113088,
+        "mem_gb": 0.33163660764694214,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0030210585316795178,
+        "proxy_wall_s": 36.25270238015421,
+        "n_useful": 2,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "zero|zero|skip_connect|skip_connect|conv_3x3|avg_pool_3x3",
+      "accuracy": 36.52,
+      "param_count": 64090,
+      "measured": {
+        "train_wall_s": 15.44777536392212,
+        "avg_power_w": 53.28713605442176,
+        "std_power_w": 11.256092430227095,
+        "energy_kwh": 0.00022865769654318406,
+        "energy_j": 823.1677075554626,
+        "throughput": 5178.739211008851,
+        "total_samples": 80000,
+        "n_power_readings": 147,
+        "power_percentiles": {
+          "p10": 35.004799999999996,
+          "p50": 54.561,
+          "p90": 66.58000000000001
+        },
+        "latency_ms": 1.4350414276123047,
+        "inf_power_w": 39.221999999999994,
+        "inf_energy_j": 0.056285194873809806,
+        "bs_sensitivity": 0.08297285555384254
+      },
+      "proxy": {
+        "params": 64074,
+        "flops": 4420864,
+        "mem_gb": 0.5095445513725281,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0027571736730360934,
+        "proxy_wall_s": 33.08608407643312,
+        "n_useful": 1,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_3x3|conv_3x3|conv_3x3|conv_1x1",
+      "accuracy": 58.56,
+      "param_count": 311962,
+      "measured": {
+        "train_wall_s": 35.72867751121521,
+        "avg_power_w": 66.84048377581121,
+        "std_power_w": 8.489510686091679,
+        "energy_kwh": 0.0006633672470887698,
+        "energy_j": 2388.122089519571,
+        "throughput": 2239.0977100926293,
+        "total_samples": 80000,
+        "n_power_readings": 339,
+        "power_percentiles": {
+          "p10": 67.2586,
+          "p50": 68.74,
+          "p90": 70.0744
+        },
+        "latency_ms": 3.4232139587402344,
+        "inf_power_w": 41.1965,
+        "inf_energy_j": 0.14102443385124205,
+        "bs_sensitivity": 0.11570137557323021
+      },
+      "proxy": {
+        "params": 311946,
+        "flops": 7881984,
+        "mem_gb": 1.4753057360649109,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003277187261146497,
+        "proxy_wall_s": 39.32624713375797,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_3x3|conv_1x1|conv_3x3|conv_1x1|conv_3x3|conv_1x1",
+      "accuracy": 59.15,
+      "param_count": 205466,
+      "measured": {
+        "train_wall_s": 27.56541681289673,
+        "avg_power_w": 65.81984615384616,
+        "std_power_w": 10.222800283575426,
+        "energy_kwh": 0.0005039865260531963,
+        "energy_j": 1814.351493791507,
+        "throughput": 2902.187205911259,
+        "total_samples": 80000,
+        "n_power_readings": 260,
+        "power_percentiles": {
+          "p10": 62.27730000000001,
+          "p50": 68.52250000000001,
+          "p90": 70.9912
+        },
+        "latency_ms": 3.288149833679199,
+        "inf_power_w": 39.15675,
+        "inf_energy_j": 0.128753260999918,
+        "bs_sensitivity": 0.12475911266719635
+      },
+      "proxy": {
+        "params": 205450,
+        "flops": 6178048,
+        "mem_gb": 1.0178777575492859,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002568721302193914,
+        "proxy_wall_s": 30.82465562632697,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "zero",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "skip_connect|zero|conv_1x1|conv_3x3|conv_1x1|zero",
+      "accuracy": 56.93,
+      "param_count": 78042,
+      "measured": {
+        "train_wall_s": 15.73243522644043,
+        "avg_power_w": 61.51642176870749,
+        "std_power_w": 13.904417189754378,
+        "energy_kwh": 0.00026883420023293903,
+        "energy_j": 967.8031208385805,
+        "throughput": 5085.036032155369,
+        "total_samples": 80000,
+        "n_power_readings": 147,
+        "power_percentiles": {
+          "p10": 34.8384,
+          "p50": 66.677,
+          "p90": 74.9628
+        },
+        "latency_ms": 2.2430419921875,
+        "inf_power_w": 39.94566666666666,
+        "inf_energy_j": 0.0895998077392578,
+        "bs_sensitivity": 0.0735451063384485
+      },
+      "proxy": {
+        "params": 78026,
+        "flops": 4154624,
+        "mem_gb": 0.5349847674369812,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0019433452229299362,
+        "proxy_wall_s": 23.320142675159236,
+        "n_useful": 3,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_3x3|conv_1x1|conv_3x3|conv_1x1|conv_3x3",
+      "accuracy": 61.86,
+      "param_count": 258714,
+      "measured": {
+        "train_wall_s": 31.48270273208618,
+        "avg_power_w": 66.61594630872483,
+        "std_power_w": 8.742083315881588,
+        "energy_kwh": 0.0005825694541261659,
+        "energy_j": 2097.2500348541976,
+        "throughput": 2541.077895401481,
+        "total_samples": 80000,
+        "n_power_readings": 298,
+        "power_percentiles": {
+          "p10": 66.6431,
+          "p50": 68.46,
+          "p90": 70.7325
+        },
+        "latency_ms": 3.329157829284668,
+        "inf_power_w": 43.370999999999995,
+        "inf_energy_j": 0.14438890421390532,
+        "bs_sensitivity": 0.1134877530506787
+      },
+      "proxy": {
+        "params": 258698,
+        "flops": 7030016,
+        "mem_gb": 1.2465917468070984,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0029229542816702056,
+        "proxy_wall_s": 35.075451380042466,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "zero|avg_pool_3x3|conv_1x1|avg_pool_3x3|conv_1x1|avg_pool_3x3",
+      "accuracy": 45.35,
+      "param_count": 17818,
+      "measured": {
+        "train_wall_s": 15.168992042541504,
+        "avg_power_w": 57.062708333333326,
+        "std_power_w": 13.129513304889253,
+        "energy_kwh": 0.0002404399357317222,
+        "energy_j": 865.5837686341999,
+        "throughput": 5273.9166699830585,
+        "total_samples": 80000,
+        "n_power_readings": 144,
+        "power_percentiles": {
+          "p10": 36.919,
+          "p50": 60.137,
+          "p90": 73.026
+        },
+        "latency_ms": 1.9190311431884766,
+        "inf_power_w": 45.0955,
+        "inf_energy_j": 0.08653966891765595,
+        "bs_sensitivity": 0.06696066373886274
+      },
+      "proxy": {
+        "params": 17802,
+        "flops": 4633856,
+        "mem_gb": 0.33163660764694214,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0026272827639451848,
+        "proxy_wall_s": 31.527393167342215,
+        "n_useful": 2,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "skip_connect",
+        "skip_connect",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "zero|zero|skip_connect|skip_connect|avg_pool_3x3|avg_pool_3x3",
+      "accuracy": 38.19,
+      "param_count": 3866,
+      "measured": {
+        "train_wall_s": 15.742635011672974,
+        "avg_power_w": 31.573194630872482,
+        "std_power_w": 3.580957424518306,
+        "energy_kwh": 0.00013806813311842729,
+        "energy_j": 497.04527922633827,
+        "throughput": 5081.7413946700135,
+        "total_samples": 80000,
+        "n_power_readings": 149,
+        "power_percentiles": {
+          "p10": 27.2652,
+          "p50": 31.344,
+          "p90": 36.9426
+        },
+        "latency_ms": 0.9808540344238281,
+        "inf_power_w": 28.784,
+        "inf_energy_j": 0.028232902526855466,
+        "bs_sensitivity": 0.02638891803190746
+      },
+      "proxy": {
+        "params": 3850,
+        "flops": 3941632,
+        "mem_gb": 0.280805766582489,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002949947515923567,
+        "proxy_wall_s": 35.3993701910828,
+        "n_useful": 0,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_3x3",
+        "conv_1x1",
+        "skip_connect",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "skip_connect|conv_3x3|conv_1x1|skip_connect|conv_1x1|conv_3x3",
+      "accuracy": 61.1,
+      "param_count": 138266,
+      "measured": {
+        "train_wall_s": 19.707610607147217,
+        "avg_power_w": 65.76722580645162,
+        "std_power_w": 10.851319174677881,
+        "energy_kwh": 0.00036003191025163115,
+        "energy_j": 1296.114876905872,
+        "throughput": 4059.3454779843773,
+        "total_samples": 80000,
+        "n_power_readings": 186,
+        "power_percentiles": {
+          "p10": 50.486000000000004,
+          "p50": 68.937,
+          "p90": 71.17949999999999
+        },
+        "latency_ms": 2.4559497833251953,
+        "inf_power_w": 36.277,
+        "inf_energy_j": 0.08909449028968812,
+        "bs_sensitivity": 0.10159175099321513
+      },
+      "proxy": {
+        "params": 138250,
+        "flops": 5113088,
+        "mem_gb": 0.7383329272270203,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002495657047909167,
+        "proxy_wall_s": 29.947884574910002,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|avg_pool_3x3|conv_1x1|conv_1x1|conv_3x3|conv_3x3",
+      "accuracy": 56.31,
+      "param_count": 145242,
+      "measured": {
+        "train_wall_s": 22.38985276222229,
+        "avg_power_w": 66.09444600938966,
+        "std_power_w": 10.35309644834246,
+        "energy_kwh": 0.0004110680318196903,
+        "energy_j": 1479.844914550885,
+        "throughput": 3573.0471678215563,
+        "total_samples": 80000,
+        "n_power_readings": 213,
+        "power_percentiles": {
+          "p10": 62.42580000000002,
+          "p50": 68.894,
+          "p90": 70.70739999999999
+        },
+        "latency_ms": 3.0541419982910156,
+        "inf_power_w": 39.340333333333334,
+        "inf_energy_j": 0.12015096426010131,
+        "bs_sensitivity": 0.09932332857331433
+      },
+      "proxy": {
+        "params": 145226,
+        "flops": 5698816,
+        "mem_gb": 0.7891389727592468,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0025590224713375794,
+        "proxy_wall_s": 30.708269656050955,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_3x3|conv_3x3|conv_1x1|conv_1x1|conv_1x1",
+      "accuracy": 53.36,
+      "param_count": 152218,
+      "measured": {
+        "train_wall_s": 23.306012630462646,
+        "avg_power_w": 65.70209502262443,
+        "std_power_w": 10.660414712460742,
+        "energy_kwh": 0.0004253482934569839,
+        "energy_j": 1531.253856445142,
+        "throughput": 3432.590605200059,
+        "total_samples": 80000,
+        "n_power_readings": 221,
+        "power_percentiles": {
+          "p10": 54.66,
+          "p50": 68.95,
+          "p90": 70.586
+        },
+        "latency_ms": 3.4281015396118164,
+        "inf_power_w": 40.636,
+        "inf_energy_j": 0.13930433416366578,
+        "bs_sensitivity": 0.11744443795904944
+      },
+      "proxy": {
+        "params": 152202,
+        "flops": 5326080,
+        "mem_gb": 0.7891637682914734,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0022144883227176223,
+        "proxy_wall_s": 26.573859872611468,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_3x3|conv_1x1|conv_1x1|conv_1x1|conv_1x1|conv_1x1",
+      "accuracy": 55.99,
+      "param_count": 98970,
+      "measured": {
+        "train_wall_s": 19.224324226379395,
+        "avg_power_w": 64.98315934065933,
+        "std_power_w": 12.156980363664434,
+        "energy_kwh": 0.0003470159234498082,
+        "energy_j": 1249.2573244193095,
+        "throughput": 4161.394650753181,
+        "total_samples": 80000,
+        "n_power_readings": 182,
+        "power_percentiles": {
+          "p10": 36.9257,
+          "p50": 69.125,
+          "p90": 71.30160000000001
+        },
+        "latency_ms": 3.393411636352539,
+        "inf_power_w": 39.88775,
+        "inf_energy_j": 0.13535555499792098,
+        "bs_sensitivity": 0.11468682376129266
+      },
+      "proxy": {
+        "params": 98954,
+        "flops": 4474112,
+        "mem_gb": 0.5604497790336609,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0018602553432413309,
+        "proxy_wall_s": 22.32306411889597,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|conv_1x1|skip_connect|skip_connect",
+      "accuracy": 39.08,
+      "param_count": 31770,
+      "measured": {
+        "train_wall_s": 15.91798710823059,
+        "avg_power_w": 58.37938666666666,
+        "std_power_w": 13.744692376713598,
+        "energy_kwh": 0.00025813397898511353,
+        "energy_j": 929.2823243464088,
+        "throughput": 5025.761074943642,
+        "total_samples": 80000,
+        "n_power_readings": 150,
+        "power_percentiles": {
+          "p10": 34.376,
+          "p50": 60.838499999999996,
+          "p90": 73.3737
+        },
+        "latency_ms": 2.4906396865844727,
+        "inf_power_w": 39.187666666666665,
+        "inf_energy_j": 0.09760235782464345,
+        "bs_sensitivity": 0.08444936533616323
+      },
+      "proxy": {
+        "params": 31754,
+        "flops": 3409152,
+        "mem_gb": 0.28090494871139526,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.001663979617834395,
+        "proxy_wall_s": 19.967755414012743,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|conv_3x3|avg_pool_3x3",
+      "accuracy": 58.71,
+      "param_count": 124314,
+      "measured": {
+        "train_wall_s": 20.276712656021118,
+        "avg_power_w": 64.98751041666667,
+        "std_power_w": 10.663065634171137,
+        "energy_kwh": 0.00036603696526359147,
+        "energy_j": 1317.7330749489292,
+        "throughput": 3945.41271837988,
+        "total_samples": 80000,
+        "n_power_readings": 192,
+        "power_percentiles": {
+          "p10": 43.656000000000006,
+          "p50": 68.614,
+          "p90": 70.4176
+        },
+        "latency_ms": 2.0388364791870117,
+        "inf_power_w": 32.17766666666667,
+        "inf_energy_j": 0.06560500061511994,
+        "bs_sensitivity": 0.09551861480563802
+      },
+      "proxy": {
+        "params": 124298,
+        "flops": 6817024,
+        "mem_gb": 0.7890645861625671,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.004027825947033189,
+        "proxy_wall_s": 48.33391136439827,
+        "n_useful": 2,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_3x3|avg_pool_3x3|conv_3x3|avg_pool_3x3|avg_pool_3x3|conv_1x1",
+      "accuracy": 58.84,
+      "param_count": 131290,
+      "measured": {
+        "train_wall_s": 22.732261419296265,
+        "avg_power_w": 63.092283018867924,
+        "std_power_w": 13.241369260806543,
+        "energy_kwh": 0.00039839729753475897,
+        "energy_j": 1434.2302711251323,
+        "throughput": 3519.2275209404397,
+        "total_samples": 80000,
+        "n_power_readings": 212,
+        "power_percentiles": {
+          "p10": 34.296,
+          "p50": 68.403,
+          "p90": 70.76
+        },
+        "latency_ms": 2.4118423461914062,
+        "inf_power_w": 40.33033333333333,
+        "inf_energy_j": 0.09727040576934813,
+        "bs_sensitivity": 0.08907945496544002
+      },
+      "proxy": {
+        "params": 131274,
+        "flops": 6444288,
+        "mem_gb": 0.7890893816947937,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003444967424931757,
+        "proxy_wall_s": 41.33960909918108,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "zero|conv_3x3|conv_3x3|avg_pool_3x3|conv_3x3|avg_pool_3x3",
+      "accuracy": 55.27,
+      "param_count": 184538,
+      "measured": {
+        "train_wall_s": 22.065504789352417,
+        "avg_power_w": 65.00070673076922,
+        "std_power_w": 11.279262676885642,
+        "energy_kwh": 0.0003984092793553001,
+        "energy_j": 1434.2734056790803,
+        "throughput": 3625.5685407479796,
+        "total_samples": 80000,
+        "n_power_readings": 208,
+        "power_percentiles": {
+          "p10": 41.12340000000001,
+          "p50": 68.958,
+          "p90": 71.04260000000001
+        },
+        "latency_ms": 2.301454544067383,
+        "inf_power_w": 41.674,
+        "inf_energy_j": 0.0959108166694641,
+        "bs_sensitivity": 0.08046487397059106
+      },
+      "proxy": {
+        "params": 184522,
+        "flops": 6817024,
+        "mem_gb": 1.0178033709526062,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.003447238423136513,
+        "proxy_wall_s": 41.366861077638156,
+        "n_useful": 3,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "conv_3x3",
+        "conv_1x1",
+        "skip_connect",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|skip_connect|conv_3x3|conv_1x1|skip_connect|conv_3x3",
+      "accuracy": 59.39,
+      "param_count": 191514,
+      "measured": {
+        "train_wall_s": 23.953813552856445,
+        "avg_power_w": 66.1973628318584,
+        "std_power_w": 9.714082488988154,
+        "energy_kwh": 0.00044046646860142365,
+        "energy_j": 1585.6792869651251,
+        "throughput": 3339.7604862988574,
+        "total_samples": 80000,
+        "n_power_readings": 226,
+        "power_percentiles": {
+          "p10": 66.767,
+          "p50": 68.396,
+          "p90": 70.607
+        },
+        "latency_ms": 2.5163888931274414,
+        "inf_power_w": 40.31166666666667,
+        "inf_energy_j": 0.10143983026345571,
+        "bs_sensitivity": 0.07159077917996838
+      },
+      "proxy": {
+        "params": 191498,
+        "flops": 5965056,
+        "mem_gb": 0.9670469164848328,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0029114957629465528,
+        "proxy_wall_s": 34.93794915535863,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_1x1",
+        "skip_connect"
+      ],
+      "arch_str": "skip_connect|skip_connect|conv_3x3|conv_3x3|conv_1x1|skip_connect",
+      "accuracy": 54.65,
+      "param_count": 131290,
+      "measured": {
+        "train_wall_s": 18.18038558959961,
+        "avg_power_w": 64.81437426900585,
+        "std_power_w": 11.642747268801548,
+        "energy_kwh": 0.00032731953221087494,
+        "energy_j": 1178.3503159591498,
+        "throughput": 4400.346714635432,
+        "total_samples": 80000,
+        "n_power_readings": 171,
+        "power_percentiles": {
+          "p10": 38.18,
+          "p50": 68.782,
+          "p90": 70.716
+        },
+        "latency_ms": 2.0999908447265625,
+        "inf_power_w": 41.547999999999995,
+        "inf_energy_j": 0.0872504196166992,
+        "bs_sensitivity": 0.09683366052896973
+      },
+      "proxy": {
+        "params": 131274,
+        "flops": 5006592,
+        "mem_gb": 0.7129175066947937,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002676408371246588,
+        "proxy_wall_s": 32.11690045495906,
+        "n_useful": 3,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_3x3|conv_1x1|conv_3x3|conv_3x3",
+      "accuracy": 57.73,
+      "param_count": 205466,
+      "measured": {
+        "train_wall_s": 27.87713098526001,
+        "avg_power_w": 65.48348473282444,
+        "std_power_w": 10.057955467244057,
+        "energy_kwh": 0.0005070810225745058,
+        "energy_j": 1825.4916812682209,
+        "throughput": 2869.7357716724823,
+        "total_samples": 80000,
+        "n_power_readings": 262,
+        "power_percentiles": {
+          "p10": 63.3569,
+          "p50": 68.089,
+          "p90": 70.75450000000001
+        },
+        "latency_ms": 3.328561782836914,
+        "inf_power_w": 44.079750000000004,
+        "inf_energy_j": 0.14672217124700548,
+        "bs_sensitivity": 0.07993262821614991
+      },
+      "proxy": {
+        "params": 205450,
+        "flops": 6178048,
+        "mem_gb": 1.0178777575492859,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002568721302193914,
+        "proxy_wall_s": 30.82465562632697,
+        "n_useful": 6,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "conv_1x1",
+        "skip_connect"
+      ],
+      "arch_str": "skip_connect|skip_connect|skip_connect|skip_connect|conv_1x1|skip_connect",
+      "accuracy": 41.49,
+      "param_count": 10842,
+      "measured": {
+        "train_wall_s": 15.638566017150879,
+        "avg_power_w": 35.106837837837844,
+        "std_power_w": 5.520530610090544,
+        "energy_kwh": 0.00015250572255012153,
+        "energy_j": 549.0206011804376,
+        "throughput": 5115.558543683844,
+        "total_samples": 80000,
+        "n_power_readings": 148,
+        "power_percentiles": {
+          "p10": 27.387,
+          "p50": 34.663,
+          "p90": 43.3765
+        },
+        "latency_ms": 1.1695623397827148,
+        "inf_power_w": 27.6705,
+        "inf_energy_j": 0.03236237472295761,
+        "bs_sensitivity": 0.04863484602015962
+      },
+      "proxy": {
+        "params": 10826,
+        "flops": 3089664,
+        "mem_gb": 0.20465868711471558,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0020402895466466843,
+        "proxy_wall_s": 24.48347455976021,
+        "n_useful": 1,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "zero",
+        "zero",
+        "zero",
+        "zero"
+      ],
+      "arch_str": "zero|zero|zero|zero|zero|zero",
+      "accuracy": 10.0,
+      "param_count": 3866,
+      "measured": {
+        "train_wall_s": 16.062653064727783,
+        "avg_power_w": 28.295750000000005,
+        "std_power_w": 1.6513494252707708,
+        "energy_kwh": 0.00012625133762674202,
+        "energy_j": 454.5048154562713,
+        "throughput": 4980.497286321472,
+        "total_samples": 80000,
+        "n_power_readings": 152,
+        "power_percentiles": {
+          "p10": 26.4231,
+          "p50": 28.158,
+          "p90": 30.3414
+        },
+        "latency_ms": 1.0241270065307617,
+        "inf_power_w": 28.1735,
+        "inf_energy_j": 0.028853242218494415,
+        "bs_sensitivity": 0.03036432055587598
+      },
+      "proxy": {
+        "params": 3850,
+        "flops": 2983168,
+        "mem_gb": 0.331587016582489,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0022326257324840762,
+        "proxy_wall_s": 26.791508789808915,
+        "n_useful": 0,
+        "n_zero": 6
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "arch_str": "skip_connect|conv_3x3|conv_3x3|conv_3x3|conv_3x3|conv_3x3",
+      "accuracy": 63.41,
+      "param_count": 304986,
+      "measured": {
+        "train_wall_s": 33.865599632263184,
+        "avg_power_w": 66.64669158878506,
+        "std_power_w": 8.622199317278412,
+        "energy_kwh": 0.0006269528261557548,
+        "energy_j": 2257.0301741607173,
+        "throughput": 2362.279152552945,
+        "total_samples": 80000,
+        "n_power_readings": 321,
+        "power_percentiles": {
+          "p10": 67.045,
+          "p50": 68.712,
+          "p90": 70.182
+        },
+        "latency_ms": 2.910733222961426,
+        "inf_power_w": 42.70366666666666,
+        "inf_energy_j": 0.12429898130893706,
+        "bs_sensitivity": 0.05774575233902462
+      },
+      "proxy": {
+        "params": 304970,
+        "flops": 7775488,
+        "mem_gb": 1.4498903155326843,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0034915407898089175,
+        "proxy_wall_s": 41.89848947770701,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "zero",
+        "zero",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "skip_connect|zero|zero|skip_connect|conv_1x1|zero",
+      "accuracy": 40.3,
+      "param_count": 10842,
+      "measured": {
+        "train_wall_s": 15.249980926513672,
+        "avg_power_w": 34.23370138888889,
+        "std_power_w": 5.188018520377105,
+        "energy_kwh": 0.0001450175814512556,
+        "energy_j": 522.0632932245202,
+        "throughput": 5245.908200508744,
+        "total_samples": 80000,
+        "n_power_readings": 144,
+        "power_percentiles": {
+          "p10": 27.0885,
+          "p50": 33.94,
+          "p90": 41.1013
+        },
+        "latency_ms": 1.319289207458496,
+        "inf_power_w": 27.735,
+        "inf_energy_j": 0.03659048616886139,
+        "bs_sensitivity": 0.07553362462210853
+      },
+      "proxy": {
+        "params": 10826,
+        "flops": 3089664,
+        "mem_gb": 0.2808305621147156,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0018255222259470336,
+        "proxy_wall_s": 21.906266711364403,
+        "n_useful": 1,
+        "n_zero": 3
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "zero",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_3x3|conv_1x1|zero|conv_1x1|conv_1x1",
+      "accuracy": 53.29,
+      "param_count": 91994,
+      "measured": {
+        "train_wall_s": 17.415372371673584,
+        "avg_power_w": 63.93758787878789,
+        "std_power_w": 12.585560954251756,
+        "energy_kwh": 0.000309304694848804,
+        "energy_j": 1113.4969014556943,
+        "throughput": 4593.6428054861135,
+        "total_samples": 80000,
+        "n_power_readings": 165,
+        "power_percentiles": {
+          "p10": 36.934200000000004,
+          "p50": 68.963,
+          "p90": 70.9494
+        },
+        "latency_ms": 2.984285354614258,
+        "inf_power_w": 39.447333333333326,
+        "inf_energy_j": 0.11772209914525347,
+        "bs_sensitivity": 0.10410920858689504
+      },
+      "proxy": {
+        "params": 91978,
+        "flops": 4367616,
+        "mem_gb": 0.5604249835014343,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0018159762208067943,
+        "proxy_wall_s": 21.79171464968153,
+        "n_useful": 5,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "zero",
+        "zero",
+        "zero",
+        "conv_3x3",
+        "zero"
+      ],
+      "arch_str": "conv_3x3|zero|zero|zero|conv_3x3|zero",
+      "accuracy": 54.0,
+      "param_count": 124314,
+      "measured": {
+        "train_wall_s": 15.766414165496826,
+        "avg_power_w": 64.27070921985816,
+        "std_power_w": 12.091311348283142,
+        "energy_kwh": 0.0002814773945195831,
+        "energy_j": 1013.3186202704992,
+        "throughput": 5074.077032371239,
+        "total_samples": 80000,
+        "n_power_readings": 141,
+        "power_percentiles": {
+          "p10": 35.938,
+          "p50": 68.361,
+          "p90": 71.653
+        },
+        "latency_ms": 1.901388168334961,
+        "inf_power_w": 43.96,
+        "inf_energy_j": 0.08358502388000488,
+        "bs_sensitivity": 0.08491044541764693
+      },
+      "proxy": {
+        "params": 124298,
+        "flops": 4900096,
+        "mem_gb": 0.7890645861625671,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0020373718329794767,
+        "proxy_wall_s": 24.44846199575372,
+        "n_useful": 2,
+        "n_zero": 4
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_3x3|conv_1x1|avg_pool_3x3|conv_1x1|conv_3x3|avg_pool_3x3",
+      "accuracy": 57.03,
+      "param_count": 138266,
+      "measured": {
+        "train_wall_s": 21.817410230636597,
+        "avg_power_w": 65.29646341463415,
+        "std_power_w": 10.514990855330588,
+        "energy_kwh": 0.0003957221469241187,
+        "energy_j": 1424.5997289268273,
+        "throughput": 3666.796340826091,
+        "total_samples": 80000,
+        "n_power_readings": 205,
+        "power_percentiles": {
+          "p10": 52.7048,
+          "p50": 68.375,
+          "p90": 70.9098
+        },
+        "latency_ms": 2.656102180480957,
+        "inf_power_w": 36.62033333333334,
+        "inf_energy_j": 0.09726734721660617,
+        "bs_sensitivity": 0.09937384819814787
+      },
+      "proxy": {
+        "params": 138250,
+        "flops": 6071552,
+        "mem_gb": 0.7891141772270203,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002963475602326226,
+        "proxy_wall_s": 35.56170722791471,
+        "n_useful": 4,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_3x3",
+        "zero",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_3x3|zero|conv_1x1|zero",
+      "accuracy": 36.58,
+      "param_count": 85018,
+      "measured": {
+        "train_wall_s": 15.208124160766602,
+        "avg_power_w": 54.312534722222225,
+        "std_power_w": 12.787281441552034,
+        "energy_kwh": 0.00022944215876152856,
+        "energy_j": 825.9917715415028,
+        "throughput": 5260.346322420306,
+        "total_samples": 80000,
+        "n_power_readings": 144,
+        "power_percentiles": {
+          "p10": 34.8208,
+          "p50": 55.825,
+          "p90": 70.3298
+        },
+        "latency_ms": 2.609372138977051,
+        "inf_power_w": 40.458666666666666,
+        "inf_energy_j": 0.1055717175801595,
+        "bs_sensitivity": 0.11493936556529935
+      },
+      "proxy": {
+        "params": 85002,
+        "flops": 4261120,
+        "mem_gb": 0.5604001879692078,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.001771697098372258,
+        "proxy_wall_s": 21.260365180467097,
+        "n_useful": 4,
+        "n_zero": 2
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "zero",
+        "skip_connect",
+        "conv_3x3"
+      ],
+      "arch_str": "conv_3x3|avg_pool_3x3|conv_1x1|zero|skip_connect|conv_3x3",
+      "accuracy": 58.74,
+      "param_count": 131290,
+      "measured": {
+        "train_wall_s": 19.240045309066772,
+        "avg_power_w": 64.80264640883978,
+        "std_power_w": 11.577753196036936,
+        "energy_kwh": 0.00034633495918153065,
+        "energy_j": 1246.8058530535104,
+        "throughput": 4157.99436617233,
+        "total_samples": 80000,
+        "n_power_readings": 181,
+        "power_percentiles": {
+          "p10": 35.264,
+          "p50": 68.696,
+          "p90": 70.727
+        },
+        "latency_ms": 2.252936363220215,
+        "inf_power_w": 44.775,
+        "inf_energy_j": 0.10087522566318512,
+        "bs_sensitivity": 0.04092006287408635
+      },
+      "proxy": {
+        "params": 131274,
+        "flops": 5485824,
+        "mem_gb": 0.7636987566947937,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.002774076088827682,
+        "proxy_wall_s": 33.288913065932185,
+        "n_useful": 3,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "arch_str": "skip_connect|conv_1x1|conv_1x1|skip_connect|conv_1x1|zero",
+      "accuracy": 41.78,
+      "param_count": 24794,
+      "measured": {
+        "train_wall_s": 15.119510412216187,
+        "avg_power_w": 39.674909722222225,
+        "std_power_w": 7.39975030069821,
+        "energy_kwh": 0.00016662922518024335,
+        "energy_j": 599.8652106488761,
+        "throughput": 5291.176620068464,
+        "total_samples": 80000,
+        "n_power_readings": 144,
+        "power_percentiles": {
+          "p10": 29.6168,
+          "p50": 39.353,
+          "p90": 49.189800000000005
+        },
+        "latency_ms": 2.061009407043457,
+        "inf_power_w": 31.433666666666667,
+        "inf_energy_j": 0.06478508269786835,
+        "bs_sensitivity": 0.07442960597304298
+      },
+      "proxy": {
+        "params": 24778,
+        "flops": 3302656,
+        "mem_gb": 0.2808801531791687,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0016700898605611987,
+        "proxy_wall_s": 20.041078326734382,
+        "n_useful": 3,
+        "n_zero": 1
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "arch_str": "avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|avg_pool_3x3|conv_1x1|conv_3x3",
+      "accuracy": 53.55,
+      "param_count": 71066,
+      "measured": {
+        "train_wall_s": 16.188501119613647,
+        "avg_power_w": 65.390625,
+        "std_power_w": 11.348803151487697,
+        "energy_kwh": 0.0002940489461179823,
+        "energy_j": 1058.5762060247362,
+        "throughput": 4941.779316620838,
+        "total_samples": 80000,
+        "n_power_readings": 152,
+        "power_percentiles": {
+          "p10": 46.8897,
+          "p50": 69.0545,
+          "p90": 71.02130000000001
+        },
+        "latency_ms": 1.9545555114746094,
+        "inf_power_w": 53.851,
+        "inf_energy_j": 0.1052547688484192,
+        "bs_sensitivity": 0.0668036356202185
+      },
+      "proxy": {
+        "params": 71050,
+        "flops": 5965056,
+        "mem_gb": 0.5603505969047546,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0035244422393563533,
+        "proxy_wall_s": 42.29330687227624,
+        "n_useful": 2,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect",
+        "conv_1x1"
+      ],
+      "arch_str": "conv_1x1|conv_1x1|conv_1x1|conv_1x1|skip_connect|conv_1x1",
+      "accuracy": 39.42,
+      "param_count": 38746,
+      "measured": {
+        "train_wall_s": 15.424084663391113,
+        "avg_power_w": 61.84993103448276,
+        "std_power_w": 13.769048613944785,
+        "energy_kwh": 0.00026499404797243435,
+        "energy_j": 953.9785727007636,
+        "throughput": 5186.693521585697,
+        "total_samples": 80000,
+        "n_power_readings": 145,
+        "power_percentiles": {
+          "p10": 34.396,
+          "p50": 68.473,
+          "p90": 75.5652
+        },
+        "latency_ms": 2.7921199798583984,
+        "inf_power_w": 37.03033333333334,
+        "inf_energy_j": 0.10339313356081646,
+        "bs_sensitivity": 0.09620833978400205
+      },
+      "proxy": {
+        "params": 38730,
+        "flops": 3515648,
+        "mem_gb": 0.3063203692436218,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0015786827006369424,
+        "proxy_wall_s": 18.94419240764331,
+        "n_useful": 5,
+        "n_zero": 0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "avg_pool_3x3"
+      ],
+      "arch_str": "conv_3x3|skip_connect|conv_1x1|skip_connect|skip_connect|avg_pool_3x3",
+      "accuracy": 58.65,
+      "param_count": 71066,
+      "measured": {
+        "train_wall_s": 15.522093534469604,
+        "avg_power_w": 61.527842857142865,
+        "std_power_w": 13.948936089625223,
+        "energy_kwh": 0.00026528914772297755,
+        "energy_j": 955.0409318027191,
+        "throughput": 5153.943945921057,
+        "total_samples": 80000,
+        "n_power_readings": 140,
+        "power_percentiles": {
+          "p10": 33.941,
+          "p50": 67.22800000000001,
+          "p90": 74.5199
+        },
+        "latency_ms": 1.6682147979736328,
+        "inf_power_w": 53.301,
+        "inf_energy_j": 0.0889175169467926,
+        "bs_sensitivity": 0.06260190246535957
+      },
+      "proxy": {
+        "params": 71050,
+        "flops": 4527360,
+        "mem_gb": 0.48417872190475464,
+        "proxy_power_w": 300.0,
+        "proxy_energy_kwh": 0.0026749822326516933,
+        "proxy_wall_s": 32.09978679182032,
+        "n_useful": 2,
+        "n_zero": 0
+      }
+    }
+  ]
+}

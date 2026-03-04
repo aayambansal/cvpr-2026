@@ -1,0 +1,96 @@
+% ---------------------------------------------------------------
+% cvpr.sty - CVPR Workshop Style (based on standard ieee conference)
+% Compatible with CVPR-NAS26 submission requirements
+% ---------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cvpr}[2025/01/01 CVPR Workshop Style]
+
+\newif\ifcvprfinal
+\DeclareOption{review}{\cvprfinalfalse}
+\DeclareOption{final}{\cvprfinaltrue}
+\ExecuteOptions{review}
+\ProcessOptions\relax
+
+% Page layout
+\setlength{\textheight}{8.875in}
+\setlength{\textwidth}{6.875in}
+\setlength{\columnsep}{0.3125in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\parindent}{1pc}
+\setlength{\oddsidemargin}{-.304in}
+\setlength{\evensidemargin}{-.304in}
+
+% Title
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 0.1in
+  \begin{center}%
+    {\Large\bfseries \@title \par}%
+    \vskip 0.15in
+    \ifcvprfinal
+      {\large
+        \lineskip .5em
+        \begin{tabular}[t]{c}%
+          \@author
+        \end{tabular}\par}%
+    \else
+      {\large Anonymous CVPR-NAS26 submission\\Paper ID \cvprPaperID}
+    \fi
+    \vskip 0.1in
+  \end{center}%
+}
+
+\newcommand{\cvprPaperID}{****}
+
+% Section formatting
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+  {-2.5ex \@plus -1ex \@minus -.2ex}%
+  {1.3ex \@plus.2ex}%
+  {\normalfont\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-2.0ex\@plus -1ex \@minus -.2ex}%
+  {0.8ex \@plus .2ex}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}%
+  {-1.5ex\@plus -1ex \@minus -.2ex}%
+  {0.5ex \@plus .2ex}%
+  {\normalfont\small\bfseries}}
+
+% Abstract
+\renewenvironment{abstract}%
+  {\centerline{\large\bfseries Abstract}%
+   \vspace{0.5ex}\begin{quote}\small}%
+  {\par\end{quote}\vskip 1ex}
+
+% Captions
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\small #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\small #1: #2}\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+% References
+\def\thebibliography#1{%
+  \section*{References}%
+  \small
+  \list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}%
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \usecounter{enumi}}%
+  \def\newblock{\hskip .11em plus .33em minus .07em}%
+  \sloppy\clubpenalty4000\widowpenalty4000
+  \sfcode`\.=1000\relax}
+\let\endthebibliography=\endlist
+
+% ORCID (no-op)
+\newcommand{\orcid}[1]{}
+
+\endinput

@@ -9,3 +9,4 @@ __pycache__/
 
 # Large result files (>25MB) - regenerate with Modal scripts
 DenseProxy/results/transnas_results.json
+GreenNAS/results.json

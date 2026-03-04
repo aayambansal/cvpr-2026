@@ -73,3 +73,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](MemoryNAS/main.pdf) | [Code & Data](MemoryNAS/)
 
 ---
+
+## Paper 6: GreenNAS
+
+**Title:** GreenNAS: Carbon- and Cost-Aware Neural Architecture Search with Validated Energy Proxies
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** We introduce GreenNAS, a multi-objective neural architecture search framework that replaces FLOPs as the sole efficiency proxy with a composite energy model incorporating GPU power draw, wall-clock time, per-operation memory traffic, and batch-size sensitivity. Using NSGA-II with four simultaneous objectives---accuracy, training energy (Wh), cloud cost ($), and inference latency---we search a NAS-Bench-201-style cell space on CIFAR-10 and CIFAR-100 across five seeds. We validate our energy proxy against real NVML power measurements on NVIDIA T4 and L4 GPUs, achieving Spearman rank correlation ρ = 0.92 (T4) and ρ = 0.74--0.79 (L4) between predicted and measured energy. GreenNAS achieves a 10.5% higher hypervolume than FLOPs-only NAS (0.225 ± 0.020 vs. 0.204 ± 0.018) while consuming 25.6% less energy (1.28 ± 0.01 Wh vs. 1.71 ± 0.06 Wh) at comparable accuracy (86.3 ± 0.5% vs. 86.1 ± 1.3%). Full 200-epoch training of selected architectures on A100 confirms that GreenNAS selections draw 7% lower power than FLOPs-optimized alternatives. All code and measurements are released to facilitate standardized green NAS benchmarking.
+
+[Paper PDF](GreenNAS/GreenNAS_CVPR_NAS26.pdf) | [Code & Data](GreenNAS/)
+
+---

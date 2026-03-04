@@ -1,0 +1,1063 @@
+{
+  "gpu": "NVIDIA L4",
+  "tdp_w": 72.0,
+  "idle_power_w": 27.693666666666672,
+  "n_architectures": 50,
+  "measurements": [
+    {
+      "arch": [
+        "skip_connect",
+        "zero",
+        "zero",
+        "zero",
+        "skip_connect",
+        "zero"
+      ],
+      "accuracy": 37.57,
+      "measured": {
+        "energy_kwh": 0.00012040761297433733,
+        "avg_power_w": 30.046246478873247,
+        "train_wall_s": 14.426674127578735
+      },
+      "proxy": {
+        "flops": 884736,
+        "mem_gb": 0.25390625,
+        "composite": 224640.0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "zero",
+        "zero",
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect"
+      ],
+      "accuracy": 56.12,
+      "measured": {
+        "energy_kwh": 0.00016300253157955791,
+        "avg_power_w": 43.393977611940294,
+        "train_wall_s": 13.522823810577393
+      },
+      "proxy": {
+        "flops": 2056192,
+        "mem_gb": 0.5080852508544922,
+        "composite": 1044720.828125
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "skip_connect"
+      ],
+      "accuracy": 54.8,
+      "measured": {
+        "energy_kwh": 0.000163517471593775,
+        "avg_power_w": 45.308457364341095,
+        "train_wall_s": 12.992340326309204
+      },
+      "proxy": {
+        "flops": 2908160,
+        "mem_gb": 0.4826698303222656,
+        "composite": 1403681.09375
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "zero"
+      ],
+      "accuracy": 57.43,
+      "measured": {
+        "energy_kwh": 0.00014803801966823763,
+        "avg_power_w": 40.87613178294574,
+        "train_wall_s": 13.03784990310669
+      },
+      "proxy": {
+        "flops": 1949696,
+        "mem_gb": 0.5334510803222656,
+        "composite": 1040067.4375
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 57.65,
+      "measured": {
+        "energy_kwh": 0.00022016936999728356,
+        "avg_power_w": 59.00690977443609,
+        "train_wall_s": 13.432490110397339
+      },
+      "proxy": {
+        "flops": 4452352,
+        "mem_gb": 0.9909534454345703,
+        "composite": 4412073.5546875
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "accuracy": 57.32,
+      "measured": {
+        "energy_kwh": 0.00018451593676777173,
+        "avg_power_w": 50.401715384615386,
+        "train_wall_s": 13.179261207580566
+      },
+      "proxy": {
+        "flops": 3387392,
+        "mem_gb": 0.7114086151123047,
+        "composite": 2409819.8515625
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "accuracy": 41.01,
+      "measured": {
+        "energy_kwh": 0.00014545489235091402,
+        "avg_power_w": 39.80454198473282,
+        "train_wall_s": 13.155222654342651
+      },
+      "proxy": {
+        "flops": 1204224,
+        "mem_gb": 0.2539806365966797,
+        "composite": 305849.578125
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1"
+      ],
+      "accuracy": 58.69,
+      "measured": {
+        "energy_kwh": 0.00018782277742341338,
+        "avg_power_w": 51.667146153846154,
+        "train_wall_s": 13.08688497543335
+      },
+      "proxy": {
+        "flops": 3014656,
+        "mem_gb": 0.7368240356445312,
+        "composite": 2221271.0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_1x1",
+        "zero",
+        "avg_pool_3x3",
+        "skip_connect",
+        "conv_1x1"
+      ],
+      "accuracy": 48.42,
+      "measured": {
+        "energy_kwh": 0.00015049959330062023,
+        "avg_power_w": 41.72857364341086,
+        "train_wall_s": 12.983873844146729
+      },
+      "proxy": {
+        "flops": 1576960,
+        "mem_gb": 0.2793464660644531,
+        "composite": 440518.203125
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 36.98,
+      "measured": {
+        "energy_kwh": 0.00013478339095115665,
+        "avg_power_w": 37.87584251968505,
+        "train_wall_s": 12.81080961227417
+      },
+      "proxy": {
+        "flops": 2322432,
+        "mem_gb": 0.48264503479003906,
+        "composite": 1120910.2734375
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "zero",
+        "avg_pool_3x3",
+        "conv_1x1"
+      ],
+      "accuracy": 49.6,
+      "measured": {
+        "energy_kwh": 0.00014843013451186122,
+        "avg_power_w": 41.9146746031746,
+        "train_wall_s": 12.74848222732544
+      },
+      "proxy": {
+        "flops": 2428928,
+        "mem_gb": 0.27932167053222656,
+        "composite": 678452.2265625
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "avg_pool_3x3",
+        "skip_connect",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 54.32,
+      "measured": {
+        "energy_kwh": 0.00016312977080995132,
+        "avg_power_w": 46.49012799999999,
+        "train_wall_s": 12.632083415985107
+      },
+      "proxy": {
+        "flops": 3280896,
+        "mem_gb": 0.48264503479003906,
+        "composite": 1583508.1640625
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "accuracy": 59.1,
+      "measured": {
+        "energy_kwh": 0.00018191619021246168,
+        "avg_power_w": 49.906600000000005,
+        "train_wall_s": 13.122478485107422
+      },
+      "proxy": {
+        "flops": 3760128,
+        "mem_gb": 0.9401226043701172,
+        "composite": 3534981.328125
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "skip_connect",
+        "avg_pool_3x3",
+        "zero",
+        "zero",
+        "conv_3x3"
+      ],
+      "accuracy": 58.06,
+      "measured": {
+        "energy_kwh": 0.0001445097512457511,
+        "avg_power_w": 40.81405555555556,
+        "train_wall_s": 12.746469259262085
+      },
+      "proxy": {
+        "flops": 2322432,
+        "mem_gb": 0.5080356597900391,
+        "composite": 1179878.2734375
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 46.08,
+      "measured": {
+        "energy_kwh": 0.00017734881434600157,
+        "avg_power_w": 43.77796527777778,
+        "train_wall_s": 14.583951711654663
+      },
+      "proxy": {
+        "flops": 3760128,
+        "mem_gb": 0.3046875,
+        "composite": 1145664.0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "avg_pool_3x3",
+        "zero",
+        "zero",
+        "avg_pool_3x3",
+        "conv_1x1"
+      ],
+      "accuracy": 49.41,
+      "measured": {
+        "energy_kwh": 0.0001675379993040266,
+        "avg_power_w": 44.036830882352945,
+        "train_wall_s": 13.696189880371094
+      },
+      "proxy": {
+        "flops": 2056192,
+        "mem_gb": 0.3047370910644531,
+        "composite": 626597.96875
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 45.25,
+      "measured": {
+        "energy_kwh": 0.00017147584077449005,
+        "avg_power_w": 42.99438028169014,
+        "train_wall_s": 14.357993364334106
+      },
+      "proxy": {
+        "flops": 2535424,
+        "mem_gb": 0.3047370910644531,
+        "composite": 772637.734375
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "zero",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "skip_connect",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 49.5,
+      "measured": {
+        "energy_kwh": 0.00016694787448415886,
+        "avg_power_w": 43.207824817518244,
+        "train_wall_s": 13.90980339050293
+      },
+      "proxy": {
+        "flops": 2428928,
+        "mem_gb": 0.27932167053222656,
+        "composite": 678452.2265625
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_1x1",
+        "zero",
+        "skip_connect",
+        "conv_3x3"
+      ],
+      "accuracy": 61.42,
+      "measured": {
+        "energy_kwh": 0.00018757375019805023,
+        "avg_power_w": 51.1109465648855,
+        "train_wall_s": 13.211758852005005
+      },
+      "proxy": {
+        "flops": 3387392,
+        "mem_gb": 0.7367992401123047,
+        "composite": 2495827.8515625
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "zero"
+      ],
+      "accuracy": 58.72,
+      "measured": {
+        "energy_kwh": 0.00016740909462006925,
+        "avg_power_w": 46.138565891472865,
+        "train_wall_s": 13.062233924865723
+      },
+      "proxy": {
+        "flops": 2428928,
+        "mem_gb": 0.4826698303222656,
+        "composite": 1172370.265625
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1",
+        "conv_1x1"
+      ],
+      "accuracy": 39.23,
+      "measured": {
+        "energy_kwh": 0.00019881978809886512,
+        "avg_power_w": 50.645428571428575,
+        "train_wall_s": 14.132593154907227
+      },
+      "proxy": {
+        "flops": 1523712,
+        "mem_gb": 0.3048362731933594,
+        "composite": 464482.6875
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "accuracy": 60.14,
+      "measured": {
+        "energy_kwh": 0.00022366756481310022,
+        "avg_power_w": 58.183905109489054,
+        "train_wall_s": 13.838934183120728
+      },
+      "proxy": {
+        "flops": 4825088,
+        "mem_gb": 1.2196674346923828,
+        "composite": 5885002.703125
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "skip_connect",
+        "avg_pool_3x3",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3"
+      ],
+      "accuracy": 53.02,
+      "measured": {
+        "energy_kwh": 0.00016857904066863415,
+        "avg_power_w": 45.30138345864661,
+        "train_wall_s": 13.396600723266602
+      },
+      "proxy": {
+        "flops": 2801664,
+        "mem_gb": 0.45725440979003906,
+        "composite": 1281073.21875
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "conv_1x1",
+        "conv_3x3",
+        "skip_connect",
+        "zero"
+      ],
+      "accuracy": 59.53,
+      "measured": {
+        "energy_kwh": 0.000176739172422641,
+        "avg_power_w": 48.732627906976745,
+        "train_wall_s": 13.056160688400269
+      },
+      "proxy": {
+        "flops": 2908160,
+        "mem_gb": 0.7114086151123047,
+        "composite": 2068890.078125
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "avg_pool_3x3",
+        "zero",
+        "zero",
+        "avg_pool_3x3",
+        "zero"
+      ],
+      "accuracy": 56.55,
+      "measured": {
+        "energy_kwh": 0.00015925931800281324,
+        "avg_power_w": 43.385099236641224,
+        "train_wall_s": 13.214987516403198
+      },
+      "proxy": {
+        "flops": 2801664,
+        "mem_gb": 0.5334262847900391,
+        "composite": 1494481.21875
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "zero",
+        "zero",
+        "zero",
+        "zero"
+      ],
+      "accuracy": 10.0,
+      "measured": {
+        "energy_kwh": 0.00011812146945480258,
+        "avg_power_w": 32.85571875,
+        "train_wall_s": 12.942565441131592
+      },
+      "proxy": {
+        "flops": 884736,
+        "mem_gb": 0.3046875,
+        "composite": 269568.0
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "zero",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "zero",
+        "conv_3x3"
+      ],
+      "accuracy": 59.36,
+      "measured": {
+        "energy_kwh": 0.00018622904420521473,
+        "avg_power_w": 51.314922480620154,
+        "train_wall_s": 13.06490445137024
+      },
+      "proxy": {
+        "flops": 3387392,
+        "mem_gb": 0.7621898651123047,
+        "composite": 2581835.8515625
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_1x1",
+        "conv_1x1",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "accuracy": 41.64,
+      "measured": {
+        "energy_kwh": 0.00014104320247548005,
+        "avg_power_w": 38.845807692307694,
+        "train_wall_s": 13.071050882339478
+      },
+      "proxy": {
+        "flops": 1204224,
+        "mem_gb": 0.2539806365966797,
+        "composite": 305849.578125
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3"
+      ],
+      "accuracy": 56.22,
+      "measured": {
+        "energy_kwh": 0.00021045935730128982,
+        "avg_power_w": 56.85630303030303,
+        "train_wall_s": 13.325764179229736
+      },
+      "proxy": {
+        "flops": 4345856,
+        "mem_gb": 0.7621898651123047,
+        "composite": 3312367.3984375
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "zero",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "zero"
+      ],
+      "accuracy": 56.32,
+      "measured": {
+        "energy_kwh": 0.0001653675148719645,
+        "avg_power_w": 44.66179389312977,
+        "train_wall_s": 13.329582214355469
+      },
+      "proxy": {
+        "flops": 2056192,
+        "mem_gb": 0.5080852508544922,
+        "composite": 1044720.828125
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "conv_3x3",
+        "zero",
+        "skip_connect",
+        "conv_3x3",
+        "zero"
+      ],
+      "accuracy": 57.05,
+      "measured": {
+        "energy_kwh": 0.00015669059247258363,
+        "avg_power_w": 42.73913740458016,
+        "train_wall_s": 13.19835090637207
+      },
+      "proxy": {
+        "flops": 2801664,
+        "mem_gb": 0.7113838195800781,
+        "composite": 1993058.4375
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "avg_pool_3x3",
+        "skip_connect",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "skip_connect"
+      ],
+      "accuracy": 43.42,
+      "measured": {
+        "energy_kwh": 0.00015476114620610517,
+        "avg_power_w": 42.932333333333325,
+        "train_wall_s": 12.977168560028076
+      },
+      "proxy": {
+        "flops": 2801664,
+        "mem_gb": 0.48264503479003906,
+        "composite": 1352209.21875
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "zero",
+        "zero",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "accuracy": 41.14,
+      "measured": {
+        "energy_kwh": 0.00013573459277183583,
+        "avg_power_w": 37.21038461538462,
+        "train_wall_s": 13.131939888000488
+      },
+      "proxy": {
+        "flops": 991232,
+        "mem_gb": 0.25393104553222656,
+        "composite": 251704.578125
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "conv_3x3",
+        "zero",
+        "skip_connect",
+        "skip_connect",
+        "zero"
+      ],
+      "accuracy": 42.89,
+      "measured": {
+        "energy_kwh": 0.00014292655414473388,
+        "avg_power_w": 37.36095588235294,
+        "train_wall_s": 13.772013664245605
+      },
+      "proxy": {
+        "flops": 2322432,
+        "mem_gb": 0.48264503479003906,
+        "composite": 1120910.2734375
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "conv_3x3",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 55.34,
+      "measured": {
+        "energy_kwh": 0.00019097077937823548,
+        "avg_power_w": 52.64520930232558,
+        "train_wall_s": 13.059019327163696
+      },
+      "proxy": {
+        "flops": 4718592,
+        "mem_gb": 0.9909038543701172,
+        "composite": 4675671.0
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "avg_pool_3x3",
+        "zero",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "zero"
+      ],
+      "accuracy": 42.73,
+      "measured": {
+        "energy_kwh": 0.0001484684975730302,
+        "avg_power_w": 41.376632812500006,
+        "train_wall_s": 12.917595148086548
+      },
+      "proxy": {
+        "flops": 2801664,
+        "mem_gb": 0.5334262847900391,
+        "composite": 1494481.21875
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3",
+        "conv_3x3"
+      ],
+      "accuracy": 57.84,
+      "measured": {
+        "energy_kwh": 0.0002364672874989824,
+        "avg_power_w": 63.64122556390977,
+        "train_wall_s": 13.376270294189453
+      },
+      "proxy": {
+        "flops": 6635520,
+        "mem_gb": 1.6771202087402344,
+        "composite": 11128564.6875
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "avg_pool_3x3",
+        "skip_connect",
+        "skip_connect",
+        "conv_3x3",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 43.46,
+      "measured": {
+        "energy_kwh": 0.0001606690709827732,
+        "avg_power_w": 43.096218045112785,
+        "train_wall_s": 13.421332120895386
+      },
+      "proxy": {
+        "flops": 2801664,
+        "mem_gb": 0.48264503479003906,
+        "composite": 1352209.21875
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_3x3",
+        "zero",
+        "conv_1x1",
+        "conv_1x1",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 57.41,
+      "measured": {
+        "energy_kwh": 0.00017770134652382447,
+        "avg_power_w": 47.71484210526315,
+        "train_wall_s": 13.40725064277649
+      },
+      "proxy": {
+        "flops": 2535424,
+        "mem_gb": 0.5334758758544922,
+        "composite": 1352587.5390625
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "zero",
+        "conv_1x1",
+        "conv_3x3",
+        "skip_connect",
+        "conv_3x3"
+      ],
+      "accuracy": 56.26,
+      "measured": {
+        "energy_kwh": 0.00020228509198898486,
+        "avg_power_w": 53.19260294117647,
+        "train_wall_s": 13.690368413925171
+      },
+      "proxy": {
+        "flops": 3014656,
+        "mem_gb": 0.7368240356445312,
+        "composite": 2221271.0
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 58.84,
+      "measured": {
+        "energy_kwh": 0.00017485435080149845,
+        "avg_power_w": 45.40785401459854,
+        "train_wall_s": 13.862704515457153
+      },
+      "proxy": {
+        "flops": 2428928,
+        "mem_gb": 0.4572792053222656,
+        "composite": 1110698.265625
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "skip_connect",
+        "avg_pool_3x3",
+        "zero"
+      ],
+      "accuracy": 38.62,
+      "measured": {
+        "energy_kwh": 0.00013148347169646168,
+        "avg_power_w": 36.924265625000004,
+        "train_wall_s": 12.819225788116455
+      },
+      "proxy": {
+        "flops": 1949696,
+        "mem_gb": 0.27932167053222656,
+        "composite": 544592.34375
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "skip_connect",
+        "skip_connect",
+        "avg_pool_3x3",
+        "avg_pool_3x3"
+      ],
+      "accuracy": 37.53,
+      "measured": {
+        "energy_kwh": 0.000131202764428166,
+        "avg_power_w": 34.758761194029844,
+        "train_wall_s": 13.588802814483643
+      },
+      "proxy": {
+        "flops": 1843200,
+        "mem_gb": 0.25390625,
+        "composite": 468000.0
+      }
+    },
+    {
+      "arch": [
+        "avg_pool_3x3",
+        "skip_connect",
+        "conv_1x1",
+        "conv_3x3",
+        "conv_1x1",
+        "conv_3x3"
+      ],
+      "accuracy": 55.46,
+      "measured": {
+        "energy_kwh": 0.00021875172558930716,
+        "avg_power_w": 51.80582666666667,
+        "train_wall_s": 15.201112747192383
+      },
+      "proxy": {
+        "flops": 3493888,
+        "mem_gb": 0.7368240356445312,
+        "composite": 2574380.65625
+      }
+    },
+    {
+      "arch": [
+        "zero",
+        "zero",
+        "conv_1x1",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "accuracy": 38.23,
+      "measured": {
+        "energy_kwh": 0.00015112439313803074,
+        "avg_power_w": 35.69994666666667,
+        "train_wall_s": 15.239457368850708
+      },
+      "proxy": {
+        "flops": 991232,
+        "mem_gb": 0.22854042053222656,
+        "composite": 226536.578125
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "avg_pool_3x3",
+        "conv_3x3",
+        "skip_connect"
+      ],
+      "accuracy": 51.43,
+      "measured": {
+        "energy_kwh": 0.00016071362242971418,
+        "avg_power_w": 42.12778676470588,
+        "train_wall_s": 13.733668088912964
+      },
+      "proxy": {
+        "flops": 2322432,
+        "mem_gb": 0.43186378479003906,
+        "composite": 1002974.2734375
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "skip_connect",
+        "conv_3x3",
+        "conv_3x3",
+        "skip_connect",
+        "zero"
+      ],
+      "accuracy": 58.06,
+      "measured": {
+        "energy_kwh": 0.00017639984286538213,
+        "avg_power_w": 48.01181679389313,
+        "train_wall_s": 13.226732015609741
+      },
+      "proxy": {
+        "flops": 3760128,
+        "mem_gb": 0.9401226043701172,
+        "composite": 3534981.328125
+      }
+    },
+    {
+      "arch": [
+        "conv_1x1",
+        "avg_pool_3x3",
+        "avg_pool_3x3",
+        "skip_connect",
+        "skip_connect",
+        "conv_1x1"
+      ],
+      "accuracy": 48.98,
+      "measured": {
+        "energy_kwh": 0.00016515173136083704,
+        "avg_power_w": 44.149263157894744,
+        "train_wall_s": 13.46673059463501
+      },
+      "proxy": {
+        "flops": 2056192,
+        "mem_gb": 0.2539558410644531,
+        "composite": 522181.96875
+      }
+    },
+    {
+      "arch": [
+        "conv_3x3",
+        "conv_1x1",
+        "avg_pool_3x3",
+        "skip_connect",
+        "conv_1x1",
+        "zero"
+      ],
+      "accuracy": 58.44,
+      "measured": {
+        "energy_kwh": 0.00016221257813756062,
+        "avg_power_w": 44.93752713178295,
+        "train_wall_s": 12.995047092437744
+      },
+      "proxy": {
+        "flops": 2535424,
+        "mem_gb": 0.5080852508544922,
+        "composite": 1288211.5390625
+      }
+    },
+    {
+      "arch": [
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect",
+        "skip_connect"
+      ],
+      "accuracy": 41.16,
+      "measured": {
+        "energy_kwh": 0.00012294112430969977,
+        "avg_power_w": 34.16549612403101,
+        "train_wall_s": 12.954240322113037
+      },
+      "proxy": {
+        "flops": 884736,
+        "mem_gb": 0.15234375,
+        "composite": 134784.0
+      }
+    }
+  ],
+  "correlations": {
+    "composite_spearman": 0.7406464763736956,
+    "composite_pearson": 0.751528505201597,
+    "flops_spearman": 0.786307139803301
+  }
+}
