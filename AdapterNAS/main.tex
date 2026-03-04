@@ -1,34 +1,19 @@
 \documentclass[10pt,twocolumn,letterpaper]{article}
 
-\usepackage{cvpr}
-\usepackage{times}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{booktabs}
+\usepackage[pagenumbers]{cvpr} % Workshop camera-ready with page numbers
+
+% Additional packages (not already loaded by cvpr.sty)
 \usepackage{multirow}
-\usepackage{xcolor}
-\usepackage[pagebackref=true,breaklinks=true,colorlinks,bookmarks=false]{hyperref}
-\usepackage[capitalize]{cleveref}
-\usepackage{subcaption}
 \usepackage{algorithm}
 \usepackage{algorithmic}
 
-\hypersetup{
-  colorlinks=true,
-  linkcolor=blue!60!black,
-  citecolor=blue!60!black,
-  urlcolor=blue!60!black,
-}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
 
 % Custom commands
 \newcommand{\method}{AdapterNAS\xspace}
-\newcommand{\ie}{\textit{i.e.}\xspace}
-\newcommand{\eg}{\textit{e.g.}\xspace}
-\newcommand{\etal}{\textit{et al.}\xspace}
-\newcommand{\wrt}{w.r.t.\xspace}
 
-\def\cvprPaperID{****}
+\def\paperID{****}
 \def\confName{CVPR}
 \def\confYear{2026}
 
@@ -36,10 +21,8 @@
 
 \title{AdapterNAS: Training-Free Neural Architecture Search\\for Foundation Model Adapter Topologies}
 
-\author{
-Anonymous CVPR-NAS Submission\\
-\vspace{0.05in}
-Paper ID \cvprPaperID
+\author{Aayam Bansal \and Ishaan Gangwani\\
+Sixth Workshop on Neural Architecture Search (CVPR-NAS26)
 }
 
 \maketitle
@@ -86,7 +69,7 @@ Zero-cost proxies evaluate architectures without training using gradient statist
 
 \begin{figure*}[t]
 \centering
-\includegraphics[width=0.95\textwidth]{figures/method_overview.png}
+\includegraphics[width=0.95\textwidth]{../figures/method_overview.png}
 \caption{\textbf{Overview of \method.} Given a pre-trained ViT, we define a search space over adapter topologies: for each transformer block and module (QKV, MLP-fc1, MLP-fc2), we select a LoRA rank from $\{0, 4, 8, 16, 32\}$. Phase~1: structured and random configurations are proxy-scored. Phase~2: evolutionary search refines the space using proxy-guided selection. Phase~3: top-ranked candidates are validated via short fine-tuning.}
 \label{fig:overview}
 \end{figure*}
@@ -207,14 +190,14 @@ rand\_21 & 1.58M & 77.6 & -- & 0.47 \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/proxy_correlation_v2.pdf}
+\includegraphics[width=\columnwidth]{../figures/proxy_correlation_v2.pdf}
 \caption{\textbf{Proxy--accuracy correlations} on CIFAR-100 (40 configs). GradNorm achieves $\rho = 0.62$ ($p < 0.001$), substantially outperforming other individual proxies.}
 \label{fig:proxy}
 \end{figure}
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/proxy_comparison_bar_v2.pdf}
+\includegraphics[width=\columnwidth]{../figures/proxy_comparison_bar_v2.pdf}
 \caption{\textbf{Per-proxy Spearman $\rho$ comparison.} GradNorm is the dominant signal for adapter topology ranking.}
 \label{fig:proxy_bar}
 \end{figure}
@@ -248,7 +231,7 @@ $k$ & Proxy Best & Oracle & Regret & vs.\ Random & Hit Rate \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/backbone_comparison_v2.pdf}
+\includegraphics[width=\columnwidth]{../figures/backbone_comparison_v2.pdf}
 \caption{\textbf{Backbone comparison} on CIFAR-100 (2\% data). ViT-B/16 consistently outperforms ViT-S/16, but rank ordering is preserved.}
 \label{fig:backbone}
 \end{figure}
@@ -278,7 +261,7 @@ Decreasing rank & 76.1\% & 69.2\% \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/data_regime_v2.pdf}
+\includegraphics[width=\columnwidth]{../figures/data_regime_v2.pdf}
 \caption{\textbf{Data regime sweep} on CIFAR-100. All adapter configs substantially outperform linear probing across data budgets.}
 \label{fig:data_regime}
 \end{figure}
@@ -332,7 +315,7 @@ Middle-4 $r{=}8$ & 344K & 99.37 \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/pareto_front_v2.pdf}
+\includegraphics[width=\columnwidth]{../figures/pareto_front_v2.pdf}
 \caption{\textbf{Accuracy vs.\ trainable parameters} on CIFAR-100. Red circles highlight proxy-selected top-5. The oracle-best (rand\_2) lies in the proxy top-5, achieving 79.3\% with only 1.73M adapter parameters.}
 \label{fig:pareto}
 \end{figure}
@@ -343,7 +326,7 @@ Middle-4 $r{=}8$ & 344K & 99.37 \\
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/evo_convergence_v2.pdf}
+\includegraphics[width=\columnwidth]{../figures/evo_convergence_v2.pdf}
 \caption{\textbf{Evolutionary search convergence.} Best and mean proxy scores by generation. The search improves over the initial population within 2--3 generations.}
 \label{fig:evo}
 \end{figure}
@@ -398,9 +381,10 @@ We introduced \method, a training-free NAS framework for adapter topology search
 We evaluate on ViT with two vision datasets. On Flowers-102, the task is near-saturated and adapter topology has minimal impact, limiting the proxy's utility---further evaluation on more challenging fine-grained benchmarks (\eg, iNaturalist, CUB-200) is warranted. Extending to language models, larger ViTs, and multi-modal architectures is important. The strong performance of GradNorm suggests developing adapter-specific proxies is a promising direction. Weighted proxy combinations and learned proxy selection may further improve selection quality.
 
 %----------------------------------------------------------------------
-{\small
-\bibliographystyle{plain}
-\bibliography{references}
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{references}
 }
 
 \end{document}

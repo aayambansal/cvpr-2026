@@ -1,135 +1,154 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{abdelfattah2021zerocost}
+\bibitem[Abdelfattah et~al.(2021)Abdelfattah, Mehrotra, Dudziak, and
+  Lane]{abdelfattah2021zerocost}
 Mohamed~S. Abdelfattah, Abhinav Mehrotra, Lukasz Dudziak, and Nicholas~D. Lane.
 \newblock Zero-cost proxies for lightweight {NAS}.
-\newblock In {\em ICLR}, 2021.
+\newblock In \emph{ICLR}, 2021.
 
-\bibitem{chen2022adaptformer}
+\bibitem[Chen et~al.(2022)Chen, Ge, Tong, Wang, Song, Wang, and
+  Luo]{chen2022adaptformer}
 Shoufa Chen, Chongjian Ge, Zhan Tong, Jiangliu Wang, Yibing Song, Jue Wang, and
   Ping Luo.
 \newblock {AdaptFormer}: Adapting vision transformers for scalable visual
   recognition.
-\newblock In {\em NeurIPS}, 2022.
+\newblock In \emph{NeurIPS}, 2022.
 
-\bibitem{chen2021tenas}
+\bibitem[Chen et~al.(2021)Chen, Gong, and Wang]{chen2021tenas}
 Wuyang Chen, Xinyu Gong, and Zhangyang Wang.
 \newblock {TE-NAS}: Searching for better training-free neural architecture
   evaluation metrics.
-\newblock In {\em ICLR}, 2021.
+\newblock In \emph{ICLR}, 2021.
 
-\bibitem{dettmers2023qlora}
+\bibitem[Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer]{dettmers2023qlora}
 Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer.
 \newblock {QLoRA}: Efficient finetuning of quantized {LLMs}.
-\newblock In {\em NeurIPS}, 2023.
+\newblock In \emph{NeurIPS}, 2023.
 
-\bibitem{dong2020nasbench201}
-Xuanyi Dong and Yi~Yang.
+\bibitem[Dong and Yang(2020)]{dong2020nasbench201}
+Xuanyi Dong and Yi Yang.
 \newblock {NAS-Bench-201}: Extending the scope of reproducible neural
   architecture search.
-\newblock In {\em ICLR}, 2020.
+\newblock In \emph{ICLR}, 2020.
 
-\bibitem{he2022unified}
+\bibitem[He et~al.(2022)He, Zhou, Ma, Berg-Kirkpatrick, and
+  Neubig]{he2022unified}
 Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-Kirkpatrick, and Graham
   Neubig.
 \newblock Towards a unified view of parameter-efficient transfer learning.
-\newblock In {\em ICLR}, 2022.
+\newblock In \emph{ICLR}, 2022.
 
-\bibitem{houlsby2019adapters}
+\bibitem[Houlsby et~al.(2019)Houlsby, Gimenez-Abalos, Jastrzebski, Morrone,
+  de~Laroussilhe, Gesmundo, Attariyan, and Gelly]{houlsby2019adapters}
 Neil Houlsby, Andrei Gimenez-Abalos, Stanislaw Jastrzebski, Bruna Morrone,
-  Quentin de~Laroussilhe, Andrea Gesmundo, Mona Attariyan, and Sylvain Gelly.
+  Quentin de Laroussilhe, Andrea Gesmundo, Mona Attariyan, and Sylvain Gelly.
 \newblock Parameter-efficient transfer learning for {NLP}.
-\newblock In {\em ICML}, 2019.
+\newblock In \emph{ICML}, 2019.
 
-\bibitem{hu2022lora}
+\bibitem[Hu et~al.(2022)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
+  Chen]{hu2022lora}
 Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
-  Wang, Lu~Wang, and Weizhu Chen.
+  Wang, Lu Wang, and Weizhu Chen.
 \newblock {LoRA}: Low-rank adaptation of large language models.
-\newblock In {\em ICLR}, 2022.
+\newblock In \emph{ICLR}, 2022.
 
-\bibitem{jia2022vpt}
+\bibitem[Jia et~al.(2022)Jia, Tang, Chen, Cardie, Belongie, Hariharan, and
+  Lim]{jia2022vpt}
 Menglin Jia, Luming Tang, Bor-Chun Chen, Claire Cardie, Serge Belongie, Bharath
   Hariharan, and Ser-Nam Lim.
 \newblock Visual prompt tuning.
-\newblock In {\em ECCV}, 2022.
+\newblock In \emph{ECCV}, 2022.
 
-\bibitem{kopiczko2024vera}
+\bibitem[Kopiczko et~al.(2024)Kopiczko, Blankevoort, and
+  Asano]{kopiczko2024vera}
 Dawid~J. Kopiczko, Tijmen Blankevoort, and Yuki~M. Asano.
 \newblock {VeRA}: Vector-based random matrix adaptation.
-\newblock In {\em ICLR}, 2024.
+\newblock In \emph{ICLR}, 2024.
 
-\bibitem{krizhevsky2009cifar}
+\bibitem[Krizhevsky(2009)]{krizhevsky2009cifar}
 Alex Krizhevsky.
 \newblock Learning multiple layers of features from tiny images.
 \newblock Technical report, University of Toronto, 2009.
 
-\bibitem{lee2019snip}
+\bibitem[Lee et~al.(2019)Lee, Ajanthan, and Torr]{lee2019snip}
 Namhoon Lee, Thalaiyasingam Ajanthan, and Philip Torr.
 \newblock {SNIP}: Single-shot network pruning based on connection sensitivity.
-\newblock In {\em ICLR}, 2019.
+\newblock In \emph{ICLR}, 2019.
 
-\bibitem{lian2022ssf}
+\bibitem[Lian et~al.(2022)Lian, Zhou, Feng, and Wang]{lian2022ssf}
 Dongze Lian, Daquan Zhou, Jiashi Feng, and Xinchao Wang.
 \newblock Scaling \& shifting your features: A new baseline for efficient model
   tuning.
-\newblock In {\em NeurIPS}, 2022.
+\newblock In \emph{NeurIPS}, 2022.
 
-\bibitem{liu2024dora}
+\bibitem[Liu et~al.(2024)Liu, Wang, Yin, Molchanov, Wang, Cheng, and
+  Chen]{liu2024dora}
 Shih-Yang Liu, Chien-Yi Wang, Hongxu Yin, Pavlo Molchanov, Yu-Chiang~Frank
   Wang, Kwang-Ting Cheng, and Min-Hung Chen.
 \newblock {DoRA}: Weight-decomposed low-rank adaptation.
-\newblock In {\em ICML}, 2024.
+\newblock In \emph{ICML}, 2024.
 
-\bibitem{mellor2021naswot}
+\bibitem[Mellor et~al.(2021)Mellor, Turner, Sherrel, and
+  Sherrel]{mellor2021naswot}
 Joseph Mellor, Jack Turner, Amos Sherrel, and Elliot Sherrel.
 \newblock Neural architecture search without training.
-\newblock In {\em ICML}, 2021.
+\newblock In \emph{ICML}, 2021.
 
-\bibitem{nilsback2008flowers}
+\bibitem[Nilsback and Zisserman(2008)]{nilsback2008flowers}
 Maria-Elena Nilsback and Andrew Zisserman.
 \newblock Automated flower classification over a large number of classes.
-\newblock In {\em Indian Conference on Computer Vision, Graphics and Image
+\newblock In \emph{Indian Conference on Computer Vision, Graphics and Image
   Processing}, 2008.
 
-\bibitem{tanaka2020synflow}
+\bibitem[Tanaka et~al.(2020)Tanaka, Kunin, Yamins, and
+  Ganguli]{tanaka2020synflow}
 Hidenori Tanaka, Daniel Kunin, Daniel~L.K. Yamins, and Surya Ganguli.
 \newblock Pruning neural networks without any data by iteratively conserving
   synaptic flow.
-\newblock In {\em NeurIPS}, 2020.
+\newblock In \emph{NeurIPS}, 2020.
 
-\bibitem{valipour2023dylora}
+\bibitem[Valipour et~al.(2023)Valipour, Rezagholizadeh, Kobyzev, and
+  Ghodsi]{valipour2023dylora}
 Mojtaba Valipour, Mehdi Rezagholizadeh, Ivan Kobyzev, and Ali Ghodsi.
 \newblock {DyLoRA}: Parameter efficient tuning of pre-trained models using
   dynamic search-free low-rank adaptation.
-\newblock In {\em EACL}, 2023.
+\newblock In \emph{EACL}, 2023.
 
-\bibitem{wang2020grasp}
+\bibitem[Wang et~al.(2020)Wang, Zhang, and Grosse]{wang2020grasp}
 Chaoqi Wang, Guodong Zhang, and Roger Grosse.
 \newblock Picking winning tickets before training by preserving gradient flow.
-\newblock In {\em ICLR}, 2020.
+\newblock In \emph{ICLR}, 2020.
 
-\bibitem{wightman2019timm}
+\bibitem[Wightman(2019)]{wightman2019timm}
 Ross Wightman.
 \newblock Pytorch image models.
-\newblock {\em GitHub repository}, 2019.
+\newblock \emph{GitHub repository}, 2019.
 
-\bibitem{ying2019nasbench101}
+\bibitem[Ying et~al.(2019)Ying, Klein, Christiansen, Real, Murphy, and
+  Hutter]{ying2019nasbench101}
 Chris Ying, Aaron Klein, Eric Christiansen, Esteban Real, Kevin Murphy, and
   Frank Hutter.
 \newblock {NAS-Bench-101}: Towards reproducible neural architecture search.
-\newblock In {\em ICML}, 2019.
+\newblock In \emph{ICML}, 2019.
 
-\bibitem{zhang2023adalora}
+\bibitem[Zhang et~al.(2023)Zhang, Chen, Bukharin, Karampatziakis, He, Cheng,
+  Chen, and Zhao]{zhang2023adalora}
 Qingru Zhang, Minshuo Chen, Alexander Bukharin, Nikos Karampatziakis, Pengcheng
-  He, Yu~Cheng, Weizhu Chen, and Tuo Zhao.
+  He, Yu Cheng, Weizhu Chen, and Tuo Zhao.
 \newblock {AdaLoRA}: Adaptive budget allocation for parameter-efficient
   fine-tuning.
-\newblock In {\em ICLR}, 2023.
+\newblock In \emph{ICLR}, 2023.
 
-\bibitem{zhou2024autopeft}
+\bibitem[Zhou et~al.(2024)Zhou, Lu, Shen, Zhao, and Zeng]{zhou2024autopeft}
 Han Zhou, Xingchen Lu, Yusheng Shen, Tao Zhao, and Jian Zeng.
 \newblock {AutoPEFT}: Automatic configuration search for parameter-efficient
   fine-tuning.
-\newblock {\em TACL}, 2024.
+\newblock \emph{TACL}, 2024.
 
 \end{thebibliography}
