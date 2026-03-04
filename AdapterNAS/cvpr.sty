@@ -1,0 +1,80 @@
+% cvpr.sty - Style file for CVPR conference papers
+% Based on the official CVPR 2025 formatting guidelines
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cvpr}[2025/01/01 CVPR style]
+
+\RequirePackage{eso-pic}
+\RequirePackage{xspace}
+
+% Page layout
+\setlength{\textheight}{8.875in}
+\setlength{\textwidth}{6.875in}
+\setlength{\columnsep}{0.3125in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\parindent}{1pc}
+\setlength{\oddsidemargin}{-.304in}
+\setlength{\evensidemargin}{-.304in}
+
+% Section formatting
+\renewcommand{\section}{\@startsection
+  {section}{1}{0mm}{-10pt \@plus -2pt \@minus -2pt}
+  {4pt}{\normalfont\large\bfseries}}
+
+\renewcommand{\subsection}{\@startsection
+  {subsection}{2}{0mm}{-8pt \@plus -2pt \@minus -2pt}
+  {2pt}{\normalfont\normalsize\bfseries}}
+
+\renewcommand{\subsubsection}{\@startsection
+  {subsubsection}{3}{0mm}{-6pt \@plus -2pt \@minus -2pt}
+  {1pt}{\normalfont\normalsize\bfseries}}
+
+% Title and author formatting
+\newcommand{\cvprfinalcopy}{}
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip -0.4in
+  \begin{center}%
+    {\Large\bfseries \@title \par}%
+    \vskip 0.15in
+    {\large
+      \begin{tabular}[t]{c}%
+        \@author
+      \end{tabular}\par}%
+  \end{center}%
+  \par
+  \vskip 0.1in
+}
+
+% Abstract
+\renewenvironment{abstract}%
+  {\centerline{\large\bfseries Abstract}%
+   \vspace{-0.12in}\begin{quote}\small}%
+  {\par\end{quote}\vskip 0.12in}
+
+% Figure captions
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{{\small #1: #2}}%
+  \ifdim \wd\@tempboxa >\hsize
+    {\small #1: #2\par}
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+% Bibliography
+\def\thebibliography#1{\section*{References}
+  \small\list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}
+    \leftmargin\labelwidth
+    \advance\leftmargin\labelsep
+    \usecounter{enumi}}
+  \def\newblock{\hskip .11em plus .33em minus .07em}
+  \sloppy\clubpenalty10000\widowpenalty10000
+  \sfcode`\.=1000\relax}
+
+\endinput

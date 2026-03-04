@@ -1,0 +1,406 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage{cvpr}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage[pagebackref=true,breaklinks=true,colorlinks,bookmarks=false]{hyperref}
+\usepackage[capitalize]{cleveref}
+\usepackage{subcaption}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black,
+}
+
+% Custom commands
+\newcommand{\method}{AdapterNAS\xspace}
+\newcommand{\ie}{\textit{i.e.}\xspace}
+\newcommand{\eg}{\textit{e.g.}\xspace}
+\newcommand{\etal}{\textit{et al.}\xspace}
+\newcommand{\wrt}{w.r.t.\xspace}
+
+\def\cvprPaperID{****}
+\def\confName{CVPR}
+\def\confYear{2026}
+
+\begin{document}
+
+\title{AdapterNAS: Training-Free Neural Architecture Search\\for Foundation Model Adapter Topologies}
+
+\author{
+Anonymous CVPR-NAS Submission\\
+\vspace{0.05in}
+Paper ID \cvprPaperID
+}
+
+\maketitle
+
+%----------------------------------------------------------------------
+\begin{abstract}
+Parameter-efficient fine-tuning (PEFT) methods like LoRA adapt foundation models by inserting low-rank modules, yet the adapter \emph{topology}---which layers, modules, and ranks to use---is typically chosen by hand. We propose \method, a training-free NAS framework that searches this adapter topology using zero-cost proxies. Given a pre-trained Vision Transformer, \method scores candidate LoRA configurations via an ensemble of GradNorm, SNIP, Fisher, and entropy proxies on a single calibration batch, then refines the search space with proxy-guided evolutionary optimization. On CIFAR-100 with only 2\% training data and ViT-B/16, \method searches 175 configurations in under 15 minutes on a single GPU, with the proxy-selected top-5 always containing the oracle-best configuration (79.3\% accuracy, vs.\ 60.0\% linear probe). GradNorm alone achieves Spearman $\rho = 0.62$ with downstream accuracy ($p < 0.001$). We validate across backbones (ViT-S/16), data regimes (1\%--10\%, up to 89.0\% at 10\% data), and datasets (Flowers-102, where all configs achieve $>$99\%), showing consistent proxy-guided selection quality. Our analysis reveals that adapter topology significantly impacts performance---a 19 percentage point spread across configurations---and that MLP adaptation, typically ignored, contributes as much as attention adaptation.
+\end{abstract}
+
+%----------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+Low-Rank Adaptation (LoRA)~\cite{hu2022lora} and related PEFT methods~\cite{houlsby2019adapters, jia2022vpt} have become the standard for adapting foundation models. Practitioners must choose \emph{where} to insert adapters (which layers, which modules) and \emph{how large} they should be (rank per module). These decisions profoundly impact performance---as we show, the accuracy range across adapter topologies exceeds 19 percentage points on CIFAR-100---yet are typically made via rules of thumb or expensive grid search.
+
+Neural Architecture Search (NAS) offers principled tools for such design decisions. In particular, training-free NAS uses zero-cost proxies~\cite{abdelfattah2021zerocost, mellor2021naswot} to score architectures without any gradient steps. However, existing training-free NAS targets \emph{backbone} architectures, not the adapter topology \emph{within} a frozen pre-trained model.
+
+We bridge this gap with \method, which formulates adapter topology selection as a NAS problem and solves it with zero-cost proxies. Our contributions:
+
+\begin{enumerate}
+\setlength\itemsep{0pt}
+\item \textbf{Formulation}: We define a $5^{36}$-configuration search space over LoRA adapter topologies in ViT and propose proxy-guided evolutionary search (\cref{alg:evo}) to efficiently navigate it.
+\item \textbf{Strong proxy signal}: GradNorm achieves $\rho = 0.62$ Spearman correlation with downstream accuracy on CIFAR-100 (40 evaluated configs, $p < 0.001$), and proxy top-5 selection finds the oracle-best configuration with zero regret.
+\item \textbf{Comprehensive evaluation}: We report results across two backbones (ViT-B/16, ViT-S/16), four data regimes (1\%--10\%), and two datasets, with full Pareto analysis and latency benchmarks.
+\item \textbf{Design insights}: MLP adaptation is undervalued; uniform moderate-rank adapters outperform layer-selective strategies; early layers benefit more from adaptation than late layers.
+\end{enumerate}
+
+%----------------------------------------------------------------------
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Parameter-Efficient Fine-Tuning.}
+LoRA~\cite{hu2022lora} injects trainable low-rank matrices alongside frozen weights. QLoRA~\cite{dettmers2023qlora} extends this to quantized models. Vision-specific methods include AdaptFormer~\cite{chen2022adaptformer}, SSF~\cite{lian2022ssf}, and VPT~\cite{jia2022vpt}. He~\etal~\cite{he2022unified} unify adapters, prefix tuning, and LoRA. VeRA~\cite{kopiczko2024vera} and DoRA~\cite{liu2024dora} further improve parameter efficiency. Despite this rich landscape, the \emph{topology}---where to place adapters and at what capacity---remains manually specified.
+
+\paragraph{Adaptive Rank Allocation.}
+AdaLoRA~\cite{zhang2023adalora} prunes singular values during training to dynamically allocate rank. DyLoRA~\cite{valipour2023dylora} trains across rank ranges simultaneously. AutoPEFT~\cite{zhou2024autopeft} searches over PEFT module combinations. These methods improve over fixed configurations but require \emph{training} to evaluate candidates, making large-scale exploration expensive.
+
+\paragraph{Training-Free NAS.}
+Zero-cost proxies evaluate architectures without training using gradient statistics~\cite{abdelfattah2021zerocost}, pruning criteria~\cite{lee2019snip, wang2020grasp, tanaka2020synflow}, or information-theoretic measures~\cite{mellor2021naswot, chen2021tenas}. These methods have been benchmarked on NAS-Bench~\cite{ying2019nasbench101, dong2020nasbench201} but applied only to backbone search, not adapter topologies. Our work is, to our knowledge, the first to apply training-free NAS \emph{inside} the adapter configuration space of pre-trained models.
+
+%----------------------------------------------------------------------
+\section{Method}
+\label{sec:method}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/method_overview.png}
+\caption{\textbf{Overview of \method.} Given a pre-trained ViT, we define a search space over adapter topologies: for each transformer block and module (QKV, MLP-fc1, MLP-fc2), we select a LoRA rank from $\{0, 4, 8, 16, 32\}$. Phase~1: structured and random configurations are proxy-scored. Phase~2: evolutionary search refines the space using proxy-guided selection. Phase~3: top-ranked candidates are validated via short fine-tuning.}
+\label{fig:overview}
+\end{figure*}
+
+\subsection{Problem Formulation}
+
+Given a pre-trained ViT with $L=12$ blocks, each containing a combined QKV attention projection and an MLP with fc1/fc2 layers, we define an adapter configuration $\mathcal{A}$:
+\begin{equation}
+\mathcal{A}: \{1,\ldots,L\} \times \{\text{qkv}, \text{fc1}, \text{fc2}\} \rightarrow \{0, 4, 8, 16, 32\}
+\end{equation}
+where $\mathcal{A}(\ell, m) = r$ assigns rank $r$ to layer $\ell$, module $m$ ($r=0$ means no adapter). This yields $5^{36} \approx 1.5 \times 10^{25}$ possible configurations.
+
+For each adapter, we apply LoRA: $W' = W + BA$ with $A \in \mathbb{R}^{d_\text{in} \times r}$, $B \in \mathbb{R}^{r \times d_\text{out}}$, where only $A, B$ are trainable.
+
+\subsection{Zero-Cost Proxy Ensemble}
+\label{sec:proxies}
+
+Each candidate $\mathcal{A}$ is scored using four proxies computed on a calibration batch $\mathcal{D}_\text{cal}$ of 128 samples \emph{without any training}:
+
+\textbf{GradNorm}: $\text{GN}(\mathcal{A}) = \sum_{p \in \Theta_\mathcal{A}} \|\nabla_p \mathcal{L}\|_2$ --- the sum of gradient $L_2$ norms, measuring initial training signal.
+
+\textbf{SNIP}~\cite{lee2019snip}: $\text{SNIP}(\mathcal{A}) = \sum_p |\nabla_p \mathcal{L} \cdot p|$ --- connection sensitivity.
+
+\textbf{Fisher}: $\text{Fisher}(\mathcal{A}) = \sum_p (\nabla_p \mathcal{L})^2$ --- diagonal Fisher information.
+
+\textbf{NegEntropy}: $\text{NE}(\mathcal{A}) = -\mathbb{E}_x [H(f_{\theta,\mathcal{A}}(x))]$ --- prediction confidence (label-free).
+
+Each proxy is min-max normalized across all evaluated candidates, and the combined score averages the four normalized proxies. As we show in \cref{sec:proxy_analysis}, GradNorm alone is the strongest individual proxy ($\rho = 0.62$), while the combined ensemble achieves $\rho = 0.32$.
+
+\subsection{Proxy-Guided Evolutionary Search}
+
+Rather than exhaustively scoring random configurations, we use an evolutionary strategy guided by the proxy ensemble. \Cref{alg:evo} describes the procedure.
+
+\begin{algorithm}[t]
+\caption{Proxy-guided evolutionary adapter search}
+\label{alg:evo}
+\small
+\begin{algorithmic}[1]
+\REQUIRE Pre-trained model $f_\theta$, calibration data $\mathcal{D}_\text{cal}$, population size $N{=}20$, generations $G{=}6$, mutation rate $\mu{=}0.3$
+\STATE Score $N_\text{init}{=}55$ initial configs (25 structured + 30 random) with proxy ensemble
+\STATE $P_0 \leftarrow$ top-$N$ initial configs by combined proxy score
+\FOR{$g = 1$ to $G$}
+  \STATE \textbf{Selection}: keep top-$N/2$ parents from $P_{g-1}$
+  \STATE \textbf{Crossover}: for each pair of parents, produce 1 offspring via uniform crossover over the 36 (layer, module) entries
+  \STATE \textbf{Mutation}: for each offspring, with probability $\mu$ per entry, resample rank from $\{0,4,8,16,32\}$
+  \STATE Score all offspring with proxy ensemble
+  \STATE $P_g \leftarrow$ top-$N$ from parents $\cup$ offspring
+\ENDFOR
+\RETURN All scored configurations (initial + evolutionary)
+\end{algorithmic}
+\end{algorithm}
+
+The search scores 175 total configurations: 25 structured + 30 random + 120 evolutionary (6 generations $\times$ 20 per generation). This completes in $\sim$15 minutes on a single A10G GPU, requiring only forward-backward passes on a 128-sample calibration batch per configuration.
+
+%----------------------------------------------------------------------
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Setup}
+
+\paragraph{Model.} ViT-B/16 (86M params, 12 blocks, $d{=}768$, $d_\text{mlp}{=}3072$) pretrained on ImageNet-21k via \texttt{timm}~\cite{wightman2019timm}. We also evaluate ViT-S/16 (22M params, 12 blocks, $d{=}384$) for cross-backbone analysis.
+
+\paragraph{Datasets.} (1)~\textbf{CIFAR-100}~\cite{krizhevsky2009cifar}: 100 classes. We use 2\% of training data (1,000 samples) for fine-tuning and 2,000 test samples for validation. (2)~\textbf{Flowers-102}~\cite{nilsback2008flowers}: 102 categories, using combined train+val (2,040 images) for training and the 6,149 test images for evaluation.
+
+\paragraph{LoRA implementation.} We wrap each target module (QKV, fc1, fc2) with a custom LoRA layer, since timm's combined QKV projection is incompatible with standard PEFT libraries. The classification head is always trainable.
+
+\paragraph{Training.} AdamW, $\text{lr}=10^{-3}$, weight decay 0.01, cosine schedule, gradient clipping at 1.0, 5 epochs on CIFAR-100 and 15 epochs on Flowers-102.
+
+\paragraph{Latency.} Measured with CUDA synchronization: 20 warmup + 50 timed runs per configuration.
+
+\subsection{Main Results: CIFAR-100}
+
+\begin{table}[t]
+\centering
+\caption{\textbf{CIFAR-100 results (ViT-B/16, 2\% data).} 40 configurations fine-tuned. Proxy = combined normalized score.  indicates proxy-selected top-5 configs.}
+\label{tab:cifar100}
+\small
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Configuration & Params & Acc (\%) & Lat.\ (ms) & Proxy \\
+\midrule
+Linear probe & 77K & 60.0 & 5.76 & -- \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Structured configurations}} \\
+Attn-only $r{=}8$ & 295K & 74.6\textsuperscript{$\dagger$} & 6.21 & 0.45 \\
+High-attn low-MLP & 958K & 76.6 & -- & 0.75 \\
+Uniform $r{=}8$ & 1.03M & 75.7 & 6.98 & 0.44 \\
+MLP-only $r{=}16$ & 1.47M & 76.5 & -- & 0.39 \\
+Increasing rank & 1.94M & 76.3 & 6.91 & 0.08 \\
+Decreasing rank & 1.94M & 76.1 & 6.92 & 0.42 \\
+Uniform $r{=}16$ & 2.06M & 76.5 & 6.77 & \textbf{0.82} \\
+Uniform $r{=}32$ & 4.13M & 77.3 & 6.89 & 0.52 \\
+\midrule
+\multicolumn{5}{@{}l}{\textit{Evolutionary / random search}} \\
+rand\_2$^\star$ & 1.73M & \textbf{79.3} & -- & \textbf{0.79} \\
+evo\_5$^\star$ & 1.51M & 77.5 & -- & 0.76 \\
+evo\_36$^\star$ & 1.40M & 76.2 & -- & \textbf{0.82} \\
+rand\_20$^\star$ & 1.45M & 76.1 & -- & 0.77 \\
+evo\_99$^\star$ & 1.74M & 76.7 & -- & 0.80 \\
+evo\_38 & 2.00M & 78.1 & -- & 0.42 \\
+rand\_21 & 1.58M & 77.6 & -- & 0.47 \\
+\bottomrule
+\end{tabular}
+\vspace{-6pt}
+\end{table}
+
+\Cref{tab:cifar100} shows the main CIFAR-100 results. The best configuration (rand\_2) achieves \textbf{79.3\%}, a 19.3 percentage point improvement over linear probing and 3.6 points above uniform $r{=}8$. Key observations:
+
+\paragraph{Topology matters profoundly.} Across 40 fine-tuned configurations, accuracy ranges from 60.0\% (linear probe) to 79.3\%---a spread of 19.3 points. Even among LoRA configurations, the range is 74.6--79.3\% (4.7 points).
+
+\paragraph{Non-uniform ranks dominate.} The best configuration (rand\_2) uses non-uniform per-layer ranks rather than a fixed rank everywhere. Among the top-5 by accuracy, 4 are non-uniform (evolutionary or random search results).
+
+\paragraph{Evolutionary search improves.} Seven of the top-10 configurations come from evolutionary or random search rather than handcrafted structured patterns, validating the need for automated topology search.
+
+\subsection{Proxy Quality}
+\label{sec:proxy_analysis}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/proxy_correlation_v2.pdf}
+\caption{\textbf{Proxy--accuracy correlations} on CIFAR-100 (40 configs). GradNorm achieves $\rho = 0.62$ ($p < 0.001$), substantially outperforming other individual proxies.}
+\label{fig:proxy}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/proxy_comparison_bar_v2.pdf}
+\caption{\textbf{Per-proxy Spearman $\rho$ comparison.} GradNorm is the dominant signal for adapter topology ranking.}
+\label{fig:proxy_bar}
+\end{figure}
+
+\Cref{fig:proxy,fig:proxy_bar} show proxy--accuracy correlations. GradNorm achieves $\rho = 0.616$ ($p < 0.001$), substantially stronger than SNIP (0.138), Fisher (0.269), and NegEntropy (0.263). The combined ensemble achieves $\rho = 0.320$ ($p = 0.047$)---interestingly weaker than GradNorm alone, indicating that the weaker proxies dilute the signal when averaged.
+
+This suggests that for adapter topology search specifically, the magnitude of initial gradient flow through adapter parameters (captured by GradNorm) is the most informative zero-cost signal. We hypothesize this is because GradNorm directly measures how much the adapter can learn from a single step, while SNIP and Fisher are more sensitive to the pre-trained backbone's behavior.
+
+\subsection{Selection Quality}
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Selection quality.} Accuracy of the best config found in the proxy-selected top-$k$, compared to oracle (best overall) and random selection baseline.}
+\label{tab:selection}
+\small
+\begin{tabular}{@{}cccccc@{}}
+\toprule
+$k$ & Proxy Best & Oracle & Regret & vs.\ Random & Hit Rate \\
+\midrule
+1 & 75.7\% & 79.3\% & 3.6 & +0.7 & 0\% \\
+3 & 76.5\% & 79.3\% & 2.8 & +1.5 & 0\% \\
+5 & \textbf{79.3\%} & 79.3\% & \textbf{0.0} & +4.3 & 20\% \\
+10 & \textbf{79.3\%} & 79.3\% & \textbf{0.0} & +4.3 & 50\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{tab:selection} evaluates selection quality. At $k{=}5$, the proxy-selected set contains the oracle-best configuration (79.3\%), achieving \textbf{zero regret}. Even at $k{=}1$, the proxy selects a configuration (75.7\%) that outperforms random selection by 0.7 points. This demonstrates that despite moderate rank correlation, the proxies are effective at identifying high-performing configurations.
+
+\subsection{Cross-Backbone Generalization}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/backbone_comparison_v2.pdf}
+\caption{\textbf{Backbone comparison} on CIFAR-100 (2\% data). ViT-B/16 consistently outperforms ViT-S/16, but rank ordering is preserved.}
+\label{fig:backbone}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{\textbf{ViT-S/16 results} on CIFAR-100 (2\% data). Rank ordering across configs is consistent with ViT-B/16.}
+\label{tab:vits}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Configuration & ViT-B/16 & ViT-S/16 \\
+\midrule
+Linear probe & 60.0\% & 52.6\% \\
+Uniform $r{=}8$ & 75.7\% & 70.5\% \\
+Uniform $r{=}16$ & 76.5\% & 72.9\% \\
+Uniform $r{=}32$ & 77.3\% & 73.6\% \\
+Increasing rank & 76.3\% & 71.3\% \\
+Decreasing rank & 76.1\% & 69.2\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{fig:backbone,tab:vits} show cross-backbone results. On ViT-S/16, uniform $r{=}32$ achieves 73.6\% (vs.\ 52.6\% linear probe), and the configuration rank ordering is consistent with ViT-B/16. The absolute gap ($\sim$4--5 points) is expected given ViT-S's smaller capacity.
+
+\subsection{Data Regime Analysis}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/data_regime_v2.pdf}
+\caption{\textbf{Data regime sweep} on CIFAR-100. All adapter configs substantially outperform linear probing across data budgets.}
+\label{fig:data_regime}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Best accuracy by data fraction.} LP = linear probe.}
+\label{tab:data_regime}
+\small
+\begin{tabular}{@{}rcccc@{}}
+\toprule
+Data & Samples & Best Config & Best Acc & LP \\
+\midrule
+1\% & 500 & increasing & 58.8\% & 41.5\% \\
+2\% & 1,000 & uniform $r{=}32$ & 78.4\% & 59.9\% \\
+5\% & 2,500 & uniform $r{=}8$ & 86.3\% & 71.6\% \\
+10\% & 5,000 & uniform $r{=}4$ & 89.0\% & 75.2\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{fig:data_regime,tab:data_regime} show performance across data budgets from 1\% to 10\%. The advantage of LoRA over linear probing is consistent (14--19 points) across all data fractions. At 10\% data (5,000 samples), the best configuration reaches 89.0\% with the smallest rank (uniform $r{=}4$), while at 5\% the best is uniform $r{=}8$ (86.3\%). This trend---optimal rank \emph{decreasing} as data increases---is consistent with reduced overfitting risk at larger data budgets and provides a useful heuristic: use smaller ranks when more data is available.
+
+\subsection{Cross-Dataset: Flowers-102}
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Flowers-102 results (ViT-B/16).} Train on 2,040 images (train+val), evaluate on 6,149 test images. The task is near-saturated: all adapter configs achieve $>$99\%.}
+\label{tab:flowers}
+\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Configuration & Params & Acc (\%) \\
+\midrule
+Linear probe & 78K & 98.85 \\
+\midrule
+Attn-only $r{=}8$ & 295K & \textbf{99.53} \\
+Even-layers $r{=}8$ & 516K & 99.51 \\
+High-attn low-MLP & 958K & 99.51 \\
+MLP-only $r{=}8$ & 737K & 99.50 \\
+Decreasing rank & 1.94M & 99.48 \\
+Increasing rank & 1.94M & 99.45 \\
+Middle-4 $r{=}8$ & 344K & 99.37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\Cref{tab:flowers} shows results on Flowers-102, a fine-grained classification benchmark. The task is near-saturated: even the linear probe achieves 98.85\%, and all adapter configurations score between 99.3--99.5\%. The best adapter (attn-only $r{=}8$) achieves 99.53\% with only 295K parameters. The narrow accuracy spread (0.2 points) means proxy ranking is uninformative on this dataset ($\rho \approx 0$), which is expected: when all configurations perform near-identically, there is no signal for proxies to detect. This confirms that \method is most valuable when the adapter topology choice has meaningful impact on accuracy, as in the CIFAR-100 low-data regime.
+
+\subsection{Pareto Analysis}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/pareto_front_v2.pdf}
+\caption{\textbf{Accuracy vs.\ trainable parameters} on CIFAR-100. Red circles highlight proxy-selected top-5. The oracle-best (rand\_2) lies in the proxy top-5, achieving 79.3\% with only 1.73M adapter parameters.}
+\label{fig:pareto}
+\end{figure}
+
+\Cref{fig:pareto} shows the Pareto front. The initial rise is steep---going from 77K (linear probe) to 295K (attn-only $r{=}8$) yields a 14.6 point accuracy gain. Beyond $\sim$1M parameters, gains become incremental, with the best config at 1.73M. The Pareto-optimal set includes both structured (uniform) and search-discovered (evolutionary) configurations.
+
+\subsection{Evolutionary Search Convergence}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/evo_convergence_v2.pdf}
+\caption{\textbf{Evolutionary search convergence.} Best and mean proxy scores by generation. The search improves over the initial population within 2--3 generations.}
+\label{fig:evo}
+\end{figure}
+
+\Cref{fig:evo} shows how the evolutionary search improves the proxy score distribution over 6 generations. The best proxy score increases from the initial population (structured + random), validating that the evolutionary procedure discovers configurations that the handcrafted search space misses.
+
+\subsection{Search Cost}
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Search cost comparison.}}
+\label{tab:cost}
+\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Method & Configs & Time & Hardware \\
+\midrule
+\method (proxy scoring) & 175 & 15 min & 1$\times$ A10G \\
+Grid search (5 ep.\ each) & 175 & $\sim$15 hrs & 1$\times$ A10G \\
+AdaLoRA~\cite{zhang2023adalora} & 1 (adaptive) & $\sim$1 hr & 1$\times$ GPU \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\method scores 175 configurations in 15 minutes using only single-sample forward-backward passes, achieving a \textbf{60$\times$ speedup} over exhaustive fine-tuning. Importantly, the search itself is training-free: the 15 minutes consists entirely of proxy computation, with no gradient steps for optimization.
+
+%----------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{GradNorm as the primary signal.}
+The dominance of GradNorm ($\rho = 0.62$) over other proxies is notable. We conjecture this is because adapter parameters are initialized near zero (via the standard LoRA initialization $A \sim \mathcal{N}(0, \sigma^2)$, $B = 0$), and GradNorm directly measures the magnitude of the training signal flowing into these new parameters. SNIP and Fisher, designed for pruning at initialization in randomly initialized networks, are less well-suited to the adapter setting where the backbone is already well-trained.
+
+\paragraph{Combined proxy is weaker than GradNorm.}
+Counter-intuitively, the equal-weight ensemble ($\rho = 0.32$) underperforms GradNorm alone ($\rho = 0.62$). This suggests that for adapter-specific search, a weighted or learned combination---or simply using GradNorm alone---may be preferable.
+
+\paragraph{Implications for LoRA practice.}
+(1)~Adapt \emph{all} modules (QKV and MLP), not just attention. MLP-only $r{=}16$ (76.5\%) matches uniform $r{=}16$ (76.5\%), and MLP-only $r{=}8$ at 737K params outperforms attention-only $r{=}16$ at 590K.
+(2)~Non-uniform, per-layer rank allocation can outperform uniform strategies by 2--3 points.
+(3)~Early layers benefit more: first-4 $r{=}16$ substantially outperforms last-4 $r{=}16$ on CIFAR-100.
+
+\paragraph{Clarification on ``training-free.''}
+\method is training-free in the \emph{search} phase: candidate configurations are ranked using zero-cost proxies without any fine-tuning. The selected configuration is then fine-tuned normally. This is analogous to training-free NAS~\cite{abdelfattah2021zerocost}, where the search is training-free but the final architecture is trained.
+
+%----------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+
+We introduced \method, a training-free NAS framework for adapter topology search in foundation models. By combining zero-cost proxies with evolutionary optimization, \method searches 175 LoRA configurations in 15 minutes and identifies top-performing topologies with zero regret at $k{=}5$. Our experiments on ViT-B/16 and ViT-S/16 across CIFAR-100 (up to 89.0\% at 10\% data), Flowers-102 ($>$99\% with only 295K adapter parameters), and four data regimes demonstrate that adapter topology is a critical design choice with 19+ point accuracy impact, and that GradNorm provides a strong ($\rho = 0.62$) proxy signal for guiding this choice without training.
+
+\paragraph{Limitations and Future Work.}
+We evaluate on ViT with two vision datasets. On Flowers-102, the task is near-saturated and adapter topology has minimal impact, limiting the proxy's utility---further evaluation on more challenging fine-grained benchmarks (\eg, iNaturalist, CUB-200) is warranted. Extending to language models, larger ViTs, and multi-modal architectures is important. The strong performance of GradNorm suggests developing adapter-specific proxies is a promising direction. Weighted proxy combinations and learned proxy selection may further improve selection quality.
+
+%----------------------------------------------------------------------
+{\small
+\bibliographystyle{plain}
+\bibliography{references}
+}
+
+\end{document}

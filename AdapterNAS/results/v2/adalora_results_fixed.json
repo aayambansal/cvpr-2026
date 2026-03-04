@@ -1,0 +1,56 @@
+[
+  {
+    "label": "our_lora_r8",
+    "n_params": 1032192,
+    "val_acc": 74.6,
+    "mean_ms": 6.925721900000212,
+    "std_ms": 0.03450218300793322,
+    "p50_ms": 6.919665499999894,
+    "p95_ms": 6.969320149999447
+  },
+  {
+    "label": "our_lora_r16",
+    "n_params": 2064384,
+    "val_acc": 75.3,
+    "mean_ms": 6.850496780001549,
+    "std_ms": 0.08402130765604948,
+    "p50_ms": 6.834402499990233,
+    "p95_ms": 6.912435200013078
+  },
+  {
+    "label": "peft_lora_r8",
+    "n_params": 294912,
+    "val_acc": 10.3,
+    "mean_ms": 0,
+    "std_ms": 0,
+    "p50_ms": 0,
+    "p95_ms": 0
+  },
+  {
+    "label": "peft_lora_r16",
+    "n_params": 589824,
+    "val_acc": 12.55,
+    "mean_ms": 0,
+    "std_ms": 0,
+    "p50_ms": 0,
+    "p95_ms": 0
+  },
+  {
+    "label": "adalora_r12",
+    "n_params": 0,
+    "val_acc": 0,
+    "mean_ms": 0,
+    "std_ms": 0,
+    "p50_ms": 0,
+    "p95_ms": 0
+  },
+  {
+    "label": "adalora_r24",
+    "n_params": 0,
+    "val_acc": 0,
+    "mean_ms": 0,
+    "std_ms": 0,
+    "p50_ms": 0,
+    "p95_ms": 0
+  }
+]

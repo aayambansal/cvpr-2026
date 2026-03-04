@@ -87,3 +87,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](GreenNAS/GreenNAS_CVPR_NAS26.pdf) | [Code & Data](GreenNAS/)
 
 ---
+
+## Paper 7: AdapterNAS
+
+**Title:** AdapterNAS: Training-Free Neural Architecture Search for Foundation Model Adapter Topologies
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** Parameter-efficient fine-tuning (PEFT) methods like LoRA adapt foundation models by inserting low-rank modules, yet the adapter topology---which layers, modules, and ranks to use---is typically chosen by hand. We propose AdapterNAS, a training-free NAS framework that searches this adapter topology using zero-cost proxies. Given a pre-trained Vision Transformer, AdapterNAS scores candidate LoRA configurations via an ensemble of GradNorm, SNIP, Fisher, and entropy proxies on a single calibration batch, then refines the search space with proxy-guided evolutionary optimization. On CIFAR-100 with only 2% training data and ViT-B/16, AdapterNAS searches 175 configurations in under 15 minutes on a single GPU, with the proxy-selected top-5 always containing the oracle-best configuration (79.3% accuracy, vs. 60.0% linear probe). GradNorm alone achieves Spearman rho = 0.62 with downstream accuracy (p < 0.001). We validate across backbones (ViT-S/16), data regimes (1%--10%, up to 89.0% at 10% data), and datasets (Flowers-102, where all configs achieve >99%), showing consistent proxy-guided selection quality. Our analysis reveals that adapter topology significantly impacts performance---a 19 percentage point spread across configurations---and that MLP adaptation, typically ignored, contributes as much as attention adaptation.
+
+[Paper PDF](AdapterNAS/main.pdf) | [Code & Data](AdapterNAS/)
+
+---

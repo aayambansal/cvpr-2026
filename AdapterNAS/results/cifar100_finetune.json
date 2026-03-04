@@ -1,0 +1,211 @@
+[
+  {
+    "label": "uniform_r32",
+    "n_params": 4128768,
+    "combined_proxy": 0.8308788854074608,
+    "gradnorm": 11.644854672253132,
+    "snip": 16.116878509521484,
+    "fisher": 37.50864874618128,
+    "neg_entropy": -4.22553014755249,
+    "val_acc": 63.6,
+    "latency_ms": 4.665422439575195
+  },
+  {
+    "label": "rand_25",
+    "n_params": 1585152,
+    "combined_proxy": 0.788705284486197,
+    "gradnorm": 9.510263372212648,
+    "snip": 16.198530197143555,
+    "fisher": 37.608452371438034,
+    "neg_entropy": -4.207228183746338,
+    "val_acc": 63.2,
+    "latency_ms": 5.993413925170898
+  },
+  {
+    "label": "rand_4",
+    "n_params": 1735680,
+    "combined_proxy": 0.7019931771778707,
+    "gradnorm": 8.969427546486259,
+    "snip": 16.068077087402344,
+    "fisher": 36.2115893753944,
+    "neg_entropy": -4.1980180740356445,
+    "val_acc": 63.2,
+    "latency_ms": 4.15654182434082
+  },
+  {
+    "label": "first4_r8",
+    "n_params": 344064,
+    "combined_proxy": 0.12790766875801682,
+    "gradnorm": 6.550388321280479,
+    "snip": 15.17623233795166,
+    "fisher": 32.797527184244245,
+    "neg_entropy": -4.263308525085449,
+    "val_acc": 59.3,
+    "latency_ms": 3.3220767974853516
+  },
+  {
+    "label": "rand_5",
+    "n_params": 1505280,
+    "combined_proxy": 0.12775136844699486,
+    "gradnorm": 7.627758169546723,
+    "snip": 15.230903625488281,
+    "fisher": 32.382009404711425,
+    "neg_entropy": -4.281002044677734,
+    "val_acc": 62.6,
+    "latency_ms": 5.284023284912109
+  },
+  {
+    "label": "mlp_only_r8",
+    "n_params": 737280,
+    "combined_proxy": 0.043049647260419585,
+    "gradnorm": 7.065265750512481,
+    "snip": 14.931196212768555,
+    "fisher": 31.95265845116228,
+    "neg_entropy": -4.276823043823242,
+    "val_acc": 62.0,
+    "latency_ms": 4.838228225708008
+  },
+  {
+    "label": "uniform_r4",
+    "n_params": 516096,
+    "combined_proxy": 0.34270557007689184,
+    "gradnorm": 7.628509586676955,
+    "snip": 15.701108932495117,
+    "fisher": 35.14064343937207,
+    "neg_entropy": -4.27406120300293,
+    "val_acc": 60.3,
+    "latency_ms": 5.016994476318359
+  },
+  {
+    "label": "uniform_r8",
+    "n_params": 1032192,
+    "combined_proxy": 0.3045192611888543,
+    "gradnorm": 7.879301678389311,
+    "snip": 15.54365348815918,
+    "fisher": 33.730325277661905,
+    "neg_entropy": -4.258897304534912,
+    "val_acc": 65.2,
+    "latency_ms": 5.503988265991211
+  },
+  {
+    "label": "uniform_r16",
+    "n_params": 2064384,
+    "combined_proxy": 0.38648170311462093,
+    "gradnorm": 9.631511081010103,
+    "snip": 15.581028938293457,
+    "fisher": 34.43622748902999,
+    "neg_entropy": -4.2756853103637695,
+    "val_acc": 64.4,
+    "latency_ms": 10.590362548828125
+  },
+  {
+    "label": "attn_only_r8",
+    "n_params": 294912,
+    "combined_proxy": 0.35880178074801083,
+    "gradnorm": 6.648524753749371,
+    "snip": 15.979412078857422,
+    "fisher": 34.195740579860285,
+    "neg_entropy": -4.249234199523926,
+    "val_acc": 61.7,
+    "latency_ms": 3.6375999450683594
+  },
+  {
+    "label": "attn_only_r16",
+    "n_params": 589824,
+    "combined_proxy": 0.5211776504567889,
+    "gradnorm": 7.263998068869114,
+    "snip": 15.822470664978027,
+    "fisher": 35.522077470086515,
+    "neg_entropy": -4.209000110626221,
+    "val_acc": 59.5,
+    "latency_ms": 5.233573913574219
+  },
+  {
+    "label": "last4_r16",
+    "n_params": 688128,
+    "combined_proxy": 0.24772733128193555,
+    "gradnorm": 6.873030234128237,
+    "snip": 15.426334381103516,
+    "fisher": 33.79168580239639,
+    "neg_entropy": -4.255309104919434,
+    "val_acc": 55.4,
+    "latency_ms": 3.3273696899414062
+  },
+  {
+    "label": "first4_r16",
+    "n_params": 688128,
+    "combined_proxy": 0.2911271580547226,
+    "gradnorm": 7.651169344782829,
+    "snip": 15.576664924621582,
+    "fisher": 34.24012883193791,
+    "neg_entropy": -4.2711286544799805,
+    "val_acc": 62.4,
+    "latency_ms": 3.5965919494628906
+  },
+  {
+    "label": "even_r16",
+    "n_params": 1032192,
+    "combined_proxy": 0.5197527503132854,
+    "gradnorm": 7.889037489891052,
+    "snip": 15.87409782409668,
+    "fisher": 36.47120169410482,
+    "neg_entropy": -4.242521286010742,
+    "val_acc": 60.1,
+    "latency_ms": 4.517221450805664
+  },
+  {
+    "label": "increasing",
+    "n_params": 1935360,
+    "combined_proxy": 0.6834356107732175,
+    "gradnorm": 9.192037224769592,
+    "snip": 16.47955322265625,
+    "fisher": 36.75256623979658,
+    "neg_entropy": -4.246774673461914,
+    "val_acc": 63.2,
+    "latency_ms": 6.060171127319336
+  },
+  {
+    "label": "decreasing",
+    "n_params": 1935360,
+    "combined_proxy": 0.3658617639619808,
+    "gradnorm": 8.673028700053692,
+    "snip": 15.326262474060059,
+    "fisher": 33.754241550923325,
+    "neg_entropy": -4.235935211181641,
+    "val_acc": 57.8,
+    "latency_ms": 4.827594757080078
+  },
+  {
+    "label": "high_attn_low_mlp",
+    "n_params": 958464,
+    "combined_proxy": 0.2686564055603671,
+    "gradnorm": 8.163971805013716,
+    "snip": 15.322366714477539,
+    "fisher": 33.661684484031866,
+    "neg_entropy": -4.263401031494141,
+    "val_acc": 62.6,
+    "latency_ms": 4.643583297729492
+  },
+  {
+    "label": "low_attn_high_mlp",
+    "n_params": 1622016,
+    "combined_proxy": 0.4369338038443388,
+    "gradnorm": 8.457159399986267,
+    "snip": 15.833150863647461,
+    "fisher": 34.66715627128724,
+    "neg_entropy": -4.2524261474609375,
+    "val_acc": 59.2,
+    "latency_ms": 4.855203628540039
+  },
+  {
+    "label": "linear_probe",
+    "n_params": 76900,
+    "combined_proxy": 0,
+    "gradnorm": 0,
+    "snip": 0,
+    "fisher": 0,
+    "neg_entropy": 0,
+    "val_acc": 48.9,
+    "latency_ms": 2.702188491821289
+  }
+]
