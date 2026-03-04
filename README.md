@@ -115,3 +115,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](SRAS/main.pdf) | [Code & Data](SRAS/)
 
 ---
+
+## Paper 9: RepNAS
+
+**Title:** RepNAS: Architecture Selection in Pretrained Model Zoos via Representation Agreement with Foundation Models
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 6th Workshop on Neural Architecture Search (CVPR-NAS'26)
+
+**Abstract:** Choosing which pretrained architecture to deploy from a model zoo currently requires expensive per-task fine-tuning of every candidate. We propose RepNAS, a zero-shot selection method that scores pretrained architectures by their representation agreement with foundation models using Centered Kernel Alignment (CKA). Evaluating 83 torchvision architectures against four foundation-model teachers (DINOv2, CLIP, MAE, ConvNeXtV2-FCMAE), we discover an *alignment inversion*: architectures whose representations are most similar to the teacher consistently rank worst on ImageNet (Spearman rho = -0.42 to -0.52 across teachers, all bootstrap CIs excluding zero). Partial-correlation and subgroup analyses confirm this is not a size or family artifact (CLIP partial rho = -0.579 controlling for parameters; between-family rho = -0.557). We exploit the inversion for architecture search: selecting the least-similar architecture yields 85.1% ImageNet top-1 with 0.82% regret vs. the oracle. Remarkably, the same CKA scores positively predict transfer to CIFAR-100 (rho = +0.826) and Flowers-102 (rho = +0.518), while ImageNet accuracy alone does not (rho = -0.034). Layer-wise analysis reveals a sign flip from positive correlation in early layers (rho = +0.370) to negative in late layers (rho = -0.377), suggesting the inversion originates in task-specific head representations.
+
+[Paper PDF](RepNAS/latex/main.pdf) | [Code & Data](RepNAS/)
+
+---

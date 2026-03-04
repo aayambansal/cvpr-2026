@@ -1,0 +1,369 @@
+{
+  "config": {
+    "teacher": "vit_small_patch14_reg4_dinov2.lvd142m",
+    "num_images": 256,
+    "img_size": 224,
+    "seed": 42,
+    "device": "mps",
+    "num_candidates": 29
+  },
+  "per_model_results": {
+    "resnet50": {
+      "family": "CNN",
+      "model_name": "resnet50.a1_in1k",
+      "gt_accuracy": 79.8,
+      "cka": 0.034843205434669,
+      "cosine": 0.03484322594532691,
+      "knn": 0.0390625,
+      "synflow": 23.6446190641502,
+      "naswot": -11123.687004215173,
+      "gradnorm": 1.2423220905572991
+    },
+    "resnet101": {
+      "family": "CNN",
+      "model_name": "resnet101.a1_in1k",
+      "gt_accuracy": 81.5,
+      "cka": 0.03964523352546965,
+      "cosine": 0.039645253886557506,
+      "knn": 0.054296875,
+      "synflow": 23.643559115913312,
+      "naswot": -11145.041394177826,
+      "gradnorm": 1.2177093378893205
+    },
+    "resnet152": {
+      "family": "CNN",
+      "model_name": "resnet152.a1_in1k",
+      "gt_accuracy": 82.0,
+      "cka": 0.029411122182130756,
+      "cosine": 0.02941112036070007,
+      "knn": 0.0421875,
+      "synflow": 23.667819120890403,
+      "naswot": -11149.916881062096,
+      "gradnorm": 1.2196167734989678
+    },
+    "resnext50_32x4d": {
+      "family": "CNN",
+      "model_name": "resnext50_32x4d.a1_in1k",
+      "gt_accuracy": 80.1,
+      "cka": 0.04583776080196316,
+      "cosine": 0.045837775086167945,
+      "knn": 0.04296875,
+      "synflow": 23.646864614709312,
+      "naswot": -11108.799632641885,
+      "gradnorm": 1.2223438783446279
+    },
+    "wide_resnet50_2": {
+      "family": "CNN",
+      "model_name": "wide_resnet50_2.tv2_in1k",
+      "gt_accuracy": 81.6,
+      "cka": 0.043013664640810044,
+      "cosine": 0.043013663915058495,
+      "knn": 0.04375,
+      "synflow": 23.659143391227282,
+      "naswot": -11125.449305266182,
+      "gradnorm": 1.2433491102946985
+    },
+    "densenet121": {
+      "family": "CNN",
+      "model_name": "densenet121.ra_in1k",
+      "gt_accuracy": 75.6,
+      "cka": 0.032727975554149934,
+      "cosine": 0.03272797074915851,
+      "knn": 0.0359375,
+      "synflow": NaN,
+      "naswot": -11203.243307076424,
+      "gradnorm": 1.6082880967805684
+    },
+    "efficientnet_b0": {
+      "family": "EfficientNet",
+      "model_name": "efficientnet_b0.ra_in1k",
+      "gt_accuracy": 77.7,
+      "cka": 0.04374398592957962,
+      "cosine": 0.043743988184758,
+      "knn": 0.03671875,
+      "synflow": NaN,
+      "naswot": -11035.927984406433,
+      "gradnorm": 1.0550784106644597
+    },
+    "efficientnet_b1": {
+      "family": "EfficientNet",
+      "model_name": "efficientnet_b1.ft_in1k",
+      "gt_accuracy": 79.2,
+      "cka": 0.04337890616102512,
+      "cosine": 0.0433789173264937,
+      "knn": 0.041796875,
+      "synflow": NaN,
+      "naswot": -11011.323294794787,
+      "gradnorm": 1.3909510287554436
+    },
+    "efficientnet_b2": {
+      "family": "EfficientNet",
+      "model_name": "efficientnet_b2.ra_in1k",
+      "gt_accuracy": 80.6,
+      "cka": 0.023636307041792946,
+      "cosine": 0.023636316146985272,
+      "knn": 0.038671875,
+      "synflow": NaN,
+      "naswot": -11024.97836488005,
+      "gradnorm": 1.4844955412639327
+    },
+    "efficientnet_b3": {
+      "family": "EfficientNet",
+      "model_name": "efficientnet_b3.ra2_in1k",
+      "gt_accuracy": 82.0,
+      "cka": 0.020682489072273238,
+      "cosine": 0.020682496202647744,
+      "knn": 0.040234375,
+      "synflow": NaN,
+      "naswot": -11007.382100451776,
+      "gradnorm": 1.7687594779989393
+    },
+    "mobilenetv2_100": {
+      "family": "Mobile",
+      "model_name": "mobilenetv2_100.ra_in1k",
+      "gt_accuracy": 72.9,
+      "cka": 0.027945490775473238,
+      "cosine": 0.02794550596270524,
+      "knn": 0.04765625,
+      "synflow": 11.707565498284563,
+      "naswot": 0.0,
+      "gradnorm": 2.6420808868076016
+    },
+    "mobilenetv3_large": {
+      "family": "Mobile",
+      "model_name": "mobilenetv3_large_100.ra_in1k",
+      "gt_accuracy": 75.8,
+      "cka": 0.032202491124127285,
+      "cosine": 0.03220247875122998,
+      "knn": 0.040234375,
+      "synflow": NaN,
+      "naswot": -11088.50724006119,
+      "gradnorm": 0.5654451971984343
+    },
+    "mobilenetv3_small": {
+      "family": "Mobile",
+      "model_name": "mobilenetv3_small_100.lamb_in1k",
+      "gt_accuracy": 67.7,
+      "cka": 0.028030715790783613,
+      "cosine": 0.028030714741014172,
+      "knn": 0.035546875,
+      "synflow": 83.6002296247929,
+      "naswot": -10119.505017786647,
+      "gradnorm": -0.08901093957426877
+    },
+    "convnext_tiny": {
+      "family": "ConvNeXt",
+      "model_name": "convnext_tiny.fb_in1k",
+      "gt_accuracy": 82.1,
+      "cka": 0.02188744380110306,
+      "cosine": 0.021887450666668546,
+      "knn": 0.040625,
+      "synflow": 2.340328769516897,
+      "naswot": 0.0,
+      "gradnorm": 2.415199858667453
+    },
+    "convnext_small": {
+      "family": "ConvNeXt",
+      "model_name": "convnext_small.fb_in1k",
+      "gt_accuracy": 83.1,
+      "cka": 0.01734521044241328,
+      "cosine": 0.017345212735042345,
+      "knn": 0.04375,
+      "synflow": -3.390375019419898,
+      "naswot": 0.0,
+      "gradnorm": 2.396168128944997
+    },
+    "convnext_base": {
+      "family": "ConvNeXt",
+      "model_name": "convnext_base.fb_in1k",
+      "gt_accuracy": 83.8,
+      "cka": 0.01589477794994149,
+      "cosine": 0.01589478987639672,
+      "knn": 0.048046875,
+      "synflow": 3.0749904954407574,
+      "naswot": 0.0,
+      "gradnorm": 2.603304633661677
+    },
+    "vit_tiny_patch16": {
+      "family": "ViT",
+      "model_name": "vit_tiny_patch16_224.augreg_in21k_ft_in1k",
+      "gt_accuracy": 75.5,
+      "cka": 0.031979732266021944,
+      "cosine": 0.03197972466729595,
+      "knn": 0.042578125,
+      "synflow": -0.32011298927266923,
+      "naswot": -11104.834770096748,
+      "gradnorm": 1.899820640081755
+    },
+    "vit_small_patch16": {
+      "family": "ViT",
+      "model_name": "vit_small_patch16_224.augreg_in21k_ft_in1k",
+      "gt_accuracy": 81.4,
+      "cka": 0.028541724261528494,
+      "cosine": 0.002296430685693879,
+      "knn": 0.04609375,
+      "synflow": 2.9987405068964827,
+      "naswot": -11093.586691035885,
+      "gradnorm": 2.3688596374101745
+    },
+    "vit_base_patch16": {
+      "family": "ViT",
+      "model_name": "vit_base_patch16_224.augreg_in21k_ft_in1k",
+      "gt_accuracy": 84.0,
+      "cka": 0.02083229127017728,
+      "cosine": 0.020832294880095834,
+      "knn": 0.04296875,
+      "synflow": 1.6858846585776317,
+      "naswot": -11088.516952158121,
+      "gradnorm": 2.7164900223134456
+    },
+    "swin_tiny": {
+      "family": "Swin",
+      "model_name": "swin_tiny_patch4_window7_224.ms_in1k",
+      "gt_accuracy": 81.2,
+      "cka": 0.014316002885046652,
+      "cosine": 0.01431600377344625,
+      "knn": 0.038671875,
+      "synflow": 0.9761193167164102,
+      "naswot": -11071.592027144185,
+      "gradnorm": 2.5110184033285883
+    },
+    "swin_small": {
+      "family": "Swin",
+      "model_name": "swin_small_patch4_window7_224.ms_in1k",
+      "gt_accuracy": 83.2,
+      "cka": 0.026094869585849823,
+      "cosine": 0.02609486185098027,
+      "knn": 0.036328125,
+      "synflow": 2.9867830530851984,
+      "naswot": -11098.119436481815,
+      "gradnorm": 2.61052067110718
+    },
+    "swin_base": {
+      "family": "Swin",
+      "model_name": "swin_base_patch4_window7_224.ms_in1k",
+      "gt_accuracy": 83.5,
+      "cka": 0.024617436852771665,
+      "cosine": 0.024617424258921407,
+      "knn": 0.03671875,
+      "synflow": 3.6058186902481806,
+      "naswot": -11100.213427714236,
+      "gradnorm": 2.93673974888852
+    },
+    "regnetx_016": {
+      "family": "RegNet",
+      "model_name": "regnetx_016.tv2_in1k",
+      "gt_accuracy": 73.0,
+      "cka": 0.04514432621529989,
+      "cosine": 0.0451443345264776,
+      "knn": 0.037109375,
+      "synflow": 20.04033863800931,
+      "naswot": -11094.70685342998,
+      "gradnorm": 0.7426007448860837
+    },
+    "regnetx_032": {
+      "family": "RegNet",
+      "model_name": "regnetx_032.tv2_in1k",
+      "gt_accuracy": 75.2,
+      "cka": 0.05142353519550611,
+      "cosine": 0.051423522625155725,
+      "knn": 0.040234375,
+      "synflow": 20.288464309347827,
+      "naswot": -11094.518035497022,
+      "gradnorm": 0.8266047260165761
+    },
+    "regnety_016": {
+      "family": "RegNet",
+      "model_name": "regnety_016.tv2_in1k",
+      "gt_accuracy": 74.0,
+      "cka": 0.04832226241744689,
+      "cosine": 0.04832228398055531,
+      "knn": 0.0453125,
+      "synflow": 19.563233825828117,
+      "naswot": -11124.498235811152,
+      "gradnorm": 0.7318187998902967
+    },
+    "regnety_032": {
+      "family": "RegNet",
+      "model_name": "regnety_032.tv2_in1k",
+      "gt_accuracy": 76.6,
+      "cka": 0.02453162562918581,
+      "cosine": 0.02453161743805384,
+      "knn": 0.0390625,
+      "synflow": 20.57286226393744,
+      "naswot": -11107.377193564225,
+      "gradnorm": 0.9984465043654212
+    },
+    "deit_tiny_patch16": {
+      "family": "DeiT",
+      "model_name": "deit_tiny_patch16_224.fb_in1k",
+      "gt_accuracy": 72.2,
+      "cka": 0.02568873966957305,
+      "cosine": 0.025688743527403534,
+      "knn": 0.0390625,
+      "synflow": 2.7099866969760407,
+      "naswot": -11099.723546099949,
+      "gradnorm": 1.9103275716791923
+    },
+    "deit_small_patch16": {
+      "family": "DeiT",
+      "model_name": "deit_small_patch16_224.fb_in1k",
+      "gt_accuracy": 79.9,
+      "cka": 0.03485564833482969,
+      "cosine": 0.0019753213292409795,
+      "knn": 0.041796875,
+      "synflow": 1.1419927723936907,
+      "naswot": -11102.422251192515,
+      "gradnorm": 2.179513441470821
+    },
+    "deit_base_patch16": {
+      "family": "DeiT",
+      "model_name": "deit_base_patch16_224.fb_in1k",
+      "gt_accuracy": 81.8,
+      "cka": 0.03067432809099965,
+      "cosine": 0.03067432809099965,
+      "knn": 0.041796875,
+      "synflow": 1.7548504723600977,
+      "naswot": -11096.498079523379,
+      "gradnorm": 2.6906241521571403
+    }
+  },
+  "correlations": {
+    "CKA (Ours)": {
+      "spearman_rho": -0.5081906677295704,
+      "spearman_p": 0.004883491901864112,
+      "kendall_tau": -0.34771912993447224,
+      "kendall_p": 0.008160593751034057
+    },
+    "Cosine (Ours)": {
+      "spearman_rho": -0.4857741137967586,
+      "spearman_p": 0.007551212720214859,
+      "kendall_tau": -0.3230581987334458,
+      "kendall_p": 0.013981492574188393
+    },
+    "kNN (Ours)": {
+      "spearman_rho": 0.24139249061274595,
+      "spearman_p": 0.20712420108184992,
+      "kendall_tau": 0.1704453375892001,
+      "kendall_p": 0.20084538150702236
+    },
+    "SynFlow": {
+      "spearman_rho": NaN,
+      "spearman_p": NaN,
+      "kendall_tau": NaN,
+      "kendall_p": NaN
+    },
+    "NASWOT": {
+      "spearman_rho": 0.11246769783136454,
+      "spearman_p": 0.5613322242328158,
+      "kendall_tau": 0.07205107927499321,
+      "kendall_p": 0.5858155001189822
+    },
+    "GradNorm": {
+      "spearman_rho": 0.6042616131559071,
+      "spearman_p": 0.0005177350358425435,
+      "kendall_tau": 0.4759559721798095,
+      "kendall_p": 0.0002935311485130319
+    }
+  }
+}

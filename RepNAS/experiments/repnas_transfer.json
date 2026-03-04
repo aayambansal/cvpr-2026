@@ -1,0 +1,586 @@
+{
+  "transfer": {
+    "resnet18": {
+      "imagenet_acc": 71.5,
+      "cifar100_acc": 55.95,
+      "flowers102_acc": 81.52000000000001,
+      "params": 11.7,
+      "family": "CNN"
+    },
+    "resnet34": {
+      "imagenet_acc": 75.1,
+      "cifar100_acc": 59.4,
+      "flowers102_acc": 77.4,
+      "params": 21.8,
+      "family": "CNN"
+    },
+    "resnet50": {
+      "imagenet_acc": 79.8,
+      "cifar100_acc": 62.35000000000001,
+      "flowers102_acc": 82.08,
+      "params": 25.6,
+      "family": "CNN"
+    },
+    "resnet101": {
+      "imagenet_acc": 81.5,
+      "cifar100_acc": 66.55,
+      "flowers102_acc": 81.28,
+      "params": 44.5,
+      "family": "CNN"
+    },
+    "resnet152": {
+      "imagenet_acc": 82.0,
+      "cifar100_acc": 67.30000000000001,
+      "flowers102_acc": 82.82000000000001,
+      "params": 60.2,
+      "family": "CNN"
+    },
+    "resnext50_32x4d": {
+      "imagenet_acc": 80.1,
+      "cifar100_acc": 59.95,
+      "flowers102_acc": 81.42,
+      "params": 25.0,
+      "family": "CNN"
+    },
+    "resnext101_32x8d": {
+      "imagenet_acc": 82.2,
+      "cifar100_acc": 66.05,
+      "flowers102_acc": 86.24000000000001,
+      "params": 88.8,
+      "family": "CNN"
+    },
+    "wide_resnet50_2": {
+      "imagenet_acc": 81.6,
+      "cifar100_acc": 66.55,
+      "flowers102_acc": 81.24,
+      "params": 68.9,
+      "family": "CNN"
+    },
+    "wide_resnet101_2": {
+      "imagenet_acc": 82.5,
+      "cifar100_acc": 71.95,
+      "flowers102_acc": 82.56,
+      "params": 126.9,
+      "family": "CNN"
+    },
+    "densenet121": {
+      "imagenet_acc": 75.6,
+      "cifar100_acc": 62.050000000000004,
+      "flowers102_acc": 87.83999999999999,
+      "params": 8.0,
+      "family": "CNN"
+    },
+    "densenet169": {
+      "imagenet_acc": 76.2,
+      "cifar100_acc": 60.050000000000004,
+      "flowers102_acc": 85.78,
+      "params": 14.1,
+      "family": "CNN"
+    },
+    "densenet201": {
+      "imagenet_acc": 77.4,
+      "cifar100_acc": 61.550000000000004,
+      "flowers102_acc": 87.02,
+      "params": 20.0,
+      "family": "CNN"
+    },
+    "efficientnet_b0": {
+      "imagenet_acc": 77.7,
+      "cifar100_acc": 65.35,
+      "flowers102_acc": 88.03999999999999,
+      "params": 5.3,
+      "family": "EffNet"
+    },
+    "efficientnet_b1": {
+      "imagenet_acc": 79.2,
+      "cifar100_acc": 65.25,
+      "flowers102_acc": 86.58,
+      "params": 7.8,
+      "family": "EffNet"
+    },
+    "efficientnet_b2": {
+      "imagenet_acc": 80.6,
+      "cifar100_acc": 66.10000000000001,
+      "flowers102_acc": 86.9,
+      "params": 9.1,
+      "family": "EffNet"
+    },
+    "efficientnet_b3": {
+      "imagenet_acc": 82.0,
+      "cifar100_acc": 69.75,
+      "flowers102_acc": 83.17999999999999,
+      "params": 12.2,
+      "family": "EffNet"
+    },
+    "efficientnet_b4": {
+      "imagenet_acc": 83.4,
+      "cifar100_acc": 69.8,
+      "flowers102_acc": 83.82,
+      "params": 19.3,
+      "family": "EffNet"
+    },
+    "efficientnetv2_s": {
+      "imagenet_acc": 83.9,
+      "cifar100_acc": 34.949999999999996,
+      "flowers102_acc": 53.16,
+      "params": 21.5,
+      "family": "EffNet"
+    },
+    "efficientnetv2_m": {
+      "imagenet_acc": 85.1,
+      "cifar100_acc": 55.400000000000006,
+      "flowers102_acc": 73.2,
+      "params": 54.1,
+      "family": "EffNet"
+    },
+    "mobilenetv2_100": {
+      "imagenet_acc": 72.9,
+      "cifar100_acc": 58.9,
+      "flowers102_acc": 87.58,
+      "params": 3.5,
+      "family": "Mobile"
+    },
+    "mobilenetv2_140": {
+      "imagenet_acc": 76.5,
+      "cifar100_acc": 60.650000000000006,
+      "flowers102_acc": 88.98,
+      "params": 6.1,
+      "family": "Mobile"
+    },
+    "mobilenetv3_large": {
+      "imagenet_acc": 75.8,
+      "cifar100_acc": 61.9,
+      "flowers102_acc": 90.28,
+      "params": 5.5,
+      "family": "Mobile"
+    },
+    "mobilenetv3_small": {
+      "imagenet_acc": 67.7,
+      "cifar100_acc": 57.099999999999994,
+      "flowers102_acc": 85.8,
+      "params": 2.5,
+      "family": "Mobile"
+    },
+    "mnasnet_100": {
+      "imagenet_acc": 74.7,
+      "cifar100_acc": 60.8,
+      "flowers102_acc": 85.94000000000001,
+      "params": 4.4,
+      "family": "Mobile"
+    },
+    "convnext_tiny": {
+      "imagenet_acc": 82.1,
+      "cifar100_acc": 64.4,
+      "flowers102_acc": 78.22,
+      "params": 28.6,
+      "family": "ConvNeXt"
+    },
+    "convnext_small": {
+      "imagenet_acc": 83.1,
+      "cifar100_acc": 69.8,
+      "flowers102_acc": 79.34,
+      "params": 50.2,
+      "family": "ConvNeXt"
+    },
+    "convnext_base": {
+      "imagenet_acc": 83.8,
+      "cifar100_acc": 70.39999999999999,
+      "flowers102_acc": 82.26,
+      "params": 88.6,
+      "family": "ConvNeXt"
+    },
+    "convnext_large": {
+      "imagenet_acc": 84.3,
+      "cifar100_acc": 73.5,
+      "flowers102_acc": 85.1,
+      "params": 197.8,
+      "family": "ConvNeXt"
+    },
+    "convnextv2_tiny": {
+      "imagenet_acc": 82.9,
+      "cifar100_acc": 68.89999999999999,
+      "flowers102_acc": 85.78,
+      "params": 28.6,
+      "family": "ConvNeXt"
+    },
+    "convnextv2_base": {
+      "imagenet_acc": 84.9,
+      "cifar100_acc": 75.0,
+      "flowers102_acc": 87.18,
+      "params": 88.7,
+      "family": "ConvNeXt"
+    },
+    "vit_tiny_patch16": {
+      "imagenet_acc": 75.5,
+      "cifar100_acc": 45.0,
+      "flowers102_acc": 80.60000000000001,
+      "params": 5.7,
+      "family": "ViT"
+    },
+    "vit_small_patch16": {
+      "imagenet_acc": 81.4,
+      "cifar100_acc": 71.95,
+      "flowers102_acc": 98.08,
+      "params": 22.1,
+      "family": "ViT"
+    },
+    "vit_base_patch16": {
+      "imagenet_acc": 84.0,
+      "cifar100_acc": 77.25,
+      "flowers102_acc": 99.2,
+      "params": 86.6,
+      "family": "ViT"
+    },
+    "vit_base_patch32": {
+      "imagenet_acc": 80.7,
+      "cifar100_acc": 71.1,
+      "flowers102_acc": 97.11999999999999,
+      "params": 88.2,
+      "family": "ViT"
+    },
+    "vit_large_patch16": {
+      "imagenet_acc": 85.8,
+      "cifar100_acc": 85.75,
+      "flowers102_acc": 99.7,
+      "params": 304.3,
+      "family": "ViT"
+    },
+    "vit_small_patch16_dino": {
+      "imagenet_acc": 78.0,
+      "cifar100_acc": 67.05,
+      "flowers102_acc": 93.97999999999999,
+      "params": 22.1,
+      "family": "ViT"
+    },
+    "swin_tiny": {
+      "imagenet_acc": 81.2,
+      "cifar100_acc": 1.0999999999999999,
+      "flowers102_acc": 0.4,
+      "params": 28.3,
+      "family": "Swin"
+    },
+    "swin_small": {
+      "imagenet_acc": 83.2,
+      "cifar100_acc": 1.0999999999999999,
+      "flowers102_acc": 1.44,
+      "params": 49.6,
+      "family": "Swin"
+    },
+    "swin_base": {
+      "imagenet_acc": 83.5,
+      "cifar100_acc": 1.0999999999999999,
+      "flowers102_acc": 2.48,
+      "params": 87.8,
+      "family": "Swin"
+    },
+    "deit_tiny": {
+      "imagenet_acc": 72.2,
+      "cifar100_acc": 58.3,
+      "flowers102_acc": 80.36,
+      "params": 5.7,
+      "family": "DeiT"
+    },
+    "deit_small": {
+      "imagenet_acc": 79.9,
+      "cifar100_acc": 66.95,
+      "flowers102_acc": 84.5,
+      "params": 22.1,
+      "family": "DeiT"
+    },
+    "deit_base": {
+      "imagenet_acc": 81.8,
+      "cifar100_acc": 71.15,
+      "flowers102_acc": 87.44,
+      "params": 86.6,
+      "family": "DeiT"
+    },
+    "deit3_small": {
+      "imagenet_acc": 81.4,
+      "cifar100_acc": 63.3,
+      "flowers102_acc": 73.72,
+      "params": 22.1,
+      "family": "DeiT"
+    },
+    "deit3_base": {
+      "imagenet_acc": 83.8,
+      "cifar100_acc": 73.5,
+      "flowers102_acc": 85.22,
+      "params": 86.6,
+      "family": "DeiT"
+    },
+    "deit3_large": {
+      "imagenet_acc": 84.9,
+      "cifar100_acc": 76.75,
+      "flowers102_acc": 86.88,
+      "params": 304.4,
+      "family": "DeiT"
+    },
+    "regnetx_016": {
+      "imagenet_acc": 73.0,
+      "cifar100_acc": 59.8,
+      "flowers102_acc": 78.74,
+      "params": 9.2,
+      "family": "RegNet"
+    },
+    "regnetx_032": {
+      "imagenet_acc": 75.2,
+      "cifar100_acc": 64.35,
+      "flowers102_acc": 80.46,
+      "params": 15.3,
+      "family": "RegNet"
+    },
+    "regnetx_064": {
+      "imagenet_acc": 76.4,
+      "cifar100_acc": 64.7,
+      "flowers102_acc": 88.03999999999999,
+      "params": 26.2,
+      "family": "RegNet"
+    },
+    "regnetx_160": {
+      "imagenet_acc": 79.7,
+      "cifar100_acc": 66.85,
+      "flowers102_acc": 85.64,
+      "params": 54.3,
+      "family": "RegNet"
+    },
+    "regnety_016": {
+      "imagenet_acc": 74.0,
+      "cifar100_acc": 67.05,
+      "flowers102_acc": 79.46,
+      "params": 11.2,
+      "family": "RegNet"
+    },
+    "regnety_032": {
+      "imagenet_acc": 76.6,
+      "cifar100_acc": 67.80000000000001,
+      "flowers102_acc": 82.58,
+      "params": 19.4,
+      "family": "RegNet"
+    },
+    "regnety_064": {
+      "imagenet_acc": 77.2,
+      "cifar100_acc": 66.3,
+      "flowers102_acc": 86.78,
+      "params": 30.6,
+      "family": "RegNet"
+    },
+    "regnety_160": {
+      "imagenet_acc": 80.4,
+      "cifar100_acc": 69.35,
+      "flowers102_acc": 83.86,
+      "params": 83.6,
+      "family": "RegNet"
+    },
+    "maxvit_tiny": {
+      "imagenet_acc": 83.4,
+      "cifar100_acc": 67.95,
+      "flowers102_acc": 82.19999999999999,
+      "params": 30.9,
+      "family": "MaxViT"
+    },
+    "maxvit_small": {
+      "imagenet_acc": 84.5,
+      "cifar100_acc": 71.85000000000001,
+      "flowers102_acc": 87.62,
+      "params": 68.9,
+      "family": "MaxViT"
+    },
+    "coatnet_0": {
+      "imagenet_acc": 82.4,
+      "cifar100_acc": 63.849999999999994,
+      "flowers102_acc": 80.44,
+      "params": 27.4,
+      "family": "MaxViT"
+    },
+    "efficientformer_l1": {
+      "imagenet_acc": 80.2,
+      "cifar100_acc": 26.85,
+      "flowers102_acc": 27.74,
+      "params": 12.3,
+      "family": "EFormer"
+    },
+    "efficientformer_l3": {
+      "imagenet_acc": 82.4,
+      "cifar100_acc": 41.949999999999996,
+      "flowers102_acc": 31.319999999999997,
+      "params": 31.4,
+      "family": "EFormer"
+    },
+    "efficientformer_l7": {
+      "imagenet_acc": 83.3,
+      "cifar100_acc": 49.75,
+      "flowers102_acc": 39.08,
+      "params": 82.2,
+      "family": "EFormer"
+    },
+    "edgenext_small": {
+      "imagenet_acc": 81.1,
+      "cifar100_acc": 62.5,
+      "flowers102_acc": 85.86,
+      "params": 5.6,
+      "family": "EdgeNeXt"
+    },
+    "edgenext_base": {
+      "imagenet_acc": 83.3,
+      "cifar100_acc": 70.8,
+      "flowers102_acc": 90.53999999999999,
+      "params": 18.5,
+      "family": "EdgeNeXt"
+    },
+    "inception_v3": {
+      "imagenet_acc": 77.3,
+      "cifar100_acc": 53.0,
+      "flowers102_acc": 70.28,
+      "params": 23.8,
+      "family": "CNN"
+    },
+    "inception_v4": {
+      "imagenet_acc": 80.2,
+      "cifar100_acc": 51.6,
+      "flowers102_acc": 65.82000000000001,
+      "params": 42.7,
+      "family": "CNN"
+    },
+    "dpn68": {
+      "imagenet_acc": 76.3,
+      "cifar100_acc": 53.1,
+      "flowers102_acc": 80.04,
+      "params": 12.6,
+      "family": "CNN"
+    },
+    "dpn92": {
+      "imagenet_acc": 79.5,
+      "cifar100_acc": 56.55,
+      "flowers102_acc": 86.28,
+      "params": 37.7,
+      "family": "CNN"
+    },
+    "dpn131": {
+      "imagenet_acc": 79.8,
+      "cifar100_acc": 60.050000000000004,
+      "flowers102_acc": 81.64,
+      "params": 79.3,
+      "family": "CNN"
+    },
+    "nasnetalarge": {
+      "imagenet_acc": 82.6,
+      "cifar100_acc": 37.4,
+      "flowers102_acc": 59.0,
+      "params": 88.8,
+      "family": "NAS"
+    },
+    "senet154": {
+      "imagenet_acc": 81.3,
+      "cifar100_acc": 66.45,
+      "flowers102_acc": 79.86,
+      "params": 115.1,
+      "family": "CNN"
+    },
+    "seresnext50_32x4d": {
+      "imagenet_acc": 79.9,
+      "cifar100_acc": 65.3,
+      "flowers102_acc": 80.28,
+      "params": 27.6,
+      "family": "CNN"
+    },
+    "res2net50_26w_4s": {
+      "imagenet_acc": 78.0,
+      "cifar100_acc": 59.35,
+      "flowers102_acc": 76.12,
+      "params": 25.7,
+      "family": "CNN"
+    },
+    "res2net101_26w_4s": {
+      "imagenet_acc": 79.2,
+      "cifar100_acc": 61.050000000000004,
+      "flowers102_acc": 71.82,
+      "params": 45.2,
+      "family": "CNN"
+    },
+    "hrnet_w18": {
+      "imagenet_acc": 78.0,
+      "cifar100_acc": 60.85,
+      "flowers102_acc": 84.56,
+      "params": 21.3,
+      "family": "CNN"
+    },
+    "hrnet_w32": {
+      "imagenet_acc": 78.4,
+      "cifar100_acc": 64.60000000000001,
+      "flowers102_acc": 86.46000000000001,
+      "params": 41.2,
+      "family": "CNN"
+    },
+    "hrnet_w48": {
+      "imagenet_acc": 79.3,
+      "cifar100_acc": 62.2,
+      "flowers102_acc": 83.58,
+      "params": 77.5,
+      "family": "CNN"
+    },
+    "ghostnet_100": {
+      "imagenet_acc": 74.0,
+      "cifar100_acc": 61.550000000000004,
+      "flowers102_acc": 86.7,
+      "params": 5.2,
+      "family": "Mobile"
+    },
+    "poolformer_s12": {
+      "imagenet_acc": 77.2,
+      "cifar100_acc": 61.199999999999996,
+      "flowers102_acc": 88.62,
+      "params": 11.9,
+      "family": "MetaFormer"
+    },
+    "poolformer_s24": {
+      "imagenet_acc": 80.3,
+      "cifar100_acc": 65.55,
+      "flowers102_acc": 87.68,
+      "params": 21.4,
+      "family": "MetaFormer"
+    },
+    "poolformer_s36": {
+      "imagenet_acc": 81.4,
+      "cifar100_acc": 65.60000000000001,
+      "flowers102_acc": 86.7,
+      "params": 30.9,
+      "family": "MetaFormer"
+    },
+    "poolformer_m36": {
+      "imagenet_acc": 82.1,
+      "cifar100_acc": 66.5,
+      "flowers102_acc": 88.28,
+      "params": 56.2,
+      "family": "MetaFormer"
+    },
+    "cait_s24_224": {
+      "imagenet_acc": 83.5,
+      "cifar100_acc": 73.05,
+      "flowers102_acc": 86.68,
+      "params": 47.0,
+      "family": "CaiT"
+    },
+    "mixer_b16": {
+      "imagenet_acc": 78.5,
+      "cifar100_acc": 55.7,
+      "flowers102_acc": 83.74000000000001,
+      "params": 59.9,
+      "family": "Mixer"
+    },
+    "vgg16_bn": {
+      "imagenet_acc": 73.4,
+      "cifar100_acc": 55.65,
+      "flowers102_acc": 82.42,
+      "params": 138.4,
+      "family": "CNN"
+    },
+    "vgg19_bn": {
+      "imagenet_acc": 74.2,
+      "cifar100_acc": 56.25,
+      "flowers102_acc": 81.02000000000001,
+      "params": 143.7,
+      "family": "CNN"
+    }
+  },
+  "elapsed_minutes": 71.60440779924393
+}

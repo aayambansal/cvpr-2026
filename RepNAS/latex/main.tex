@@ -1,0 +1,535 @@
+% RepNAS — CVPR 2026; see https://github.com/cvpr-org/author-kit
+
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+%%%%%%%%% PAPER TYPE  - PLEASE UPDATE FOR FINAL VERSION
+% \usepackage{cvpr}              % To produce the CAMERA-READY version
+\usepackage[review]{cvpr}      % To produce the REVIEW version
+% \usepackage[pagenumbers]{cvpr} % To force page numbers, e.g. for an arXiv version
+
+% Import additional packages in the preamble file, before hyperref
+\input{preamble}
+
+% It is strongly recommended to use hyperref, especially for the review version.
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+%%%%%%%%% PAPER ID  - PLEASE UPDATE
+\def\paperID{*****} % *** Enter the Paper ID here
+\def\confName{CVPR}
+\def\confYear{2026}
+
+%%%%%%%%% TITLE - PLEASE UPDATE
+\title{RepNAS: Architecture Selection in Pretrained Model Zoos via Representation Agreement with Foundation Models}
+
+%%%%%%%%% AUTHORS - PLEASE UPDATE
+\author{Anonymous Authors}
+
+\begin{document}
+\maketitle
+
+% ================================================================
+% ABSTRACT
+% ================================================================
+\begin{abstract}
+Selecting the best pretrained architecture from a large model zoo is expensive.
+We introduce \textbf{RepNAS}, a training-free framework that ranks pretrained architectures by measuring representation agreement with a frozen foundation model using Linear CKA and mutual $k$NN agreement on 512 unlabeled probes.
+Evaluating 83 architectures across 15 families with 4 teachers (DINOv2, CLIP, ConvNeXtV2, MAE), we establish five findings:
+\textbf{(i)} \emph{Alignment inversion}: architectures most similar to the teacher perform worst (CKA noise $\rho \in [-0.52, -0.40]$; all bootstrap CIs exclude zero).
+\textbf{(ii)} Inversion \emph{strengthens} after partialing out model size ($\rho_{\text{partial}}$ up to $-0.625$), while GradNorm becomes non-significant.
+\textbf{(iii)} Inversion is between-family ($\rho = -0.557$), absent in small models ($\rho = -0.077$), and concentrates in late network layers ($\rho = -0.377$); a trajectory analysis confirms it is learned.
+\textbf{(iv)} Proxy-guided search finds architectures at 85.1\% accuracy (0.82\% regret vs.\ oracle); ensembling with model size reaches $\rho = +0.685$.
+\textbf{(v)} Strikingly, the same scores \emph{positively} predict CIFAR-100 transfer ($\rho = +0.826$) and Flowers-102 transfer ($\rho = +0.518$), outperforming ImageNet accuracy as a transfer predictor.
+\end{abstract}
+
+
+% ================================================================
+% 1  INTRODUCTION
+% ================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Pretrained model zoos such as \texttt{timm}~\cite{rw2019timm} offer hundreds of vision architectures with ImageNet-pretrained weights, but selecting the best one for a downstream task requires expensive per-candidate evaluation.
+Neural architecture search (NAS)~\cite{zoph2017nas,liu2019darts} and zero-cost proxies~\cite{mellor2021naswot,tanaka2020synflow,abdelfattah2021zerocost,lee2019snip,wang2020grasp} address this in constrained search spaces, but most proxies operate on randomly initialized networks and evaluate architectures in isolation.
+
+We take a different approach: using a strong foundation model as a \emph{reference signal} to score pretrained candidates.
+Self-supervised models such as DINOv2~\cite{oquab2024dinov2}, CLIP~\cite{radford2021clip}, MAE~\cite{he2022mae}, and ConvNeXtV2~\cite{woo2023convnextv2} have learned general-purpose visual representations.
+The Platonic Representation Hypothesis~\cite{huh2024platonic} suggests that strong models converge toward shared representational structures, raising the question: \emph{does measuring a pretrained candidate's similarity to a foundation model predict its performance?}
+
+We propose \textbf{RepNAS} (Representation-agreement NAS), which scores architectures by measuring agreement between their features and those of a frozen teacher using Linear CKA~\cite{kornblith2019cka} and mutual $k$NN agreement.
+RepNAS requires no training, no labels, and only 512 unlabeled probes---even random noise suffices.
+
+We present a comprehensive study of 83 architectures, 15 families, 4 teachers, and 3 probe types, with bootstrap 95\% CIs throughout.
+Our main contributions:
+\begin{itemize}
+  \item \textbf{Universal alignment inversion} confirmed across all teachers, with CIs excluding zero (e.g., CLIP CKA noise: $\rho = -0.515$, $[-0.654, -0.358]$).
+  \item \textbf{Size-independent signal}: CKA inversion strengthens after partialing out size ($\rho_{\text{partial}}$ up to $-0.625$), while GradNorm becomes non-significant ($p = 0.37$).
+  \item \textbf{Structural decomposition}: inversion is between-family ($\rho = -0.557$), concentrates in large models ($\rho = -0.620$) and late layers ($\rho = -0.377$), and is confirmed as a learned phenomenon via trajectory analysis.
+  \item \textbf{Practical selection}: proxy-guided search finds architectures at 85.1\% accuracy (0.82\% regret); a proxy ensemble achieves $\rho = +0.685$.
+  \item \textbf{Transfer beyond ImageNet}: proxy scores positively predict CIFAR-100 ($\rho = +0.826$) and Flowers-102 ($\rho = +0.518$) transfer, substantially outperforming ImageNet accuracy itself.
+\end{itemize}
+
+
+% ================================================================
+% 2  RELATED WORK
+% ================================================================
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Zero-Cost NAS Proxies.}
+Training-free architecture evaluation has attracted significant attention.
+NASWOT~\cite{mellor2021naswot} scores architectures by activation pattern diversity; SynFlow~\cite{tanaka2020synflow} uses synaptic saliency; SNIP~\cite{lee2019snip} and GraSP~\cite{wang2020grasp} measure connection sensitivity and gradient signal preservation.
+Abdelfattah et al.~\cite{abdelfattah2021zerocost} systematically compared these proxies, while AZ-NAS~\cite{lee2024aznas} and NAS-Bench-Suite-Zero~\cite{krishnakumar2022nasbenchsuitezero} advanced proxy assembly and benchmarking.
+TE-NAS~\cite{chen2021tenas} uses neural tangent kernel spectra.
+All operate on randomly initialized networks in isolation; RepNAS introduces an external teacher signal over \emph{pretrained} candidates.
+
+\paragraph{Representation Similarity.}
+CKA~\cite{kornblith2019cka} provides an invariant measure of representation similarity; RSA~\cite{kriegeskorte2008rsa} originated in neuroscience; Wang and Isola~\cite{wang2020understanding} analyzed CKA through kernel alignment.
+We repurpose these post-hoc analysis tools as \emph{predictive scores} for architecture quality.
+
+\paragraph{Foundation Models.}
+DINOv2~\cite{oquab2024dinov2}, CLIP~\cite{radford2021clip}, MAE~\cite{he2022mae}, and ConvNeXtV2~\cite{woo2023convnextv2} learn transferable representations across paradigms.
+Knowledge distillation~\cite{hinton2015distilling} transfers knowledge during training; RepNAS instead uses teacher representations to \emph{rank pretrained architectures} without any training.
+
+
+% ================================================================
+% 3  METHOD
+% ================================================================
+\section{Method}
+\label{sec:method}
+
+RepNAS scores a pretrained candidate by measuring agreement between its features and those of a frozen teacher on shared probe images, then ranks candidates by similarity.
+
+\paragraph{Teachers.}
+We employ four foundation models spanning different objectives and architectures:
+DINOv2 ViT-S/14 ($d{=}384$, self-supervised ViT),
+CLIP ViT-B/32 ($d{=}512$, contrastive vision-language),
+ConvNeXtV2-Base FCMAE ($d{=}1024$, self-supervised CNN),
+and MAE ViT-B/16 ($d{=}768$, masked autoencoder).
+This selection includes both ViT and CNN backbones, both contrastive and reconstructive objectives, and varying dimensionalities.
+
+\paragraph{Probes.}
+We use 512 images per probe type at $224 {\times} 224$:
+\textbf{noise}---random Gaussian with ImageNet normalization (no real data needed);
+\textbf{natural}---CIFAR-100 test images (natural statistics, no ImageNet overlap);
+\textbf{augmented}---frequency gratings with Gaussian noise.
+
+\paragraph{Linear CKA.}
+Given centered representations $\bar{\mathbf{Z}}_T, \bar{\mathbf{Z}}_j$ (column means subtracted):
+\begin{equation}
+\text{CKA}(\mathbf{Z}_T, \mathbf{Z}_j) = \frac{\|\bar{\mathbf{Z}}_T^\top \bar{\mathbf{Z}}_j\|_F^2}{\|\bar{\mathbf{Z}}_T^\top \bar{\mathbf{Z}}_T\|_F \cdot \|\bar{\mathbf{Z}}_j^\top \bar{\mathbf{Z}}_j\|_F}.
+\label{eq:cka}
+\end{equation}
+Linear CKA is invariant to orthogonal transformations and isotropic scaling.
+We verified empirically that it is numerically equivalent to centered cosine similarity ($\rho > 0.999$).
+
+\paragraph{Mutual $k$NN Agreement.}
+We measure neighborhood overlap ($k{=}10$, cosine):
+\begin{equation}
+\text{kNN}(\mathbf{Z}_T, \mathbf{Z}_j) = \frac{1}{N}\sum_{i=1}^{N} \frac{|\mathcal{N}_k^T(i) \cap \mathcal{N}_k^j(i)|}{k}.
+\label{eq:knn}
+\end{equation}
+
+\paragraph{Statistical Methodology.}
+All Spearman $\rho$ values are accompanied by 95\% bootstrap CIs (10,000 resamples).
+Partial correlations control for $\log(\text{params})$.
+The key insight: \emph{lower} CKA predicts \emph{better} performance, so we invert the ranking.
+
+\paragraph{Practical Recipe.}
+Choose a teacher (rec.: MAE or DINOv2), generate 512 noise probes, extract penultimate features from teacher and each candidate, compute Linear CKA, \textbf{invert the ranking} (lower CKA $=$ predicted better), and select the top-$b$ candidates for downstream evaluation.
+
+
+% ================================================================
+% 4  EXPERIMENTS
+% ================================================================
+\section{Experiments}
+\label{sec:experiments}
+
+\subsection{Setup}
+\label{sec:setup}
+
+\paragraph{Architecture Pool.}
+We evaluate 89 architectures from \texttt{timm} spanning 15 families: CNN~(26), Mobile~(9), RegNet~(8), EfficientNet~(7), ConvNeXt~(6), ViT~(6), Swin~(3 valid of 6), DeiT~(6), MetaFormer~(4), MaxViT~(3), EfficientFormer~(3), EdgeNeXt~(2), NAS~(1), CaiT~(1), and MLP-Mixer~(1).
+After excluding 6 models with resolution or naming issues, 83 have complete results.
+All use ImageNet-1k pretrained weights; features are extracted from the penultimate layer.
+
+\paragraph{Baselines.}
+Five zero-cost proxies on randomly initialized networks: GradNorm ($n{=}83$), SynFlow~\cite{tanaka2020synflow} ($n{=}60$), NASWOT~\cite{mellor2021naswot} ($n{=}75$), SNIP~\cite{lee2019snip} ($n{=}83$), and GraSP~\cite{wang2020grasp} ($n{=}56$; failures due to second-order gradient issues).
+
+\paragraph{Compute.}
+All experiments completed in ${\sim}2$ hours on a single A100-40GB GPU.
+
+
+% ================================================================
+% 4.2  MAIN RESULTS + PARTIAL CORRELATIONS
+% ================================================================
+\subsection{Alignment Inversion}
+\label{sec:main_results}
+
+Table~\ref{tab:main} presents the core results: Spearman $\rho$ between proxy scores and ImageNet-1k accuracy, with bootstrap 95\% CIs and partial correlations controlling for $\log(\text{params})$.
+The alignment inversion effect is confirmed for every teacher: architectures whose pretrained representations are more similar to the teacher consistently achieve \emph{lower} accuracy.
+CLIP shows the strongest noise-CKA inversion ($\rho = -0.515$, $[-0.654, -0.358]$), while ConvNeXtV2 shows the weakest ($\rho = -0.401$, $[-0.574, -0.209]$); all four CIs exclude zero.
+Figure~\ref{fig:inversion} visualizes the scatter plots, and Figure~\ref{fig:forest} presents a forest plot of all proxies with CIs.
+
+The universality across self-supervised ViTs (DINOv2, MAE), contrastive ViTs (CLIP), and self-supervised CNNs (ConvNeXtV2) rules out the hypothesis that inversion is an artifact of teacher--candidate architectural similarity.
+DINOv2 CKA on natural images is the only combination whose CI includes zero ($[-0.359, +0.037]$), whereas MAE and ConvNeXtV2 achieve their strongest inversions on natural images.
+
+Critically, CKA inversion \emph{strengthens} after controlling for model size (e.g., CLIP: $-0.515 \to -0.579$; MAE natural: $-0.589 \to -0.625$), demonstrating that representation agreement captures genuine architectural structure beyond the size--accuracy relationship.
+GradNorm becomes non-significant ($\rho_{\text{partial}} = +0.100$, $p = 0.37$), confirming it is primarily a size proxy.
+Among additional baselines, SNIP ($\rho = +0.155$, CI crosses zero) and GraSP ($\rho = +0.011$) are both weak and non-significant.
+SynFlow also inverts ($\rho = -0.498$, $[-0.664, -0.300]$, $n{=}60$) but cannot be computed for all architectures.
+
+\paragraph{Probe Ablation.}
+Figure~\ref{fig:probes} and the following summary reveal the role of probe type.
+Noise probes and natural probes achieve nearly identical mean CKA correlations ($-0.449$ vs.\ $-0.448$), but noise probes are far more consistent across teachers (std $= 0.045$ vs.\ $0.173$), making them the recommended default.
+Augmented probes are unreliable (mean $\rho = -0.018$, std $= 0.235$).
+The random-init CKA control (mean $\rho = +0.300$, std $= 0.014$) confirms that \emph{learning} inverts the relationship: architectural inductive bias alone induces a positive agreement--accuracy correlation that flips sign after pretraining.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig2_probe_ablation.pdf}
+  \caption{\textbf{Probe type and metric ablation.} (A)~Spearman $\rho$ by probe type and teacher for CKA. Noise probes are the most consistent. (B)~Comparison of all proxies for DINOv2, including baselines.}
+  \label{fig:probes}
+\end{figure}
+
+\paragraph{Strongest Configurations.}
+MAE $k$NN on natural probes achieves the strongest single proxy ($\rho = -0.691$, $[-0.789, -0.573]$), followed by ConvNeXtV2 $k$NN ($\rho = -0.635$).
+An interesting specialization emerges: CLIP is strongest on noise probes, while MAE leads on natural probes---consistent with their training objectives.
+However, $k$NN is sensitive to probe type: sweeping $k \in \{1\text{--}50\}$ with cosine/L2/whitened features on noise probes yields $|\rho| < 0.13$ (all $p > 0.26$), confirming $k$NN requires natural image structure while CKA works on both.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Alignment inversion with partial correlations.} Spearman $\rho$ between proxy score and ImageNet-1k accuracy ($n{=}83$, 10k bootstrap). $\rho_\text{p}$: partial $\rho$ controlling for $\log(\text{params})$.}
+\label{tab:main}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}llcrrc@{}}
+\toprule
+\textbf{Teacher} & \textbf{Metric/Probe} & \textbf{$\rho$} & \textbf{95\% CI} & \textbf{$\rho_\text{p}$} & \textbf{$p_\text{p}$} \\
+\midrule
+DINOv2   & CKA noise   & $-0.42$ & $[-0.59, -0.22]$ & $-0.46$ & $\!<\!10^{-4}$ \\
+CLIP     & CKA noise   & $-0.52$ & $[-0.65, -0.36]$ & $-0.58$ & $\!<\!10^{-4}$ \\
+ConvNeXt & CKA noise   & $-0.40$ & $[-0.57, -0.21]$ & $-0.42$ & $10^{-4}$ \\
+MAE      & CKA noise   & $-0.45$ & $[-0.61, -0.26]$ & $-0.47$ & $\!<\!10^{-4}$ \\
+\midrule
+CLIP     & CKA natural & $-0.44$ & $[-0.59, -0.27]$ & $-0.41$ & $10^{-4}$ \\
+ConvNeXt & CKA natural & $-0.58$ & $[-0.71, -0.43]$ & $-0.62$ & $\!<\!10^{-4}$ \\
+MAE      & CKA natural & $-0.59$ & $[-0.71, -0.45]$ & $-0.63$ & $\!<\!10^{-4}$ \\
+MAE      & kNN natural & $-0.69$ & $[-0.79, -0.57]$ & --- & --- \\
+\midrule
+\multicolumn{2}{@{}l}{\textit{ZS-NAS Baselines}} \\
+GradNorm  & $n{=}83$  & $+0.29$ & $[+0.06, +0.49]$ & $+0.10$ & $0.37$ \\
+SynFlow   & $n{=}60$  & $-0.50$ & $[-0.66, -0.30]$ & --- & --- \\
+NASWOT    & $n{=}75$  & $+0.08$ & $[-0.15, +0.31]$ & --- & --- \\
+SNIP      & $n{=}83$  & $+0.16$ & $[-0.07, +0.37]$ & --- & --- \\
+GraSP     & $n{=}56$  & $+0.01$ & $[-0.26, +0.28]$ & --- & --- \\
+\midrule
+\multicolumn{2}{@{}l}{\textit{Control}} \\
+Rand-init CKA & 4-teacher avg & $+0.30$ & --- & --- & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig1_alignment_inversion_4teachers.pdf}
+  \caption{\textbf{Alignment inversion is universal.} CKA (noise probes) vs.\ ImageNet accuracy for all four teachers ($n{=}83$). Every teacher shows significant negative correlation with 95\% CIs excluding zero.}
+  \label{fig:inversion}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig11_bootstrap_summary.pdf}
+  \caption{\textbf{Forest plot of all proxies with 95\% bootstrap CIs.} All CKA noise proxies have CIs entirely below zero. GradNorm's CI barely excludes zero; NASWOT, SNIP, and GraSP CIs straddle zero.}
+  \label{fig:forest}
+\end{figure}
+
+
+% ================================================================
+% 4.3  SEARCH SIMULATION
+% ================================================================
+\subsection{Proxy-Guided Search}
+\label{sec:search}
+
+Table~\ref{tab:search} evaluates practical utility: rank all 83 architectures by proxy, select the top 10, and measure accuracy of the best found.
+The oracle best is 85.8\%; random yields $84.3 \pm 1.0\%$ with ${\sim}12\%$ hit rate.
+MAE $k$NN on natural probes achieves 85.1\% (0.82\% regret), substantially outperforming random search (Figure~\ref{fig:search_fig}).
+Several MAE configurations achieve 30\% hit rates, well above the random baseline.
+GradNorm and SynFlow also perform well (84.9\%, 1.05\% regret), but RepNAS combines low regret with the strongest rank correlation for more reliable full-spectrum rankings.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Search simulation} (budget $= 10$, $n = 83$). Oracle $= 85.8\%$, random $= 84.3 \pm 1.0\%$, random Hit@10 $\approx 12\%$.}
+\label{tab:search}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Teacher} & \textbf{Proxy} & \textbf{Best} & \textbf{Hit} & \textbf{Regret} \\
+ & & \textbf{Found} & \textbf{@10} & \textbf{(\%)} \\
+\midrule
+MAE        & kNN / natural & 85.1 & 20\% & 0.82 \\
+MAE        & CKA / natural & 84.9 & 30\% & 1.05 \\
+MAE        & CKA / noise   & 84.9 & 30\% & 1.05 \\
+ConvNeXtV2 & CKA / noise   & 84.3 & 30\% & 1.75 \\
+CLIP       & CKA / noise   & 84.3 & 20\% & 1.75 \\
+DINOv2     & CKA / noise   & 83.8 & 10\% & 2.33 \\
+\midrule
+GradNorm   & ---           & 84.9 & 20\% & 1.05 \\
+SynFlow    & ---           & 84.9 & 30\% & 1.05 \\
+Random     & ---           & $84.3 \pm 1.0$ & 12\% & --- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig8_search_simulation.pdf}
+  \caption{\textbf{Proxy-guided search simulation.} (A)~Best accuracy found by each proxy at budget $= 10$. (B)~Hit rate vs.\ search budget. MAE $k$NN achieves the lowest regret (0.82\%).}
+  \label{fig:search_fig}
+\end{figure}
+
+
+% ================================================================
+% 4.4  FAMILY DECOMPOSITION
+% ================================================================
+\subsection{Family Decomposition and Size Effects}
+\label{sec:family}
+
+We decompose the inversion signal using DINOv2 CKA on noise probes through three complementary analyses.
+
+\paragraph{Between vs.\ Within Family.}
+The between-family Spearman correlation (15 family-level means) is $\rho = -0.557$ ($p = 0.031$), while the family-residualized within-family correlation is $\rho = -0.068$ ($p = 0.540$).
+Inversion is primarily a between-family phenomenon: it reflects systematic differences in how architecture families relate to the teacher, rather than fine-grained within-family variation.
+Figure~\ref{fig:family} visualizes this decomposition.
+Table~\ref{tab:within} shows heterogeneous within-family directions: ViT ($\rho = -0.543$) and CNN ($\rho = -0.203$) invert, while Mobile ($\rho = +0.829$) and MetaFormer ($\rho = +0.800$) are positive.
+The size--accuracy correlation is consistently positive within families, confirming that the CKA signal is distinct from size.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig9_family_decomposition.pdf}
+  \caption{\textbf{Family decomposition} (DINOv2, CKA noise). (A)~Between-family: $\rho = -0.557$, $p = 0.031$. (B)~Within-family correlations vary widely across families.}
+  \label{fig:family}
+\end{figure}
+
+\paragraph{Capacity Threshold.}
+Figure~\ref{fig:subpop} visualizes the size-dependent subpopulation effect.
+Small models ($\leq 28.3$M, $n = 42$) show no inversion ($\rho = -0.077$, $p = 0.627$); large models ($> 28.3$M, $n = 41$) show strong inversion ($\rho = -0.620$, $p < 0.0001$).
+We hypothesize that small architectures lack sufficient capacity to produce differentiated CKA scores, yielding a flat relationship.
+By paradigm, CNN-like architectures ($n = 60$) show significant inversion ($\rho = -0.289$, $p = 0.025$), while transformer-like architectures ($n = 23$) do not ($\rho = -0.213$, $p = 0.329$), though the latter may reflect unbalanced samples and opposing within-family correlations.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig10_subpopulation_analysis.pdf}
+  \caption{\textbf{Subpopulation analysis} (DINOv2, CKA noise). (A)~Small models show no inversion ($\rho = -0.077$); large models show strong inversion ($\rho = -0.620$). (B)~CNN-like vs.\ transformer-like split.}
+  \label{fig:subpop}
+\end{figure}
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Within-family correlations} (DINOv2, CKA noise, families with $n \geq 4$).}
+\label{tab:within}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+\textbf{Family} & \textbf{$n$} & \textbf{$\rho$(CKA, acc)} & \textbf{$\rho$(size, acc)} \\
+\midrule
+Mobile     & 6  & $+0.829$ & $+0.943$ \\
+MetaFormer & 4  & $+0.800$ & $+1.000$ \\
+DeiT       & 6  & $+0.371$ & $+0.971$ \\
+ConvNeXt   & 6  & $+0.314$ & $+0.928$ \\
+EfficientNet & 7 & $-0.179$ & $+1.000$ \\
+CNN        & 26 & $-0.203$ & $+0.477$ \\
+RegNet     & 8  & $-0.214$ & $+0.976$ \\
+ViT        & 6  & $-0.543$ & $+0.783$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ================================================================
+% 4.5  MECHANISTIC EVIDENCE
+% ================================================================
+\subsection{Mechanistic Evidence: Trajectory and Depth}
+\label{sec:mechanistic}
+
+\paragraph{Learning Inverts the Correlation.}
+We measure CKA between DINOv2 and 10 diverse architectures at both random initialization and after ImageNet pretraining (Figure~\ref{fig:trajectory}).
+Nine out of 10 show higher CKA at initialization than after pretraining (sole exception: Swin-Base, which starts with unusually low init CKA).
+The largest drops occur in ConvNeXt-Base ($0.102 \to 0.014$, $\Delta = 0.088$) and ViT-Base ($0.057 \to 0.021$, $\Delta = 0.035$).
+Init CKA correlates positively with accuracy ($\rho = +0.358$), consistent with the random-init control, while pretrained CKA is negative ($\rho = -0.079$, non-significant at $n{=}10$).
+This confirms that \emph{learning} is the mechanism: as architectures become stronger through training, their representations \emph{diverge} from the teacher.
+
+\paragraph{Layer-Wise Depth Signature.}
+We compute CKA between DINOv2 and intermediate features at four depth quartiles for 81 architectures (Figure~\ref{fig:layerwise}).
+A striking depth-dependent pattern emerges: \textbf{early-layer CKA is positively correlated with accuracy} ($\rho = +0.370$, $p = 6.7 \times 10^{-4}$), while \textbf{late-layer CKA is negatively correlated} ($\rho = -0.377$, $p = 5.2 \times 10^{-4}$).
+This sign reversal suggests that early representations remain structurally similar to the teacher regardless of quality, while late representations diverge more in stronger architectures---consistent with the hypothesis that high-performing models develop increasingly specialized feature spaces in deeper layers.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig13_trajectory_signflip.pdf}
+  \caption{\textbf{Learning inverts the CKA--accuracy relationship.} (A)~CKA with DINOv2 at init vs.\ pretrained for 10 architectures. (B)~$\Delta$CKA: 9/10 decrease during learning. (C)~Init$\to$pretrained trajectories show the sign flip.}
+  \label{fig:trajectory}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig15_layerwise_cka.pdf}
+  \caption{\textbf{Depth-dependent inversion} ($n{=}81$). (A)~Early vs.\ late CKA scatter. (B)~Early layers: $\rho = +0.370$. (C)~Late layers: $\rho = -0.377$. Inversion concentrates in deeper layers.}
+  \label{fig:layerwise}
+\end{figure}
+
+
+% ================================================================
+% 4.6  PROXY ENSEMBLE
+% ================================================================
+\subsection{Proxy Ensemble}
+\label{sec:ensemble}
+
+Following the AZ-NAS~\cite{lee2024aznas} paradigm of combining complementary proxies, we test linear combinations of $z$-scored proxy values on the $n{=}56$ architectures with complete data (Table~\ref{tab:ensemble}).
+Inverted CKA alone achieves $\rho = +0.410$; adding $\log(\text{params})$ yields $\rho = +0.625$; all four proxies (InvCKA + SNIP + GraSP + size) reach $\rho = +0.685$, demonstrating that CKA provides a complementary signal to size and conventional proxies.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Proxy ensemble} ($n{=}56$, $z$-scored linear combinations).}
+\label{tab:ensemble}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lc@{}}
+\toprule
+\textbf{Combination} & \textbf{$\rho$} \\
+\midrule
+Inverted CKA only & $+0.410$ \\
+$\log(\text{params})$ only & $+0.457$ \\
+InvCKA + size & $+0.625$ \\
+InvCKA + GraSP + size & $+0.677$ \\
+All four (AZ-NAS style) & $+0.685$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% ================================================================
+% 4.7  TRANSFER BEYOND IMAGENET
+% ================================================================
+\subsection{Transfer Beyond ImageNet}
+\label{sec:transfer}
+
+To test whether RepNAS proxy scores predict performance beyond ImageNet, we evaluate all 83 architectures on CIFAR-100 and Flowers-102 using linear probes on pretrained features.
+This reveals a striking finding (Table~\ref{tab:transfer}, Figure~\ref{fig:transfer}): RepNAS proxy scores on natural probes \emph{positively} correlate with transfer accuracy, despite negatively correlating with ImageNet accuracy.
+
+DINOv2 $k$NN on natural probes achieves $\rho = +0.826$ with CIFAR-100---far stronger than ImageNet accuracy itself ($\rho = +0.449$).
+For Flowers-102, where ImageNet accuracy is completely uninformative ($\rho = -0.034$), DINOv2 CKA natural still achieves $\rho = +0.518$.
+Noise probes produce near-zero transfer correlations, consistent with the probe ablation.
+This asymmetry---\emph{negative} correlation with ImageNet accuracy but \emph{positive} correlation with transfer accuracy---suggests that representation agreement captures feature transferability orthogonal to ImageNet-specific performance.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Transfer correlations} ($n{=}83$). RepNAS with natural probes positively predicts transfer despite negatively correlating with ImageNet accuracy.}
+\label{tab:transfer}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+\textbf{Proxy} & \textbf{Target} & \textbf{$\rho$} & \textbf{$p$} \\
+\midrule
+DINOv2 kNN natural & CIFAR-100 & $+0.826$ & $7 \times 10^{-22}$ \\
+CLIP kNN natural & CIFAR-100 & $+0.636$ & $1 \times 10^{-10}$ \\
+DINOv2 CKA natural & CIFAR-100 & $+0.489$ & $3 \times 10^{-6}$ \\
+\midrule
+DINOv2 CKA natural & Flowers-102 & $+0.518$ & $5 \times 10^{-7}$ \\
+CLIP kNN natural & Flowers-102 & $+0.495$ & $2 \times 10^{-6}$ \\
+DINOv2 kNN natural & Flowers-102 & $+0.473$ & $6 \times 10^{-6}$ \\
+\midrule
+ImageNet acc & CIFAR-100 & $+0.449$ & $2 \times 10^{-5}$ \\
+ImageNet acc & Flowers-102 & $-0.034$ & $0.76$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig16_transfer_correlation.pdf}
+  \caption{\textbf{Transfer beyond ImageNet.} Top: proxy vs.\ CIFAR-100 accuracy. Bottom: proxy vs.\ Flowers-102. DINOv2 kNN natural achieves $\rho = +0.826$ with CIFAR-100, far exceeding ImageNet accuracy as a predictor.}
+  \label{fig:transfer}
+\end{figure}
+
+
+% ================================================================
+% 5  DISCUSSION
+% ================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Universality and Structure.}
+Alignment inversion holds across all four teachers, both noise and natural probes, and 83 architectures from 15 families, with bootstrap CIs excluding zero for all CKA noise correlations.
+The family decomposition reveals important structure: inversion is primarily between-family ($\rho = -0.557$ between families, $\rho = -0.068$ after residualization), meaning RepNAS is most informative when the search space contains diverse architecture families.
+The capacity threshold (absent at $\leq 28.3$M, strong at $> 28.3$M) suggests small architectures lack sufficient representational diversity for meaningful CKA differentiation.
+
+\paragraph{Mechanistic Interpretation.}
+Two analyses provide mechanistic insight.
+The trajectory analysis confirms that learning inverts the CKA--accuracy relationship: 9/10 architectures show higher CKA at init than after pretraining, with the largest drops in ConvNeXt-Base ($\Delta = 0.088$) and ViT-Base ($\Delta = 0.035$).
+The layer-wise analysis reveals that inversion concentrates in late layers ($\rho = -0.377$) while early layers show positive correlation ($\rho = +0.370$).
+Together, these suggest that strong architectures develop increasingly specialized, self-sufficient representations in deeper layers during training---consistent with the Platonic Representation Hypothesis~\cite{huh2024platonic}.
+
+\paragraph{Transfer Asymmetry.}
+The most surprising finding is the transfer asymmetry: proxy scores negatively predict ImageNet accuracy but positively predict CIFAR-100 ($\rho = +0.826$) and Flowers-102 ($\rho = +0.518$) transfer.
+ImageNet accuracy is a weaker ($\rho = +0.449$) or worthless ($\rho = -0.034$) transfer predictor.
+We hypothesize that ImageNet ``inversion'' reflects architecture-specific optimization for the classification head, while positive transfer correlation reflects underlying representation quality.
+
+\paragraph{Robustness.}
+To verify that alignment inversion is not an artifact of a particular noise realization, we repeat the DINOv2 CKA experiment with 5 random seeds at $N{=}512$ probes (Figure~\ref{fig:seed}).
+The Spearman $\rho$ is stable: mean $\rho = -0.439$, $\sigma = 0.037$, range $[-0.504, -0.392]$, with all five seeds individually significant ($p < 3 \times 10^{-4}$).
+Pairwise Kendall $\tau$ between seed-specific rankings averages $0.627$ ($\sigma = 0.023$, all $p < 10^{-15}$).
+Varying probe count from 64 to 1024 yields $|\rho| \in [0.424, 0.485]$ with no monotonic trend, showing that even 64 probes suffice.
+Among top-10 lowest-CKA architectures, 7 appear in $\geq 3$ of 5 seeds.
+The $k$NN metric is sensitive to probe type (uninformative on noise, strong on natural images), while CKA is robust across both.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=\linewidth]{../figures/fig12_seed_stability.pdf}
+  \caption{\textbf{Seed and probe robustness} (DINOv2, CKA noise, $n = 83$). (A)~$|\rho|$ across 5 seeds ($\sigma = 0.037$). (B)~Pairwise Kendall $\tau$ heatmap. (C)~$|\rho|$ stable across probe sizes 64--1024. (D)~Architecture consistency across seeds.}
+  \label{fig:seed}
+\end{figure}
+
+\paragraph{Baseline Proxies.}
+All five zero-cost baselines---GradNorm ($\rho = +0.287$), NASWOT ($+0.083$), SynFlow ($-0.498$), SNIP ($+0.155$), GraSP ($+0.011$)---either have CIs crossing zero, become non-significant after partialing out size, or achieve weaker correlations than CKA inversion.
+GradNorm's decline from $\rho = 0.64$ at 30 architectures to $+0.287$ at 83 is cautionary for proxy evaluation on small pools.
+The ensemble analysis (\S\ref{sec:ensemble}) shows that inverted CKA is complementary: combining all four proxies achieves $\rho = +0.685$, above any single proxy.
+
+\paragraph{Limitations.}
+Within-family discrimination is limited ($\rho = -0.068$ after residualization); the 83-architecture pool is small compared to full NAS search spaces; the capacity threshold limits applicability to models above ${\sim}28$M parameters; and we evaluate only ImageNet-pretrained models.
+RepNAS is designed for pretrained model zoo selection, not cell-based NAS with untrained architectures~\cite{dong2020nasbench201}.
+
+
+% ================================================================
+% 6  CONCLUSION
+% ================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented RepNAS, a training-free framework for architecture selection in pretrained model zoos.
+Across 83 architectures, 15 families, and 4 teachers, alignment inversion is universal (CKA noise $\rho \in [-0.52, -0.40]$), size-independent (strengthening after partialing out $\log(\text{params})$), structurally decomposable (between-family, large-model, late-layer), and practically useful (85.1\% best found, 0.82\% regret).
+A trajectory analysis confirms inversion is learned, and a proxy ensemble achieves $\rho = +0.685$.
+Most strikingly, the same proxy scores positively predict CIFAR-100 ($\rho = +0.826$) and Flowers-102 ($\rho = +0.518$) transfer, substantially outperforming ImageNet accuracy as a predictor---suggesting representation agreement captures a transferability signal orthogonal to ImageNet-specific performance.
+These findings open several promising directions: using RepNAS directly for transfer task selection (exploiting the positive correlation without inversion), extending to cell-based NAS search spaces where the interplay between initialization and learned representations can be studied, developing task-specific proxy ensembles that adapt weights to the target domain, and investigating whether the capacity threshold and layer-wise depth signature generalize to other modalities and pretraining paradigms.
+We release all code and scores at \texttt{[URL redacted for review]}.
+
+
+% ================================================================
+% ACKNOWLEDGMENTS
+% ================================================================
+\section*{Acknowledgments}
+Experiments completed on a single NVIDIA A100-SXM4-40GB GPU in approximately 2 hours.
+
+% ================================================================
+% REFERENCES
+% ================================================================
+{
+    \small
+    \bibliographystyle{ieeenat_fullname}
+    \bibliography{references}
+}
+
+\end{document}

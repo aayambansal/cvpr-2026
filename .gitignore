@@ -5,6 +5,7 @@ __pycache__/
 *.brf
 *.out
 *.blg
+*.bbl
 .DS_Store
 
 # Large result files (>25MB) - regenerate with Modal scripts

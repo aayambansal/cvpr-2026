@@ -1,0 +1,2189 @@
+{
+  "trajectory": {
+    "resnet18": {
+      "cka_init": 0.032987888902425766,
+      "cka_pretrained": 0.0203787200152874,
+      "acc": 71.5,
+      "params": 11.7,
+      "family": "CNN"
+    },
+    "resnet50": {
+      "cka_init": 0.03895031288266182,
+      "cka_pretrained": 0.021218882873654366,
+      "acc": 79.8,
+      "params": 25.6,
+      "family": "CNN"
+    },
+    "resnet152": {
+      "cka_init": 0.03613508492708206,
+      "cka_pretrained": 0.01761668361723423,
+      "acc": 82.0,
+      "params": 60.2,
+      "family": "CNN"
+    },
+    "efficientnet_b0": {
+      "cka_init": 0.04276817664504051,
+      "cka_pretrained": 0.030699359253048897,
+      "acc": 77.7,
+      "params": 5.3,
+      "family": "EffNet"
+    },
+    "efficientnetv2_m": {
+      "cka_init": 0.037538886070251465,
+      "cka_pretrained": 0.019755858927965164,
+      "acc": 85.1,
+      "params": 54.1,
+      "family": "EffNet"
+    },
+    "vit_tiny_patch16": {
+      "cka_init": 0.04083544760942459,
+      "cka_pretrained": 0.016094597056508064,
+      "acc": 75.5,
+      "params": 5.7,
+      "family": "ViT"
+    },
+    "vit_base_patch16": {
+      "cka_init": 0.05651218816637993,
+      "cka_pretrained": 0.02116774395108223,
+      "acc": 84.0,
+      "params": 86.6,
+      "family": "ViT"
+    },
+    "mobilenetv3_small": {
+      "cka_init": 0.03377309814095497,
+      "cka_pretrained": 0.0175628624856472,
+      "acc": 67.7,
+      "params": 2.5,
+      "family": "Mobile"
+    },
+    "convnext_base": {
+      "cka_init": 0.10164181143045425,
+      "cka_pretrained": 0.014340762980282307,
+      "acc": 83.8,
+      "params": 88.6,
+      "family": "ConvNeXt"
+    },
+    "swin_base": {
+      "cka_init": 0.008486215956509113,
+      "cka_pretrained": 0.014940918423235416,
+      "acc": 83.5,
+      "params": 87.8,
+      "family": "Swin"
+    }
+  },
+  "transfer": {
+    "resnet18": {
+      "imagenet_acc": 71.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 11.7,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "resnet34": {
+      "imagenet_acc": 75.1,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 21.8,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "resnet50": {
+      "imagenet_acc": 79.8,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 25.6,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "resnet101": {
+      "imagenet_acc": 81.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 44.5,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "resnet152": {
+      "imagenet_acc": 82.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 60.2,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "resnext50_32x4d": {
+      "imagenet_acc": 80.1,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 25.0,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "resnext101_32x8d": {
+      "imagenet_acc": 82.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 88.8,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "wide_resnet50_2": {
+      "imagenet_acc": 81.6,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 68.9,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "wide_resnet101_2": {
+      "imagenet_acc": 82.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 126.9,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "densenet121": {
+      "imagenet_acc": 75.6,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 8.0,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "densenet169": {
+      "imagenet_acc": 76.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 14.1,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "densenet201": {
+      "imagenet_acc": 77.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 20.0,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientnet_b0": {
+      "imagenet_acc": 77.7,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 5.3,
+      "family": "EffNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientnet_b1": {
+      "imagenet_acc": 79.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 7.8,
+      "family": "EffNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientnet_b2": {
+      "imagenet_acc": 80.6,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 9.1,
+      "family": "EffNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientnet_b3": {
+      "imagenet_acc": 82.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 12.2,
+      "family": "EffNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientnet_b4": {
+      "imagenet_acc": 83.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 19.3,
+      "family": "EffNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientnetv2_s": {
+      "imagenet_acc": 83.9,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 21.5,
+      "family": "EffNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientnetv2_m": {
+      "imagenet_acc": 85.1,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 54.1,
+      "family": "EffNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "mobilenetv2_100": {
+      "imagenet_acc": 72.9,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 3.5,
+      "family": "Mobile",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "mobilenetv2_140": {
+      "imagenet_acc": 76.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 6.1,
+      "family": "Mobile",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "mobilenetv3_large": {
+      "imagenet_acc": 75.8,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 5.5,
+      "family": "Mobile",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "mobilenetv3_small": {
+      "imagenet_acc": 67.7,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 2.5,
+      "family": "Mobile",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "mnasnet_100": {
+      "imagenet_acc": 74.7,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 4.4,
+      "family": "Mobile",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "convnext_tiny": {
+      "imagenet_acc": 82.1,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 28.6,
+      "family": "ConvNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "convnext_small": {
+      "imagenet_acc": 83.1,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 50.2,
+      "family": "ConvNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "convnext_base": {
+      "imagenet_acc": 83.8,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 88.6,
+      "family": "ConvNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "convnext_large": {
+      "imagenet_acc": 84.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 197.8,
+      "family": "ConvNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "convnextv2_tiny": {
+      "imagenet_acc": 82.9,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 28.6,
+      "family": "ConvNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "convnextv2_base": {
+      "imagenet_acc": 84.9,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 88.7,
+      "family": "ConvNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vit_tiny_patch16": {
+      "imagenet_acc": 75.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 5.7,
+      "family": "ViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vit_small_patch16": {
+      "imagenet_acc": 81.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 22.1,
+      "family": "ViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vit_base_patch16": {
+      "imagenet_acc": 84.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 86.6,
+      "family": "ViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vit_base_patch32": {
+      "imagenet_acc": 80.7,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 88.2,
+      "family": "ViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vit_large_patch16": {
+      "imagenet_acc": 85.8,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 304.3,
+      "family": "ViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vit_small_patch16_dino": {
+      "imagenet_acc": 78.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 22.1,
+      "family": "ViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "swin_tiny": {
+      "imagenet_acc": 81.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 28.3,
+      "family": "Swin",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "swin_small": {
+      "imagenet_acc": 83.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 49.6,
+      "family": "Swin",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "swin_base": {
+      "imagenet_acc": 83.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 87.8,
+      "family": "Swin",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "deit_tiny": {
+      "imagenet_acc": 72.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 5.7,
+      "family": "DeiT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "deit_small": {
+      "imagenet_acc": 79.9,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 22.1,
+      "family": "DeiT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "deit_base": {
+      "imagenet_acc": 81.8,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 86.6,
+      "family": "DeiT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "deit3_small": {
+      "imagenet_acc": 81.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 22.1,
+      "family": "DeiT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "deit3_base": {
+      "imagenet_acc": 83.8,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 86.6,
+      "family": "DeiT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "deit3_large": {
+      "imagenet_acc": 84.9,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 304.4,
+      "family": "DeiT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnetx_016": {
+      "imagenet_acc": 73.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 9.2,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnetx_032": {
+      "imagenet_acc": 75.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 15.3,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnetx_064": {
+      "imagenet_acc": 76.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 26.2,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnetx_160": {
+      "imagenet_acc": 79.7,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 54.3,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnety_016": {
+      "imagenet_acc": 74.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 11.2,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnety_032": {
+      "imagenet_acc": 76.6,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 19.4,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnety_064": {
+      "imagenet_acc": 77.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 30.6,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "regnety_160": {
+      "imagenet_acc": 80.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 83.6,
+      "family": "RegNet",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "maxvit_tiny": {
+      "imagenet_acc": 83.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 30.9,
+      "family": "MaxViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "maxvit_small": {
+      "imagenet_acc": 84.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 68.9,
+      "family": "MaxViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "coatnet_0": {
+      "imagenet_acc": 82.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 27.4,
+      "family": "MaxViT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientformer_l1": {
+      "imagenet_acc": 80.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 12.3,
+      "family": "EFormer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientformer_l3": {
+      "imagenet_acc": 82.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 31.4,
+      "family": "EFormer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "efficientformer_l7": {
+      "imagenet_acc": 83.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 82.2,
+      "family": "EFormer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "edgenext_small": {
+      "imagenet_acc": 81.1,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 5.6,
+      "family": "EdgeNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "edgenext_base": {
+      "imagenet_acc": 83.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 18.5,
+      "family": "EdgeNeXt",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "inception_v3": {
+      "imagenet_acc": 77.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 23.8,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "inception_v4": {
+      "imagenet_acc": 80.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 42.7,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "dpn68": {
+      "imagenet_acc": 76.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 12.6,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "dpn92": {
+      "imagenet_acc": 79.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 37.7,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "dpn131": {
+      "imagenet_acc": 79.8,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 79.3,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "nasnetalarge": {
+      "imagenet_acc": 82.6,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 88.8,
+      "family": "NAS",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "senet154": {
+      "imagenet_acc": 81.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 115.1,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "seresnext50_32x4d": {
+      "imagenet_acc": 79.9,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 27.6,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "res2net50_26w_4s": {
+      "imagenet_acc": 78.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 25.7,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "res2net101_26w_4s": {
+      "imagenet_acc": 79.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 45.2,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "hrnet_w18": {
+      "imagenet_acc": 78.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 21.3,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "hrnet_w32": {
+      "imagenet_acc": 78.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 41.2,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "hrnet_w48": {
+      "imagenet_acc": 79.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 77.5,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "ghostnet_100": {
+      "imagenet_acc": 74.0,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 5.2,
+      "family": "Mobile",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "poolformer_s12": {
+      "imagenet_acc": 77.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 11.9,
+      "family": "MetaFormer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "poolformer_s24": {
+      "imagenet_acc": 80.3,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 21.4,
+      "family": "MetaFormer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "poolformer_s36": {
+      "imagenet_acc": 81.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 30.9,
+      "family": "MetaFormer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "poolformer_m36": {
+      "imagenet_acc": 82.1,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 56.2,
+      "family": "MetaFormer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "cait_s24_224": {
+      "imagenet_acc": 83.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 47.0,
+      "family": "CaiT",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "mixer_b16": {
+      "imagenet_acc": 78.5,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 59.9,
+      "family": "Mixer",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vgg16_bn": {
+      "imagenet_acc": 73.4,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 138.4,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    },
+    "vgg19_bn": {
+      "imagenet_acc": 74.2,
+      "cifar100_acc": null,
+      "flowers102_acc": null,
+      "params": 143.7,
+      "family": "CNN",
+      "error": "LogisticRegression.__init__() got an unexpected keyword argument 'multi_class'"
+    }
+  },
+  "baselines": {
+    "resnet18": {
+      "acc": 71.5,
+      "params": 11.7,
+      "snip": 13.513746790587902,
+      "grasp": -0.5258833403349854
+    },
+    "resnet34": {
+      "acc": 75.1,
+      "params": 21.8,
+      "snip": 13.503550995141268,
+      "grasp": -1.2969105205265805
+    },
+    "resnet50": {
+      "acc": 79.8,
+      "params": 25.6,
+      "snip": 33.879051396623254,
+      "grasp": 0.49105222798971226
+    },
+    "resnet101": {
+      "acc": 81.5,
+      "params": 44.5,
+      "snip": 33.723835203796625,
+      "grasp": -0.852316140957555
+    },
+    "resnet152": {
+      "acc": 82.0,
+      "params": 60.2,
+      "snip": 33.70649074576795,
+      "grasp": 0.750405688322644
+    },
+    "resnext50_32x4d": {
+      "acc": 80.1,
+      "params": 25.0,
+      "snip": 33.794590942561626,
+      "grasp": -2.3358201508049206
+    },
+    "resnext101_32x8d": {
+      "acc": 82.2,
+      "params": 88.8,
+      "snip": 33.7419101819396,
+      "grasp": 0.5615665137083852
+    },
+    "wide_resnet50_2": {
+      "acc": 81.6,
+      "params": 68.9,
+      "snip": 33.77758164703846,
+      "grasp": 0.29110854678583564
+    },
+    "wide_resnet101_2": {
+      "acc": 82.5,
+      "params": 126.9,
+      "snip": 33.62040257640183,
+      "grasp": -1.694251129796612
+    },
+    "densenet121": {
+      "acc": 75.6,
+      "params": 8.0,
+      "snip": 171.9698415463954,
+      "grasp": 14.196274971880484
+    },
+    "densenet169": {
+      "acc": 76.2,
+      "params": 14.1,
+      "snip": 241.5700476234997,
+      "grasp": -7.217481359839439
+    },
+    "densenet201": {
+      "acc": 77.4,
+      "params": 20.0,
+      "snip": 270.7041190136879,
+      "grasp": 8.075358219444752
+    },
+    "efficientnet_b0": {
+      "acc": 77.7,
+      "params": 5.3,
+      "snip": 111.36503829061985,
+      "grasp": 17.277799546718597
+    },
+    "efficientnet_b1": {
+      "acc": 79.2,
+      "params": 7.8,
+      "snip": 181.91535555757582,
+      "grasp": 86.83082966506481
+    },
+    "efficientnet_b2": {
+      "acc": 80.6,
+      "params": 9.1,
+      "snip": 204.26452713552862,
+      "grasp": 52.008429795503616
+    },
+    "efficientnet_b3": {
+      "acc": 82.0,
+      "params": 12.2,
+      "snip": 274.14273530617356,
+      "grasp": -29.71524016559124
+    },
+    "efficientnet_b4": {
+      "acc": 83.4,
+      "params": 19.3,
+      "snip": 446.40450666472316,
+      "grasp": null
+    },
+    "efficientnetv2_s": {
+      "acc": 83.9,
+      "params": 21.5,
+      "snip": 350.99424190819263,
+      "grasp": 4.020290061831474
+    },
+    "efficientnetv2_m": {
+      "acc": 85.1,
+      "params": 54.1,
+      "snip": 1015.7194201685488,
+      "grasp": null
+    },
+    "mobilenetv2_100": {
+      "acc": 72.9,
+      "params": 3.5,
+      "snip": 257.91169936673396,
+      "grasp": -8.172821688931435
+    },
+    "mobilenetv2_140": {
+      "acc": 76.5,
+      "params": 6.1,
+      "snip": 395.91381826021416,
+      "grasp": 1.5966766187921166
+    },
+    "mobilenetv3_large": {
+      "acc": 75.8,
+      "params": 5.5,
+      "snip": 53.75485871601472,
+      "grasp": null
+    },
+    "mobilenetv3_small": {
+      "acc": 67.7,
+      "params": 2.5,
+      "snip": 20.26119120459566,
+      "grasp": null
+    },
+    "mnasnet_100": {
+      "acc": 74.7,
+      "params": 4.4,
+      "snip": 243.00209840089656,
+      "grasp": -5.416959265712649
+    },
+    "convnext_tiny": {
+      "acc": 82.1,
+      "params": 28.6,
+      "snip": 101.4915533529942,
+      "grasp": 0.9201662427423685
+    },
+    "convnext_small": {
+      "acc": 83.1,
+      "params": 50.2,
+      "snip": 101.72073581316464,
+      "grasp": 1.7860850008072475
+    },
+    "convnext_base": {
+      "acc": 83.8,
+      "params": 88.6,
+      "snip": 153.28298097539977,
+      "grasp": -0.28272770229409616
+    },
+    "convnext_large": {
+      "acc": 84.3,
+      "params": 197.8,
+      "snip": 273.86382263625194,
+      "grasp": null
+    },
+    "convnextv2_tiny": {
+      "acc": 82.9,
+      "params": 28.6,
+      "snip": 355.88412113673985,
+      "grasp": -289.6466925442219
+    },
+    "convnextv2_base": {
+      "acc": 84.9,
+      "params": 88.7,
+      "snip": 751.7815152192488,
+      "grasp": null
+    },
+    "vit_tiny_patch16": {
+      "acc": 75.5,
+      "params": 5.7,
+      "snip": 95.52414900554504,
+      "grasp": null
+    },
+    "vit_small_patch16": {
+      "acc": 81.4,
+      "params": 22.1,
+      "snip": 302.35007982407114,
+      "grasp": null
+    },
+    "vit_base_patch16": {
+      "acc": 84.0,
+      "params": 86.6,
+      "snip": 876.9934647440532,
+      "grasp": null
+    },
+    "vit_base_patch32": {
+      "acc": 80.7,
+      "params": 88.2,
+      "snip": 1025.5019986024563,
+      "grasp": null
+    },
+    "vit_large_patch16": {
+      "acc": 85.8,
+      "params": 304.3,
+      "snip": 2083.679760451065,
+      "grasp": null
+    },
+    "vit_small_patch16_dino": {
+      "acc": 78.0,
+      "params": 22.1,
+      "snip": 302.35007982407114,
+      "grasp": null
+    },
+    "swin_tiny": {
+      "acc": 81.2,
+      "params": 28.3,
+      "snip": 143.48635245237892,
+      "grasp": -1.8487142795638647
+    },
+    "swin_small": {
+      "acc": 83.2,
+      "params": 49.6,
+      "snip": 260.6078279482408,
+      "grasp": -1.4000972654757788
+    },
+    "swin_base": {
+      "acc": 83.5,
+      "params": 87.8,
+      "snip": 471.7312731402417,
+      "grasp": -3.232961096764484
+    },
+    "deit_tiny": {
+      "acc": 72.2,
+      "params": 5.7,
+      "snip": 95.52414884163227,
+      "grasp": null
+    },
+    "deit_small": {
+      "acc": 79.9,
+      "params": 22.1,
+      "snip": 302.35007982407114,
+      "grasp": null
+    },
+    "deit_base": {
+      "acc": 81.8,
+      "params": 86.6,
+      "snip": 876.9934717625001,
+      "grasp": null
+    },
+    "deit3_small": {
+      "acc": 81.4,
+      "params": 22.1,
+      "snip": 0.014844833442602123,
+      "grasp": null
+    },
+    "deit3_base": {
+      "acc": 83.8,
+      "params": 86.6,
+      "snip": 0.043023379977626064,
+      "grasp": null
+    },
+    "deit3_large": {
+      "acc": 84.9,
+      "params": 304.4,
+      "snip": 0.12147641497489303,
+      "grasp": null
+    },
+    "regnetx_016": {
+      "acc": 73.0,
+      "params": 9.2,
+      "snip": 8.76832334138453,
+      "grasp": 0.3006808560458012
+    },
+    "regnetx_032": {
+      "acc": 75.2,
+      "params": 15.3,
+      "snip": 9.968886066228151,
+      "grasp": 0.21887892550148536
+    },
+    "regnetx_064": {
+      "acc": 76.4,
+      "params": 26.2,
+      "snip": 18.083009466528893,
+      "grasp": 1.8811305389390327
+    },
+    "regnetx_160": {
+      "acc": 79.7,
+      "params": 54.3,
+      "snip": 23.529256217181683,
+      "grasp": 1.5755197039979976
+    },
+    "regnety_016": {
+      "acc": 74.0,
+      "params": 11.2,
+      "snip": 8.043447336181998,
+      "grasp": -0.18998402073339093
+    },
+    "regnety_032": {
+      "acc": 76.6,
+      "params": 19.4,
+      "snip": 14.795988578349352,
+      "grasp": -0.18538847484160215
+    },
+    "regnety_064": {
+      "acc": 77.2,
+      "params": 30.6,
+      "snip": 13.520558588206768,
+      "grasp": -0.30462527280906215
+    },
+    "regnety_160": {
+      "acc": 80.4,
+      "params": 83.6,
+      "snip": 34.64752512797713,
+      "grasp": 1.1372081922891084
+    },
+    "maxvit_tiny": {
+      "acc": 83.4,
+      "params": 30.9,
+      "snip": 188.73752475680513,
+      "grasp": null
+    },
+    "maxvit_small": {
+      "acc": 84.5,
+      "params": 68.9,
+      "snip": 237.51359184942342,
+      "grasp": null
+    },
+    "coatnet_0": {
+      "acc": 82.4,
+      "params": 27.4,
+      "snip": 330.2784790373272,
+      "grasp": null
+    },
+    "efficientformer_l1": {
+      "acc": 80.2,
+      "params": 12.3,
+      "snip": 7.6530120966087365,
+      "grasp": 0.49655974187477775
+    },
+    "efficientformer_l3": {
+      "acc": 82.4,
+      "params": 31.4,
+      "snip": 10.292457571490747,
+      "grasp": 0.5122011779964963
+    },
+    "efficientformer_l7": {
+      "acc": 83.3,
+      "params": 82.2,
+      "snip": 17.17258409440973,
+      "grasp": null
+    },
+    "edgenext_small": {
+      "acc": 81.1,
+      "params": 5.6,
+      "snip": 27.665591057057906,
+      "grasp": -0.03548339192641228
+    },
+    "edgenext_base": {
+      "acc": 83.3,
+      "params": 18.5,
+      "snip": 63.731707645067644,
+      "grasp": -0.7067286680055351
+    },
+    "inception_v3": {
+      "acc": 77.3,
+      "params": 23.8,
+      "snip": 18575.60517368652,
+      "grasp": -653.5660605430603
+    },
+    "inception_v4": {
+      "acc": 80.2,
+      "params": 42.7,
+      "snip": 54638.001150906086,
+      "grasp": -26296.126954078674
+    },
+    "dpn68": {
+      "acc": 76.3,
+      "params": 12.6,
+      "snip": 499.82304764539003,
+      "grasp": 9.574925526045263
+    },
+    "dpn92": {
+      "acc": 79.5,
+      "params": 37.7,
+      "snip": 1433.4710534047335,
+      "grasp": 24.4503718232736
+    },
+    "dpn131": {
+      "acc": 79.8,
+      "params": 79.3,
+      "snip": 4389.1664901301265,
+      "grasp": null
+    },
+    "nasnetalarge": {
+      "acc": 82.6,
+      "params": 88.8,
+      "snip": 7466.906589272432,
+      "grasp": null
+    },
+    "senet154": {
+      "acc": 81.3,
+      "params": 115.1,
+      "snip": 66.30724148266017,
+      "grasp": null
+    },
+    "seresnext50_32x4d": {
+      "acc": 79.9,
+      "params": 27.6,
+      "snip": 33.58198307082057,
+      "grasp": -3.0507047403499428
+    },
+    "res2net50_26w_4s": {
+      "acc": 78.0,
+      "params": 25.7,
+      "snip": 33.64117516390979,
+      "grasp": 0.32480823548212356
+    },
+    "res2net101_26w_4s": {
+      "acc": 79.2,
+      "params": 45.2,
+      "snip": 33.734823398292065,
+      "grasp": -0.18891425173569587
+    },
+    "hrnet_w18": {
+      "acc": 78.0,
+      "params": 21.3,
+      "snip": 964.271054892599,
+      "grasp": 5.583833061484178
+    },
+    "hrnet_w32": {
+      "acc": 78.4,
+      "params": 41.2,
+      "snip": 1247.1786450847646,
+      "grasp": 73.23446705249292
+    },
+    "hrnet_w48": {
+      "acc": 79.3,
+      "params": 77.5,
+      "snip": 1488.6280979497474,
+      "grasp": 58.91351629431512
+    },
+    "ghostnet_100": {
+      "acc": 74.0,
+      "params": 5.2,
+      "snip": 31.876008835145058,
+      "grasp": null
+    },
+    "poolformer_s12": {
+      "acc": 77.2,
+      "params": 11.9,
+      "snip": 86.97376231174283,
+      "grasp": 5.07746084800965
+    },
+    "poolformer_s24": {
+      "acc": 80.3,
+      "params": 21.4,
+      "snip": 86.12735513393909,
+      "grasp": -4.101398910905118
+    },
+    "poolformer_s36": {
+      "acc": 81.4,
+      "params": 30.9,
+      "snip": 86.38088904520423,
+      "grasp": -4.843577356856258
+    },
+    "poolformer_m36": {
+      "acc": 82.1,
+      "params": 56.2,
+      "snip": 141.76151416153863,
+      "grasp": 1.5984598619370445
+    },
+    "cait_s24_224": {
+      "acc": 83.5,
+      "params": 47.0,
+      "snip": 10.761041212003457,
+      "grasp": null
+    },
+    "mixer_b16": {
+      "acc": 78.5,
+      "params": 59.9,
+      "snip": 0.0,
+      "grasp": 3.773942378916352e-13
+    },
+    "vgg16_bn": {
+      "acc": 73.4,
+      "params": 138.4,
+      "snip": 867.7065814733505,
+      "grasp": -14915.21056509018
+    },
+    "vgg19_bn": {
+      "acc": 74.2,
+      "params": 143.7,
+      "snip": 1398.0251935124397,
+      "grasp": -21557.979305267334
+    }
+  },
+  "knn_sensitivity": {
+    "cosine_k1": {
+      "rho": -0.009319457551854017,
+      "p": 0.9333597835557802,
+      "n": 83,
+      "k": 1,
+      "metric": "cosine"
+    },
+    "cosine_k3": {
+      "rho": 0.0246561090363812,
+      "p": 0.8248940188917832,
+      "n": 83,
+      "k": 3,
+      "metric": "cosine"
+    },
+    "cosine_k5": {
+      "rho": 0.0014715788217531103,
+      "p": 0.9894655143459974,
+      "n": 83,
+      "k": 5,
+      "metric": "cosine"
+    },
+    "cosine_k10": {
+      "rho": 0.017657216953188812,
+      "p": 0.8741119826131274,
+      "n": 83,
+      "k": 10,
+      "metric": "cosine"
+    },
+    "cosine_k15": {
+      "rho": -0.010324050261425601,
+      "p": 0.9261954491868107,
+      "n": 83,
+      "k": 15,
+      "metric": "cosine"
+    },
+    "cosine_k20": {
+      "rho": -0.03697347582913521,
+      "p": 0.7400029603552667,
+      "n": 83,
+      "k": 20,
+      "metric": "cosine"
+    },
+    "cosine_k30": {
+      "rho": 0.061697359957833466,
+      "p": 0.5795148305257719,
+      "n": 83,
+      "k": 30,
+      "metric": "cosine"
+    },
+    "cosine_k50": {
+      "rho": -0.011031457044547412,
+      "p": 0.9211540079017609,
+      "n": 83,
+      "k": 50,
+      "metric": "cosine"
+    },
+    "euclidean_k1": {
+      "rho": 0.10749396209781438,
+      "p": 0.3334085954608477,
+      "n": 83,
+      "k": 1,
+      "metric": "euclidean"
+    },
+    "euclidean_k3": {
+      "rho": 0.05168120475336408,
+      "p": 0.6426420849234707,
+      "n": 83,
+      "k": 3,
+      "metric": "euclidean"
+    },
+    "euclidean_k5": {
+      "rho": -0.05217968398451834,
+      "p": 0.6394346018761453,
+      "n": 83,
+      "k": 5,
+      "metric": "euclidean"
+    },
+    "euclidean_k10": {
+      "rho": 0.005637528953115561,
+      "p": 0.9596587575898018,
+      "n": 83,
+      "k": 10,
+      "metric": "euclidean"
+    },
+    "euclidean_k15": {
+      "rho": -0.046947740819273075,
+      "p": 0.6734190453536248,
+      "n": 83,
+      "k": 15,
+      "metric": "euclidean"
+    },
+    "euclidean_k20": {
+      "rho": -0.0844070308438158,
+      "p": 0.44804529568622914,
+      "n": 83,
+      "k": 20,
+      "metric": "euclidean"
+    },
+    "euclidean_k30": {
+      "rho": -0.07588718785164396,
+      "p": 0.49532471110311976,
+      "n": 83,
+      "k": 30,
+      "metric": "euclidean"
+    },
+    "euclidean_k50": {
+      "rho": -0.052921604584784065,
+      "p": 0.6346729269366839,
+      "n": 83,
+      "k": 50,
+      "metric": "euclidean"
+    },
+    "whitened_cosine_k5": {
+      "rho": -0.12351824295441673,
+      "p": 0.2659209727682113,
+      "n": 83,
+      "k": 5,
+      "metric": "whitened_cosine"
+    },
+    "whitened_cosine_k10": {
+      "rho": -0.05080359863529895,
+      "p": 0.6483049648892775,
+      "n": 83,
+      "k": 10,
+      "metric": "whitened_cosine"
+    },
+    "whitened_cosine_k20": {
+      "rho": 0.04522362543927013,
+      "p": 0.6847673674635475,
+      "n": 83,
+      "k": 20,
+      "metric": "whitened_cosine"
+    }
+  },
+  "layerwise": {
+    "resnet18": {
+      "layers": {
+        "layer1.0": 0.020842479541897774,
+        "layer2.0.bn2": 0.025469886139035225,
+        "layer3.1.bn1": 0.022666163742542267,
+        "layer4.1.act2": 0.0203787200152874
+      },
+      "acc": 71.5,
+      "family": "CNN"
+    },
+    "resnet34": {
+      "layers": {
+        "layer1.0": 0.027646835893392563,
+        "layer2.2.bn1": 0.027347777038812637,
+        "layer3.3.aa": 0.03444215655326843,
+        "layer4.2.act2": 0.020088685676455498
+      },
+      "acc": 75.1,
+      "family": "CNN"
+    },
+    "resnet50": {
+      "layers": {
+        "layer1.0": 0.030641835182905197,
+        "layer2.2.bn1": 0.02060304954648018,
+        "layer3.3.drop_block": 0.03628084436058998,
+        "layer4.2.act3": 0.021218882873654366
+      },
+      "acc": 79.8,
+      "family": "CNN"
+    },
+    "resnet101": {
+      "layers": {
+        "layer1.0": 0.028309764340519905,
+        "layer3.3.aa": 0.02082175202667713,
+        "layer3.14.bn3": 0.025145523250102997,
+        "layer4.2.act3": 0.022467922419309616
+      },
+      "acc": 81.5,
+      "family": "CNN"
+    },
+    "resnet152": {
+      "layers": {
+        "layer1.0": 0.032848648726940155,
+        "layer3.5.conv2": 0.02544194646179676,
+        "layer3.22.bn1": 0.023277362808585167,
+        "layer4.2.act3": 0.01761668361723423
+      },
+      "acc": 82.0,
+      "family": "CNN"
+    },
+    "resnext50_32x4d": {
+      "layers": {
+        "layer1.0": 0.03039485216140747,
+        "layer2.2.bn1": 0.02791113592684269,
+        "layer3.3.drop_block": 0.029324935749173164,
+        "layer4.2.act3": 0.02025545760989189
+      },
+      "acc": 80.1,
+      "family": "CNN"
+    },
+    "resnext101_32x8d": {
+      "layers": {
+        "layer1.0": 0.02322419174015522,
+        "layer3.3.aa": 0.03668542951345444,
+        "layer3.14.bn3": 0.04140911623835564,
+        "layer4.2.act3": 0.018869251012802124
+      },
+      "acc": 82.2,
+      "family": "CNN"
+    },
+    "wide_resnet50_2": {
+      "layers": {
+        "layer1.0": 0.03113941289484501,
+        "layer2.2.bn1": 0.026813887059688568,
+        "layer3.3.drop_block": 0.01987776719033718,
+        "layer4.2.act3": 0.02474340796470642
+      },
+      "acc": 81.6,
+      "family": "CNN"
+    },
+    "wide_resnet101_2": {
+      "layers": {
+        "layer1.0": 0.022815467789769173,
+        "layer3.3.aa": 0.028423262760043144,
+        "layer3.14.bn3": 0.01160587277263403,
+        "layer4.2.act3": 0.03192312642931938
+      },
+      "acc": 82.5,
+      "family": "CNN"
+    },
+    "densenet121": {
+      "layers": {
+        "features.denseblock1.denselayer1": 0.009743769653141499,
+        "features.denseblock3.denselayer3.norm2": 0.02368791401386261,
+        "features.denseblock3.denselayer22.norm1.drop": 0.037002455443143845,
+        "features.denseblock4.denselayer16.conv2": 0.01028366107493639
+      },
+      "acc": 75.6,
+      "family": "CNN"
+    },
+    "densenet169": {
+      "layers": {
+        "features.denseblock1.denselayer1": 0.014200565405189991,
+        "features.denseblock3.denselayer16.norm2": 0.014265897683799267,
+        "features.denseblock4.denselayer11.norm1.drop": 0.0440644770860672,
+        "features.denseblock4.denselayer32.conv2": 0.01851285621523857
+      },
+      "acc": 76.2,
+      "family": "CNN"
+    },
+    "densenet201": {
+      "layers": {
+        "features.denseblock1.denselayer1": 0.015510453842580318,
+        "features.denseblock3.denselayer21.conv2": 0.02215106226503849,
+        "features.denseblock3.denselayer48.conv2": 0.01643180102109909,
+        "features.denseblock4.denselayer32.conv2": 0.020382853224873543
+      },
+      "acc": 77.4,
+      "family": "CNN"
+    },
+    "efficientnet_b0": {
+      "layers": {
+        "blocks.0.0": 0.007463943678885698,
+        "blocks.3.0.conv_pwl": 0.03276291489601135,
+        "blocks.3.2.bn2.drop": 0.03222731128334999
+      },
+      "acc": 77.7,
+      "family": "EffNet"
+    },
+    "efficientnet_b1": {
+      "layers": {
+        "blocks.0.0": 0.00864590983837843,
+        "blocks.3.0.bn3.act": 0.028828024864196777,
+        "blocks.3.3.bn2.act": 0.03232232481241226,
+        "blocks.6.1.drop_path": 0.021686527878046036
+      },
+      "acc": 79.2,
+      "family": "EffNet"
+    },
+    "efficientnet_b2": {
+      "layers": {
+        "blocks.0.0": 0.007549704518169165,
+        "blocks.3.0.bn3.act": 0.035132333636283875,
+        "blocks.3.3.bn2.act": 0.03091542422771454,
+        "blocks.6.1.drop_path": 0.017309581860899925
+      },
+      "acc": 80.6,
+      "family": "EffNet"
+    },
+    "efficientnet_b3": {
+      "layers": {
+        "blocks.0.0": 0.0121318893507123,
+        "blocks.3.1.conv_dw": 0.024091333150863647,
+        "blocks.3.4.bn1": 0.02952626533806324,
+        "blocks.6.1.drop_path": 0.017057420685887337
+      },
+      "acc": 82.0,
+      "family": "EffNet"
+    },
+    "efficientnet_b4": {
+      "layers": {
+        "blocks.0.0": 0.010909950360655785,
+        "blocks.3.1.se.conv_reduce": 0.013223856687545776,
+        "blocks.3.4.conv_pwl": 0.0222580935806036,
+        "blocks.6.1.drop_path": 0.020668506622314453
+      },
+      "acc": 83.4,
+      "family": "EffNet"
+    },
+    "efficientnetv2_s": {
+      "layers": {
+        "blocks.0.0": 0.010205344296991825,
+        "blocks.3.1.se": 0.01790217123925686,
+        "blocks.3.3.se.gate": 0.016113340854644775,
+        "blocks.3.5.drop_path": 0.023083200678229332
+      },
+      "acc": 83.9,
+      "family": "EffNet"
+    },
+    "efficientnetv2_m": {
+      "layers": {
+        "blocks.0.0": 0.011982268653810024,
+        "blocks.3.3.conv_dw": 0.01336988527327776,
+        "blocks.6.0.se.act1": 0.01674116589128971,
+        "blocks.6.4.drop_path": 0.024963539093732834
+      },
+      "acc": 85.1,
+      "family": "EffNet"
+    },
+    "mobilenetv2_100": {
+      "layers": {
+        "blocks.0.0": 0.009737045504152775,
+        "blocks.3.1.bn1": 0.022954082116484642,
+        "blocks.3.3": 0.027694063261151314
+      },
+      "acc": 72.9,
+      "family": "Mobile"
+    },
+    "mobilenetv2_140": {
+      "layers": {
+        "blocks.0.0": 0.009944023564457893,
+        "blocks.3.1.bn1": 0.02920825406908989,
+        "blocks.3.3": 0.03122135065495968
+      },
+      "acc": 76.5,
+      "family": "Mobile"
+    },
+    "mobilenetv3_large": {
+      "layers": {
+        "blocks.0.0": 0.007724902126938105,
+        "blocks.3.2.se": 0.022255010902881622
+      },
+      "acc": 75.8,
+      "family": "Mobile"
+    },
+    "mobilenetv3_small": {
+      "layers": {
+        "blocks.0.0": 0.01405423879623413,
+        "blocks.3.0.bn1": 0.013926954008638859,
+        "blocks.3.1": 0.02784133143723011,
+        "blocks.3.1.drop_path": 0.022682921960949898
+      },
+      "acc": 67.7,
+      "family": "Mobile"
+    },
+    "mnasnet_100": {
+      "layers": {
+        "blocks.0.0": 0.009358654730021954,
+        "blocks.3.0.bn3.drop": 0.03335019573569298,
+        "blocks.3.2.bn2": 0.023480849340558052
+      },
+      "acc": 74.7,
+      "family": "Mobile"
+    },
+    "convnext_tiny": {
+      "layers": {
+        "stages.0": 0.03065722994506359,
+        "stages.1.blocks.2.shortcut": 0.00962053332477808,
+        "stages.2.blocks.5.shortcut": 0.022859375923871994,
+        "stages.3.blocks.2.drop_path": 0.016150662675499916
+      },
+      "acc": 82.1,
+      "family": "ConvNeXt"
+    },
+    "convnext_small": {
+      "layers": {
+        "stages.0": 0.009803619235754013,
+        "stages.2.blocks.5.mlp.norm": 0.02072824537754059,
+        "stages.2.blocks.17.shortcut": 0.006899450905621052,
+        "stages.3.blocks.2.drop_path": 0.013440869748592377
+      },
+      "acc": 83.1,
+      "family": "ConvNeXt"
+    },
+    "convnext_base": {
+      "layers": {
+        "stages.0": 0.020710280165076256,
+        "stages.2.blocks.5.mlp.norm": 0.0191937405616045,
+        "stages.2.blocks.17.shortcut": 0.01709803007543087,
+        "stages.3.blocks.2.drop_path": 0.014263919554650784
+      },
+      "acc": 83.8,
+      "family": "ConvNeXt"
+    },
+    "convnext_large": {
+      "layers": {
+        "stages.0": 0.010154563933610916,
+        "stages.2.blocks.5.mlp.norm": 0.017923854291439056,
+        "stages.2.blocks.17.shortcut": 0.008747420273721218,
+        "stages.3.blocks.2.drop_path": 0.015677064657211304
+      },
+      "acc": 84.3,
+      "family": "ConvNeXt"
+    },
+    "convnextv2_tiny": {
+      "layers": {
+        "stages.0": 0.008778003044426441,
+        "stages.1.blocks.2.shortcut": 0.01532424334436655,
+        "stages.2.blocks.5.shortcut": 0.021773088723421097,
+        "stages.3.blocks.2.drop_path": 0.01999540813267231
+      },
+      "acc": 82.9,
+      "family": "ConvNeXt"
+    },
+    "convnextv2_base": {
+      "layers": {
+        "stages.0": 0.02115471474826336,
+        "stages.2.blocks.5.mlp.grn": 0.02849988080561161,
+        "stages.2.blocks.17.shortcut": 0.025200536474585533,
+        "stages.3.blocks.2.drop_path": 0.017239930108189583
+      },
+      "acc": 84.9,
+      "family": "ConvNeXt"
+    },
+    "vit_tiny_patch16": {
+      "layers": {
+        "blocks.0": 0.01710984669625759,
+        "blocks.3.attn.norm": 0.034728214144706726,
+        "blocks.6.mlp.fc1": 0.030589738860726357,
+        "blocks.9.drop_path2": 0.013798078522086143
+      },
+      "acc": 75.5,
+      "family": "ViT"
+    },
+    "vit_small_patch16": {
+      "layers": {
+        "blocks.0": 0.014419550076127052,
+        "blocks.3.attn.norm": 0.04593117907643318,
+        "blocks.6.mlp.fc1": 0.02945181354880333,
+        "blocks.9.drop_path2": 0.02039710246026516
+      },
+      "acc": 81.4,
+      "family": "ViT"
+    },
+    "vit_base_patch16": {
+      "layers": {
+        "blocks.0": 0.015909796580672264,
+        "blocks.3.attn.norm": 0.04897197708487511,
+        "blocks.6.mlp.fc1": 0.023127226158976555,
+        "blocks.9.drop_path2": 0.02004344016313553
+      },
+      "acc": 84.0,
+      "family": "ViT"
+    },
+    "vit_base_patch32": {
+      "layers": {
+        "blocks.0": 0.017722055315971375,
+        "blocks.3.attn.norm": 0.04805334657430649,
+        "blocks.6.mlp.fc1": 0.02047940157353878,
+        "blocks.9.drop_path2": 0.01063266396522522
+      },
+      "acc": 80.7,
+      "family": "ViT"
+    },
+    "vit_large_patch16": {
+      "layers": {
+        "blocks.0": 0.034487005323171616,
+        "blocks.3.attn.norm": 0.04868699982762337,
+        "blocks.6.mlp.fc1": 0.023623399436473846,
+        "blocks.9.drop_path2": 0.020249271765351295
+      },
+      "acc": 85.8,
+      "family": "ViT"
+    },
+    "vit_small_patch16_dino": {
+      "layers": {
+        "blocks.0": 0.04933558776974678,
+        "blocks.3.attn.norm": 0.03360115364193916,
+        "blocks.6.mlp.fc1": 0.04464574158191681,
+        "blocks.9.drop_path2": 0.018564091995358467
+      },
+      "acc": 78.0,
+      "family": "ViT"
+    },
+    "swin_tiny": {
+      "layers": {
+        "layers.0.blocks.0": 0.04689299687743187,
+        "layers.1.blocks.0.mlp.fc1": 0.05017167329788208,
+        "layers.3.blocks.0.drop_path2": 0.010122098959982395
+      },
+      "acc": 81.2,
+      "family": "Swin"
+    },
+    "swin_small": {
+      "layers": {
+        "layers.0.blocks.0": 0.04762816056609154,
+        "layers.2.blocks.6.mlp.fc1": 0.021124765276908875,
+        "layers.3.blocks.0.drop_path2": 0.006034362129867077
+      },
+      "acc": 83.2,
+      "family": "Swin"
+    },
+    "swin_base": {
+      "layers": {
+        "layers.0.blocks.0": 0.048255227506160736,
+        "layers.2.blocks.6.mlp.fc1": 0.009805992245674133,
+        "layers.3.blocks.0.drop_path2": 0.0053924452513456345
+      },
+      "acc": 83.5,
+      "family": "Swin"
+    },
+    "deit_tiny": {
+      "layers": {
+        "blocks.0": 0.03197728469967842,
+        "blocks.3.attn.norm": 0.03471031039953232,
+        "blocks.6.mlp.fc1": 0.014391091652214527,
+        "blocks.9.drop_path2": 0.01890537515282631
+      },
+      "acc": 72.2,
+      "family": "DeiT"
+    },
+    "deit_small": {
+      "layers": {
+        "blocks.0": 0.031524550169706345,
+        "blocks.3.attn.norm": 0.03817622363567352,
+        "blocks.6.mlp.fc1": 0.017914850264787674,
+        "blocks.9.drop_path2": 0.016021225601434708
+      },
+      "acc": 79.9,
+      "family": "DeiT"
+    },
+    "deit_base": {
+      "layers": {
+        "blocks.0": 0.036716632544994354,
+        "blocks.3.attn.norm": 0.0401042103767395,
+        "blocks.6.mlp.fc1": 0.03199858218431473,
+        "blocks.9.drop_path2": 0.01384899765253067
+      },
+      "acc": 81.8,
+      "family": "DeiT"
+    },
+    "deit3_small": {
+      "layers": {
+        "blocks.0": 0.03423641249537468,
+        "blocks.3.attn.norm": 0.050878215581178665,
+        "blocks.6.mlp.fc1": 0.023397622630000114,
+        "blocks.9.drop_path2": 0.007032633759081364
+      },
+      "acc": 81.4,
+      "family": "DeiT"
+    },
+    "deit3_base": {
+      "layers": {
+        "blocks.0": 0.03948628157377243,
+        "blocks.3.attn.norm": 0.054772600531578064,
+        "blocks.6.mlp.fc1": 0.03429775312542915,
+        "blocks.9.drop_path2": 0.011361788958311081
+      },
+      "acc": 83.8,
+      "family": "DeiT"
+    },
+    "deit3_large": {
+      "layers": {
+        "blocks.0": 0.03341234102845192,
+        "blocks.3.attn.norm": 0.07534360885620117,
+        "blocks.6.mlp.fc1": 0.05468948557972908,
+        "blocks.9.drop_path2": 0.018559550866484642
+      },
+      "acc": 84.9,
+      "family": "DeiT"
+    },
+    "regnetx_016": {
+      "layers": {
+        "stem": 0.010950108990073204,
+        "s1": 0.030616886913776398,
+        "s3": 0.03371275216341019,
+        "final_conv": 0.025809505954384804
+      },
+      "acc": 73.0,
+      "family": "RegNet"
+    },
+    "regnetx_032": {
+      "layers": {
+        "stem": 0.011141653172671795,
+        "s1": 0.031115178018808365,
+        "s3": 0.0384027361869812,
+        "final_conv": 0.0313461497426033
+      },
+      "acc": 75.2,
+      "family": "RegNet"
+    },
+    "regnetx_064": {
+      "layers": {
+        "stem": 0.010964805260300636,
+        "s1": 0.020706776529550552,
+        "s3": 0.04302950203418732,
+        "final_conv": 0.035275883972644806
+      },
+      "acc": 76.4,
+      "family": "RegNet"
+    },
+    "regnetx_160": {
+      "layers": {
+        "stem": 0.010861299000680447,
+        "s1": 0.04516800493001938,
+        "s3": 0.030392026528716087,
+        "final_conv": 0.03432244062423706
+      },
+      "acc": 79.7,
+      "family": "RegNet"
+    },
+    "regnety_016": {
+      "layers": {
+        "stem": 0.01011181902140379,
+        "s1": 0.02064666338264942,
+        "s3": 0.03697638958692551,
+        "final_conv": 0.026835542172193527
+      },
+      "acc": 74.0,
+      "family": "RegNet"
+    },
+    "regnety_032": {
+      "layers": {
+        "stem": 0.010054407641291618,
+        "s1": 0.030488453805446625,
+        "s3": 0.03477007523179054,
+        "final_conv": 0.01663876883685589
+      },
+      "acc": 76.6,
+      "family": "RegNet"
+    },
+    "regnety_064": {
+      "layers": {
+        "stem": 0.012057434767484665,
+        "s1": 0.03622445464134216,
+        "s3": 0.03514827415347099,
+        "final_conv": 0.02232912741601467
+      },
+      "acc": 77.2,
+      "family": "RegNet"
+    },
+    "regnety_160": {
+      "layers": {
+        "stem": 0.010405156761407852,
+        "s1": 0.040923938155174255,
+        "s3": 0.03764990717172623,
+        "final_conv": 0.022728919982910156
+      },
+      "acc": 80.4,
+      "family": "RegNet"
+    },
+    "maxvit_tiny": {
+      "layers": {
+        "stages.0": 0.02949058823287487,
+        "stages.1.blocks.1.attn_block.mlp.fc2": 0.031578462570905685,
+        "stages.2.blocks.3.conv.se.fc2": 0.018454596400260925,
+        "stages.3.blocks.1.attn_grid.drop_path2": 0.013755672611296177
+      },
+      "acc": 83.4,
+      "family": "MaxViT"
+    },
+    "maxvit_small": {
+      "layers": {
+        "stages.0": 0.034776244312524796,
+        "stages.1.blocks.1.attn_block.mlp.fc2": 0.029513848945498466,
+        "stages.2.blocks.3.conv.se.fc2": 0.020422516390681267,
+        "stages.3.blocks.1.attn_grid.drop_path2": 0.013846245594322681
+      },
+      "acc": 84.5,
+      "family": "MaxViT"
+    },
+    "coatnet_0": {
+      "layers": {
+        "stages.0": 0.03897463157773018,
+        "stages.1.blocks.2.down": 0.03699278086423874,
+        "stages.2.blocks.4.shortcut": 0.027836527675390244,
+        "stages.3.blocks.1.drop_path2": 0.013477429747581482
+      },
+      "acc": 82.4,
+      "family": "MaxViT"
+    },
+    "efficientformer_l1": {
+      "layers": {
+        "stages.0": 0.024744639173150063,
+        "stages.1.blocks.1.drop_path2": 0.02137337438762188,
+        "stages.2.blocks.5.token_mixer": 0.03506302833557129,
+        "stages.3.blocks.4.drop_path2": 0.004312970209866762
+      },
+      "acc": 80.2,
+      "family": "EFormer"
+    },
+    "efficientformer_l3": {
+      "layers": {
+        "stages.0": 0.029211629182100296,
+        "stages.2.blocks.0.mlp.act": 0.02420864626765251,
+        "stages.2.blocks.9.ls2": 0.017418935894966125,
+        "stages.3.blocks.6.drop_path2": 0.0074299173429608345
+      },
+      "acc": 82.4,
+      "family": "EFormer"
+    },
+    "efficientformer_l7": {
+      "layers": {
+        "stages.0": 0.030899982899427414,
+        "stages.2.blocks.0.ls2": 0.014238165691494942,
+        "stages.2.blocks.14.mlp.fc1": 0.023994911462068558,
+        "stages.3.blocks.8.drop_path2": 0.013001633808016777
+      },
+      "acc": 83.3,
+      "family": "EFormer"
+    },
+    "edgenext_small": {
+      "layers": {
+        "stages.0": 0.02604958415031433,
+        "stages.1.blocks.2.mlp.drop2": 0.03080095909535885,
+        "stages.2.blocks.6.mlp.drop1": 0.019082436338067055
+      },
+      "acc": 81.1,
+      "family": "EdgeNeXt"
+    },
+    "edgenext_base": {
+      "layers": {
+        "stages.0": 0.032126519829034805,
+        "stages.1.blocks.2.mlp.drop2": 0.03153572604060173,
+        "stages.2.blocks.6.mlp.drop1": 0.015793485566973686
+      },
+      "acc": 83.3,
+      "family": "EdgeNeXt"
+    },
+    "inception_v3": {
+      "layers": {
+        "Conv2d_1a_3x3": 0.01600760407745838,
+        "Pool2": 0.0450020357966423,
+        "Mixed_6c": 0.03480231761932373,
+        "global_pool": 0.043994709849357605
+      },
+      "acc": 77.3,
+      "family": "CNN"
+    },
+    "inception_v4": {
+      "layers": {
+        "features.2": 0.02705945447087288,
+        "features.6.branch2.1.conv": 0.018840020522475243,
+        "features.20.branch2_3b.bn.drop": 0.022597545757889748,
+        "features.21.branch3.1.bn.act": 0.037235457450151443
+      },
+      "acc": 80.2,
+      "family": "CNN"
+    },
+    "dpn68": {
+      "layers": {
+        "features": 0.025420688092708588,
+        "global_pool": 0.025420688092708588,
+        "flatten": 0.025420688092708588
+      },
+      "acc": 76.3,
+      "family": "CNN"
+    },
+    "dpn92": {
+      "layers": {
+        "features": 0.022923056036233902,
+        "global_pool": 0.022923056036233902,
+        "flatten": 0.022923056036233902
+      },
+      "acc": 79.5,
+      "family": "CNN"
+    },
+    "dpn131": {
+      "layers": {
+        "features": 0.019848693162202835,
+        "global_pool": 0.019848693162202835,
+        "flatten": 0.019848693162202835
+      },
+      "acc": 79.8,
+      "family": "CNN"
+    },
+    "nasnetalarge": {
+      "layers": {
+        "conv0": 0.01601230725646019,
+        "cell_5": 0.0348990298807621,
+        "reduction_cell_1": 0.04060608521103859,
+        "last_linear": 0.024077311158180237
+      },
+      "acc": 82.6,
+      "family": "NAS"
+    },
+    "senet154": {
+      "layers": {
+        "layer1.0": 0.02444334700703621,
+        "layer3.5.aa": 0.03851219639182091,
+        "layer3.22.conv2": 0.023358497768640518,
+        "layer4.2.act3": 0.025836879387497902
+      },
+      "acc": 81.3,
+      "family": "CNN"
+    },
+    "seresnext50_32x4d": {
+      "layers": {
+        "layer1.0": 0.01994498446583748,
+        "layer2.2.conv2": 0.022470911964774132,
+        "layer3.3.bn3": 0.025077247992157936,
+        "layer4.2.act3": 0.02677466906607151
+      },
+      "acc": 79.9,
+      "family": "CNN"
+    },
+    "res2net50_26w_4s": {
+      "layers": {},
+      "acc": 78.0,
+      "family": "CNN",
+      "error": "Sizes of tensors must match except in dimension 0. Expected size 832 but got size 208 for tensor number 1 in the list."
+    },
+    "res2net101_26w_4s": {
+      "layers": {},
+      "acc": 79.2,
+      "family": "CNN",
+      "error": "Sizes of tensors must match except in dimension 0. Expected size 832 but got size 208 for tensor number 1 in the list."
+    },
+    "hrnet_w18": {
+      "layers": {
+        "layer1.0": 0.03307716175913811,
+        "layer1.1.bn1": 0.018808556720614433,
+        "layer1.2.drop_block": 0.021136801689863205,
+        "layer1.3.act3": 0.04761304333806038
+      },
+      "acc": 78.0,
+      "family": "CNN"
+    },
+    "hrnet_w32": {
+      "layers": {
+        "layer1.0": 0.024992860853672028,
+        "layer1.1.bn1": 0.02144254930317402,
+        "layer1.2.drop_block": 0.018423588946461678,
+        "layer1.3.act3": 0.035955432802438736
+      },
+      "acc": 78.4,
+      "family": "CNN"
+    },
+    "hrnet_w48": {
+      "layers": {
+        "layer1.0": 0.026708992198109627,
+        "layer1.1.bn1": 0.022444624453783035,
+        "layer1.2.drop_block": 0.01740596629679203,
+        "layer1.3.act3": 0.040486857295036316
+      },
+      "acc": 79.3,
+      "family": "CNN"
+    },
+    "ghostnet_100": {
+      "layers": {
+        "blocks.0.0": 0.008600802160799503,
+        "blocks.6.0.ghost1.primary_conv.2": 0.024289043620228767,
+        "blocks.6.3.ghost1.primary_conv.2": 0.020825929939746857
+      },
+      "acc": 74.0,
+      "family": "Mobile"
+    },
+    "poolformer_s12": {
+      "layers": {
+        "stages.0": 0.024381229653954506,
+        "stages.1.blocks.1.layer_scale2": 0.02660704217851162,
+        "stages.2.blocks.3.layer_scale2": 0.029540907591581345,
+        "stages.3.blocks.1.res_scale2": 0.011598840355873108
+      },
+      "acc": 77.2,
+      "family": "MetaFormer"
+    },
+    "poolformer_s24": {
+      "layers": {
+        "stages.0": 0.01982175000011921,
+        "stages.1.blocks.3.layer_scale2": 0.02424931339919567,
+        "stages.2.blocks.7.layer_scale2": 0.016611570492386818,
+        "stages.3.blocks.3.res_scale2": 0.024407923221588135
+      },
+      "acc": 80.3,
+      "family": "MetaFormer"
+    },
+    "poolformer_s36": {
+      "layers": {
+        "stages.0": 0.019265612587332726,
+        "stages.1.blocks.5.layer_scale2": 0.025019479915499687,
+        "stages.2.blocks.11.layer_scale2": 0.02176041156053543,
+        "stages.3.blocks.5.res_scale2": 0.014381508342921734
+      },
+      "acc": 81.4,
+      "family": "MetaFormer"
+    },
+    "poolformer_m36": {
+      "layers": {
+        "stages.0": 0.021566955372691154,
+        "stages.1.blocks.5.layer_scale2": 0.035923175513744354,
+        "stages.2.blocks.11.layer_scale2": 0.03501387685537338,
+        "stages.3.blocks.5.res_scale2": 0.021299391984939575
+      },
+      "acc": 82.1,
+      "family": "MetaFormer"
+    },
+    "cait_s24_224": {
+      "layers": {
+        "blocks.0": 0.06646828353404999,
+        "blocks.3.attn.proj": 0.037914324551820755,
+        "blocks.6.mlp": 0.054523397237062454,
+        "blocks.9.mlp.drop2": 0.06651393324136734
+      },
+      "acc": 83.5,
+      "family": "CaiT"
+    },
+    "mixer_b16": {
+      "layers": {
+        "blocks.0": 0.05471509322524071,
+        "blocks.3.mlp_tokens.drop1": 0.06470081955194473,
+        "blocks.6.mlp_channels": 0.038390398025512695,
+        "blocks.9.mlp_channels.drop2": 0.01572825014591217
+      },
+      "acc": 78.5,
+      "family": "Mixer"
+    },
+    "vgg16_bn": {
+      "layers": {
+        "features.2": 0.012409479357302189,
+        "features.22": 0.038477666676044464,
+        "features.27": 0.03183792158961296,
+        "features.43": 0.03776894137263298
+      },
+      "acc": 73.4,
+      "family": "CNN"
+    },
+    "vgg19_bn": {
+      "layers": {
+        "features.2": 0.013137361966073513,
+        "features.24": 0.0226039607077837,
+        "features.41": 0.04251423478126526,
+        "features.49": 0.028407005593180656
+      },
+      "acc": 74.2,
+      "family": "CNN"
+    }
+  },
+  "config": {
+    "teacher": "vit_small_patch14_dinov2.lvd142m",
+    "n_candidates": 83,
+    "elapsed_minutes": 52.72911165555318
+  }
+}
