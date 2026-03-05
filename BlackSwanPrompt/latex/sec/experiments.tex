@@ -1,0 +1,149 @@
+\section{Experiments and Results}
+\label{sec:experiments}
+
+\subsection{Main Results}
+
+Table~\ref{tab:main} presents the full results across all 15 experimental conditions.
+Our key findings are:
+
+\paragraph{Chain-of-Thought prompting is the strongest text-only strategy.}
+P2 (CoT) achieves the highest overall accuracy of 55.5\% with GPT-4o-mini, substantially above the 33.3\% random baseline ($+$22.2 percentage points).
+This represents a statistically significant improvement over the Direct baseline (49.1\%; McNemar's $\chi^2=25.05$, $p<0.001$).
+CoT's advantage comes from its strong performance on both task types, with the best Reporter accuracy (69.0\%) and competitive Detective accuracy (48.2\%).
+
+\paragraph{Template choice induces a 10-point accuracy spread.}
+Within GPT-4o-mini, accuracy ranges from 45.5\% (Counterfactual) to 55.5\% (CoT)---a 10.0 percentage-point spread from prompting alone.
+This demonstrates that prompt engineering for abductive/defeasible reasoning is non-trivial and the cognitive framing of the prompt matters substantially.
+
+\paragraph{Cognitively-explicit prompts do not always help.}
+Perhaps surprisingly, the Abductive Framing template (P3), which explicitly names the reasoning type, does not outperform the simpler Direct template (49.2\% vs.\ 49.1\%).
+Similarly, Counterfactual Contrastive (P5) achieves the \emph{lowest} accuracy (45.5\%), despite its sophisticated multi-step reasoning scaffold.
+This suggests that explicitly labeling the cognitive process may over-constrain the model's reasoning.
+
+\paragraph{Elimination prompting is most balanced across tasks.}
+While P4 (Elimination) is not the highest overall (51.2\%), it achieves the most balanced Detective/Reporter split: 49.4\% vs.\ 54.6\%.
+This contrasts with P1 (Direct), which shows the largest task gap (39.7\% Detective vs.\ 66.3\% Reporter).
+
+\paragraph{GPT-4o-mini consistently outperforms other models.}
+Across all five templates, GPT-4o-mini achieves the highest overall accuracy, ranging from 45.5\% to 55.5\%.
+Gemini~2.0~Flash is competitive but more stable across templates (47.0--50.6\%), showing less sensitivity to prompt design.
+Claude~3.5~Haiku shows the largest template sensitivity: its accuracy ranges from 36.5\% (Direct) to 47.8\% (Counterfactual)---an 11.3-point spread.
+Notably, Claude's best template (P5: Counterfactual, 47.8\%) differs from GPT-4o-mini's best (P2: CoT, 55.5\%), suggesting that optimal prompting strategies are model-dependent.
+
+\begin{table}[t]
+\centering
+\caption{\textbf{Main results on BlackSwanSuite-MCQ validation} (1{,}793 questions). All models operate in text-only mode (no video input). Best result per column in \textbf{bold}. Random chance is 33.3\%.}
+\label{tab:main}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llccc@{}}
+\toprule
+\textbf{Model} & \textbf{Template} & \textbf{Overall} & \textbf{Detective} & \textbf{Reporter} \\
+\midrule
+\multicolumn{5}{l}{\textit{Baselines}} \\
+Random & -- & 32.7 & 33.0 & 32.1 \\
+Majority (opt.\ 0) & -- & 34.5 & 34.0 & 35.3 \\
+\midrule
+\multicolumn{5}{l}{\textit{GPT-4o-mini}} \\
+ & P1: Direct & 49.1 & 39.7 & 66.3 \\
+ & P2: CoT & \textbf{55.5} & 48.2 & \textbf{69.0} \\
+ & P3: Abductive & 49.2 & 45.4 & 56.2 \\
+ & P4: Elimination & 51.2 & \textbf{49.4} & 54.6 \\
+ & P5: Counterfactual & 45.5 & 44.9 & 46.5 \\
+\midrule
+\multicolumn{5}{l}{\textit{Claude 3.5 Haiku}} \\
+ & P1: Direct & 36.5 & 34.7 & 39.9 \\
+ & P2: CoT & 47.4 & 43.6 & 54.3 \\
+ & P3: Abductive & 42.2 & 42.4 & 41.9 \\
+ & P4: Elimination & 42.3 & 41.0 & 44.8 \\
+ & P5: Counterfactual & 47.8 & 44.5 & 53.8 \\
+\midrule
+\multicolumn{5}{l}{\textit{Gemini 2.0 Flash}} \\
+ & P1: Direct & 47.4 & 41.7 & 57.9 \\
+ & P2: CoT & 47.3 & 39.8 & 61.1 \\
+ & P3: Abductive & 50.6 & 46.7 & 57.9 \\
+ & P4: Elimination & 47.0 & 45.8 & 49.1 \\
+ & P5: Counterfactual & 47.4 & 47.0 & 47.9 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Detective vs.\ Reporter: The Task Gap}
+\label{sec:taskgap}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig3_task_gap.pdf}
+    \caption{\textbf{Reporter--Detective accuracy gap} across prompt templates. Positive values indicate Reporter is easier. The gap varies from $+$1.6\% (Counterfactual) to $+$26.6\% (Direct), revealing that simpler prompts exploit Reporter linguistic cues more.}
+    \label{fig:taskgap}
+\end{figure}
+
+Figure~\ref{fig:taskgap} reveals a striking and consistent finding: Reporter questions are substantially easier than Detective questions in the text-only setting.
+The gap ranges from 1.6 percentage points (P5: Counterfactual) to 26.6 percentage points (P1: Direct).
+
+This asymmetry is interpretable.
+Detective questions ask ``What happened in the hidden frames?''---without video, the model has no visual evidence and must rely entirely on commonsense about the described options.
+Reporter questions ask ``What is the surprising event?''---and the answer options themselves often contain linguistic cues distinguishing the surprising option (e.g., words like ``falls,'' ``crashes,'' ``misses'') from the mundane alternatives.
+
+Importantly, the more sophisticated prompts \emph{reduce} this gap.
+P5 (Counterfactual) nearly eliminates it (46.5\% Reporter vs.\ 44.9\% Detective), suggesting that structured reasoning prevents models from relying on surface cues---at the cost of overall accuracy.
+
+\subsection{Difficulty Analysis}
+\label{sec:difficulty}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig2_difficulty.pdf}
+    \caption{\textbf{Accuracy by difficulty level} (averaged across models). CoT maintains an advantage on easy and medium questions, but the gap narrows on hard questions.}
+    \label{fig:difficulty}
+\end{figure}
+
+Figure~\ref{fig:difficulty} shows accuracy stratified by the benchmark's difficulty labels (easy: 717, medium: 762, hard: 314 questions).
+CoT (P2) achieves 59.0\% on easy questions, dropping to 53.5\% on hard---a modest 5.5-point degradation.
+Interestingly, the Elimination template (P4) is the most difficulty-robust, with only a 3.8-point drop from easy (54.4\%) to hard (50.6\%).
+The Counterfactual template shows the steepest degradation (49.1\% easy to 41.1\% hard), suggesting that its multi-step scaffold becomes less effective when questions are inherently more challenging.
+
+\subsection{Error Taxonomy}
+\label{sec:error}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/fig4_error_taxonomy.pdf}
+    \caption{\textbf{Error taxonomy distribution} across prompt templates (GPT-4o-mini). Different prompts induce qualitatively different error profiles.}
+    \label{fig:errors}
+\end{figure}
+
+We manually categorize errors into five types based on the relationship between the predicted and ground-truth answers:
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+    \item \textbf{Overweights Prior (picks mundane option):} The model selects an option describing a normal/expected outcome rather than the surprising event.
+    This is the dominant error for Detective questions, where the model defaults to commonsense expectations.
+
+    \item \textbf{Hallucinated Cause (wrong mechanism):} The model selects an option describing a plausible but incorrect causal mechanism---e.g., ``falls to the ground'' when the actual event is ``hits the tree.''
+
+    \item \textbf{Plausibility Confusion (both seem possible):} Two options describe similarly plausible events and the model selects the wrong one. These represent genuinely ambiguous questions.
+
+    \item \textbf{Fails to Retract (close but wrong detail):} Primarily in Reporter questions: the model selects an option that is semantically close to the correct answer but differs in a critical detail (e.g., ``falls backwards'' vs.\ ``falls sideways'').
+
+    \item \textbf{Overweights Prior Text (ignores new evidence):} In Reporter questions, the model selects an option consistent with what would \emph{normally} happen rather than the surprising event that actually occurred.
+\end{enumerate}
+
+Figure~\ref{fig:errors} shows the error distribution across templates.
+The Direct template (P1) produces the highest rate of ``Overweights Prior'' errors, consistent with its lack of reasoning scaffolding.
+The Elimination template (P4) reduces ``Overweights Prior'' errors most effectively by explicitly instructing the model to eliminate mundane options.
+CoT (P2) has the fewest total errors but its remaining errors are disproportionately ``Plausibility Confusion''---the model reasons correctly but faces genuinely ambiguous cases.
+
+\subsection{The Visual Gap}
+\label{sec:visualgap}
+
+Our best text-only result (55.5\%, GPT-4o-mini with CoT) can be compared to the visual-input baselines reported by Chinchure~et~al.~\cite{chinchure2025black}.
+The original paper reports that GPT-4o \emph{with video input} achieves approximately 60--68\% on MCQ tasks, while human performance reaches approximately 80--90\%.
+This means:
+
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+    \item The \textbf{text-only ceiling} is approximately 55\% overall.
+    \item The \textbf{visual contribution} of current VLMs is approximately 5--13 additional percentage points.
+    \item The \textbf{remaining gap to humans} is 12--30 percentage points beyond what video-enabled VLMs achieve.
+\end{itemize}
+
+These numbers suggest that roughly half of VLM performance on BlackSwanSuite-MCQ comes from linguistic reasoning rather than visual understanding---a finding that should inform both benchmark design and model evaluation.

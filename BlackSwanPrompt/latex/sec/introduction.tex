@@ -1,0 +1,28 @@
+\section{Introduction}
+\label{sec:intro}
+
+Reasoning about unexpected events is a hallmark of human cognition.
+When we observe a surprising outcome---a gymnast missing the bar, a skateboarder landing in a pool---we effortlessly engage two complementary reasoning processes: \emph{abductive reasoning}, where we infer the most plausible hidden cause (``What happened?''), and \emph{defeasible reasoning}, where we revise our initial beliefs in light of new evidence (``That's not what I expected'').
+The BlackSwanSuite benchmark~\cite{chinchure2025black} formalizes these abilities for video-language models (VLMs) through carefully designed multiple-choice questions across 1{,}655 videos of atypical events.
+
+The BlackSwan Challenge at the 1st CogVL Workshop (CVPR 2026) invites participants to build systems that can reason about these unexpected events.
+Before deploying complex multimodal architectures, however, a crucial baseline question must be answered: \textbf{how much of this benchmark can be solved from text alone, without seeing any video frames?}
+
+This question matters for three reasons.
+First, it quantifies the \emph{linguistic bias} in the benchmark---if text-only models achieve high accuracy, the MCQ options may contain exploitable surface cues that shortcut genuine visual reasoning.
+Second, it establishes a \emph{lower bound} that any video-based system must clearly surpass to claim visual understanding.
+Third, it reveals which \emph{prompting strategies} best activate the commonsense knowledge that language models already possess about physical events, failures, and surprising outcomes.
+
+In this work, we contribute:
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+    \item \textbf{Five cognitively-motivated prompt templates} spanning the spectrum from minimal instruction (Direct) through structured reasoning (Chain-of-Thought, Process-of-Elimination) to task-specific cognitive frames (Abductive Framing, Counterfactual Contrastive). Each template is designed with a specific cognitive theory in mind (Section~\ref{sec:method}).
+
+    \item \textbf{A systematic evaluation} of 3 models $\times$ 5 templates on the full BlackSwanSuite-MCQ validation set (1{,}793 questions), yielding 15 experimental conditions with zero parse failures. We find that Chain-of-Thought prompting achieves the best overall accuracy (55.5\%), substantially above the 33.3\% random baseline, and that the choice of prompt template matters more than many practitioners assume (Section~\ref{sec:experiments}).
+
+    \item \textbf{A diagnostic analysis} revealing that Reporter (defeasible) questions are far easier than Detective (abductive) questions in the text-only setting (69.0\% vs.\ 48.2\%), suggesting that answer-option phrasing leaks information about the correct answer for defeasible reasoning.
+
+    \item \textbf{A five-category error taxonomy} for text-only reasoning failures on unexpected-event MCQs, showing that different prompting strategies produce qualitatively different failure modes---the Counterfactual template, despite lower accuracy, produces more ``cognitive'' errors than the simpler Direct template (Section~\ref{sec:error}).
+\end{enumerate}
+
+Our findings provide essential context for BlackSwan Challenge participants: any multimodal system scoring below 55.5\% on the MCQ task is being outperformed by a text-only LLM with Chain-of-Thought prompting---a sobering but useful baseline.

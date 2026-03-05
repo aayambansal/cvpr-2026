@@ -1,0 +1,24 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented the first systematic study of text-only prompting baselines for abductive and defeasible video reasoning on BlackSwanSuite-MCQ.
+Our experiments across five cognitively-motivated prompt templates and three frontier LLMs reveal that:
+(1) text-only models reach up to 55.5\% accuracy without any visual input, establishing a non-trivial lower bound for multimodal systems;
+(2) Chain-of-Thought prompting is the strongest strategy overall, but Process-of-Elimination yields the most balanced performance across task types;
+(3) Reporter (defeasible) questions are substantially easier than Detective (abductive) questions in the text-only setting, pointing to exploitable linguistic cues in answer options;
+and (4) different prompting strategies produce qualitatively different error profiles, with implications for how future systems should approach unexpected-event reasoning.
+
+\paragraph{Implications for Challenge Participants.}
+Our text-only baselines provide actionable guidance: (a)~any multimodal system should target $>$55\% on the MCQ task to demonstrate genuine visual reasoning; (b)~Detective questions represent the clearest opportunity for vision to add value, as text-only performance is lowest there; and (c)~the error taxonomy identifies specific failure modes that visual information could resolve, particularly ``overweights prior'' errors where seeing the actual event should override commonsense defaults.
+
+\paragraph{Limitations.}
+Our study evaluates text-only reasoning, which is by design incomplete for a video benchmark.
+We use temperature~0 decoding, and different sampling strategies may yield different results.
+The error taxonomy is based on heuristic classification; future work could use human annotation for finer-grained analysis.
+
+\paragraph{Future Work.}
+A natural extension is to combine our prompting strategies with actual video input (frame descriptions, captions, or raw frames), measuring how much each template's text-only performance transfers to the multimodal setting.
+We also plan to submit test-set predictions to the BlackSwan Challenge for official evaluation.
+
+\paragraph{Acknowledgments.}
+We thank the BlackSwanSuite authors for making the dataset publicly available, and the CogVL Workshop organizers for hosting the challenge.

@@ -1,0 +1,21 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Abductive and Defeasible Reasoning in NLP.}
+Abductive reasoning---inference to the best explanation---was formalized for NLP by Bhagavatula~et~al.~\cite{bhagavatula2020abductive} through the $\alpha$NLI benchmark, which requires selecting the most plausible hypothesis connecting a premise and an observation.
+Hessel~et~al.~\cite{hessel2022abduction} extended this to the visual domain with the Visual Abductive Reasoning task, while Rudinger~et~al.~\cite{rudinger2020thinking} introduced defeasible NLI ($\delta$-NLI), where models must determine whether new evidence strengthens or weakens an existing inference.
+The BlackSwanSuite~\cite{chinchure2025black} is unique in combining both reasoning types within a video understanding framework focused on unexpected events.
+
+\paragraph{Chain-of-Thought and Structured Prompting.}
+Wei~et~al.~\cite{wei2022chain} demonstrated that prompting LLMs to produce intermediate reasoning steps (Chain-of-Thought, CoT) dramatically improves performance on complex reasoning tasks.
+Subsequent work introduced variants including zero-shot CoT~\cite{kojima2022large}, multimodal CoT~\cite{zhang2023multimodal}, and process-of-elimination prompting for MCQ tasks~\cite{ma2023lets}.
+Our work applies these strategies systematically to abductive and defeasible reasoning, complementing them with task-specific cognitive frames.
+
+\paragraph{Prompting for Video Understanding.}
+Recent Video-LLMs such as LLaVA-Video~\cite{zhang2024video}, Video-ChatGPT~\cite{maaz2024videochatgpt}, and VideoChat2~\cite{li2024mvbench} achieve strong performance on standard benchmarks through instruction tuning.
+However, their prompting strategies are typically generic.
+Our work specifically designs prompts for the cognitive demands of unexpected-event reasoning.
+
+\paragraph{Linguistic Bias in VQA Benchmarks.}
+A well-documented finding in visual question answering is that language-only models can exploit statistical regularities in question-answer distributions~\cite{agrawal2018dont,goyal2017making}.
+We extend this analysis to the video reasoning domain, quantifying the text-only ceiling for BlackSwanSuite.

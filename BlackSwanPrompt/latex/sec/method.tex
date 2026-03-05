@@ -1,0 +1,78 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Task Formulation}
+\label{sec:task}
+
+The BlackSwanSuite-MCQ benchmark~\cite{chinchure2025black} contains 1{,}793 validation questions spanning two reasoning tasks over videos of unexpected events:
+
+\paragraph{Detective (Abductive Reasoning).}
+The model sees the \emph{pre-event} and \emph{post-event} video segments but \emph{not} the event itself.
+It must infer what happened in the hidden middle segment by selecting from three MCQ options.
+This tests abductive reasoning: given an unexpected outcome, what is the most plausible hidden cause?
+The validation set contains 1{,}161 Detective questions.
+
+\paragraph{Reporter (Defeasible Reasoning).}
+The model sees the \emph{entire} video (pre-event, event, post-event) and must identify the surprising event from three MCQ options.
+This tests defeasible reasoning: the model must revise initial expectations based on new visual evidence.
+The validation set contains 632 Reporter questions.
+
+In our text-only setting, models receive \emph{only the question text and MCQ options}---no video frames, no frame descriptions, no captions.
+This deliberately strips away visual information to measure how much can be inferred from the textual structure of the questions and options alone.
+
+\subsection{Prompt Templates}
+\label{sec:templates}
+
+We design five prompt templates, each grounded in a different cognitive or reasoning strategy.
+All templates share a common system message instructing the model that it is reasoning from text only and must always provide an answer.
+
+\paragraph{P1: Direct.}
+The minimal baseline provides the question and options with a brief context note (hidden frames vs.\ complete video) and requests only the answer number.
+No reasoning scaffolding is provided.
+This measures raw commonsense and linguistic-cue exploitation.
+
+\paragraph{P2: Chain-of-Thought (CoT).}
+Following Wei~et~al.~\cite{wei2022chain}, we prompt the model to reason step-by-step before answering: (1) assess what the described events suggest, (2) evaluate physical plausibility, and (3) identify which option describes something unexpected.
+The model must produce its reasoning chain before stating a final answer.
+
+\paragraph{P3: Abductive/Defeasible Framing.}
+This template explicitly names the reasoning type required.
+For Detective questions, the prompt frames the task as ``abductive reasoning: infer the most plausible hidden cause.''
+For Reporter questions, it frames the task as ``defeasible reasoning: revise your beliefs based on new evidence.''
+This tests whether explicitly labeling the cognitive process improves performance.
+
+\paragraph{P4: Process-of-Elimination.}
+Inspired by Ma~et~al.~\cite{ma2023lets}, this template instructs the model to (1) assess each option for physical plausibility, (2) eliminate contradictory or impossible options, and (3) eliminate options that are too mundane (since the event should be surprising).
+This reverses the reasoning direction: instead of selecting the best answer, the model eliminates the worst.
+
+\paragraph{P5: Counterfactual Contrastive.}
+This template operationalizes counterfactual reasoning in three explicit steps: (1) establish a \emph{normal expectation} for the scenario, (2) identify the \emph{surprising outcome} that deviates from this expectation, and (3) select the option that captures this deviation.
+For Reporter questions, Steps 1--2 become belief formation and belief update.
+
+\subsection{Models}
+\label{sec:models}
+
+We evaluate three frontier language models spanning different providers and architectures:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+    \item \textbf{GPT-4o-mini}~\cite{openai2024gpt4o}: OpenAI's compact but capable model, representing the GPT-4 family at reduced cost.
+    \item \textbf{Claude~3.5~Haiku}~\cite{anthropic2024claude}: Anthropic's fast-inference model, known for instruction following.
+    \item \textbf{Gemini~2.0~Flash}~\cite{google2024gemini}: Google's efficient multimodal model, used here in text-only mode.
+\end{itemize}
+
+All models are queried at temperature~0 for deterministic outputs.
+We use a consistent system message across all conditions emphasizing that models should reason from text alone and must always produce an answer.
+
+\subsection{Evaluation Protocol}
+\label{sec:eval}
+
+We evaluate on the full BlackSwanSuite-MCQ validation set (1{,}793 questions: 1{,}161 Detective + 632 Reporter).
+Each of the 15 conditions (3 models $\times$ 5 templates) produces a prediction for every question.
+We report:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+    \item \textbf{Overall accuracy}: across all 1{,}793 questions.
+    \item \textbf{Detective accuracy}: abductive reasoning subset (1{,}161 questions).
+    \item \textbf{Reporter accuracy}: defeasible reasoning subset (632 questions).
+    \item \textbf{Difficulty breakdown}: easy (717), medium (762), hard (314) questions.
+\end{itemize}
+
+Baselines include \emph{random chance} (33.3\% for 3-way MCQ) and \emph{majority class} (34.5\%, always selecting option~0).

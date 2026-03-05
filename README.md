@@ -213,3 +213,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](UIDrift-Bench/latex/main.pdf) | [Code & Data](UIDrift-Bench/)
 
 ---
+
+## Paper 16: BlackSwanPrompt
+
+**Title:** How Far Can Text Alone Go? Prompting Baselines for Abductive and Defeasible Reasoning on BlackSwanSuite
+
+**Authors:** Aayam Bansal
+
+**Venue:** CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026) / BlackSwan Challenge
+
+**Abstract:** The BlackSwanSuite benchmark evaluates vision-language models on abductive reasoning (inferring hidden causes) and defeasible reasoning (revising beliefs given new evidence) in videos of unexpected events. While the benchmark is designed around video understanding, we ask a more fundamental question: how much of BlackSwanSuite can be solved from text alone? We systematically evaluate five cognitively-motivated prompting strategies---Direct, Chain-of-Thought, Abductive Framing, Process-of-Elimination, and Counterfactual Contrastive---across three frontier language models (GPT-4o-mini, Claude 3.5 Haiku, Gemini 2.0 Flash) on the full 1,793-question MCQ validation set, without any visual input. Our text-only baselines achieve up to 55.5% overall accuracy (vs. 33.3% random chance), with Chain-of-Thought prompting yielding the strongest performance. Strikingly, Reporter (defeasible) questions are substantially easier than Detective (abductive) questions in the text-only setting (69.0% vs. 48.2%), revealing that linguistic cues in answer options leak task-relevant information. We further contribute a five-category error taxonomy and show that different prompting strategies induce qualitatively different error profiles. Our results establish a rigorous text-only ceiling for BlackSwanSuite and quantify the "visual gap" that remains for multimodal models to exploit.
+
+[Paper PDF](BlackSwanPrompt/latex/main.pdf) | [Code & Data](BlackSwanPrompt/)
+
+---
