@@ -1,0 +1,3930 @@
+{
+  "accuracy": {
+    "internvl2": {
+      "original": {
+        "0": 0.79
+      },
+      "blur": {
+        "1": 0.82,
+        "2": 0.81,
+        "3": 0.8,
+        "4": 0.8
+      },
+      "border_text": {
+        "1": 0.81,
+        "2": 0.79,
+        "3": 0.8,
+        "4": 0.78
+      },
+      "contrast": {
+        "1": 0.8,
+        "2": 0.82,
+        "3": 0.77,
+        "4": 0.77
+      },
+      "crop": {
+        "1": 0.79,
+        "2": 0.8,
+        "3": 0.79,
+        "4": 0.79
+      },
+      "illumination": {
+        "1": 0.77,
+        "2": 0.73,
+        "3": 0.8,
+        "4": 0.79
+      },
+      "jpeg": {
+        "1": 0.71,
+        "2": 0.72,
+        "3": 0.7,
+        "4": 0.71
+      },
+      "occlusion": {
+        "1": 0.82,
+        "2": 0.79,
+        "3": 0.59,
+        "4": 0.77
+      },
+      "perspective": {
+        "1": 0.84,
+        "2": 0.79,
+        "3": 0.78,
+        "4": 0.74
+      },
+      "resize": {
+        "1": 0.81,
+        "2": 0.81,
+        "3": 0.8,
+        "4": 0.82
+      },
+      "rotation": {
+        "1": 0.77,
+        "2": 0.79,
+        "3": 0.76,
+        "4": 0.77
+      }
+    },
+    "llava": {
+      "original": {
+        "0": 0.89
+      },
+      "blur": {
+        "1": 0.89,
+        "2": 0.88,
+        "3": 0.86,
+        "4": 0.88
+      },
+      "border_text": {
+        "1": 0.88,
+        "2": 0.89,
+        "3": 0.85,
+        "4": 0.86
+      },
+      "contrast": {
+        "1": 0.89,
+        "2": 0.87,
+        "3": 0.88,
+        "4": 0.86
+      },
+      "crop": {
+        "1": 0.87,
+        "2": 0.87,
+        "3": 0.87,
+        "4": 0.85
+      },
+      "illumination": {
+        "1": 0.87,
+        "2": 0.85,
+        "3": 0.87,
+        "4": 0.87
+      },
+      "jpeg": {
+        "1": 0.88,
+        "2": 0.88,
+        "3": 0.89,
+        "4": 0.88
+      },
+      "occlusion": {
+        "1": 0.86,
+        "2": 0.84,
+        "3": 0.79,
+        "4": 0.82
+      },
+      "perspective": {
+        "1": 0.89,
+        "2": 0.86,
+        "3": 0.87,
+        "4": 0.88
+      },
+      "resize": {
+        "1": 0.89,
+        "2": 0.87,
+        "3": 0.87,
+        "4": 0.86
+      },
+      "rotation": {
+        "1": 0.89,
+        "2": 0.88,
+        "3": 0.89,
+        "4": 0.88
+      }
+    },
+    "qwen2vl": {
+      "original": {
+        "0": 0.83
+      },
+      "blur": {
+        "1": 0.82,
+        "2": 0.81,
+        "3": 0.83,
+        "4": 0.81
+      },
+      "border_text": {
+        "1": 0.82,
+        "2": 0.85,
+        "3": 0.84,
+        "4": 0.85
+      },
+      "contrast": {
+        "1": 0.82,
+        "2": 0.81,
+        "3": 0.81,
+        "4": 0.81
+      },
+      "crop": {
+        "1": 0.82,
+        "2": 0.81,
+        "3": 0.82,
+        "4": 0.82
+      },
+      "illumination": {
+        "1": 0.81,
+        "2": 0.79,
+        "3": 0.82,
+        "4": 0.81
+      },
+      "jpeg": {
+        "1": 0.82,
+        "2": 0.83,
+        "3": 0.83,
+        "4": 0.83
+      },
+      "occlusion": {
+        "1": 0.82,
+        "2": 0.81,
+        "3": 0.62,
+        "4": 0.79
+      },
+      "perspective": {
+        "1": 0.82,
+        "2": 0.82,
+        "3": 0.84,
+        "4": 0.78
+      },
+      "resize": {
+        "1": 0.83,
+        "2": 0.82,
+        "3": 0.82,
+        "4": 0.84
+      },
+      "rotation": {
+        "1": 0.84,
+        "2": 0.82,
+        "3": 0.83,
+        "4": 0.79
+      }
+    }
+  },
+  "cat_acc": {
+    "internvl2": {
+      "color_identification": {
+        "original": 1.0,
+        "transformed": 0.9574,
+        "drop": 0.0426
+      },
+      "counting": {
+        "original": 0.6471,
+        "transformed": 0.7956,
+        "drop": -0.1485
+      },
+      "object_recognition": {
+        "original": 0.9412,
+        "transformed": 0.8941,
+        "drop": 0.0471
+      },
+      "scene_understanding": {
+        "original": 0.375,
+        "transformed": 0.3594,
+        "drop": 0.0156
+      },
+      "spatial_reasoning": {
+        "original": 0.75,
+        "transformed": 0.6484,
+        "drop": 0.1016
+      },
+      "text_reading": {
+        "original": 1.0,
+        "transformed": 0.9809,
+        "drop": 0.0191
+      }
+    },
+    "llava": {
+      "color_identification": {
+        "original": 0.9412,
+        "transformed": 0.9294,
+        "drop": 0.0118
+      },
+      "counting": {
+        "original": 1.0,
+        "transformed": 0.9809,
+        "drop": 0.0191
+      },
+      "object_recognition": {
+        "original": 1.0,
+        "transformed": 0.9868,
+        "drop": 0.0132
+      },
+      "scene_understanding": {
+        "original": 0.625,
+        "transformed": 0.5813,
+        "drop": 0.0437
+      },
+      "spatial_reasoning": {
+        "original": 0.75,
+        "transformed": 0.7234,
+        "drop": 0.0266
+      },
+      "text_reading": {
+        "original": 1.0,
+        "transformed": 0.9897,
+        "drop": 0.0103
+      }
+    },
+    "qwen2vl": {
+      "color_identification": {
+        "original": 0.9412,
+        "transformed": 0.9471,
+        "drop": -0.0059
+      },
+      "counting": {
+        "original": 1.0,
+        "transformed": 1.0,
+        "drop": 0.0
+      },
+      "object_recognition": {
+        "original": 1.0,
+        "transformed": 0.9706,
+        "drop": 0.0294
+      },
+      "scene_understanding": {
+        "original": 0.5,
+        "transformed": 0.4375,
+        "drop": 0.0625
+      },
+      "spatial_reasoning": {
+        "original": 0.5,
+        "transformed": 0.5,
+        "drop": 0.0
+      },
+      "text_reading": {
+        "original": 1.0,
+        "transformed": 0.9912,
+        "drop": 0.0088
+      }
+    }
+  },
+  "consistency": {
+    "internvl2": {
+      "blur": {
+        "1": 0.9,
+        "2": 0.78,
+        "3": 0.73,
+        "4": 0.67
+      },
+      "border_text": {
+        "1": 0.69,
+        "2": 0.75,
+        "3": 0.67,
+        "4": 0.71
+      },
+      "contrast": {
+        "1": 0.91,
+        "2": 0.86,
+        "3": 0.95,
+        "4": 0.94
+      },
+      "crop": {
+        "1": 0.82,
+        "2": 0.76,
+        "3": 0.78,
+        "4": 0.77
+      },
+      "illumination": {
+        "1": 0.88,
+        "2": 0.78,
+        "3": 0.9,
+        "4": 0.88
+      },
+      "jpeg": {
+        "1": 0.83,
+        "2": 0.84,
+        "3": 0.8,
+        "4": 0.79
+      },
+      "occlusion": {
+        "1": 0.87,
+        "2": 0.71,
+        "3": 0.51,
+        "4": 0.72
+      },
+      "perspective": {
+        "1": 0.75,
+        "2": 0.74,
+        "3": 0.77,
+        "4": 0.73
+      },
+      "resize": {
+        "1": 0.79,
+        "2": 0.74,
+        "3": 0.73,
+        "4": 0.74
+      },
+      "rotation": {
+        "1": 0.83,
+        "2": 0.85,
+        "3": 0.82,
+        "4": 0.77
+      }
+    },
+    "llava": {
+      "blur": {
+        "1": 0.99,
+        "2": 0.93,
+        "3": 0.88,
+        "4": 0.87
+      },
+      "border_text": {
+        "1": 0.95,
+        "2": 0.91,
+        "3": 0.91,
+        "4": 0.87
+      },
+      "contrast": {
+        "1": 0.98,
+        "2": 0.94,
+        "3": 0.97,
+        "4": 0.95
+      },
+      "crop": {
+        "1": 0.91,
+        "2": 0.88,
+        "3": 0.87,
+        "4": 0.83
+      },
+      "illumination": {
+        "1": 0.92,
+        "2": 0.85,
+        "3": 0.95,
+        "4": 0.93
+      },
+      "jpeg": {
+        "1": 0.99,
+        "2": 0.99,
+        "3": 0.99,
+        "4": 0.97
+      },
+      "occlusion": {
+        "1": 0.91,
+        "2": 0.87,
+        "3": 0.83,
+        "4": 0.83
+      },
+      "perspective": {
+        "1": 0.97,
+        "2": 0.94,
+        "3": 0.95,
+        "4": 0.96
+      },
+      "resize": {
+        "1": 0.95,
+        "2": 0.92,
+        "3": 0.91,
+        "4": 0.89
+      },
+      "rotation": {
+        "1": 0.99,
+        "2": 0.98,
+        "3": 0.97,
+        "4": 0.92
+      }
+    },
+    "qwen2vl": {
+      "blur": {
+        "1": 0.91,
+        "2": 0.87,
+        "3": 0.85,
+        "4": 0.78
+      },
+      "border_text": {
+        "1": 0.87,
+        "2": 0.85,
+        "3": 0.86,
+        "4": 0.78
+      },
+      "contrast": {
+        "1": 0.92,
+        "2": 0.87,
+        "3": 0.92,
+        "4": 0.92
+      },
+      "crop": {
+        "1": 0.89,
+        "2": 0.87,
+        "3": 0.81,
+        "4": 0.75
+      },
+      "illumination": {
+        "1": 0.91,
+        "2": 0.84,
+        "3": 0.94,
+        "4": 0.94
+      },
+      "jpeg": {
+        "1": 0.86,
+        "2": 0.9,
+        "3": 0.89,
+        "4": 0.88
+      },
+      "occlusion": {
+        "1": 0.87,
+        "2": 0.81,
+        "3": 0.59,
+        "4": 0.82
+      },
+      "perspective": {
+        "1": 0.86,
+        "2": 0.85,
+        "3": 0.84,
+        "4": 0.83
+      },
+      "resize": {
+        "1": 0.89,
+        "2": 0.88,
+        "3": 0.84,
+        "4": 0.79
+      },
+      "rotation": {
+        "1": 0.93,
+        "2": 0.9,
+        "3": 0.89,
+        "4": 0.85
+      }
+    }
+  },
+  "mci": {
+    "internvl2": 0.9065,
+    "llava": 0.9775,
+    "qwen2vl": 0.9605
+  },
+  "prompt_sensitivity": {
+    "internvl2": {
+      "answer_consistency": 0.45,
+      "correctness_consistency": 0.795,
+      "n_pairs": 200
+    },
+    "llava": {
+      "answer_consistency": 0.695,
+      "correctness_consistency": 0.875,
+      "n_pairs": 200
+    },
+    "qwen2vl": {
+      "answer_consistency": 0.64,
+      "correctness_consistency": 0.855,
+      "n_pairs": 200
+    }
+  },
+  "breaking_examples": [
+    {
+      "model": "internvl2",
+      "test_id": "obj_00",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "circle",
+      "orig_ans": "Circle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.4907
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_01",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 1,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_01",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_04",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 3,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_04",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 4,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_04",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_04",
+      "category": "object_recognition",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 3,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "blur",
+      "severity": 4,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "illumination",
+      "severity": 4,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_06",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "circle",
+      "orig_ans": "Circle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.4907
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 1,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 2,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 1,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "illumination",
+      "severity": 3,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "illumination",
+      "severity": 4,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "contrast",
+      "severity": 1,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "contrast",
+      "severity": 2,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 1,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_07",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_09",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 3,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_09",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 4,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_09",
+      "category": "object_recognition",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_10",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "circle",
+      "orig_ans": "Circle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.4907
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_11",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 1,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_11",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_11",
+      "category": "object_recognition",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "Rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_14",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 3,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_14",
+      "category": "object_recognition",
+      "transform": "rotation",
+      "severity": 4,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_14",
+      "category": "object_recognition",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "diamond",
+      "orig_ans": "Diamond",
+      "trans_ans": "Square",
+      "semantic_sim": 0.3462
+    },
+    {
+      "model": "internvl2",
+      "test_id": "obj_16",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "circle",
+      "orig_ans": "Circle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.4907
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_05",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "orange",
+      "orig_ans": "Orange",
+      "trans_ans": "Brown",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 3,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "Orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 4,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "Orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "contrast",
+      "severity": 3,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "contrast",
+      "severity": 4,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "rotation",
+      "severity": 1,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Blue",
+      "semantic_sim": 0.3438
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "rotation",
+      "severity": 2,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Blue",
+      "semantic_sim": 0.3438
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "rotation",
+      "severity": 3,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Blue",
+      "semantic_sim": 0.3438
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "border_text",
+      "severity": 1,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Blue",
+      "semantic_sim": 0.3438
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Blue",
+      "semantic_sim": 0.3438
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Blue",
+      "semantic_sim": 0.3438
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 1,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "contrast",
+      "severity": 1,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "contrast",
+      "severity": 2,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Turquoise",
+      "semantic_sim": 0.4154
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_08",
+      "category": "color_identification",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "cyan",
+      "orig_ans": "Cyan",
+      "trans_ans": "Teal",
+      "semantic_sim": 0.3347
+    },
+    {
+      "model": "internvl2",
+      "test_id": "col_15",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "orange",
+      "orig_ans": "Orange",
+      "trans_ans": "Brown",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_03",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "4",
+      "orig_ans": "Three",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.2737
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_03",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "4",
+      "orig_ans": "Three",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.2737
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_03",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "4",
+      "orig_ans": "Three",
+      "trans_ans": "There are four blue circles in this image.",
+      "semantic_sim": 0.3248
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_04",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "5",
+      "orig_ans": "4",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.4038
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_04",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "5",
+      "orig_ans": "4",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.4038
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_04",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "5",
+      "orig_ans": "4",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.4038
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_04",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "5",
+      "orig_ans": "4",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.4038
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_05",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "6",
+      "orig_ans": "5",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.3642
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_05",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "6",
+      "orig_ans": "5",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.3642
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_05",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "6",
+      "orig_ans": "5",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.3642
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_05",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "6",
+      "orig_ans": "5",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.3642
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_05",
+      "category": "counting",
+      "transform": "contrast",
+      "severity": 3,
+      "gt": "6",
+      "orig_ans": "5",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.3642
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_05",
+      "category": "counting",
+      "transform": "contrast",
+      "severity": 4,
+      "gt": "6",
+      "orig_ans": "5",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.3642
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_11",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "4",
+      "orig_ans": "Three",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.2737
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_11",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "4",
+      "orig_ans": "Three",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.2737
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_11",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "4",
+      "orig_ans": "Three",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.2737
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_11",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "4",
+      "orig_ans": "Three",
+      "trans_ans": "There are five blue circles in this image.",
+      "semantic_sim": 0.2737
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_12",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "5",
+      "orig_ans": "Five",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.312
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_12",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "5",
+      "orig_ans": "Five",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.312
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_12",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "5",
+      "orig_ans": "Five",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.312
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_12",
+      "category": "counting",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "5",
+      "orig_ans": "Five",
+      "trans_ans": "There are six blue circles in this image.",
+      "semantic_sim": 0.312
+    },
+    {
+      "model": "internvl2",
+      "test_id": "cnt_15",
+      "category": "counting",
+      "transform": "crop",
+      "severity": 4,
+      "gt": "1",
+      "orig_ans": "1",
+      "trans_ans": "0",
+      "semantic_sim": 0.6216
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_00",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "hello",
+      "orig_ans": "HELLO",
+      "trans_ans": "HLO",
+      "semantic_sim": 0.3457
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_02",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "science",
+      "orig_ans": "Science",
+      "trans_ans": "SCIENC",
+      "semantic_sim": 0.4357
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_03",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "robot",
+      "orig_ans": "Robot",
+      "trans_ans": "R DOT",
+      "semantic_sim": 0.4151
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_04",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "brain",
+      "orig_ans": "BRAIN",
+      "trans_ans": "BIN",
+      "semantic_sim": 0.2316
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_05",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "vision",
+      "orig_ans": "VISION",
+      "trans_ans": "VION",
+      "semantic_sim": 0.3123
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_08",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "data",
+      "orig_ans": "DATA",
+      "trans_ans": "Dota",
+      "semantic_sim": 0.2364
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_09",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "test",
+      "orig_ans": "TEST",
+      "trans_ans": "TST",
+      "semantic_sim": 0.2871
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_10",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "neural",
+      "orig_ans": "Neural",
+      "trans_ans": "NATIONAL",
+      "semantic_sim": 0.3289
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_10",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "neural",
+      "orig_ans": "Neural",
+      "trans_ans": "NEURA",
+      "semantic_sim": 0.2452
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_11",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "deep",
+      "orig_ans": "DEEP",
+      "trans_ans": "DEP",
+      "semantic_sim": 0.23
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_13",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "train",
+      "orig_ans": "TRAIN",
+      "trans_ans": "TIN",
+      "semantic_sim": 0.2477
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_14",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "graph",
+      "orig_ans": "GRAPH",
+      "trans_ans": "GPH",
+      "semantic_sim": 0.1751
+    },
+    {
+      "model": "internvl2",
+      "test_id": "txt_16",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "token",
+      "orig_ans": "Token",
+      "trans_ans": "TODEN",
+      "semantic_sim": 0.2119
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "blur",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "blur",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "rotation",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "blur",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_05",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "blur",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "left of",
+      "semantic_sim": 0.3647
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "resize",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "crop",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "rotation",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "blur",
+      "severity": 1,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "blur",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "blur",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right of",
+      "semantic_sim": 0.2883
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_01",
+      "category": "scene_understanding",
+      "transform": "resize",
+      "severity": 2,
+      "gt": "diagonal stripes",
+      "orig_ans": "Vertical stripes.",
+      "trans_ans": "Line pattern.",
+      "semantic_sim": 0.53
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_01",
+      "category": "scene_understanding",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "diagonal stripes",
+      "orig_ans": "Vertical stripes.",
+      "trans_ans": "Line pattern.",
+      "semantic_sim": 0.53
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_01",
+      "category": "scene_understanding",
+      "transform": "resize",
+      "severity": 4,
+      "gt": "diagonal stripes",
+      "orig_ans": "Vertical stripes.",
+      "trans_ans": "Line pattern.",
+      "semantic_sim": 0.53
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_01",
+      "category": "scene_understanding",
+      "transform": "rotation",
+      "severity": 4,
+      "gt": "diagonal stripes",
+      "orig_ans": "Vertical stripes.",
+      "trans_ans": "Line pattern.",
+      "semantic_sim": 0.53
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_01",
+      "category": "scene_understanding",
+      "transform": "blur",
+      "severity": 3,
+      "gt": "diagonal stripes",
+      "orig_ans": "Vertical stripes.",
+      "trans_ans": "Line pattern.",
+      "semantic_sim": 0.53
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_01",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "diagonal stripes",
+      "orig_ans": "Vertical stripes.",
+      "trans_ans": "Vertical lines",
+      "semantic_sim": 0.5399
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_01",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "diagonal stripes",
+      "orig_ans": "Vertical stripes.",
+      "trans_ans": "Vertical lines",
+      "semantic_sim": 0.5399
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_02",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 3,
+      "gt": "concentric circles",
+      "orig_ans": "Circle with concentric rings.",
+      "trans_ans": "Circle pattern.",
+      "semantic_sim": 0.566
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_02",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 4,
+      "gt": "concentric circles",
+      "orig_ans": "Circle with concentric rings.",
+      "trans_ans": "Circle pattern.",
+      "semantic_sim": 0.566
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_02",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "concentric circles",
+      "orig_ans": "Circle with concentric rings.",
+      "trans_ans": "Circle pattern.",
+      "semantic_sim": 0.566
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_02",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "concentric circles",
+      "orig_ans": "Circle with concentric rings.",
+      "trans_ans": "Circle pattern.",
+      "semantic_sim": 0.566
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of black dots.",
+      "semantic_sim": 0.6222
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of black dots.",
+      "semantic_sim": 0.6222
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of black dots.",
+      "semantic_sim": 0.6222
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of black dots.",
+      "semantic_sim": 0.6222
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "blur",
+      "severity": 4,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dotted lines.",
+      "semantic_sim": 0.5478
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 1,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of points.",
+      "semantic_sim": 0.2784
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of black dots.",
+      "semantic_sim": 0.6222
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of points.",
+      "semantic_sim": 0.2784
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dense cluster of black dots.",
+      "semantic_sim": 0.6222
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dots scattered across a white background.",
+      "semantic_sim": 0.6442
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_05",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "random dots",
+      "orig_ans": "Dense cluster of dots.",
+      "trans_ans": "Dot grid",
+      "semantic_sim": 0.5254
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_08",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "cross",
+      "orig_ans": "Cross.",
+      "trans_ans": "Square grid",
+      "semantic_sim": 0.1904
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_08",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "cross",
+      "orig_ans": "Cross.",
+      "trans_ans": "Square grid",
+      "semantic_sim": 0.1904
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 1,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 2,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 3,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "rotation",
+      "severity": 1,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "rotation",
+      "severity": 2,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "rotation",
+      "severity": 3,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "rotation",
+      "severity": 4,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 3,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "blur",
+      "severity": 3,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 1,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid pattern.",
+      "semantic_sim": 0.5675
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid pattern.",
+      "semantic_sim": 0.5675
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 1,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Grid-like pattern.",
+      "semantic_sim": 0.4973
+    },
+    {
+      "model": "internvl2",
+      "test_id": "scn_12",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "diamond grid",
+      "orig_ans": "Diamond grid.",
+      "trans_ans": "Square grid.",
+      "semantic_sim": 0.6089
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "resize",
+      "severity": 2,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "resize",
+      "severity": 4,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "crop",
+      "severity": 1,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "blur",
+      "severity": 3,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "blur",
+      "severity": 4,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 1,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_05",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "obj_15",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "rectangle",
+      "orig_ans": "Rectangle",
+      "trans_ans": "Square",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "llava",
+      "test_id": "col_05",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "orange",
+      "orig_ans": "Orange",
+      "trans_ans": "Brown",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "col_05",
+      "category": "color_identification",
+      "transform": "contrast",
+      "severity": 2,
+      "gt": "orange",
+      "orig_ans": "Orange",
+      "trans_ans": "Brown",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 3,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "Orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 4,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "Orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "col_07",
+      "category": "color_identification",
+      "transform": "contrast",
+      "severity": 4,
+      "gt": "brown",
+      "orig_ans": "Brown",
+      "trans_ans": "Orange",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "col_15",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 1,
+      "gt": "orange",
+      "orig_ans": "Orange",
+      "trans_ans": "Brown",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "col_15",
+      "category": "color_identification",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "orange",
+      "orig_ans": "Orange",
+      "trans_ans": "Brown",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "col_15",
+      "category": "color_identification",
+      "transform": "contrast",
+      "severity": 2,
+      "gt": "orange",
+      "orig_ans": "Orange",
+      "trans_ans": "Brown",
+      "semantic_sim": 0.553
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "resize",
+      "severity": 2,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "resize",
+      "severity": 4,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "crop",
+      "severity": 2,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "crop",
+      "severity": 3,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "20",
+      "semantic_sim": 0.5732
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "crop",
+      "severity": 4,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "blur",
+      "severity": 2,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "blur",
+      "severity": 3,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "occlusion",
+      "severity": 1,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "14",
+      "semantic_sim": 0.63
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_08",
+      "category": "counting",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "9",
+      "orig_ans": "12",
+      "trans_ans": "16",
+      "semantic_sim": 0.575
+    },
+    {
+      "model": "llava",
+      "test_id": "cnt_15",
+      "category": "counting",
+      "transform": "crop",
+      "severity": 4,
+      "gt": "1",
+      "orig_ans": "1",
+      "trans_ans": "0",
+      "semantic_sim": 0.6216
+    },
+    {
+      "model": "llava",
+      "test_id": "txt_00",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "hello",
+      "orig_ans": "Hello",
+      "trans_ans": "Holo",
+      "semantic_sim": 0.3624
+    },
+    {
+      "model": "llava",
+      "test_id": "txt_03",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "robot",
+      "orig_ans": "Robot",
+      "trans_ans": "Root",
+      "semantic_sim": 0.2225
+    },
+    {
+      "model": "llava",
+      "test_id": "txt_10",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "neural",
+      "orig_ans": "Neural",
+      "trans_ans": "NEERAL",
+      "semantic_sim": 0.2827
+    },
+    {
+      "model": "llava",
+      "test_id": "txt_10",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "neural",
+      "orig_ans": "Neural",
+      "trans_ans": "Neura",
+      "semantic_sim": 0.2452
+    },
+    {
+      "model": "llava",
+      "test_id": "txt_14",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "graph",
+      "orig_ans": "Graph",
+      "trans_ans": "Gph",
+      "semantic_sim": 0.1751
+    },
+    {
+      "model": "llava",
+      "test_id": "txt_15",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "layer",
+      "orig_ans": "Layer",
+      "trans_ans": "LER",
+      "semantic_sim": 0.171
+    },
+    {
+      "model": "llava",
+      "test_id": "txt_16",
+      "category": "text_reading",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "token",
+      "orig_ans": "TOKEN",
+      "trans_ans": "TON",
+      "semantic_sim": 0.276
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_01",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right",
+      "semantic_sim": 0.2372
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_02",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_02",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_02",
+      "category": "spatial_reasoning",
+      "transform": "contrast",
+      "severity": 3,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_02",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_06",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_06",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_06",
+      "category": "spatial_reasoning",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_06",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_06",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_09",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_09",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_10",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right",
+      "semantic_sim": 0.2372
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_13",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 2,
+      "gt": "below",
+      "orig_ans": "Below",
+      "trans_ans": "Right",
+      "semantic_sim": 0.2372
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_14",
+      "category": "spatial_reasoning",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_14",
+      "category": "spatial_reasoning",
+      "transform": "contrast",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "spt_14",
+      "category": "spatial_reasoning",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "left of",
+      "orig_ans": "Left",
+      "trans_ans": "Above",
+      "semantic_sim": 0.326
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_04",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "radial lines",
+      "orig_ans": "Radial lines",
+      "trans_ans": "Radiating lines",
+      "semantic_sim": 0.5731
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_07",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 4,
+      "gt": "nested squares",
+      "orig_ans": "Squares",
+      "trans_ans": "Square pattern",
+      "semantic_sim": 0.646
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_07",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 4,
+      "gt": "nested squares",
+      "orig_ans": "Squares",
+      "trans_ans": "Diamond pattern",
+      "semantic_sim": 0.2871
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_07",
+      "category": "scene_understanding",
+      "transform": "contrast",
+      "severity": 4,
+      "gt": "nested squares",
+      "orig_ans": "Squares",
+      "trans_ans": "Checkered",
+      "semantic_sim": 0.1908
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_07",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "nested squares",
+      "orig_ans": "Squares",
+      "trans_ans": "Checkered",
+      "semantic_sim": 0.1908
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_13",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 4,
+      "gt": "polka dots",
+      "orig_ans": "Dots",
+      "trans_ans": "Red circles",
+      "semantic_sim": 0.4468
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "resize",
+      "severity": 3,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "resize",
+      "severity": 4,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "rotation",
+      "severity": 2,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "rotation",
+      "severity": 4,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 1,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "jpeg",
+      "severity": 2,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "blur",
+      "severity": 3,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "blur",
+      "severity": 4,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 1,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 2,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "border_text",
+      "severity": 3,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 1,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 3,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 4,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 1,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_14",
+      "category": "scene_understanding",
+      "transform": "occlusion",
+      "severity": 4,
+      "gt": "waves",
+      "orig_ans": "Waves",
+      "trans_ans": "Wavy lines",
+      "semantic_sim": 0.5602
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 1,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 2,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 3,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "crop",
+      "severity": 4,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "illumination",
+      "severity": 2,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 2,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 3,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "llava",
+      "test_id": "scn_15",
+      "category": "scene_understanding",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "triangles",
+      "orig_ans": "Triangle pattern",
+      "trans_ans": "Geometric shapes",
+      "semantic_sim": 0.6053
+    },
+    {
+      "model": "qwen2vl",
+      "test_id": "obj_00",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "circle",
+      "orig_ans": "Circle",
+      "trans_ans": "square",
+      "semantic_sim": 0.4907
+    },
+    {
+      "model": "qwen2vl",
+      "test_id": "obj_01",
+      "category": "object_recognition",
+      "transform": "perspective",
+      "severity": 4,
+      "gt": "square",
+      "orig_ans": "Square",
+      "trans_ans": "rectangle",
+      "semantic_sim": 0.6048
+    },
+    {
+      "model": "qwen2vl",
+      "test_id": "obj_02",
+      "category": "object_recognition",
+      "transform": "occlusion",
+      "severity": 3,
+      "gt": "triangle",
+      "orig_ans": "triangle",
+      "trans_ans": "square",
+      "semantic_sim": 0.4767
+    }
+  ],
+  "failure_summary": {
+    "occlusion|text_reading": 26,
+    "occlusion|object_recognition": 24,
+    "crop|scene_understanding": 21,
+    "perspective|scene_understanding": 20,
+    "jpeg|counting": 19,
+    "border_text|spatial_reasoning": 19,
+    "occlusion|spatial_reasoning": 19,
+    "occlusion|scene_understanding": 18,
+    "illumination|color_identification": 16,
+    "blur|scene_understanding": 16,
+    "border_text|scene_understanding": 16,
+    "resize|spatial_reasoning": 15,
+    "jpeg|scene_understanding": 14,
+    "resize|scene_understanding": 13,
+    "illumination|scene_understanding": 13,
+    "rotation|object_recognition": 12,
+    "rotation|scene_understanding": 12,
+    "contrast|color_identification": 11,
+    "perspective|spatial_reasoning": 11,
+    "border_text|object_recognition": 10,
+    "crop|spatial_reasoning": 8,
+    "blur|spatial_reasoning": 7,
+    "contrast|scene_understanding": 7,
+    "illumination|object_recognition": 6,
+    "jpeg|color_identification": 5,
+    "perspective|color_identification": 5,
+    "crop|counting": 5,
+    "perspective|object_recognition": 4,
+    "border_text|color_identification": 4,
+    "occlusion|counting": 4,
+    "blur|object_recognition": 3,
+    "rotation|color_identification": 3,
+    "resize|object_recognition": 3,
+    "jpeg|object_recognition": 2,
+    "contrast|object_recognition": 2,
+    "occlusion|color_identification": 2,
+    "contrast|counting": 2,
+    "rotation|spatial_reasoning": 2,
+    "resize|counting": 2,
+    "blur|counting": 2,
+    "contrast|spatial_reasoning": 2,
+    "crop|object_recognition": 1,
+    "perspective|counting": 1
+  },
+  "sim_stats": {
+    "correct": {
+      "mean": 0.9532,
+      "std": 0.1086,
+      "median": 1.0,
+      "n": 10596
+    },
+    "incorrect": {
+      "mean": 0.3975,
+      "std": 0.1463,
+      "median": 0.3647,
+      "n": 2304
+    }
+  },
+  "human_baseline": {
+    "note": "Estimated from Geirhos et al. 2023 and Rahmanzadehgervi et al. 2024",
+    "object_recognition": {
+      "original": 1.0,
+      "transformed_est": 0.98,
+      "mci_est": 0.99
+    },
+    "color_identification": {
+      "original": 1.0,
+      "transformed_est": 0.97,
+      "mci_est": 0.99
+    },
+    "counting": {
+      "original": 0.95,
+      "transformed_est": 0.93,
+      "mci_est": 0.98
+    },
+    "text_reading": {
+      "original": 1.0,
+      "transformed_est": 0.95,
+      "mci_est": 0.97
+    },
+    "spatial_reasoning": {
+      "original": 1.0,
+      "transformed_est": 0.99,
+      "mci_est": 0.99
+    },
+    "scene_understanding": {
+      "original": 0.95,
+      "transformed_est": 0.93,
+      "mci_est": 0.98
+    },
+    "overall_mci_est": 0.985,
+    "justification": "Human visual perception maintains perceptual constancy under rotation, scale, illumination, and moderate blur. Estimated drops are primarily from extreme compression (Q10) and heavy occlusion."
+  },
+  "models": [
+    "internvl2",
+    "llava",
+    "qwen2vl"
+  ],
+  "transforms": [
+    "blur",
+    "border_text",
+    "contrast",
+    "crop",
+    "illumination",
+    "jpeg",
+    "occlusion",
+    "perspective",
+    "resize",
+    "rotation"
+  ],
+  "categories": [
+    "color_identification",
+    "counting",
+    "object_recognition",
+    "scene_understanding",
+    "spatial_reasoning",
+    "text_reading"
+  ],
+  "total_results": 12900,
+  "sim_threshold": 0.65
+}

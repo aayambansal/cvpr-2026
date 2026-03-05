@@ -1,0 +1,190 @@
+{
+  "summary": {
+    "internvl2": {
+      "n_items": 500,
+      "baseline_acc": 0.782,
+      "tta_acc": 0.766,
+      "improvement": -0.016,
+      "recovered": 8,
+      "lost": 16,
+      "per_transform": {
+        "blur": {
+          "baseline_acc": 0.8302,
+          "tta_acc": 0.8302,
+          "n": 53
+        },
+        "border_text": {
+          "baseline_acc": 0.8163,
+          "tta_acc": 0.7551,
+          "n": 49
+        },
+        "contrast": {
+          "baseline_acc": 0.92,
+          "tta_acc": 0.9,
+          "n": 50
+        },
+        "crop": {
+          "baseline_acc": 0.9,
+          "tta_acc": 0.86,
+          "n": 50
+        },
+        "illumination": {
+          "baseline_acc": 0.6939,
+          "tta_acc": 0.7143,
+          "n": 49
+        },
+        "jpeg": {
+          "baseline_acc": 0.5769,
+          "tta_acc": 0.5769,
+          "n": 52
+        },
+        "occlusion": {
+          "baseline_acc": 0.7826,
+          "tta_acc": 0.7609,
+          "n": 46
+        },
+        "perspective": {
+          "baseline_acc": 0.7586,
+          "tta_acc": 0.7586,
+          "n": 58
+        },
+        "resize": {
+          "baseline_acc": 0.7917,
+          "tta_acc": 0.7083,
+          "n": 48
+        },
+        "rotation": {
+          "baseline_acc": 0.7556,
+          "tta_acc": 0.8,
+          "n": 45
+        }
+      }
+    },
+    "llava": {
+      "n_items": 500,
+      "baseline_acc": 0.856,
+      "tta_acc": 0.86,
+      "improvement": 0.004,
+      "recovered": 5,
+      "lost": 3,
+      "per_transform": {
+        "blur": {
+          "baseline_acc": 0.8491,
+          "tta_acc": 0.8491,
+          "n": 53
+        },
+        "border_text": {
+          "baseline_acc": 0.8571,
+          "tta_acc": 0.8571,
+          "n": 49
+        },
+        "contrast": {
+          "baseline_acc": 0.9,
+          "tta_acc": 0.9,
+          "n": 50
+        },
+        "crop": {
+          "baseline_acc": 0.86,
+          "tta_acc": 0.88,
+          "n": 50
+        },
+        "illumination": {
+          "baseline_acc": 0.7347,
+          "tta_acc": 0.7347,
+          "n": 49
+        },
+        "jpeg": {
+          "baseline_acc": 0.9038,
+          "tta_acc": 0.9038,
+          "n": 52
+        },
+        "occlusion": {
+          "baseline_acc": 0.913,
+          "tta_acc": 0.9348,
+          "n": 46
+        },
+        "perspective": {
+          "baseline_acc": 0.8621,
+          "tta_acc": 0.8448,
+          "n": 58
+        },
+        "resize": {
+          "baseline_acc": 0.8125,
+          "tta_acc": 0.8333,
+          "n": 48
+        },
+        "rotation": {
+          "baseline_acc": 0.8667,
+          "tta_acc": 0.8667,
+          "n": 45
+        }
+      }
+    },
+    "qwen2vl": {
+      "n_items": 500,
+      "baseline_acc": 0.812,
+      "tta_acc": 0.802,
+      "improvement": -0.01,
+      "recovered": 4,
+      "lost": 9,
+      "per_transform": {
+        "blur": {
+          "baseline_acc": 0.8113,
+          "tta_acc": 0.7925,
+          "n": 53
+        },
+        "border_text": {
+          "baseline_acc": 0.8367,
+          "tta_acc": 0.7959,
+          "n": 49
+        },
+        "contrast": {
+          "baseline_acc": 0.92,
+          "tta_acc": 0.92,
+          "n": 50
+        },
+        "crop": {
+          "baseline_acc": 0.84,
+          "tta_acc": 0.84,
+          "n": 50
+        },
+        "illumination": {
+          "baseline_acc": 0.6939,
+          "tta_acc": 0.7347,
+          "n": 49
+        },
+        "jpeg": {
+          "baseline_acc": 0.7692,
+          "tta_acc": 0.7692,
+          "n": 52
+        },
+        "occlusion": {
+          "baseline_acc": 0.8043,
+          "tta_acc": 0.8043,
+          "n": 46
+        },
+        "perspective": {
+          "baseline_acc": 0.7759,
+          "tta_acc": 0.7759,
+          "n": 58
+        },
+        "resize": {
+          "baseline_acc": 0.8542,
+          "tta_acc": 0.7917,
+          "n": 48
+        },
+        "rotation": {
+          "baseline_acc": 0.8222,
+          "tta_acc": 0.8,
+          "n": 45
+        }
+      }
+    }
+  },
+  "models": [
+    "internvl2",
+    "llava",
+    "qwen2vl"
+  ],
+  "total_items": 1500
+}
