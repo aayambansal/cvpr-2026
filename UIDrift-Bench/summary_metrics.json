@@ -1,0 +1,149 @@
+{
+  "gpt4o-mini": {
+    "base_em": 0.8717948717948718,
+    "base_ac": 0.8717948717948718,
+    "base_iou": 0.05692404283265827,
+    "drift_em": {
+      "theme_change": 0.86,
+      "sidebar_toggle": 1.0,
+      "responsive_scale": 0.87,
+      "viewport_crop": 0.95,
+      "composite": 1.0
+    },
+    "drift_ac": {
+      "theme_change": 0.86,
+      "sidebar_toggle": 1.0,
+      "responsive_scale": 0.87,
+      "viewport_crop": 0.95,
+      "composite": 1.0
+    },
+    "drift_iou": {
+      "theme_change": 0.1148304360497247,
+      "sidebar_toggle": 0.03612324119416887,
+      "responsive_scale": 0.08619204622396671,
+      "viewport_crop": 0.04515346605378648,
+      "composite": 0.032360363838786196
+    },
+    "drift_consistency": {
+      "theme_change": 0.87,
+      "sidebar_toggle": 0.8,
+      "responsive_scale": 0.84,
+      "viewport_crop": 0.8,
+      "composite": 0.8
+    },
+    "overall_drs": 0.8979999999999999,
+    "type_base_em": {
+      "dashboard": 1.0,
+      "settings": 0.875,
+      "table": 0.7142857142857143,
+      "article": 1.0,
+      "analytics": 1.0
+    },
+    "qa_type_base_em": {
+      "value_extraction": 0.9411764705882353,
+      "trend_detection": 1.0,
+      "ui_state": 1.0,
+      "table_lookup": 0.7142857142857143,
+      "text_extraction": 1.0,
+      "chart_reading": 1.0
+    }
+  },
+  "gpt4o": {
+    "base_em": 0.9487179487179487,
+    "base_ac": 0.9487179487179487,
+    "base_iou": 0.06574579849472148,
+    "drift_em": {
+      "theme_change": 0.92,
+      "sidebar_toggle": 1.0,
+      "responsive_scale": 0.9,
+      "viewport_crop": 0.91,
+      "composite": 0.93
+    },
+    "drift_ac": {
+      "theme_change": 0.92,
+      "sidebar_toggle": 1.0,
+      "responsive_scale": 0.9,
+      "viewport_crop": 0.91,
+      "composite": 0.93
+    },
+    "drift_iou": {
+      "theme_change": 0.05796099784442138,
+      "sidebar_toggle": 0.0707119636672559,
+      "responsive_scale": 0.05361882475762522,
+      "viewport_crop": 0.07697660250730187,
+      "composite": 0.06496547331437695
+    },
+    "drift_consistency": {
+      "theme_change": 0.98,
+      "sidebar_toggle": 0.9,
+      "responsive_scale": 1.0,
+      "viewport_crop": 0.99,
+      "composite": 0.97
+    },
+    "overall_drs": 0.944,
+    "type_base_em": {
+      "dashboard": 1.0,
+      "settings": 0.75,
+      "table": 1.0,
+      "article": 1.0,
+      "analytics": 1.0
+    },
+    "qa_type_base_em": {
+      "value_extraction": 0.8823529411764706,
+      "trend_detection": 1.0,
+      "ui_state": 1.0,
+      "table_lookup": 1.0,
+      "text_extraction": 1.0,
+      "chart_reading": 1.0
+    }
+  },
+  "gemini-flash": {
+    "base_em": 0.9282051282051282,
+    "base_ac": 0.9282051282051282,
+    "base_iou": 0.005204415220817931,
+    "drift_em": {
+      "theme_change": 0.98,
+      "sidebar_toggle": 0.9,
+      "responsive_scale": 0.96,
+      "viewport_crop": 0.99,
+      "composite": 0.92
+    },
+    "drift_ac": {
+      "theme_change": 0.98,
+      "sidebar_toggle": 0.9,
+      "responsive_scale": 0.96,
+      "viewport_crop": 0.99,
+      "composite": 0.92
+    },
+    "drift_iou": {
+      "theme_change": 0.0,
+      "sidebar_toggle": 0.0,
+      "responsive_scale": 0.0,
+      "viewport_crop": 0.0,
+      "composite": 0.0
+    },
+    "drift_consistency": {
+      "theme_change": 0.98,
+      "sidebar_toggle": 0.9,
+      "responsive_scale": 0.96,
+      "viewport_crop": 0.99,
+      "composite": 0.92
+    },
+    "overall_drs": 0.95,
+    "type_base_em": {
+      "dashboard": 0.6888888888888889,
+      "settings": 1.0,
+      "table": 1.0,
+      "article": 1.0,
+      "analytics": 1.0
+    },
+    "qa_type_base_em": {
+      "value_extraction": 1.0,
+      "trend_detection": 0.3,
+      "ui_state": 1.0,
+      "table_lookup": 1.0,
+      "text_extraction": 1.0,
+      "chart_reading": 1.0
+    }
+  }
+}
