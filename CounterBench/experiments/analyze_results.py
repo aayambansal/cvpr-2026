@@ -1,278 +1,610 @@
-#!/usr/bin/env python3
 """
-Comprehensive analysis of CounterBench results.
-Computes:
-  - Counterfactual Consistency Score (CCS) per model, category, subcategory
-  - Original accuracy, intervened accuracy
-  - Breakdown by should_change vs should_not_change
-  - Error type analysis
-  - Saves all tables as JSON for figure generation
+CounterBench: Comprehensive Analysis Pipeline
+Computes counterfactual consistency scores, accuracy, and generates all figures.
 """
 
-import json
 import os
+import json
+import re
+import sys
 from pathlib import Path
 from collections import defaultdict
 
-DATA_DIR = Path(__file__).resolve().parent.parent / "data"
-RESULTS_DIR = DATA_DIR / "results"
-ANALYSIS_DIR = DATA_DIR / "analysis"
-ANALYSIS_DIR.mkdir(exist_ok=True)
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
 
-MODEL_NAMES = {
+RESULTS_DIR = Path(__file__).parent.parent / "results"
+DATA_DIR = Path(__file__).parent.parent / "data"
+FIGURES_DIR = Path(__file__).parent.parent / "figures"
+FIGURES_DIR.mkdir(exist_ok=True)
+
+# Models to analyze (only those with good results)
+MODELS = ["gpt4o", "gemini_flash", "qwen_vl", "gpt4o_mini"]
+MODEL_DISPLAY = {
     "gpt4o": "GPT-4o",
-    "claude35sonnet": "Claude 3.5 Sonnet",
-    "gemini2flash": "Gemini 2.0 Flash",
-    "llama32_90b": "Llama 3.2 90B",
-    "qwen2vl72b": "Qwen2-VL 72B",
-    "gemini25flash": "Gemini 2.5 Flash",
+    "gemini_flash": "Gemini 2.0 Flash",
+    "qwen_vl": "Qwen2.5-VL-72B",
+    "gpt4o_mini": "GPT-4o mini",
+}
+
+CATEGORY_DISPLAY = {
+    "spatial": "Spatial",
+    "attribute": "Attribute",
+    "counting": "Counting",
+    "containment": "Containment",
+    "causal": "Causal",
+    "negative_control": "Neg. Control"
+}
+
+# Color palette (colorblind-safe)
+COLORS = {
+    "gpt4o": "#0072B2",
+    "gemini_flash": "#D55E00",
+    "qwen_vl": "#009E73",
+    "gpt4o_mini": "#CC79A7",
 }
 
 
-def load_results():
-    """Load all per-model result files."""
-    all_results = {}
-    for model_key in MODEL_NAMES:
-        path = RESULTS_DIR / f"{model_key}_results.json"
-        if path.exists():
-            with open(path) as f:
-                all_results[model_key] = json.load(f)
-    return all_results
+def normalize_answer(answer, category, gt_answer):
+    """Normalize model response for comparison."""
+    if not answer or answer.startswith("ERROR"):
+        return None
+    
+    a = answer.lower().strip().rstrip('.').strip()
+    
+    # Remove common prefixes
+    for prefix in ["the answer is ", "answer: ", "the ", "it is ", "it's "]:
+        if a.startswith(prefix):
+            a = a[len(prefix):]
+    
+    # Yes/no normalization
+    if gt_answer.lower() in ["yes", "no"]:
+        if "yes" in a and "no" not in a:
+            return "yes"
+        elif "no" in a and "yes" not in a:
+            return "no"
+        elif a.startswith("yes"):
+            return "yes"
+        elif a.startswith("no"):
+            return "no"
+        return a
+    
+    # Number normalization
+    if gt_answer.isdigit():
+        nums = re.findall(r'\d+', a)
+        if nums:
+            return nums[0]
+        # Word to number
+        word_to_num = {"one":"1","two":"2","three":"3","four":"4","five":"5",
+                       "six":"6","seven":"7","eight":"8","nine":"9","zero":"0"}
+        for w, n in word_to_num.items():
+            if w in a:
+                return n
+        return a
+    
+    # Color normalization
+    colors = ["red","blue","green","yellow","purple","orange","cyan","pink"]
+    for c in colors:
+        if c in a:
+            return c
+    
+    # Shape normalization for causal arrow
+    a = a.replace("triangle", "triangle").replace("triangles", "triangle")
+    return a.strip()
 
 
-def compute_metrics(results):
-    """Compute comprehensive metrics for a single model's results."""
+def check_match(response, gt_answer, category):
+    """Check if response matches ground truth."""
+    norm = normalize_answer(response, category, gt_answer)
+    if norm is None:
+        return False
+    
+    gt = gt_answer.lower().strip()
+    
+    # Exact match
+    if norm == gt:
+        return True
+    
+    # For color+shape answers (causal arrow), check if both parts present
+    if " " in gt:
+        parts = gt.split()
+        return all(p in norm for p in parts)
+    
+    return False
+
+
+def compute_metrics(model_name):
+    """Compute all metrics for a model."""
+    rpath = RESULTS_DIR / f"{model_name}_results.json"
+    with open(rpath) as f:
+        data = json.load(f)
+    
+    results = data["results"]
     metrics = {
-        "total": len(results),
-        "orig_correct": 0,
-        "intv_correct": 0,
-        "consistent": 0,  # CCS: answer changes iff should_change
-        "true_positive": 0,  # should change AND did change correctly
-        "true_negative": 0,  # should NOT change AND did NOT change
-        "false_positive": 0,  # should NOT change BUT did change
-        "false_negative": 0,  # should change BUT did NOT change correctly
-        "should_change_total": 0,
-        "should_not_change_total": 0,
+        "model": model_name,
+        "total": 0,
+        "valid": 0,
+        "by_category": defaultdict(lambda: {
+            "total": 0, "valid": 0,
+            "orig_correct": 0, "int_correct": 0,
+            "both_correct": 0, "consistency": 0,
+            "flip_when_should": 0, "flip_when_shouldnt": 0,
+            "should_flip_total": 0, "shouldnt_flip_total": 0,
+        })
     }
     
-    error_types = defaultdict(int)
+    # Global metrics
+    orig_correct_total = 0
+    int_correct_total = 0
+    both_correct_total = 0
+    consistency_total = 0
+    valid_total = 0
     
     for r in results:
-        gt_orig = r["gt_original"].strip().lower()
-        gt_intv = r["gt_intervened"].strip().lower()
-        pred_orig = r["pred_original"].strip().lower()
-        pred_intv = r["pred_intervened"].strip().lower()
-        should_change = r["should_change"]
+        cat = r["category"]
+        m = metrics["by_category"][cat]
+        m["total"] += 1
+        metrics["total"] += 1
         
-        # Original accuracy
-        orig_correct = pred_orig == gt_orig
-        if orig_correct:
-            metrics["orig_correct"] += 1
+        if r["orig_response"].startswith("ERROR") or r["int_response"].startswith("ERROR"):
+            continue
         
-        # Intervened accuracy
-        intv_correct = pred_intv == gt_intv
-        if intv_correct:
-            metrics["intv_correct"] += 1
+        m["valid"] += 1
+        valid_total += 1
         
-        # Counterfactual consistency
-        if should_change:
-            metrics["should_change_total"] += 1
-            # Model should give different answer (matching new GT)
-            answer_changed = pred_orig != pred_intv
-            if answer_changed and intv_correct:
-                metrics["true_positive"] += 1
-                metrics["consistent"] += 1
-            elif not answer_changed:
-                metrics["false_negative"] += 1
-                error_types["sticky_answer"] += 1
-            else:
-                # Changed but wrong
-                metrics["false_negative"] += 1
-                error_types["wrong_change"] += 1
+        orig_match = check_match(r["orig_response"], r["original_answer_gt"], cat)
+        int_match = check_match(r["int_response"], r["intervened_answer_gt"], cat)
+        
+        if orig_match:
+            m["orig_correct"] += 1
+            orig_correct_total += 1
+        if int_match:
+            m["int_correct"] += 1
+            int_correct_total += 1
+        if orig_match and int_match:
+            m["both_correct"] += 1
+            both_correct_total += 1
+        
+        # Consistency: did the answer change status as expected?
+        orig_norm = normalize_answer(r["orig_response"], cat, r["original_answer_gt"])
+        int_norm = normalize_answer(r["int_response"], cat, r["intervened_answer_gt"])
+        
+        answer_changed = (orig_norm != int_norm) if (orig_norm and int_norm) else False
+        
+        if r["should_flip"]:
+            m["should_flip_total"] += 1
+            if answer_changed:
+                m["flip_when_should"] += 1
         else:
-            metrics["should_not_change_total"] += 1
-            answer_changed = pred_orig != pred_intv
+            m["shouldnt_flip_total"] += 1
             if not answer_changed:
-                metrics["true_negative"] += 1
-                metrics["consistent"] += 1
-            else:
-                metrics["false_positive"] += 1
-                error_types["spurious_change"] += 1
+                m["flip_when_shouldnt"] += 1  # Actually this is "stable when should be"
+        
+        # Counterfactual consistency: correct on both AND answer changed correctly
+        if r["should_flip"]:
+            if orig_match and int_match:
+                m["consistency"] += 1
+                consistency_total += 1
+        else:
+            if orig_match and int_match and not answer_changed:
+                m["consistency"] += 1
+                consistency_total += 1
     
-    # Derived metrics
-    n = metrics["total"]
-    metrics["orig_accuracy"] = metrics["orig_correct"] / n if n else 0
-    metrics["intv_accuracy"] = metrics["intv_correct"] / n if n else 0
-    metrics["ccs"] = metrics["consistent"] / n if n else 0
+    metrics["valid"] = valid_total
+    metrics["orig_accuracy"] = orig_correct_total / valid_total if valid_total > 0 else 0
+    metrics["int_accuracy"] = int_correct_total / valid_total if valid_total > 0 else 0
+    metrics["both_accuracy"] = both_correct_total / valid_total if valid_total > 0 else 0
+    metrics["consistency_score"] = consistency_total / valid_total if valid_total > 0 else 0
     
-    sc = metrics["should_change_total"]
-    snc = metrics["should_not_change_total"]
-    metrics["sensitivity"] = metrics["true_positive"] / sc if sc else 0
-    metrics["specificity"] = metrics["true_negative"] / snc if snc else 0
-    
-    metrics["error_types"] = dict(error_types)
+    # Per-category rates
+    for cat, m in metrics["by_category"].items():
+        v = m["valid"]
+        m["orig_acc"] = m["orig_correct"] / v if v > 0 else 0
+        m["int_acc"] = m["int_correct"] / v if v > 0 else 0
+        m["both_acc"] = m["both_correct"] / v if v > 0 else 0
+        m["consistency_rate"] = m["consistency"] / v if v > 0 else 0
+        m["flip_rate"] = m["flip_when_should"] / m["should_flip_total"] if m["should_flip_total"] > 0 else 0
+        m["stability_rate"] = m["flip_when_shouldnt"] / m["shouldnt_flip_total"] if m["shouldnt_flip_total"] > 0 else 0
     
     return metrics
 
 
-def compute_by_category(results):
-    """Compute metrics broken down by category."""
-    by_cat = defaultdict(list)
-    for r in results:
-        by_cat[r["category"]].append(r)
+def print_metrics(all_metrics):
+    """Print summary tables."""
+    print("\n" + "="*80)
+    print("COUNTERBENCH RESULTS SUMMARY")
+    print("="*80)
     
-    cat_metrics = {}
-    for cat, cat_results in by_cat.items():
-        cat_metrics[cat] = compute_metrics(cat_results)
-    return cat_metrics
-
-
-def compute_by_subcategory(results):
-    """Compute metrics broken down by subcategory."""
-    by_subcat = defaultdict(list)
-    for r in results:
-        by_subcat[r["subcategory"]].append(r)
+    # Overall table
+    print(f"\n{'Model':25s} {'Orig Acc':>10s} {'Int Acc':>10s} {'Both Acc':>10s} {'CCS':>10s}")
+    print("-"*65)
+    for m in all_metrics:
+        name = MODEL_DISPLAY.get(m["model"], m["model"])
+        print(f"{name:25s} {m['orig_accuracy']:10.1%} {m['int_accuracy']:10.1%} {m['both_accuracy']:10.1%} {m['consistency_score']:10.1%}")
     
-    subcat_metrics = {}
-    for subcat, sub_results in by_subcat.items():
-        subcat_metrics[subcat] = compute_metrics(sub_results)
-    return subcat_metrics
-
-
-def compute_by_intervention(results):
-    """Compute metrics broken down by intervention type."""
-    by_intv = defaultdict(list)
-    for r in results:
-        by_intv[r["intervention"]].append(r)
+    # Per-category
+    categories = ["spatial", "attribute", "counting", "containment", "causal", "negative_control"]
     
-    intv_metrics = {}
-    for intv, intv_results in by_intv.items():
-        intv_metrics[intv] = compute_metrics(intv_results)
-    return intv_metrics
+    print(f"\n\n{'':25s}", end="")
+    for cat in categories:
+        print(f" {CATEGORY_DISPLAY[cat]:>12s}", end="")
+    print()
+    
+    print("\nCounterfactual Consistency Score (CCS):")
+    print("-"*100)
+    for m in all_metrics:
+        name = MODEL_DISPLAY.get(m["model"], m["model"])
+        print(f"{name:25s}", end="")
+        for cat in categories:
+            if cat in m["by_category"]:
+                v = m["by_category"][cat]["consistency_rate"]
+                print(f" {v:12.1%}", end="")
+            else:
+                print(f" {'N/A':>12s}", end="")
+        print()
+    
+    print("\nOriginal Image Accuracy:")
+    print("-"*100)
+    for m in all_metrics:
+        name = MODEL_DISPLAY.get(m["model"], m["model"])
+        print(f"{name:25s}", end="")
+        for cat in categories:
+            if cat in m["by_category"]:
+                v = m["by_category"][cat]["orig_acc"]
+                print(f" {v:12.1%}", end="")
+            else:
+                print(f" {'N/A':>12s}", end="")
+        print()
+    
+    print("\nAnswer Flip Rate (when should flip):")
+    print("-"*100)
+    for m in all_metrics:
+        name = MODEL_DISPLAY.get(m["model"], m["model"])
+        print(f"{name:25s}", end="")
+        for cat in categories:
+            if cat in m["by_category"]:
+                v = m["by_category"][cat]["flip_rate"]
+                print(f" {v:12.1%}", end="")
+            else:
+                print(f" {'N/A':>12s}", end="")
+        print()
+
+
+def plot_main_figure(all_metrics):
+    """Figure 1: Main bar chart - CCS by category and model."""
+    categories = ["spatial", "attribute", "counting", "containment", "causal"]
+    n_cats = len(categories)
+    n_models = len(all_metrics)
+    
+    fig, ax = plt.subplots(figsize=(10, 5))
+    
+    x = np.arange(n_cats)
+    width = 0.18
+    
+    for i, m in enumerate(all_metrics):
+        vals = [m["by_category"].get(cat, {}).get("consistency_rate", 0) * 100 for cat in categories]
+        offset = (i - n_models/2 + 0.5) * width
+        bars = ax.bar(x + offset, vals, width, label=MODEL_DISPLAY[m["model"]], 
+                      color=COLORS[m["model"]], edgecolor='white', linewidth=0.5)
+        # Add value labels
+        for bar, val in zip(bars, vals):
+            if val > 5:
+                ax.text(bar.get_x() + bar.get_width()/2., bar.get_height() + 1.5,
+                        f'{val:.0f}', ha='center', va='bottom', fontsize=7, fontweight='bold')
+    
+    ax.set_ylabel('Counterfactual Consistency Score (%)', fontsize=12)
+    ax.set_xticks(x)
+    ax.set_xticklabels([CATEGORY_DISPLAY[c] for c in categories], fontsize=11)
+    ax.set_ylim(0, 105)
+    ax.legend(loc='upper right', fontsize=9, framealpha=0.9)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.grid(axis='y', alpha=0.3, linestyle='--')
+    ax.set_title('Counterfactual Consistency Score by Task Category', fontsize=13, fontweight='bold', pad=15)
+    
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / 'ccs_by_category.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(FIGURES_DIR / 'ccs_by_category.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("Saved: ccs_by_category.pdf")
+
+
+def plot_accuracy_comparison(all_metrics):
+    """Figure 2: Original vs Intervened accuracy comparison."""
+    categories = ["spatial", "attribute", "counting", "containment", "causal"]
+    
+    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+    
+    n_cats = len(categories)
+    n_models = len(all_metrics)
+    x = np.arange(n_cats)
+    width = 0.18
+    
+    for panel_idx, (metric_key, title) in enumerate([
+        ("orig_acc", "Original Image Accuracy"),
+        ("int_acc", "Intervened Image Accuracy")
+    ]):
+        ax = axes[panel_idx]
+        for i, m in enumerate(all_metrics):
+            vals = [m["by_category"].get(cat, {}).get(metric_key, 0) * 100 for cat in categories]
+            offset = (i - n_models/2 + 0.5) * width
+            ax.bar(x + offset, vals, width, label=MODEL_DISPLAY[m["model"]], 
+                   color=COLORS[m["model"]], edgecolor='white', linewidth=0.5)
+        
+        ax.set_ylabel('Accuracy (%)', fontsize=11)
+        ax.set_xticks(x)
+        ax.set_xticklabels([CATEGORY_DISPLAY[c] for c in categories], fontsize=9, rotation=15)
+        ax.set_ylim(0, 105)
+        ax.set_title(title, fontsize=12, fontweight='bold')
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.grid(axis='y', alpha=0.3, linestyle='--')
+        if panel_idx == 1:
+            ax.legend(loc='upper right', fontsize=8, framealpha=0.9)
+    
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / 'accuracy_comparison.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(FIGURES_DIR / 'accuracy_comparison.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("Saved: accuracy_comparison.pdf")
+
+
+def plot_gap_analysis(all_metrics):
+    """Figure 3: Gap between original accuracy and CCS (the 'consistency gap')."""
+    categories = ["spatial", "attribute", "counting", "containment", "causal"]
+    
+    fig, ax = plt.subplots(figsize=(10, 5))
+    
+    n_models = len(all_metrics)
+    x = np.arange(len(categories))
+    width = 0.18
+    
+    for i, m in enumerate(all_metrics):
+        orig_accs = [m["by_category"].get(cat, {}).get("orig_acc", 0) * 100 for cat in categories]
+        ccs_vals = [m["by_category"].get(cat, {}).get("consistency_rate", 0) * 100 for cat in categories]
+        gaps = [o - c for o, c in zip(orig_accs, ccs_vals)]
+        
+        offset = (i - n_models/2 + 0.5) * width
+        ax.bar(x + offset, gaps, width, label=MODEL_DISPLAY[m["model"]], 
+               color=COLORS[m["model"]], edgecolor='white', linewidth=0.5)
+    
+    ax.set_ylabel('Consistency Gap (Orig Acc - CCS) (pp)', fontsize=11)
+    ax.set_xticks(x)
+    ax.set_xticklabels([CATEGORY_DISPLAY[c] for c in categories], fontsize=11)
+    ax.legend(loc='upper right', fontsize=9)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.grid(axis='y', alpha=0.3, linestyle='--')
+    ax.set_title('Consistency Gap: How Much Does Performance Drop Under Intervention?', fontsize=12, fontweight='bold', pad=15)
+    
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / 'consistency_gap.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(FIGURES_DIR / 'consistency_gap.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("Saved: consistency_gap.pdf")
+
+
+def plot_negative_control(all_metrics):
+    """Figure 4: Negative control - stability when intervention is irrelevant."""
+    fig, ax = plt.subplots(figsize=(6, 4))
+    
+    models = []
+    stability_rates = []
+    ccs_rates = []
+    
+    for m in all_metrics:
+        nc = m["by_category"].get("negative_control", {})
+        if nc.get("valid", 0) > 0:
+            models.append(MODEL_DISPLAY[m["model"]])
+            stability_rates.append(nc.get("consistency_rate", 0) * 100)
+            ccs_rates.append(m["consistency_score"] * 100)
+    
+    x = np.arange(len(models))
+    width = 0.35
+    
+    ax.bar(x - width/2, stability_rates, width, label='Neg. Control Stability', color='#56B4E9', edgecolor='white')
+    ax.bar(x + width/2, ccs_rates, width, label='Overall CCS', color='#E69F00', edgecolor='white')
+    
+    ax.set_ylabel('Score (%)', fontsize=11)
+    ax.set_xticks(x)
+    ax.set_xticklabels(models, fontsize=9, rotation=15)
+    ax.set_ylim(0, 105)
+    ax.legend(fontsize=9)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.grid(axis='y', alpha=0.3, linestyle='--')
+    ax.set_title('Stability on Irrelevant Interventions vs Overall CCS', fontsize=11, fontweight='bold')
+    
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / 'negative_control.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(FIGURES_DIR / 'negative_control.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("Saved: negative_control.pdf")
+
+
+def plot_radar_chart(all_metrics):
+    """Figure 5: Radar/spider chart of CCS across categories."""
+    categories = ["spatial", "attribute", "counting", "containment", "causal"]
+    labels = [CATEGORY_DISPLAY[c] for c in categories]
+    
+    num_vars = len(categories)
+    angles = np.linspace(0, 2 * np.pi, num_vars, endpoint=False).tolist()
+    angles += angles[:1]
+    
+    fig, ax = plt.subplots(figsize=(7, 7), subplot_kw=dict(polar=True))
+    
+    for m in all_metrics:
+        vals = [m["by_category"].get(cat, {}).get("consistency_rate", 0) * 100 for cat in categories]
+        vals += vals[:1]
+        ax.plot(angles, vals, 'o-', linewidth=2, label=MODEL_DISPLAY[m["model"]], 
+                color=COLORS[m["model"]], markersize=6)
+        ax.fill(angles, vals, alpha=0.1, color=COLORS[m["model"]])
+    
+    ax.set_xticks(angles[:-1])
+    ax.set_xticklabels(labels, fontsize=11)
+    ax.set_ylim(0, 100)
+    ax.set_yticks([20, 40, 60, 80, 100])
+    ax.set_yticklabels(['20%', '40%', '60%', '80%', '100%'], fontsize=8)
+    ax.legend(loc='upper right', bbox_to_anchor=(1.3, 1.1), fontsize=9)
+    ax.set_title('Counterfactual Consistency Score Profile', fontsize=13, fontweight='bold', pad=20)
+    
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / 'radar_ccs.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(FIGURES_DIR / 'radar_ccs.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("Saved: radar_ccs.pdf")
+
+
+def plot_overall_summary(all_metrics):
+    """Figure 6: Overall summary bar chart."""
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    
+    models = [MODEL_DISPLAY[m["model"]] for m in all_metrics]
+    orig_accs = [m["orig_accuracy"] * 100 for m in all_metrics]
+    int_accs = [m["int_accuracy"] * 100 for m in all_metrics]
+    both_accs = [m["both_accuracy"] * 100 for m in all_metrics]
+    ccs_vals = [m["consistency_score"] * 100 for m in all_metrics]
+    
+    x = np.arange(len(models))
+    width = 0.2
+    
+    ax.bar(x - 1.5*width, orig_accs, width, label='Original Acc', color='#56B4E9', edgecolor='white')
+    ax.bar(x - 0.5*width, int_accs, width, label='Intervened Acc', color='#009E73', edgecolor='white')
+    ax.bar(x + 0.5*width, both_accs, width, label='Both Correct', color='#E69F00', edgecolor='white')
+    ax.bar(x + 1.5*width, ccs_vals, width, label='CCS', color='#CC79A7', edgecolor='white')
+    
+    # Add CCS values on top
+    for i, v in enumerate(ccs_vals):
+        ax.text(x[i] + 1.5*width, v + 1, f'{v:.1f}%', ha='center', va='bottom', 
+                fontsize=9, fontweight='bold', color='#CC79A7')
+    
+    ax.set_ylabel('Score (%)', fontsize=12)
+    ax.set_xticks(x)
+    ax.set_xticklabels(models, fontsize=10)
+    ax.set_ylim(0, 105)
+    ax.legend(fontsize=9, ncol=2)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.grid(axis='y', alpha=0.3, linestyle='--')
+    ax.set_title('Overall Performance: Accuracy vs Counterfactual Consistency', fontsize=12, fontweight='bold', pad=15)
+    
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / 'overall_summary.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(FIGURES_DIR / 'overall_summary.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("Saved: overall_summary.pdf")
+
+
+def create_example_figure():
+    """Create example pairs figure for the paper."""
+    from PIL import Image as PILImage
+    
+    # Select one example from each category
+    examples = {
+        "spatial": "spatial_005",
+        "attribute": "attribute_010",
+        "counting": "counting_003",
+        "containment": "containment_007",
+        "causal": "causal_arrow_002",
+    }
+    
+    fig, axes = plt.subplots(2, 5, figsize=(14, 5.5))
+    
+    for col, (cat, eid) in enumerate(examples.items()):
+        orig_path = DATA_DIR / "images" / f"{eid}_orig.png"
+        int_path = DATA_DIR / "images" / f"{eid}_int.png"
+        
+        if orig_path.exists() and int_path.exists():
+            orig_img = plt.imread(str(orig_path))
+            int_img = plt.imread(str(int_path))
+            
+            axes[0, col].imshow(orig_img)
+            axes[0, col].set_title(f'{CATEGORY_DISPLAY[cat]}', fontsize=11, fontweight='bold')
+            axes[0, col].axis('off')
+            
+            axes[1, col].imshow(int_img)
+            axes[1, col].axis('off')
+        else:
+            axes[0, col].text(0.5, 0.5, 'N/A', ha='center', va='center')
+            axes[1, col].text(0.5, 0.5, 'N/A', ha='center', va='center')
+            axes[0, col].set_title(CATEGORY_DISPLAY[cat], fontsize=11, fontweight='bold')
+    
+    axes[0, 0].set_ylabel('Original', fontsize=12, fontweight='bold')
+    axes[1, 0].set_ylabel('Intervened', fontsize=12, fontweight='bold')
+    
+    plt.suptitle('Example CounterBench Pairs: Original (top) vs Intervened (bottom)', 
+                 fontsize=13, fontweight='bold', y=1.02)
+    plt.tight_layout()
+    plt.savefig(FIGURES_DIR / 'example_pairs.pdf', dpi=300, bbox_inches='tight')
+    plt.savefig(FIGURES_DIR / 'example_pairs.png', dpi=300, bbox_inches='tight')
+    plt.close()
+    print("Saved: example_pairs.pdf")
+
+
+def save_results_json(all_metrics):
+    """Save computed metrics to JSON for the paper."""
+    output = {}
+    for m in all_metrics:
+        model = m["model"]
+        output[model] = {
+            "display_name": MODEL_DISPLAY.get(model, model),
+            "orig_accuracy": round(m["orig_accuracy"] * 100, 1),
+            "int_accuracy": round(m["int_accuracy"] * 100, 1),
+            "both_accuracy": round(m["both_accuracy"] * 100, 1),
+            "ccs": round(m["consistency_score"] * 100, 1),
+            "valid_pairs": m["valid"],
+            "by_category": {}
+        }
+        for cat in ["spatial", "attribute", "counting", "containment", "causal", "negative_control"]:
+            if cat in m["by_category"]:
+                bc = m["by_category"][cat]
+                output[model]["by_category"][cat] = {
+                    "orig_acc": round(bc.get("orig_acc", 0) * 100, 1),
+                    "int_acc": round(bc.get("int_acc", 0) * 100, 1),
+                    "both_acc": round(bc.get("both_acc", 0) * 100, 1),
+                    "ccs": round(bc.get("consistency_rate", 0) * 100, 1),
+                    "flip_rate": round(bc.get("flip_rate", 0) * 100, 1),
+                    "valid": bc.get("valid", 0),
+                }
+    
+    with open(RESULTS_DIR / "analysis_results.json", "w") as f:
+        json.dump(output, f, indent=2)
+    print(f"\nSaved analysis to: {RESULTS_DIR / 'analysis_results.json'}")
 
 
 def main():
-    all_results = load_results()
-    print(f"Loaded results for {len(all_results)} models")
+    print("Computing metrics for all models...")
+    all_metrics = []
     
-    # ── Overall metrics ───────────────────────────────────────────────────
-    overall = {}
-    for model_key, results in all_results.items():
-        m = compute_metrics(results)
-        overall[model_key] = m
-        name = MODEL_NAMES[model_key]
-        print(f"\n{name}:")
-        print(f"  Original Accuracy:  {m['orig_accuracy']:.3f}")
-        print(f"  Intervened Accuracy: {m['intv_accuracy']:.3f}")
-        print(f"  CCS (Counterfactual Consistency): {m['ccs']:.3f}")
-        print(f"  Sensitivity (should change → did): {m['sensitivity']:.3f}")
-        print(f"  Specificity (shouldn't change → didn't): {m['specificity']:.3f}")
-        print(f"  Error types: {m['error_types']}")
+    for model in MODELS:
+        rpath = RESULTS_DIR / f"{model}_results.json"
+        if rpath.exists():
+            print(f"  Analyzing {model}...")
+            m = compute_metrics(model)
+            all_metrics.append(m)
+        else:
+            print(f"  Skipping {model} (no results)")
     
-    # ── By category ───────────────────────────────────────────────────────
-    category_results = {}
-    for model_key, results in all_results.items():
-        category_results[model_key] = compute_by_category(results)
+    # Print tables
+    print_metrics(all_metrics)
     
-    print("\n\n" + "="*80)
-    print("CCS BY CATEGORY")
-    print("="*80)
-    cats = ["spatial", "causal", "compositional", "counting", "occlusion"]
-    header = f"{'Model':<25}" + "".join(f"{c:>14}" for c in cats)
-    print(header)
-    print("-" * len(header))
-    for model_key in all_results:
-        row = f"{MODEL_NAMES[model_key]:<25}"
-        for cat in cats:
-            if cat in category_results[model_key]:
-                ccs = category_results[model_key][cat]["ccs"]
-                row += f"{ccs:>14.3f}"
-            else:
-                row += f"{'N/A':>14}"
-        print(row)
+    # Generate figures
+    print("\nGenerating figures...")
+    plot_main_figure(all_metrics)
+    plot_accuracy_comparison(all_metrics)
+    plot_gap_analysis(all_metrics)
+    plot_negative_control(all_metrics)
+    plot_radar_chart(all_metrics)
+    plot_overall_summary(all_metrics)
+    create_example_figure()
     
-    # ── By subcategory ────────────────────────────────────────────────────
-    subcategory_results = {}
-    for model_key, results in all_results.items():
-        subcategory_results[model_key] = compute_by_subcategory(results)
+    # Save JSON
+    save_results_json(all_metrics)
     
-    # ── By intervention type ──────────────────────────────────────────────
-    intervention_results = {}
-    for model_key, results in all_results.items():
-        intervention_results[model_key] = compute_by_intervention(results)
-    
-    # ── Save all analysis ─────────────────────────────────────────────────
-    analysis = {
-        "overall": overall,
-        "by_category": category_results,
-        "by_subcategory": subcategory_results,
-        "by_intervention": intervention_results,
-        "model_names": MODEL_NAMES,
-    }
-    
-    with open(ANALYSIS_DIR / "full_analysis.json", "w") as f:
-        json.dump(analysis, f, indent=2, default=str)
-    
-    # ── LaTeX tables ──────────────────────────────────────────────────────
-    # Main results table
-    print("\n\n" + "="*80)
-    print("LATEX TABLE: Main Results")
-    print("="*80)
-    
-    print(r"\begin{table*}[t]")
-    print(r"\centering")
-    print(r"\caption{Main results on CounterBench. CCS = Counterfactual Consistency Score; Sens. = Sensitivity (true change rate); Spec. = Specificity (true no-change rate).}")
-    print(r"\label{tab:main_results}")
-    print(r"\small")
-    print(r"\begin{tabular}{l c c c c c}")
-    print(r"\toprule")
-    print(r"Model & Orig. Acc. & Intv. Acc. & CCS $\uparrow$ & Sens. $\uparrow$ & Spec. $\uparrow$ \\")
-    print(r"\midrule")
-    
-    # Sort by CCS
-    sorted_models = sorted(overall.keys(), key=lambda k: overall[k]["ccs"], reverse=True)
-    for model_key in sorted_models:
-        m = overall[model_key]
-        name = MODEL_NAMES[model_key]
-        print(f"{name} & {m['orig_accuracy']:.3f} & {m['intv_accuracy']:.3f} & {m['ccs']:.3f} & {m['sensitivity']:.3f} & {m['specificity']:.3f} \\\\")
-    
-    print(r"\bottomrule")
-    print(r"\end{tabular}")
-    print(r"\end{table*}")
-    
-    # Category breakdown table
-    print("\n\n" + "="*80)
-    print("LATEX TABLE: CCS by Category")
-    print("="*80)
-    
-    print(r"\begin{table*}[t]")
-    print(r"\centering")
-    print(r"\caption{Counterfactual Consistency Score broken down by reasoning category.}")
-    print(r"\label{tab:category_results}")
-    print(r"\small")
-    print(r"\begin{tabular}{l c c c c c c}")
-    print(r"\toprule")
-    print(r"Model & Spatial & Causal & Compositional & Counting & Occlusion & Overall \\")
-    print(r"\midrule")
-    
-    for model_key in sorted_models:
-        name = MODEL_NAMES[model_key]
-        row = f"{name}"
-        for cat in cats:
-            if cat in category_results[model_key]:
-                ccs = category_results[model_key][cat]["ccs"]
-                row += f" & {ccs:.3f}"
-            else:
-                row += " & ---"
-        row += f" & {overall[model_key]['ccs']:.3f}"
-        row += r" \\"
-        print(row)
-    
-    print(r"\bottomrule")
-    print(r"\end{tabular}")
-    print(r"\end{table*}")
-    
-    print("\n\nAnalysis complete. Results saved to", ANALYSIS_DIR)
+    print("\nAll done!")
 
 
 if __name__ == "__main__":

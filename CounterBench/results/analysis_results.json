@@ -1,0 +1,234 @@
+{
+  "gpt4o": {
+    "display_name": "GPT-4o",
+    "orig_accuracy": 88.5,
+    "int_accuracy": 88.7,
+    "both_accuracy": 86.0,
+    "ccs": 86.0,
+    "valid_pairs": 550,
+    "by_category": {
+      "spatial": {
+        "orig_acc": 100.0,
+        "int_acc": 100.0,
+        "both_acc": 100.0,
+        "ccs": 100.0,
+        "flip_rate": 100.0,
+        "valid": 100
+      },
+      "attribute": {
+        "orig_acc": 94.0,
+        "int_acc": 96.0,
+        "both_acc": 94.0,
+        "ccs": 94.0,
+        "flip_rate": 96.0,
+        "valid": 100
+      },
+      "counting": {
+        "orig_acc": 79.0,
+        "int_acc": 80.0,
+        "both_acc": 67.0,
+        "ccs": 67.0,
+        "flip_rate": 86.0,
+        "valid": 100
+      },
+      "containment": {
+        "orig_acc": 100.0,
+        "int_acc": 99.0,
+        "both_acc": 99.0,
+        "ccs": 99.0,
+        "flip_rate": 99.0,
+        "valid": 100
+      },
+      "causal": {
+        "orig_acc": 66.0,
+        "int_acc": 66.0,
+        "both_acc": 66.0,
+        "ccs": 66.0,
+        "flip_rate": 100.0,
+        "valid": 100
+      },
+      "negative_control": {
+        "orig_acc": 96.0,
+        "int_acc": 94.0,
+        "both_acc": 94.0,
+        "ccs": 94.0,
+        "flip_rate": 0,
+        "valid": 50
+      }
+    }
+  },
+  "gemini_flash": {
+    "display_name": "Gemini 2.0 Flash",
+    "orig_accuracy": 90.4,
+    "int_accuracy": 90.0,
+    "both_accuracy": 87.8,
+    "ccs": 87.8,
+    "valid_pairs": 550,
+    "by_category": {
+      "spatial": {
+        "orig_acc": 100.0,
+        "int_acc": 100.0,
+        "both_acc": 100.0,
+        "ccs": 100.0,
+        "flip_rate": 100.0,
+        "valid": 100
+      },
+      "attribute": {
+        "orig_acc": 91.0,
+        "int_acc": 85.0,
+        "both_acc": 79.0,
+        "ccs": 79.0,
+        "flip_rate": 99.0,
+        "valid": 100
+      },
+      "counting": {
+        "orig_acc": 94.0,
+        "int_acc": 99.0,
+        "both_acc": 93.0,
+        "ccs": 93.0,
+        "flip_rate": 97.0,
+        "valid": 100
+      },
+      "containment": {
+        "orig_acc": 100.0,
+        "int_acc": 100.0,
+        "both_acc": 100.0,
+        "ccs": 100.0,
+        "flip_rate": 100.0,
+        "valid": 100
+      },
+      "causal": {
+        "orig_acc": 66.0,
+        "int_acc": 66.0,
+        "both_acc": 66.0,
+        "ccs": 66.0,
+        "flip_rate": 100.0,
+        "valid": 100
+      },
+      "negative_control": {
+        "orig_acc": 92.0,
+        "int_acc": 90.0,
+        "both_acc": 90.0,
+        "ccs": 90.0,
+        "flip_rate": 0,
+        "valid": 50
+      }
+    }
+  },
+  "qwen_vl": {
+    "display_name": "Qwen2.5-VL-72B",
+    "orig_accuracy": 91.4,
+    "int_accuracy": 90.6,
+    "both_accuracy": 89.5,
+    "ccs": 89.5,
+    "valid_pairs": 545,
+    "by_category": {
+      "spatial": {
+        "orig_acc": 100.0,
+        "int_acc": 100.0,
+        "both_acc": 100.0,
+        "ccs": 100.0,
+        "flip_rate": 100.0,
+        "valid": 95
+      },
+      "attribute": {
+        "orig_acc": 92.0,
+        "int_acc": 89.0,
+        "both_acc": 84.0,
+        "ccs": 84.0,
+        "flip_rate": 97.0,
+        "valid": 100
+      },
+      "counting": {
+        "orig_acc": 98.0,
+        "int_acc": 98.0,
+        "both_acc": 97.0,
+        "ccs": 97.0,
+        "flip_rate": 98.0,
+        "valid": 100
+      },
+      "containment": {
+        "orig_acc": 100.0,
+        "int_acc": 100.0,
+        "both_acc": 100.0,
+        "ccs": 100.0,
+        "flip_rate": 100.0,
+        "valid": 100
+      },
+      "causal": {
+        "orig_acc": 66.0,
+        "int_acc": 66.0,
+        "both_acc": 66.0,
+        "ccs": 66.0,
+        "flip_rate": 100.0,
+        "valid": 100
+      },
+      "negative_control": {
+        "orig_acc": 94.0,
+        "int_acc": 92.0,
+        "both_acc": 92.0,
+        "ccs": 92.0,
+        "flip_rate": 0,
+        "valid": 50
+      }
+    }
+  },
+  "gpt4o_mini": {
+    "display_name": "GPT-4o mini",
+    "orig_accuracy": 84.5,
+    "int_accuracy": 84.7,
+    "both_accuracy": 79.6,
+    "ccs": 79.6,
+    "valid_pairs": 550,
+    "by_category": {
+      "spatial": {
+        "orig_acc": 99.0,
+        "int_acc": 93.0,
+        "both_acc": 92.0,
+        "ccs": 92.0,
+        "flip_rate": 92.0,
+        "valid": 100
+      },
+      "attribute": {
+        "orig_acc": 93.0,
+        "int_acc": 93.0,
+        "both_acc": 89.0,
+        "ccs": 89.0,
+        "flip_rate": 96.0,
+        "valid": 100
+      },
+      "counting": {
+        "orig_acc": 62.0,
+        "int_acc": 66.0,
+        "both_acc": 48.0,
+        "ccs": 48.0,
+        "flip_rate": 67.0,
+        "valid": 100
+      },
+      "containment": {
+        "orig_acc": 99.0,
+        "int_acc": 98.0,
+        "both_acc": 97.0,
+        "ccs": 97.0,
+        "flip_rate": 97.0,
+        "valid": 100
+      },
+      "causal": {
+        "orig_acc": 64.0,
+        "int_acc": 66.0,
+        "both_acc": 64.0,
+        "ccs": 64.0,
+        "flip_rate": 94.0,
+        "valid": 100
+      },
+      "negative_control": {
+        "orig_acc": 96.0,
+        "int_acc": 100.0,
+        "both_acc": 96.0,
+        "ccs": 96.0,
+        "flip_rate": 0,
+        "valid": 50
+      }
+    }
+  }
+}
