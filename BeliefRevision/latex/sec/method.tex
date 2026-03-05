@@ -1,0 +1,67 @@
+\section{Method}
+\label{sec:method}
+
+\subsection{Task Formulation}
+\label{sec:task}
+
+We formalize belief revision in VLMs as a two-phase reasoning task.  Given a scenario $s$ describing a surprising event, the task is decomposed into:
+
+\begin{itemize}[leftmargin=*, nosep]
+    \item \textbf{\phaseA:} The model observes limited evidence $E_{\text{pre}}$ (pre-event description) and must select an answer $a_A \in \{0,1,2,3\}$ from four options, along with optional structured metadata (hypothesis, confidence).
+    \item \textbf{\phaseB:} The model observes augmented evidence $E_{\text{pre}} \cup E_{\text{post}}$ (pre-event \emph{plus} post-event description revealing the aftermath) and must select an updated answer $a_B$, optionally explaining what changed.
+\end{itemize}
+
+The gold answer $a^*$ is designed to be inferable primarily from $E_{\text{post}}$ but not from $E_{\text{pre}}$ alone.  This creates a natural \emph{belief revision pressure}: a model that correctly reasons should often produce $a_A \neq a^*$ (wrong from limited evidence) but $a_B = a^*$ (correct after update).
+
+\subsection{Evaluation Scenarios}
+\label{sec:scenarios}
+
+We construct 52 evaluation scenarios following the BlackSwan Challenge task structure~\cite{chinchure2025blackswan}, which evaluates abductive and defeasible reasoning about unexpected video events from the Oops! dataset domain.  Each scenario contains:
+
+\begin{enumerate}[leftmargin=*, nosep]
+    \item A \textbf{pre-event description} of a scene before a surprising event.
+    \item A \textbf{post-event description} revealing the aftermath.
+    \item A \textbf{question} about the hidden causal event.
+    \item \textbf{Four answer options}, with one correct answer that requires integrating post-event evidence.
+\end{enumerate}
+
+Scenarios span 8 categories: kitchen mishaps (9), sports accidents (9), DIY failures (7), animal encounters (9), weather events (5), transportation (5), technology (3), and social situations (5).  The scenarios are designed so that pre-event evidence systematically suggests a \emph{different} answer than the gold answer, creating explicit revision pressure.
+
+\subsection{Prompting Conditions}
+\label{sec:conditions}
+
+We evaluate three prompting strategies that vary in how explicitly they scaffold the belief revision process:
+
+\paragraph{Baseline.}  Standard MCQ prompting: ``\textit{Answer with the option number and a brief explanation.}''  In \phaseB, the model is informed of additional evidence and its prior answer.  This represents the current default interaction mode.
+
+\paragraph{Belief-State.}  Explicitly scaffolds epistemic state tracking.  In \phaseA, the model is instructed: ``\textit{State your current hypothesis.  Rate your confidence (low/medium/high).  Note: you will receive additional evidence later and should be prepared to update.}''  In \phaseB: ``\textit{Update your hypothesis.  If the new evidence changes your answer, explain what changed and why.}''  This mirrors Pollock's~\cite{pollock1987defeasible} framework of maintaining and revising a web of beliefs.
+
+\paragraph{Counterfactual Update.}  Standard prompting in \phaseA.  In \phaseB, after answering, the model is asked: ``\textit{If the post-event evidence were absent, would your answer differ?  Explain why or why not.}''  This forces \emph{metacognitive} reflection on the causal role of new evidence, inspired by counterfactual reasoning~\cite{niu2021counterfactual}.
+
+\subsection{Metrics}
+\label{sec:metrics}
+
+We define five metrics that decompose belief revision quality beyond simple accuracy:
+
+\begin{itemize}[leftmargin=*, nosep]
+    \item \textbf{Phase~A Accuracy} ($\text{Acc}_A$): Fraction correct with limited evidence.
+    \item \textbf{Phase~B Accuracy} ($\text{Acc}_B$): Fraction correct with full evidence (``update accuracy'').
+    \item \textbf{Stubbornness Rate} ($\text{Stub}$): Among initially \emph{wrong} answers, the fraction that are \emph{not revised} in \phaseB:
+    \begin{equation}
+        \text{Stub} = \frac{|\{i : a_{A,i} \neq a^*_i \wedge a_{A,i} = a_{B,i}\}|}{|\{i : a_{A,i} \neq a^*_i\}|}
+    \end{equation}
+    \item \textbf{Appropriate Update Rate} ($\text{AppUp}$): Among initially wrong answers, the fraction revised to the \emph{correct} answer:
+    \begin{equation}
+        \text{AppUp} = \frac{|\{i : a_{A,i} \neq a^*_i \wedge a_{B,i} = a^*_i\}|}{|\{i : a_{A,i} \neq a^*_i\}|}
+    \end{equation}
+    \item \textbf{Regression Rate} ($\text{Reg}$): Among initially \emph{correct} answers, the fraction that regress to an incorrect answer in \phaseB.
+\end{itemize}
+
+A perfect belief reviser would have $\text{Stub} = 0$, $\text{AppUp} = 1$, and $\text{Reg} = 0$.  In practice, we find all models fall far short.
+
+\subsection{Models}
+\label{sec:models}
+
+We evaluate three frontier VLMs:
+\textbf{GPT-4o}~(OpenAI), \textbf{Gemini~2.0~Flash}~(Google), and \textbf{Claude~3.5~Sonnet}~(Anthropic).
+All models are accessed via API with temperature $T=0$ for deterministic outputs.  Each model completes all 52 scenarios $\times$ 3 conditions $\times$ 2 phases = 312 inference calls, totaling 936 API calls across all models.

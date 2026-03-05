@@ -1,0 +1,20 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Non-Monotonic and Defeasible Reasoning.}
+Classical AI formalized non-monotonic reasoning through default logic~\cite{reiter1980logic}, circumscription~\cite{mccarthy1980circumscription}, and defeasible reasoning~\cite{pollock1987defeasible}.  Pollock's distinction between \emph{rebutting defeaters} (direct contradictions) and \emph{undercutting defeaters} (challenges to the inferential link) provides a useful taxonomy for analyzing VLM behavior.  In NLP, Rudinger~\etal~\cite{rudinger2020thinking} introduced $\delta$-NLI for defeasible natural language inference, while Bhagavatula~\etal~\cite{bhagavatula2020abductive} created the $\alpha$NLI benchmark for abductive commonsense reasoning.  Our work extends these ideas to multimodal reasoning with explicit evidence phases.
+
+\paragraph{Belief Revision in LLMs.}
+Wilie~\etal~\cite{wilie2024belief} introduced the Belief-R dataset and $\Delta$R framework, finding that LLMs face a fundamental trade-off: models adept at updating beliefs when warranted also tend to update when they should not.  Sharma~\etal~\cite{sharma2024sycophancy} showed that RLHF training induces sycophancy---models change correct answers to match user opinions, a distinct failure from genuine belief revision.  Turpin~\etal~\cite{turpin2024unfaithful} demonstrated that chain-of-thought explanations can be systematically unfaithful.  Our work is the first to study belief revision in the \emph{visual} domain with controlled evidence phases.
+
+\paragraph{Cognitive Biases in LLMs.}
+Lou and Sun~\cite{lou2024anchoring} experimentally confirmed anchoring bias in GPT-4 and Gemini, finding that standard mitigation strategies (chain-of-thought, reflection) are insufficient.  Coda-Forno~\etal~\cite{codaforno2024cogbench} systematically benchmarked LLMs on cognitive psychology experiments, revealing biases analogous to human anchoring and framing effects.  Our ``stubbornness rate'' metric directly quantifies anchoring-like behavior in the visual domain.
+
+\paragraph{Visual Abductive Reasoning.}
+Liang~\etal~\cite{liang2022visual} introduced Visual Abductive Reasoning (VAR), requiring models to infer plausible hypotheses from incomplete visual sequences.  Hessel~\etal~\cite{hessel2022sherlock} created the Sherlock dataset for visual abductive reasoning from images.  Most relevant to our work, Chinchure~\etal~\cite{chinchure2025blackswan} introduced the BlackSwan Challenge at CVPR~2025, evaluating abductive and defeasible video reasoning about unexpected events.  They found VLM performance gaps of up to 32\% compared to humans.  We build on BlackSwan's task structure but focus specifically on the \emph{dynamics} of belief revision---not just whether models get the right answer, but whether they \emph{change} their answer appropriately when evidence demands it.
+
+\paragraph{Prompting for Reasoning.}
+Chain-of-thought prompting~\cite{wei2022chain} and self-consistency~\cite{wang2023selfconsistency} improve reasoning by eliciting intermediate steps.  Jung~\etal~\cite{jung2022maieutic} proposed maieutic prompting for logically consistent reasoning through recursive explanations.  Cheng~\etal~\cite{cheng2025reflection} showed VLMs can self-improve via reflection.  Our Belief-State and Counterfactual prompts are complementary, specifically targeting the \emph{update} step rather than initial reasoning quality.
+
+\paragraph{VLM Consistency and Robustness.}
+Chou~\etal~\cite{chou2025mmr3} evaluated VLM consistency across question rephrasing and image restyling, finding significant fragility.  Tong~\etal~\cite{tong2024eyeswideshut} revealed systematic visual perception failures.  Zheng~\etal~\cite{zheng2024robust} demonstrated selection bias in LLM multiple-choice answering.  Our work complements these by testing \emph{temporal} consistency---whether models maintain coherent beliefs across sequential evidence presentations.

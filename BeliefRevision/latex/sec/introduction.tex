@@ -1,0 +1,30 @@
+\section{Introduction}
+\label{sec:intro}
+
+Human cognition is fundamentally non-monotonic: we form hypotheses from incomplete evidence, then revise them when new data arrives.  A doctor seeing a patient's initial symptoms might suspect the flu, but upon learning the patient recently traveled to a tropical region, she updates to consider dengue fever.  This capacity for \emph{belief revision}---withdrawing previously held conclusions in light of new evidence---is central to rational reasoning and has deep roots in cognitive science~\cite{pollock1987defeasible} and formal logic~\cite{reiter1980logic, mccarthy1980circumscription}.
+
+Vision-language models (VLMs) are increasingly deployed in settings that demand exactly this kind of reasoning: medical image interpretation across multiple scans, surveillance analysis as new footage becomes available, and autonomous driving where scene understanding must update in real time.  Yet it remains unclear whether VLMs \emph{genuinely} revise beliefs when confronted with contradictory visual evidence, or whether they simply \emph{rationalize} their initial guess by fitting new evidence to a pre-committed interpretation.
+
+We introduce \textbf{Evidence Update Prompting} (\method), a two-phase evaluation protocol that directly tests belief revision in VLMs.  Inspired by the BlackSwan Challenge~\cite{chinchure2025blackswan}, which evaluates abductive and defeasible video reasoning about unexpected events, our protocol operates as follows:
+
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+    \item \textbf{\phaseA (Limited Evidence):} The model receives only pre-event context describing a scene before a surprising event.  It must form an initial hypothesis and select a multiple-choice answer.
+    \item \textbf{\phaseB (Evidence Update):} The model receives additional post-event evidence revealing the aftermath.  It must decide whether to revise its hypothesis.
+\end{itemize}
+
+We compare three prompting strategies that vary in how explicitly they scaffold the belief revision process:
+
+\begin{enumerate}[leftmargin=*, nosep, topsep=2pt]
+    \item \textbf{Baseline:} Standard ``select an answer'' prompting.
+    \item \textbf{Belief-State:} Explicit hypothesis tracking with confidence ratings and instructions to ``update when new evidence arrives.''
+    \item \textbf{Counterfactual Update:} After answering with full evidence, the model is asked: ``If the new evidence were absent, would your answer differ?''
+\end{enumerate}
+
+We evaluate GPT-4o, Gemini~2.0~Flash, and Claude~3.5~Sonnet on 52 BlackSwan-style scenarios spanning 8 categories of surprising everyday events.  Our key contributions are:
+
+\begin{enumerate}[leftmargin=*, nosep, topsep=2pt]
+    \item \textbf{A new evaluation protocol} that isolates belief revision from general reasoning ability by decomposing evidence presentation into two phases.
+    \item \textbf{Novel metrics} for measuring belief revision quality: \emph{stubbornness rate} (fraction of wrong answers never revised), \emph{appropriate update rate} (wrong-to-right transitions), and \emph{regression rate} (right-to-wrong transitions).
+    \item \textbf{Empirical findings} that VLMs exhibit 37--62\% stubbornness under baseline prompting, that Belief-State prompting reduces this by up to 18~pp, and that models display systematic \emph{confidence inflation}---claiming high confidence 2--3$\times$ more often in \phaseB regardless of accuracy.
+    \item \textbf{A disconnect between metacognitive awareness and behavior}: in the Counterfactual condition, models correctly identify when evidence matters (59--63\% awareness) but fail to translate this awareness into proportional belief revision.
+\end{enumerate}

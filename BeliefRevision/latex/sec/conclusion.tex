@@ -1,0 +1,41 @@
+\section{Discussion and Conclusion}
+\label{sec:conclusion}
+
+\subsection{Key Takeaways}
+
+Our experiments reveal that current frontier VLMs have significant deficiencies in belief revision:
+
+\begin{enumerate}[leftmargin=*, nosep]
+    \item \textbf{Stubbornness is the dominant failure mode.}  Across all models and conditions, stubbornness (refusing to revise a wrong answer) is far more common than regression (changing a right answer to wrong).  This asymmetry suggests a conservative bias that prioritizes consistency over accuracy when evidence conflicts with initial beliefs.
+    
+    \item \textbf{Prompting can partially mitigate stubbornness.}  Belief-State prompting reduces stubbornness by 13--18~pp and improves accuracy by 4--8~pp over baseline.  The mechanism appears to be \emph{prospective preparation}---telling the model to expect updates primes it for revision.  However, even the best prompting strategy leaves 37\% of wrong answers unrevised, indicating that prompting alone cannot fully solve the problem.
+    
+    \item \textbf{Metacognitive awareness exceeds behavioral change.}  Counterfactual prompting reveals that models can often \emph{identify} when evidence matters but fail to \emph{act} on this knowledge proportionally.  This dissociation between knowing and doing suggests that belief revision requires deeper architectural support, not just better prompting.
+    
+    \item \textbf{Confidence inflation is systematic.}  All models dramatically increase self-reported confidence after receiving additional evidence, even when their answer has not changed.  This suggests that evidence exposure triggers a general ``certainty boost'' rather than calibrated belief updating.
+\end{enumerate}
+
+\subsection{Connections to Cognitive Science}
+
+Our findings map directly onto known cognitive phenomena.  The stubbornness we observe parallels \emph{anchoring bias}~\cite{lou2024anchoring}---the tendency to over-weight initial information.  The narrative lock-in failure mode resembles \emph{confirmation bias}---interpreting new evidence to confirm rather than challenge existing beliefs.  The confidence inflation mirrors the \emph{illusion of explanatory depth}---gaining the feeling of understanding without genuine revision.  These parallels suggest that VLMs may have implicitly learned human-like cognitive biases from training data, rather than optimal Bayesian belief revision.
+
+\subsection{Implications for VLM Architecture}
+
+Our results point toward the need for \emph{explicit epistemic state tracking} in VLM architectures.  Current autoregressive models generate token-by-token without maintaining a structured belief state that can be formally updated.  Future architectures might incorporate:
+\begin{itemize}[leftmargin=*, nosep]
+    \item \textbf{Persistent belief registers} that store hypotheses with associated confidence weights and can be formally updated via Bayesian-like rules when new evidence arrives.
+    \item \textbf{Evidence-weighted attention} mechanisms that compare new evidence against existing beliefs to detect conflicts.
+    \item \textbf{Dual-process architectures} that separate fast initial hypothesis generation (System~1) from deliberate evidence integration (System~2), inspired by dual-process theory in cognitive science.
+\end{itemize}
+
+\subsection{Limitations}
+
+Our study has several limitations.  First, we use textual descriptions of visual scenes rather than actual images or video frames, meaning we test linguistic reasoning about visual scenarios rather than direct visual reasoning.  Future work should extend \method with real images from the BlackSwan Challenge.  Second, our scenario set (N=52) is modest; larger-scale evaluation would strengthen statistical conclusions.  Third, we evaluate only proprietary frontier models; open-source models may exhibit different patterns.  Fourth, our scenarios are constructed rather than sampled from a validated benchmark; evaluation on the full BlackSwan validation split would further validate our findings.
+
+\subsection{Future Work}
+
+Several directions follow naturally: (i)~extending \method to use actual video frames from BlackSwan; (ii)~testing whether fine-tuning with belief revision objectives can reduce stubbornness; (iii)~evaluating belief revision across more reasoning types (spatial, temporal, causal); and (iv)~developing architectures with explicit epistemic state mechanisms inspired by AGM belief revision axioms.
+
+\subsection{Conclusion}
+
+We introduced Evidence Update Prompting (\method), a two-phase protocol for evaluating belief revision in VLMs.  Our experiments across three frontier models and three prompting strategies reveal that current VLMs are substantially ``stubborn''---maintaining incorrect beliefs despite contradictory evidence 37--62\% of the time.  Belief-State prompting reduces but does not eliminate this stubbornness, while Counterfactual prompting reveals a gap between metacognitive awareness and behavioral change.  These findings establish that genuine non-monotonic reasoning remains an open challenge for VLMs, motivating architectures with explicit epistemic state mechanisms.

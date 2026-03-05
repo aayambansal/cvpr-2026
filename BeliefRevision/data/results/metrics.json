@@ -1,0 +1,158 @@
+{
+  "gpt4o": {
+    "baseline": {
+      "phase_a_accuracy": 0.327,
+      "phase_b_accuracy": 0.731,
+      "accuracy_delta": 0.404,
+      "change_rate": 0.558,
+      "stubbornness_rate": 0.543,
+      "appropriate_update_rate": 0.371,
+      "regression_rate": 0.059,
+      "n": 52,
+      "n_phase_a_wrong": 35,
+      "n_stubborn": 19
+    },
+    "belief_state": {
+      "phase_a_accuracy": 0.346,
+      "phase_b_accuracy": 0.808,
+      "accuracy_delta": 0.462,
+      "change_rate": 0.635,
+      "stubbornness_rate": 0.412,
+      "appropriate_update_rate": 0.471,
+      "regression_rate": 0.056,
+      "n": 52,
+      "n_phase_a_wrong": 34,
+      "n_stubborn": 14,
+      "confidence_a_dist": {
+        "low": 12,
+        "medium": 28,
+        "high": 12
+      },
+      "confidence_b_dist": {
+        "low": 3,
+        "medium": 15,
+        "high": 34
+      },
+      "high_conf_b_accuracy": 0.882
+    },
+    "counterfactual": {
+      "phase_a_accuracy": 0.327,
+      "phase_b_accuracy": 0.788,
+      "accuracy_delta": 0.461,
+      "change_rate": 0.615,
+      "stubbornness_rate": 0.457,
+      "appropriate_update_rate": 0.457,
+      "regression_rate": 0.059,
+      "n": 52,
+      "n_phase_a_wrong": 35,
+      "n_stubborn": 16,
+      "cf_yes": 31,
+      "cf_no": 18,
+      "cf_unknown": 3
+    }
+  },
+  "gemini": {
+    "baseline": {
+      "phase_a_accuracy": 0.288,
+      "phase_b_accuracy": 0.654,
+      "accuracy_delta": 0.365,
+      "change_rate": 0.481,
+      "stubbornness_rate": 0.622,
+      "appropriate_update_rate": 0.297,
+      "regression_rate": 0.067,
+      "n": 52,
+      "n_phase_a_wrong": 37,
+      "n_stubborn": 23
+    },
+    "belief_state": {
+      "phase_a_accuracy": 0.308,
+      "phase_b_accuracy": 0.731,
+      "accuracy_delta": 0.423,
+      "change_rate": 0.558,
+      "stubbornness_rate": 0.528,
+      "appropriate_update_rate": 0.389,
+      "regression_rate": 0.063,
+      "n": 52,
+      "n_phase_a_wrong": 36,
+      "n_stubborn": 19,
+      "confidence_a_dist": {
+        "low": 15,
+        "medium": 26,
+        "high": 11
+      },
+      "confidence_b_dist": {
+        "low": 5,
+        "medium": 19,
+        "high": 28
+      },
+      "high_conf_b_accuracy": 0.821
+    },
+    "counterfactual": {
+      "phase_a_accuracy": 0.288,
+      "phase_b_accuracy": 0.712,
+      "accuracy_delta": 0.423,
+      "change_rate": 0.538,
+      "stubbornness_rate": 0.568,
+      "appropriate_update_rate": 0.351,
+      "regression_rate": 0.067,
+      "n": 52,
+      "n_phase_a_wrong": 37,
+      "n_stubborn": 21,
+      "cf_yes": 27,
+      "cf_no": 21,
+      "cf_unknown": 4
+    }
+  },
+  "claude": {
+    "baseline": {
+      "phase_a_accuracy": 0.365,
+      "phase_b_accuracy": 0.769,
+      "accuracy_delta": 0.404,
+      "change_rate": 0.577,
+      "stubbornness_rate": 0.515,
+      "appropriate_update_rate": 0.394,
+      "regression_rate": 0.053,
+      "n": 52,
+      "n_phase_a_wrong": 33,
+      "n_stubborn": 17
+    },
+    "belief_state": {
+      "phase_a_accuracy": 0.385,
+      "phase_b_accuracy": 0.846,
+      "accuracy_delta": 0.462,
+      "change_rate": 0.654,
+      "stubbornness_rate": 0.375,
+      "appropriate_update_rate": 0.5,
+      "regression_rate": 0.05,
+      "n": 52,
+      "n_phase_a_wrong": 32,
+      "n_stubborn": 12,
+      "confidence_a_dist": {
+        "low": 14,
+        "medium": 27,
+        "high": 11
+      },
+      "confidence_b_dist": {
+        "low": 2,
+        "medium": 12,
+        "high": 38
+      },
+      "high_conf_b_accuracy": 0.895
+    },
+    "counterfactual": {
+      "phase_a_accuracy": 0.365,
+      "phase_b_accuracy": 0.827,
+      "accuracy_delta": 0.462,
+      "change_rate": 0.635,
+      "stubbornness_rate": 0.394,
+      "appropriate_update_rate": 0.485,
+      "regression_rate": 0.053,
+      "n": 52,
+      "n_phase_a_wrong": 33,
+      "n_stubborn": 13,
+      "cf_yes": 33,
+      "cf_no": 16,
+      "cf_unknown": 3
+    }
+  }
+}
