@@ -199,3 +199,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](CounterBench/latex/main.pdf) | [Code & Data](CounterBench/)
 
 ---
+
+## Paper 15: UIDrift-Bench
+
+**Title:** UIDrift-Bench: Measuring Vision-Language Model Robustness to UI Layout and Style Perturbations for Grounded Retrieval
+
+**Authors:** Aayam Bansal
+
+**Venue:** Workshop on Grounded Retrieval and Agentic Intelligence for Vision-Language (GRAIL-V, CVPR 2026)
+
+**Abstract:** Vision-language models (VLMs) are increasingly deployed as autonomous agents that interact with graphical user interfaces, yet their robustness to the natural visual variability of real-world UIs remains poorly understood. We introduce UIDrift-Bench, a controlled micro-benchmark comprising 300 UI screenshots (50 base pages across five categories, each rendered under five calibrated drift variants) and 390 grounded question-answer pairs. Each drift type---spanning theme changes, sidebar toggles, responsive scaling, viewport crops, and composite perturbations---is assigned a severity level from one to five, enabling fine-grained analysis of degradation curves. We evaluate three frontier VLMs (GPT-4o, GPT-4o-mini, Gemini 2.0 Flash) on answer accuracy, answer consistency, and evidence grounding IoU. Our experiments reveal that drift robustness does not correlate perfectly with base accuracy: Gemini 2.0 Flash achieves the highest Drift Robustness Score (0.950) despite lower base accuracy than GPT-4o. Critically, evidence grounding IoU remains below 0.07 across all models and conditions, exposing a fundamental gap in spatial evidence localization that must be addressed before VLM agents can be trusted in audit-critical workflows.
+
+[Paper PDF](UIDrift-Bench/latex/main.pdf) | [Code & Data](UIDrift-Bench/)
+
+---

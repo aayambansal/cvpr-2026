@@ -1,0 +1,62 @@
+\section{Benchmark Design}
+\label{sec:method}
+
+\bench{} is constructed through a three-stage pipeline: base page generation, drift application, and grounded QA annotation. We describe each stage in detail, followed by the evaluation metrics.
+
+\subsection{Base Page Generation}
+\label{sec:method:pages}
+
+We generate 50 base UI pages spanning five categories, with 10 pages per category: \textbf{dashboards} (revenue summaries, KPI cards, metric overviews), \textbf{settings panels} (account preferences, notification toggles, privacy controls), \textbf{data tables} (sortable rows with mixed numeric and text columns), \textbf{articles} (long-form text with headers, inline images, and sidebars), and \textbf{analytics views} (line charts, bar charts, and trend indicators). These categories were selected to cover the most common UI layouts encountered by deployed VLM agents in enterprise and consumer applications.
+
+Each page is constructed programmatically using HTML and CSS templates with randomized content (names, numbers, dates, status labels) drawn from predefined pools. This approach provides two advantages: first, we have full control over the ground-truth content of every element, enabling precise QA annotation; second, we can render the same underlying content under different visual configurations without ambiguity about whether the information has changed. All pages are rendered at a base resolution of 1920$\times$1080 pixels using a headless Chromium browser and captured as PNG screenshots.
+
+\subsection{Drift Taxonomy}
+\label{sec:method:drift}
+
+We define five drift types, ordered by increasing severity from 1 (minimal visual change) to 5 (compounded perturbations). The severity ordering reflects both the magnitude of pixel-level change and the conceptual difficulty for a model that must maintain consistent understanding despite visual variation.
+
+\paragraph{Severity 1: Theme change.}
+The page is re-rendered under an alternative color scheme. Specifically, we apply one of three transformations: light-to-dark mode inversion, a sepia tone filter, or a blue-tinted color scheme. Theme changes alter background colors, text colors, and element borders but preserve layout geometry, text content, and all spatial relationships between elements. This represents the mildest form of drift, as all information remains in the same position with the same content; only the chromatic presentation changes.
+
+\paragraph{Severity 2: Sidebar toggle.}
+A navigation sidebar (approximately 240 pixels wide) is either added to a page that originally lacked one, or removed from a page that originally had one. This perturbation shifts the main content region horizontally and may slightly compress the available width for the primary content area. The sidebar toggle preserves all content but changes the spatial coordinates of UI elements, testing whether models rely on absolute position versus relative structure.
+
+\paragraph{Severity 3: Responsive scale.}
+The viewport is uniformly scaled by a factor drawn from the range $[0.85, 1.15]$. This simulates the effect of browser zoom or responsive design breakpoints. Under scaling, all elements maintain their relative positions and proportions, but their absolute pixel coordinates and sizes change. At the extremes of the scaling range, some content may shift between lines or overflow its container, introducing subtle layout reflow effects.
+
+\paragraph{Severity 4: Viewport crop.}
+A random offset crop is applied to the rendered page, simulating scroll and pan interactions. The crop is positioned such that it always includes at least 70\% of the original viewport area, but the specific region shown may exclude peripheral UI elements (headers, footers, or sidebar content). This perturbation directly tests whether a model can answer questions about content that remains visible under a shifted viewport, and whether it can correctly report that information is not visible when the relevant region has been cropped.
+
+\paragraph{Severity 5: Composite.}
+All lower-severity drift types are applied simultaneously: a theme change, sidebar toggle, responsive scale, and a mild Gaussian blur ($\sigma = 0.8$ pixels) are compounded into a single drifted image. Composite drift represents the worst-case realistic scenario, where multiple sources of visual variation co-occur as they would in a real deployment (a user switches to dark mode, collapses the sidebar, and zooms in simultaneously).
+
+Each drift type is applied independently to every base page, producing $50 \times 5 = 250$ drifted images. Together with the 50 base images, \bench{} contains 300 images in total.
+
+\subsection{Grounded QA Annotation}
+\label{sec:method:qa}
+
+We construct 390 grounded QA pairs distributed across six question types: \textbf{value extraction} (``What is the total revenue shown?''), \textbf{trend detection} (``Is the monthly trend increasing or decreasing?''), \textbf{table lookup} (``What is the status of order \#1234?''), \textbf{text extraction} (``What is the title of the second section?''), \textbf{UI state} (``Is the notifications toggle enabled or disabled?''), and \textbf{chart reading} (``What is the approximate value for March in the bar chart?'').
+
+Each QA pair is annotated with two ground-truth elements: (1) the \emph{answer string}, a short text span that constitutes the correct answer, and (2) the \emph{evidence bounding box}, a rectangular region $[x_1, y_1, x_2, y_2]$ in normalized coordinates that identifies the UI element supporting the answer. Because our pages are generated programmatically, both the answer and the bounding box are derived directly from the rendering pipeline rather than through manual annotation, ensuring high annotation quality. For drifted images, the evidence bounding box is recomputed to reflect the spatial transformation applied by the drift, so that ground-truth localization remains accurate under all conditions.
+
+The QA pairs are distributed as follows: value extraction (17 pairs, 43.6\%), trend detection (10 pairs, 25.6\%), table lookup (7 pairs, 17.9\%), text extraction (2 pairs, 5.1\%), UI state (1 pair, 2.6\%), and chart reading (2 pairs, 5.1\%). This distribution reflects the relative frequency of these task types in real UI agent deployments, where extracting specific values from dashboards and detecting trends are the most common operations.
+
+\subsection{Evaluation Metrics}
+\label{sec:method:metrics}
+
+We evaluate models along five complementary dimensions:
+
+\paragraph{Answer Exact Match (AEM).} Both the predicted and ground-truth answer strings are lowercased, stripped of whitespace and punctuation, and compared for exact equality. AEM captures strict correctness and is the primary accuracy metric.
+
+\paragraph{Answer Containment (AC).} We check whether the ground-truth answer string appears as a substring of the predicted answer (after normalization). AC is a relaxed accuracy metric that accommodates models that produce correct answers embedded in longer responses.
+
+\paragraph{Evidence Grounding IoU.} When a model produces a predicted evidence bounding box, we compute the Intersection-over-Union between the predicted and ground-truth bounding boxes. If the model does not produce a bounding box, IoU is recorded as zero. This metric measures spatial evidence localization quality.
+
+\paragraph{Answer Consistency.} For each QA pair, we compare the model's answer on the base image to its answer on each drifted variant. Consistency is 1 if the answers match (after normalization) and 0 otherwise, averaged across all drifted variants. This metric captures whether the model produces stable outputs under visual perturbation, independent of whether those outputs are correct.
+
+\paragraph{Drift Robustness Score (DRS).} We define DRS as the arithmetic mean of AEM, AC, and Answer Consistency, averaged across all drift conditions:
+\begin{equation}
+    \text{DRS} = \frac{1}{3}\left(\overline{\text{AEM}} + \overline{\text{AC}} + \overline{\text{Consistency}}\right)
+    \label{eq:drs}
+\end{equation}
+where the overbar denotes averaging across all five drift types. DRS provides a single composite score summarizing a model's overall robustness to UI drift, balancing accuracy and consistency.
