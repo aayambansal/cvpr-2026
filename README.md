@@ -185,3 +185,17 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 [Paper PDF](BeliefRevision/latex/main.pdf) | [Code & Data](BeliefRevision/)
 
 ---
+
+## Paper 14: CounterBench
+
+**Title:** CounterBench: A Cheap, Controllable Counterfactual Testbed Reveals Systematic Failures in Vision-Language Models
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** Workshop on Grounded Retrieval and Agentic Intelligence for Vision-Language (CVPR 2026)
+
+**Abstract:** Standard vision-language model (VLM) benchmarks evaluate whether a model can answer a question correctly given a single image, but they cannot distinguish genuine visual understanding from spurious pattern matching. We introduce CounterBench, a counterfactual consistency benchmark that pairs each synthetic scene with a minimal intervention---removing an object, swapping positions, or changing an attribute---and checks whether the model's answer changes if and only if it should. CounterBench comprises 325 programmatically generated image pairs spanning five reasoning categories (spatial, causal, compositional, counting, and occlusion) and nine intervention types, all produced with a fully deterministic PIL pipeline at zero annotation cost. We evaluate six VLMs---three proprietary (GPT-4o, Claude 3.5 Sonnet, Gemini 2.0 Flash) and three open-weight (Qwen2.5-VL 72B, Pixtral Large, Llama 3.2 11B)---using the Counterfactual Consistency Score (CCS), which measures the fraction of pairs where the model's answer changes only when the ground-truth answer changes. Results reveal a striking 19.5-point gap in CCS across models (99.7% for Gemini 2.0 Flash vs. 80.2% for Llama 3.2 11B), even though all models exceed 82% accuracy on individual images. We decompose CCS into sensitivity (correct change detection) and specificity (correct invariance), uncovering distinct failure profiles: Claude 3.5 Sonnet suffers from low specificity (spurious answer changes), while Llama 3.2 11B suffers from low sensitivity (sticky answers). Notably, Qwen2.5-VL 72B achieves 97.5% CCS with perfect specificity, rivaling proprietary models.
+
+[Paper PDF](CounterBench/latex/main.pdf) | [Code & Data](CounterBench/)
+
+---
