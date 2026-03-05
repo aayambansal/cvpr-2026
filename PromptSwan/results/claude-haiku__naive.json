@@ -1,0 +1,2009 @@
+{
+  "strategy": "naive",
+  "model": "claude-haiku",
+  "accuracy": 54.50000000000001,
+  "correct": 109,
+  "total": 200,
+  "results": [
+    {
+      "q_id": 729,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe description suggests that the boy in the navy blue shirt is interacting with a power bar in a way that leads to an unexpected spark or fire, which seems to be the most active and event-driven description among the options."
+    },
+    {
+      "q_id": 857,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event, with a hidden middle segment\n2. The scenario suggests an unstable situation involving a girl and a table\n3. The most likely outcome based on typical physical dynamics is an unsuccessful attempt\n\nThe key reasoning points:\n- Standing on a table is inherently unstable\n- Sudden table movement increases fall risk\n- Attempting to leap between tables is risky\n\nThe most probable scenario is that the table was pulled away, causing an uncontrolled fall.\n\nA: Friend pulls table away, causing girl to fall to ground\n\nThis matches the most likely physical outcome given the limited information.\n\nA"
+    },
+    {
+      "q_id": 1123,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests there's a hidden middle segment of a video\n2. We know the initial state (pre-event) and final state (post-event)\n3. We want to infer the most likely transition\n\nWithout seeing the actual video, I'll use logical inference based on typical human emotional dynamics.\n\nThe key is to find the most plausible transition that connects the initial and final states.\n\nIf the boy was initially sad, and the goal is to explain his emotional state change, the most commonsense explanation would be something that could distract or shift his emotional focus.\n\nOption (A) \"the boy gets distracted by something outside and stops being sad\" fits this reasoning perfectly. External distraction is a common way people's moods can change, especially for children.\n\nOptions (B) and (C) do not provide a clear mechanism for mood change and seem less likely.\n\nTherefore, the answer is:\n\nA"
+    },
+    {
+      "q_id": 295,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event, with a hidden middle segment.\n2. The scenario involves a hard hat, a shovel, and a person in a safety vest.\n3. We want to determine the most likely sequence of events.\n\nAnalyzing the options:\n- Option A suggests an intentional, playful action (hat flipping onto head)\n- Option B suggests an accidental, potentially painful outcome\n- Option C describes a static, neutral scene\n\nGiven the context of a video with implied action and potential mishap, option B seems the most probable. The description suggests an unintended consequence (shovel ricocheting, hitting the person) which is consistent with typical \"fail\" or accident videos.\n\nB"
+    },
+    {
+      "q_id": 889,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look for contextual clues in the description.\n2. I'll consider what seems most consistent with the visible segments.\n\nKey observations:\n- The scenario mentions a \"wet floor\" in the pre-event segment\n- There's a suggestion of movement/activity happening\n- The post-event segment is not described\n\nMost likely scenario:\n- A wet floor suggests potential slipping\n- The description of \"slips\" and \"falls\" matches the wet floor context\n- Laughing afterward implies it wasn't a serious fall\n\nThe most probable hidden middle segment is the actual slipping and falling action.\n\nTherefore, the answer that best represents what likely happened in the hidden frames is:\n\nA"
+    },
+    {
+      "q_id": 1489,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe reasoning is:\n- Option A describes a standard weightlifting scenario, which doesn't sound like an \"unexpected event\"\n- Option B suggests an extreme scenario of throwing a ball so hard it breaks a ceiling, which seems unlikely\n- Option C describes a comedic, unexpected sequence where the man throws a medicine ball and then attempts a pushup, but fails to get up before the ball falls back down and hits him on the head - which matches the description of an unexpected event with a humorous outcome"
+    },
+    {
+      "q_id": 286,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. This sounds like a typical \"what happened in the missing frames\" scenario where context and probability matter.\n\n2. I'll analyze the potential outcomes based on typical physical interactions and likelihood:\n\n\u2022 Option A suggests falling onto another person's head - this seems unlikely and would require very precise positioning\n\u2022 Option B suggests falling towards the camera person - this seems more probable, as people tend to fall in the direction they're facing or leaning\n\u2022 Option C involves a complex sequence (falling into a window, sliding behind a tree) which seems overly complicated\n\n3. The most commonsense, physically probable outcome is falling towards the nearest person/object, which would be the camera holder.\n\nTherefore, the most likely scenario is:\n\nB"
+    },
+    {
+      "q_id": 3,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most detailed and precise explanation of an unexpected gymnastic event. It describes a specific scenario where the gymnast's calculation or timing is incorrect, resulting in an unintended contact with the bar (hitting with feet instead of hands), which suggests a failed maneuver."
+    },
+    {
+      "q_id": 1653,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment involving a vehicle on an icy parking lot.\n\n2. The pre-event and post-event segments likely provide context about the vehicle's initial state and final position.\n\n3. Option A suggests a definitive outcome (hitting a stop sign), which implies a loss of control.\n\n4. Option B suggests continued slipping in circles, which seems less conclusive.\n\n5. Option C adds an additional element (police car) that wasn't mentioned in the original scenario description.\n\n6. Given the icy conditions and the mention of losing control, the most likely scenario is that the driver's vehicle ends up hitting something stationary like a stop sign.\n\nThe most commonsense and probable outcome based on the limited information is that the driver loses control and hits a stop sign.\n\nAnswer: A"
+    },
+    {
+      "q_id": 1600,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe description in option A provides the most detailed and logical explanation of the event. It describes a specific sequence of actions: a monkey sitting on a blue rocking horse, looking at the camera, losing balance, and falling backwards onto the floor. This sounds like a plausible and precise description of an unexpected moment captured on video."
+    },
+    {
+      "q_id": 61,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\nThe key is to analyze the physical actions and constraints in the scenario.\n\n\u2022 The phrase \"attempts backflip\" suggests an intentional gymnastic/athletic movement\n\u2022 \"Slip off the platform\" indicates an unintended/accidental outcome\n\u2022 The description suggests multiple women are involved\n\u2022 The scenario implies a platform with some physical obstacles (like a railing)\n\nBased on the description, option (A) provides the most logical and coherent explanation of an unexpected physical event - someone attempting a backflip but losing balance and slipping off the platform.\n\nA"
+    },
+    {
+      "q_id": 1164,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look for contextual clues in the scenario description.\n2. I'll consider the physical plausibility of each option.\n3. I'll think about the most likely sequence of events.\n\nThe key is to imagine a logical progression that connects the pre-event and post-event segments.\n\n\u2022 Option A (spilling drink over balcony) seems random and doesn't suggest a clear physical cause/effect.\n\u2022 Option B (slipping on porch and falling) implies a potential physical action that could naturally occur and explain a transition between segments.\n\u2022 Option C (watching someone fall into snow) seems more like an observation than an action.\n\nOption B suggests a direct physical action that could reasonably happen on a porch, especially if the surface might be slippery (potentially from snow or ice).\n\nThe most commonsense interpretation that connects the segments is a slip and fall.\n\nB"
+    },
+    {
+      "q_id": 809,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. We have a pre-event and post-event context to help infer what likely happened\n3. The options suggest different potential outcomes involving a man and stairs/bicycle\n\nThe key is to choose the most probable scenario based on the implied context.\n\nOption C provides the most specific and likely narrative - suggesting a sequence of events that explains a potential mishap:\n- Man starts on stairs\n- Loses balance/stumbles\n- Almost recovers\n- Ultimately hits a pole at the bottom\n\nThis option has a logical progression and seems most consistent with typical accident scenarios.\n\nOptions A and B are either too vague or seem less probable given the implied context of a problematic event.\n\nTherefore, the most likely description of the hidden middle frames is:\n\nC"
+    },
+    {
+      "q_id": 1044,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this carefully:\n\nThe key details to consider are:\n- A mother accidentally kicks a yellow ball\n- The ball hits the little boy's face\n- There's a reaction from the boy\n\nLooking at the options:\n(A) Provides the most complete and logical description:\n- Ball hits boy's face\n- Hat is knocked off\n- Boy starts crying\n- Mother goes to console him\n\n(B) Has some similar elements but seems less detailed and mentions a random person laughing\n\n(C) Seems more extreme, suggesting the boy is knocked to the ground, which seems unlikely from a ball kick\n\nBased on typical physical interactions and commonsense reasoning, option (A) appears to be the most plausible and detailed description.\n\nA"
+    },
+    {
+      "q_id": 1546,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe reasoning is that the description in option A suggests a specific scenario involving water from a roller coaster near a bridge, with two kids bracing for impact. This sounds like a concrete, plausible video scenario involving motion and potential water splash. Options B and C are either too vague or seem unrelated to the described scene."
+    },
+    {
+      "q_id": 1706,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": null,
+      "pred_letter": null,
+      "correct": false,
+      "full_response": "I apologize, but I cannot actually see the video you're referring to. Without being able to view the specific video, I cannot determine which description is correct. To provide an accurate answer, I would need to have visual context of the scene.\n\nHowever, if you're asking me to choose based on the most logical or likely scenario, I would need more information about the context of the video. Without that, I cannot confidently select an answer."
+    },
+    {
+      "q_id": 1338,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the pre-event and post-event segments to infer what likely happened.\n\n2. The key is to look for logical continuity and physical plausibility.\n\n3. If the pre-event shows a car looking at/near a boat, and the post-event shows damage or a collision, the most probable scenario is that the car actually hit something.\n\n4. Option A suggests the car ran into another car in front of them.\n5. Option B suggests a simple passing by, which seems less likely given the context.\n6. Option C directly suggests the car hit the boat, which matches the implied sequence of events.\n\nThe most logical and commonsense interpretation is that the white car ran into the boat, causing a major accident.\n\nC"
+    },
+    {
+      "q_id": 218,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment involving skateboarders on a curved road.\n\n2. The pre-event and post-event segments likely provide context clues.\n\n3. The options suggest different potential outcomes:\n- Option A implies a fall occurs\n- Option B implies a fall caused by hitting haystacks\n- Option C implies no incident occurs\n\n4. Since the question asks for the \"most likely\" scenario, I'll consider the most probable physical outcome.\n\n5. On a curved road with multiple skateboarders, the likelihood of an incident (like a fall) is higher than a perfect, uneventful ride.\n\n6. Option B provides the most specific explanation for a potential fall - hitting haystacks on the side of the road.\n\n7. This scenario seems the most plausible given the limited information.\n\nTherefore, the most likely description of what happened in the hidden frames is:\n\nB"
+    },
+    {
+      "q_id": 1027,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. We have a video with pre-event and post-event segments visible\n2. The key is to infer the most likely scenario based on context and physical probability\n\nAnalyzing the options:\n- Option A suggests a minor mishap with shrubs causing balance loss\n- Option B implies a collision that causes the selfie stick to be thrown\n- Option C suggests a more serious collision resulting in a motorcycle crash\n\nReasoning:\n- If the riders were just getting a selfie stick snagged, it's unlikely to cause major disruption\n- A collision strong enough to make a selfie stick \"go flying\" suggests significant impact\n- A full motorcycle crash implies the most severe potential outcome\n\nThe most probable scenario that bridges the pre-event and post-event segments is a collision serious enough to cause a crash.\n\nTherefore, the answer is:\n\nC"
+    },
+    {
+      "q_id": 1260,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment, implying something unexpected or dramatic occurred.\n\n2. Analyzing the options:\n- Option A suggests an intentional aggressive action (pushing)\n- Option B suggests an accidental, dangerous situation (getting hit)\n- Option C suggests a calm, deliberate action (walking through traffic)\n\n3. Considering the context of a hidden middle segment implies something dramatic or sudden happened.\n\n4. Option B (getting hit by a car while crossing) is the most likely scenario that would:\n- Explain a sudden, dramatic event\n- Fit with a hidden middle segment\n- Represent an unexpected outcome\n\n5. Walking casually through traffic (Option C) seems unlikely to require hidden frames.\n6. A deliberate push (Option A) seems less probable than an accidental collision.\n\nThe most commonsense interpretation is that the hidden frames would show an accident involving a person being struck while attempting to cross a highway.\n\nAnswer: B"
+    },
+    {
+      "q_id": 783,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll consider the physical dynamics and likely sequence of events.\n2. The scenario suggests something happens in a hidden middle segment involving a red Coke bottle.\n3. The pre-event and post-event frames likely provide context clues.\n\nAnalyzing the options:\n\u2022 Option A suggests the bottle blocks other sodas and breaks\n\u2022 Option B suggests the bottle explodes and sprays soda\n\u2022 Option C suggests the bottle moves forward and empties other bottles\n\nWithout seeing the actual video, I'll use commonsense physical reasoning:\n- Bottles under pressure can potentially explode\n- A collision or impact might cause a bottle to break or spray\n- The most likely scenario is an explosive/pressurized event\n\nThe description of the bottle \"exploding and spraying soda inside the machine\" sounds most consistent with typical soda bottle behavior under stress.\n\nTherefore, the most probable hidden event is:\n\nB"
+    },
+    {
+      "q_id": 588,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look at the pre-event and post-event context to infer what likely happened.\n\n2. The key is to find the most logical transition between the visible segments.\n\n3. If the scenario involves a person on a table, and the post-event suggests something happened, the most probable outcome is a fall.\n\n4. Option A directly suggests a fall and subsequent laughter, which implies something dramatic occurred in the hidden middle segment.\n\n5. Option B suggests a calm, uneventful descent from the table, which seems less likely given the context.\n\n6. Option C appears to be a future/preparatory scenario, not explaining what actually happened.\n\n7. The language of \"fell\" and \"others laughed\" strongly indicates something happened to the person on the table.\n\nTherefore, the most likely scenario for the hidden frames is that the guy fell from the table and others laughed at him.\n\nA"
+    },
+    {
+      "q_id": 639,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. We have pre-event and post-event context, but the middle is unknown\n3. Without additional context, I'll choose the most plausible, natural human interaction\n\nThe most likely scenario is that the boy looks at the camera and waves, which is a common, simple social interaction.\n\nTherefore, the answer is:\n\nC"
+    },
+    {
+      "q_id": 933,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "To determine the best description, I'll use reasoning about physical dynamics on a trampoline:\n\nOn a trampoline, when multiple children are bouncing, their individual movements and the surface's elasticity can cause unpredictable interactions. If one child loses balance, it can affect others nearby due to the shared bouncing surface.\n\nWithout seeing the actual video, I'll analyze the logical likelihood of each scenario:\n\n(A) Suggests a synchronized fall of all four children, which seems unlikely.\n(B) Implies partial disruption, with two children losing balance while others continue - this sounds more plausible.\n(C) Focuses only on the smallest child falling, which seems less probable if multiple children are bouncing together.\n\nBased on commonsense reasoning about group dynamics on a trampoline, option (B) seems the most reasonable description of an unexpected event.\n\nB"
+    },
+    {
+      "q_id": 1174,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. We know there's a pre-event, a hidden middle segment, and a post-event.\n\n2. The post-event shows the man falling, which suggests something significant happened during the hidden middle segment.\n\n3. Option A suggests a simple fall while chasing the dog down stairs.\n\n4. Option B provides a more complex scenario that explains the fall - the dog biting the man, which would logically cause him to lose balance and fall.\n\n5. Option C suggests a successful capture of the dog, which doesn't align with the fall seen in the post-event.\n\nOption B provides the most logical explanation for why the man would fall during the chase.\n\nB"
+    },
+    {
+      "q_id": 1701,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. The pre and post event frames likely provide context clues\n3. I'll analyze the most likely sequence of events based on physical probability\n\nOption A suggests an athletic/acrobatic attempt that seems complex and unlikely to go smoothly\nOption B seems mundane and lacks dramatic tension\nOption C implies a deliberate prank with a predictable comedic outcome\n\nThe prank scenario (Option C) has the most logical progression:\n- One man holds a box\n- Another man attempts to jump on the box\n- The first man deliberately moves the box at the last moment\n- This would create a predictable comedic fail scenario\n\nThis matches typical \"prank\" video structures where someone intentionally creates a humorous failure moment.\n\nThe physical mechanics and human interaction in Option C are the most plausible and align with common video prank setups.\n\nAnswer: C"
+    },
+    {
+      "q_id": 1619,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 The scenario involves a snowboarder and a tree\n\u2022 The key is to understand the most likely sequence of events\n\nAnalyzing each option:\n(A) This description suggests a somewhat uncontrolled fall where the snowboarder accidentally falls from the tree and lands on their snowboard, then tips over\n(B) This suggests a deliberate, controlled jump from the tree onto the ground\n(C) This implies an external force (someone throwing something) causing the snowboarder to fall\n\nWithout seeing the actual video, option (A) sounds the most plausible and natural. Snowboarders sometimes climb trees or get into awkward positions, and an accidental fall that results in landing on the board but then tipping over is a realistic scenario.\n\nThe other options seem less likely - a deliberate jump would typically be more controlled, and being knocked down by something thrown seems improbable.\n\nTherefore, my answer is:\n\nA"
+    },
+    {
+      "q_id": 1067,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a sequence of events with a hidden middle segment\n2. The pre-event and post-event frames likely provide context clues\n3. The key is to infer the most probable outcome based on the visible segments\n\nWithout seeing the actual video, I'll use logical inference:\n- If the cart was very close to a structure in the pre-event frame\n- And the post-event frame suggests damage or displacement\n- The most likely scenario is a direct collision resulting in a crash\n\nThis points to option (B): The golf cart driver loses control and crashes into the structure, causing him to fall off.\n\nThe answer is: B"
+    },
+    {
+      "q_id": 1131,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests an incomplete video with a hidden middle segment\n2. The context implies some kind of physical movement or balance challenge\n3. The options suggest a progression of potential outcomes\n\nAnalyzing the options:\n- Option A implies an incomplete or imperfect attempt\n- Option B suggests a failed attempt resulting in a fall\n- Option C indicates a successful execution\n\nGiven the typical difficulty of complex physical maneuvers and the hint of potential difficulty in the first option, the most likely scenario is that the attempt was not fully successful.\n\nThe most probable outcome is that she did not execute the movement correctly.\n\nB"
+    },
+    {
+      "q_id": 70,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C provides the most detailed and specific account of an unexpected sequence of events involving a woman and a chicken. It describes a unique scenario where the woman falls while holding the chicken, then gets up and starts dancing, which sounds like an unusual and memorable moment."
+    },
+    {
+      "q_id": 1645,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests there's a pre-event, a hidden middle segment, and a post-event.\n\n2. Without seeing the actual video, I'll use logical inference based on the context and options.\n\n3. The options suggest some action involving ping pong balls and cups.\n\n4. The key is to find the most likely scenario that would connect the pre and post events.\n\n5. Option A seems too elaborate and specific without context.\n\n6. Option B introduces an unexpected dramatic turn (anger, knocking over cups) that seems less probable.\n\n7. Option C is the most straightforward and neutral continuation - simply dropping another ball into a cup.\n\n8. This option is most consistent with a typical, expected sequence of events.\n\nTherefore, the most likely scenario for the hidden middle segment is:\n\nC"
+    },
+    {
+      "q_id": 1361,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me analyze this carefully:\n\nThe key is to choose the description that most logically matches the scenario's physical events.\n\nOption A seems too simple and lacks detail.\nOption B suggests an improbable moment of the tree standing perfectly upright, which sounds unrealistic.\nOption C provides the most specific and plausible description, including a specific detail about the tree hitting the car's side mirror and the person's reaction.\n\nThe description in Option C sounds like a realistic sequence of events that could actually happen when someone is trying to move a tree off a car.\n\nTherefore, my answer is:\n\nC"
+    },
+    {
+      "q_id": 745,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nThe description in option B best captures the scenario of a car attempting to pull out of a parking spot and narrowly avoiding a collision with a cyclist. The phrase \"narrowly missing getting hit\" suggests a close call and dynamic movement, which matches the typical tension of a near-accident situation."
+    },
+    {
+      "q_id": 1758,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. This sounds like a typical birthday cake scenario where a child is attempting to blow out candles.\n\n2. The key is understanding the most likely progression of events based on common childhood behavior.\n\n3. Option A (blowing with spit) seems unlikely and unusual.\n\n4. Option B suggests a single failed attempt, which is possible but less typical.\n\n5. Option C describes a realistic scenario where a child would persistently try multiple times to blow out candles until successful - which matches typical child behavior.\n\nChildren often need several attempts to blow out all candles on a birthday cake, especially if they are young or the candles are numerous.\n\nTherefore, the most commonsense and probable description of the hidden middle segment is:\n\nC"
+    },
+    {
+      "q_id": 468,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. The pre-event and post-event segments likely provide context\n3. I'll analyze the most logical progression based on typical human behavior and physical interactions\n\nThe key is to find the most probable sequence that connects the visible segments.\n\nIf the ball doesn't make it into the mug, the most likely response is to keep trying - which matches option (C). People typically persist in simple tasks like throwing a ball into a mug, especially if they're practicing or playing a game.\n\nOptions (A) and (B) involve more extreme reactions that seem less probable given the context.\n\nTherefore, the most reasonable explanation for the hidden middle segment is that the man continues attempting to throw the ball into the mug.\n\nC"
+    },
+    {
+      "q_id": 868,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C provides the most commonsense and likely explanation for a skateboarding fall. It describes a typical scenario where a skateboarder loses balance and falls, which is a common occurrence when skateboarding. The description is straightforward and does not rely on an unlikely external event like a bird strike (option B) or a predetermined collision (option A)."
+    },
+    {
+      "q_id": 11,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 This sounds like a scenario involving a potential physical interaction between an adult and a baby on a bed\n\u2022 The goal is to predict the most likely outcome based on physical logic and safety considerations\n\nAnalyzing the options:\n(A) Seems neutral and low-risk\n(B) Suggests an accidental/uncontrolled movement that could be dangerous\n(C) Implies an extremely dangerous scenario where the baby is forcefully thrown\n\nThe most likely outcome that minimizes potential harm would be option (A), where the adult is simply bending over and possibly looking at something (like a cat) near the bed.\n\nOption (C) is extremely unlikely, as no responsible adult would intentionally launch a baby through the air.\nOption (B) suggests an uncontrolled accident that seems less probable than a careful movement.\n\nTherefore, the most commonsense and probable scenario is:\n\nA"
+    },
+    {
+      "q_id": 68,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event segment, with a hidden middle segment.\n2. The goal is to infer the most likely action based on commonsense reasoning.\n3. I'll consider the most probable sequence of events.\n\nThe key is to find the most logical transition between the visible segments.\n\nIf the woman is holding a chicken in the pre-event, and the post-event suggests some kind of movement or reaction, the most plausible middle segment would be the chicken causing a reaction.\n\nOption B suggests the chicken flaps its wings, causing the woman to drop it. This explains:\n- Why the woman might suddenly move or react\n- A natural chicken behavior (wing flapping)\n- A logical reason for her to drop the chicken\n\nOptions A and C seem less likely:\n- A seems random and unlikely\n- C doesn't explain why she would suddenly start running\n\nTherefore, the most commonsense explanation is that the chicken's unexpected wing flapping caused the woman to drop it.\n\nB"
+    },
+    {
+      "q_id": 801,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests an unstable load on a truck\n2. We see pre-event and post-event segments\n3. We want to predict the most likely middle segment outcome\n\nAnalyzing the options:\n- Option A suggests complete pallet collapse while moving\n- Option B suggests partial instability but no complete fall\n- Option C suggests partial fall and a collision\n\nReasoning:\n- Pallets on trucks are typically secured to prevent total collapse\n- Partial instability is more common than complete fall\n- A collision seems less likely given the video context\n\nThe most probable outcome is that the pallets will wobble but not completely fall off.\n\nB"
+    },
+    {
+      "q_id": 1561,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the pre-event and post-event segments for clues.\n2. The scenario involves girls near a sprinkler.\n3. I'll consider the most probable outcome based on physical likelihood.\n\nReasoning:\n- If the girls are approaching a sprinkler, they are likely moving.\n- Wet surfaces (from sprinkler water) can be slippery.\n- Slipping is a common occurrence on wet ground.\n\nThe most commonsense outcome is that after passing through the sprinkler, the wet ground would increase the chance of slipping.\n\nTherefore, the most likely hidden event is the girls slipping and falling after making it through the sprinkler.\n\nThe answer is: C"
+    },
+    {
+      "q_id": 466,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The scenario describes a video with an unexpected event involving a fish\n\u2022 The options suggest different potential scenarios\n\u2022 I'll analyze each option's likelihood\n\nOption A seems very specific and detailed, suggesting a precise sequence of events. This level of detail implies the description is likely based on actually observing the video.\n\nOption B is more passive and static, just describing a scene without action.\n\nOption C suggests active motion and interaction between the dog and fish.\n\nGiven the wording \"unexpected event\" and the detailed description in Option A, this sounds like the most probable description of what actually occurred in the video.\n\nTherefore, my answer is:\n\nA"
+    },
+    {
+      "q_id": 399,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most detailed and logical explanation of the physical event, describing the action (hitting the pool ball), the ball's trajectory, the impact on the other person, and the subsequent reaction (crawling in pain) with the additional context of music playing."
+    },
+    {
+      "q_id": 231,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the context and likely physical sequence of events.\n2. I'll consider the most probable cause-and-effect chain.\n3. I'll think about how children typically interact with walkers and toys.\n\nThe most likely scenario is that the boy is pushing a walker, loses balance or control, and falls over the walker onto the ground.\n\nThis matches option (C): \"The little boy falls over the walker and onto the ground.\"\n\nThe sequence seems natural and follows typical toddler movement patterns - unsteady walking, losing balance, and falling.\n\nOptions (A) and (B) seem less probable or less coherent as a physical sequence.\n\nC"
+    },
+    {
+      "q_id": 1451,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n\u2022 We have pre-event and post-event segments visible\n\u2022 The goal is to infer the most plausible middle segment based on physical likelihood\n\nAnalyzing the options:\n(A) Dog gets scared and stops - seems unlikely if motion was already initiated\n(B) Dog stops mid-jump and flips - this suggests an abrupt, physically improbable motion\n(C) Dog jumps, then unexpected cat intervention - this has a logical sequence and external agency\n\nThe most commonsense scenario that connects a likely pre-event motion to a probable post-event result is option (C).\n\nThe sudden cat intervention explains a dramatic change in the dog's trajectory in a way that makes physical sense.\n\nC"
+    },
+    {
+      "q_id": 821,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C provides the most detailed and accurate account of the sequence of events, including the boy falling onto the treadmill, being pushed off, running into a chair, and a woman coming to turn off the treadmill."
+    },
+    {
+      "q_id": 1482,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 The scenario describes a video showing an unexpected event in softball\n\u2022 I'll analyze each option for plausibility and physical likelihood\n\n(A) Involves a base collision between a player sliding and a catcher - this sounds like a specific, detailed scenario that suggests a direct observation\n(B) Describes a player tripping while trying to grab a ball - this seems like a more generic, less specific description\n(C) Suggests a collision between a pitcher and another player while pursuing the ball\n\nWithout seeing the actual video, option (A) provides the most precise and vivid description of a specific softball play interaction.\n\nA"
+    },
+    {
+      "q_id": 1385,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "A\n\nReasoning: The description suggests a gymnastics or acrobatic move where the man completes a flip and intentionally slides onto the ground as part of the performance or movement. Option A implies a deliberate, controlled action, unlike option B which suggests an unintentional fall, or option C which describes a completely different scenario of running."
+    },
+    {
+      "q_id": 744,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We know the pre-event and post-event segments, but not the middle.\n\n2. The key is to find the most logical sequence that connects the visible parts.\n\n3. The scenario suggests a potential near-miss or collision involving a car pulling out of a parking spot.\n\n4. Option A suggests the car is trying to pull out and narrowly misses a cyclist.\n5. Option B suggests the car pulls out and gets hit by another car.\n6. Option C suggests the car pulls out and narrowly misses hitting a cyclist.\n\n7. The critical difference is the perspective: \n   - Option A implies the cyclist nearly hits the car\n   - Option C implies the car nearly hits the cyclist\n\n8. Without more context, Option C seems more probable and consistent with typical traffic scenarios.\n\nThe most likely scenario is that the car pulls out of the parking spot and narrowly misses hitting a cyclist.\n\nC"
+    },
+    {
+      "q_id": 321,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The goal is to infer the most likely middle segment based on commonsense physical reasoning\n\nKey observations:\n- There are wine bottles involved\n- Something happens that disrupts the stability of the bottles/box\n- The outcome suggests some kind of unintended movement or accident\n\nAnalyzing the options:\n(A) Slipping while carrying suggests an unstable movement, but doesn't fully explain the final state\n(B) Deliberately throwing bottles seems less likely as a natural reaction\n(C) A wobbling table causing boxes to fall is a very plausible chain of physical events that could naturally occur\n\nThe most commonsense explanation that connects the pre and post event segments is option (C). A wobbling table could easily lead to boxes falling, which matches the implied sequence of events.\n\nThe answer is most likely:\n\nC"
+    },
+    {
+      "q_id": 1294,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nReasoning: In typical scenarios involving sudden, unshown actions that suggest pain or an accident, dropping something on one's foot is the most plausible and commonsense outcome. The implied reaction suggests an accidental, unintentional event rather than an intentional action like swearing or performing a cool flip."
+    },
+    {
+      "q_id": 1492,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe reasoning is:\n- Option B provides the most coherent and realistic sequence of events\n- The shoe flying off and hitting the ceiling is unexpected\n- The player's surprised reaction (hand to cheeks) is a natural human response\n- Walking towards the camera suggests the event just happened\n- The details feel more plausible compared to the other scenarios"
+    },
+    {
+      "q_id": 330,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 The scenario suggests a video with a hidden middle segment\n\u2022 We have pre-event and post-event context\n\u2022 We need to infer the most likely middle event\n\nAnalyzing the options:\n(A) Involves an active action (pulling string) that seems intentional and suggests a planned outcome\n(B) Suggests an unintended/failed outcome where the string breaks\n(C) Describes a static positioning, which seems less dynamic\n\nThe key is to choose the most probable scenario based on the implied intent and setup.\n\nOption (A) seems the most logical - it implies deliberate action, suggests a planned outcome, and indicates both parents are actively involved.\n\nThe description of pulling the string to cause the box to fall on the mother's head suggests a purposeful, coordinated action.\n\nTherefore, the most likely scenario for the hidden middle frames is:\n\nA"
+    },
+    {
+      "q_id": 1662,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nReasoning: This option sounds most plausible based on typical human physics and pool dynamics. A person attempting a running \"glide\" across a pool floatie would likely have limited success due to the unstable surface, resulting in a short, awkward attempt that ends with falling into the water face-first. The description captures the likely comedic and unsuccessful nature of such an attempt.\n\nOption A seems too specific about hitting his head, which isn't guaranteed.\nOption C about \"collapsing through\" the floatie and hitting the pool side seems less likely than simply falling into the water."
+    },
+    {
+      "q_id": 1252,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. We have a pre-event and post-event segment visible\n2. The post-event likely shows the consequence of what happened in the hidden middle segment\n3. If the post-event involves the girl dropping the crab, that suggests something painful or startling happened to her in the middle segment\n4. A crab biting her would be a logical explanation for her dropping the crab\n5. This matches option (C)\n\nThe most likely scenario is that in the hidden frames, the crab bit the girl, causing her to drop it in the subsequent frames.\n\nC"
+    },
+    {
+      "q_id": 455,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe reasoning is that the description in option C provides the most specific and likely outcome for a potentially risky backflip attempt. It describes a specific failure mode where the person attempting the backflip misjudges their rotation and hits their head on the deck surface before falling onto the grass, which seems like a plausible and detailed scenario for a backflip gone wrong."
+    },
+    {
+      "q_id": 720,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a video with pre-event, hidden middle, and post-event segments\n2. The context involves a kayak and people\n3. We need to infer the most likely scenario based on logical progression\n\nKey reasoning steps:\n- If the kayak ultimately ends up in water (post-event), the most probable middle scenario is that it entered the water\n- Option A directly suggests the kayak goes into water, with people falling in\n- Option B suggests a collision before reaching water, which seems less consistent with the final state\n- Option C suggests people falling off before reaching water, which also seems less likely if the kayak ends up in water\n\nThe most logical sequence is: kayak goes into water, people fall into water with it.\n\nTherefore, the most likely scenario for the hidden middle frames is:\n\nA"
+    },
+    {
+      "q_id": 1602,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The scenario describes a video with an \"unexpected event\"\n\u2022 The options involve a young lady and her Grandma\n\u2022 The key is to identify what the \"unexpected event\" might be\n\nLooking at the options:\n\u2022 Option A suggests something falls on their heads - this sounds like an unexpected event\n\u2022 Option B suggests someone throws a ball at their faces - also unexpected\n\u2022 Option C is just about the Grandma being impatient - not really an unexpected event\n\nBetween A and B, option A seems more plausible and matches the description of an \"unexpected event\" happening above them.\n\nA"
+    },
+    {
+      "q_id": 1591,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The question suggests there's a video with a hidden middle segment\n2. I need to use commonsense reasoning about what's most plausible\n\nAnalyzing each option:\n(A) Spitting something at onlookers - seems unlikely and aggressive\n(B) Rocking on a horse and falling off - this sounds like a dynamic, physically possible sequence of events\n(C) Staring and walking away - seems passive and straightforward\n\nThe rocking horse scenario implies motion, interaction with an object, and a potential consequence (falling), which makes it the most interesting and plausible middle segment.\n\nThe physical mechanics of a monkey rocking on a horse and potentially losing balance is a reasonable, natural progression of events.\n\nTherefore, my answer is:\n\nB"
+    },
+    {
+      "q_id": 1004,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a pre-event, hidden middle, and post-event segment.\n\n2. The key is to use commonsense reasoning about what's most likely to have happened.\n\n3. The options involve a pole and a lady attempting to move between poles.\n\n4. Option A seems unlikely as it mentions a man and gymnastics, which doesn't match the scenario.\n\n5. Between options B and C, we need to consider the most probable outcome.\n\n6. When someone is trying to jump between poles, there's a significant risk of falling.\n\n7. Successful pole transfers require skill and precision, while falling is a more common outcome for an average person.\n\n8. The phrasing \"tried to jump\" in option C suggests an attempt that did not go as planned.\n\n9. The most likely scenario based on commonsense reasoning is that the attempt was unsuccessful.\n\nTherefore, the most probable explanation for the hidden middle segment is that the lady fell off the pole.\n\nC"
+    },
+    {
+      "q_id": 524,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests there's a hidden middle segment of a video.\n2. The context seems to involve someone with a camera and a car.\n3. I'll evaluate each option's likelihood based on the pre- and post-event context.\n\nOption A suggests a physical action (losing balance, twisting) that seems somewhat random and disconnected.\n\nOption B describes a conversational interaction (walking to a car, talking to driver) which feels like a plausible middle event.\n\nOption C suggests an intentional action of throwing a fishing line at a parking car, which seems unusual and potentially aggressive.\n\nGiven the limited context, Option B seems the most reasonable and likely scenario - a person walking up to a parked car and having a conversation.\n\nThe answer is most consistent with commonsense expectations of typical human interaction.\n\nAnswer: B"
+    },
+    {
+      "q_id": 976,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. This sounds like a typical scenario where something unexpected happens in a hidden segment.\n\n2. The options suggest different potential outcomes:\n- Option A implies a controlled, intentional action\n- Option B suggests a continuation of the previous activity\n- Option C implies an unintended, accidental event\n\n3. The phrasing \"slips off\" in Option C suggests an unexpected, uncontrolled outcome.\n\n4. In many physical activity scenarios, especially involving bars or exercise equipment, unexpected falls are quite common.\n\n5. The phrase \"falls to the ground on his butt\" indicates a specific, plausible type of accidental fall.\n\nBased on commonsense reasoning about physical activities and potential mishaps, the most likely hidden event is an unintended fall.\n\nC"
+    },
+    {
+      "q_id": 281,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a dog is attempting to jump over a ditch\n2. The pre-event and post-event segments are visible\n3. The middle segment (the actual jump) is hidden\n\nTo determine the most likely outcome, I'll consider:\n- The dog is attempting a jump\n- There's a risk of falling into the ditch\n- The phrasing suggests the dog is close to the edge\n\nThe key clue is \"barely run up the hill after a close call of falling into the ditch, and escape\" - this implies the dog successfully makes the jump, though narrowly.\n\nThis matches option (A), which suggests a near-miss but ultimate success.\n\nOptions (B) and (C) both suggest failure, which seems less likely given the \"close call but escape\" implication.\n\nTherefore, the most probable outcome is:\n\nA"
+    },
+    {
+      "q_id": 983,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's analyze this systematically:\n\n1. The scenario involves a wooden platform in water\n2. The platform breaks/gives way\n3. People fall into the water\n\nComparing the options:\n- Option A seems incomplete and lacks logical details\n- Option B introduces an unusual element of people throwing barrels\n- Option C provides the most coherent and logical sequence of events:\n   * Platform breaks\n   * People fall into water\n   * Camera person laughs\n   * Life rings are thrown as a rescue response\n\nOption C describes the most plausible and realistic scenario based on typical human reactions to such an incident.\n\nC"
+    },
+    {
+      "q_id": 198,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe description in option A provides the most logical and commonsense explanation for an unexpected fall from a boat. When someone is attempting to transfer between a boat and a paddleboard, the movement requires balance and coordination. A misstep or loss of balance during this transition would naturally result in falling into the water, which matches the scenario's description of an \"unexpected event\"."
+    },
+    {
+      "q_id": 631,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most logical and detailed account of an unexpected event in the ocean. It suggests a dynamic scene where people are caught off-guard by a wave, with the camera person also moving and documenting the sudden action. The description captures the surprise element and physical movement implied by the scenario."
+    },
+    {
+      "q_id": 859,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this:\n\n\u2022 This is a video about a cyclist attempting a ramp trick\n\u2022 We see the pre-event setup and post-event result\n\u2022 The most likely outcome depends on probability and typical performance\n\nReasoning:\n- Professional/skilled riders usually practice tricks before attempting\n- Most trick attempts have a reasonable chance of success\n- Serious injury is possible but not the most statistically probable outcome\n\nThe most likely scenario is that the rider successfully completes the trick.\n\nC"
+    },
+    {
+      "q_id": 743,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We know the pre-event and post-event segments, but not the middle.\n\n2. The key is to find the most plausible scenario that connects the visible segments.\n\n3. Option A suggests a near-miss, which implies minimal disruption.\n\n4. Option B suggests an actual collision with a cyclist, which would likely leave visible damage or aftermath.\n\n5. Option C suggests a significant collision between two vehicles, which would almost certainly result in major visible consequences.\n\nThe most likely scenario that connects the visible segments with the least assumption is Option A - a narrow avoidance of a potential collision.\n\nA"
+    },
+    {
+      "q_id": 1304,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment involving a person in a Santa costume on a hoverboard.\n\n2. The pre-event and post-event segments likely provide context clues.\n\n3. The question implies something happened during the hidden middle frames related to balance/stability on the hoverboard.\n\n4. The options suggest three possible outcomes:\n   - Standing still (A)\n   - Falling off (B)\n   - Successfully staying on (C)\n\n5. Given that the question implies something notable happened, and the options suggest a dynamic event, the most likely scenario is that the person struggled with balance.\n\n6. Hoverboards are notoriously difficult to balance on, especially for someone in a bulky Santa costume.\n\n7. The most probable outcome is that the person could NOT maintain balance.\n\nTherefore, the most likely event in the hidden frames is that the man dressed in Santa costume could not stand on the hoverboard.\n\nThe answer is B."
+    },
+    {
+      "q_id": 571,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nThe reasoning is based on typical physical comedy/slapstick scenarios where an initial attempt fails, and a subsequent attempt results in a painful outcome. The phrase \"tries again\" suggests a repeated action that likely leads to a comedic, painful result involving a groin injury."
+    },
+    {
+      "q_id": 741,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The goal is to infer the most likely middle segment based on commonsense logic\n\nKey observations:\n- If the car was initially parked and then successfully pulled out without incident, option (A) seems most plausible\n- Option (B) suggests an unnecessary action without clear motivation\n- Option (C) implies a dramatic collision that would likely show significant damage or disruption in the post-event segment\n\nThe most reasonable inference is that the car smoothly pulled out and narrowly avoided a potential collision with a cyclist.\n\nA"
+    },
+    {
+      "q_id": 647,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I see a pre-event scene with a person on a scooter at the top of a ramp\n2. The post-event scene shows proximity to a small building\n3. The ramp suggests an intentional trajectory toward the building\n4. A skateboard would not match the initial setup of a scooter\n5. A collision seems less likely given the intentional setup\n6. A deliberate jump to the building appears most probable\n\nThe most logical interpretation is that the person intentionally jumped from the ramp to land on the small building.\n\nB"
+    },
+    {
+      "q_id": 825,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the pre-event and post-event segments to infer what likely occurred in the hidden middle segment.\n\n2. Key observations:\n- There's a truck involved\n- A tree is somehow part of the scenario\n- Something unexpected seems to have happened\n\n3. Logical reasoning:\n- Option A (routine garbage collection) seems too mundane and unlikely\n- Option B suggests a mechanical failure causing the tree to fall\n- Option C implies a dramatic event with the tree being launched and causing damage\n\n4. Most plausible scenario:\n- If the pre-event shows a truck near a tree, and the post-event shows a damaged car or fallen tree, the most likely explanation is that something went wrong during the truck's operation.\n\n5. The most reasonable inference is that the truck malfunctioned, causing the tree to be dropped or fall.\n\nTherefore, the most likely description of the hidden frames is:\n\nB"
+    },
+    {
+      "q_id": 1403,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event segment of a video involving a Christmas tree and a dog.\n\n2. The key is to infer the most likely sequence based on the context.\n\n3. If the tree falls over and lands on the dog in the final frame, the most probable scenario is that the tree actually fell on the dog during the hidden middle segment.\n\n4. Option (C) directly describes this most likely scenario.\n\n5. Option (A) suggests the tree falls on the dog but the dog escapes, which seems less probable given the final frame.\n\n6. Option (B) suggests nothing dramatic happens, which doesn't align with the implied action.\n\nTherefore, the most logical inference is:\n\nC"
+    },
+    {
+      "q_id": 1199,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event segment of a video involving luggage and a ramp.\n\n2. The key is to infer the most logical sequence of events based on the context.\n\n3. If the luggage falls to the ground (as implied by option B), that suggests something went wrong during the middle segment.\n\n4. Option A suggests an intervention to catch the falling luggage, which implies the luggage was already in motion/falling.\n\n5. Option C suggests proactively moving the vehicle to help the luggage reach its destination, which seems like a preventative action before any potential fall.\n\n6. The most likely scenario is that the luggage started falling, and someone tried to catch it.\n\nTherefore, the most reasonable inference for the hidden middle segment is:\n\nA"
+    },
+    {
+      "q_id": 214,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B best captures the scenario of a firework unexpectedly exploding in the person's hand when they try to throw it, suggesting a dangerous and unintended outcome where the timing of the throw goes wrong and the firework detonates prematurely while still being held."
+    },
+    {
+      "q_id": 1137,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a video with pre-event, hidden middle, and post-event segments.\n2. The scenario involves a rafter/kayaker in a water environment.\n3. The key is to predict the most likely outcome based on typical river/water sports scenarios.\n\nAnalyzing the options:\n- Option A suggests a safe, controlled landing\n- Option B seems unrealistic (surfing on a river through a waterfall)\n- Option C suggests an unplanned, potentially dangerous event\n\nGiven the context of rafting/kayaking, unexpected events like falling out are quite common. Rivers can have turbulent sections, rapids, or obstacles that can cause a rafter to be ejected from their vessel.\n\nTherefore, the most likely scenario for the hidden middle segment is that the rafter falls out of his kayak and lands in the water.\n\nThe answer is:\n\nC"
+    },
+    {
+      "q_id": 1298,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments of a video involving a skiier or snowboarder.\n\n2. The question asks what most likely happened in the hidden middle segment.\n\n3. Option A suggests an improbable and extremely specific scenario (landing on another skiier) which seems unlikely.\n\n4. Option B describes a dramatic and detailed failure scenario with specific consequences (face first landing, losing equipment) which seems more plausible given typical skiing/snowboarding risks.\n\n5. Option C describes a routine, expected action (gliding down a snowy hill) which doesn't explain a dramatic transition between pre and post event segments.\n\nThe dramatic failure scenario in Option B is the most likely explanation for a significant change between video segments.\n\nB"
+    },
+    {
+      "q_id": 1172,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C best captures a typical racing incident where a car in the back makes slight contact (clips) with the car in front, causing the front car to lose control and swerve off the track, while the car in the back continues driving."
+    },
+    {
+      "q_id": 270,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe detailed description in option C provides the most specific and plausible account of an unexpected event involving a shooting scenario, including the ricochet, impact location, physical reaction, and subsequent body language. The precise details suggest this is the most likely description of what actually occurred in the video."
+    },
+    {
+      "q_id": 1529,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a pallet and a car, with a hidden middle segment.\n\n2. Given the typical physics of objects in motion:\n- A pallet is a heavy, rigid platform\n- A car is a solid, stationary object\n- When a moving pallet encounters a car, it will likely cause damage\n\n3. Analyzing the options:\n- Option A suggests the pallet goes over the car, which is physically unlikely\n- Option B suggests the pallet hits the windshield and breaks the glass, which is a very plausible outcome\n- Option C suggests the car stops, which seems improbable if the pallet is already in motion\n\n4. The most likely physical scenario is that the pallet strikes the windshield with enough force to break the glass.\n\nTherefore, the answer is:\n\nB"
+    },
+    {
+      "q_id": 765,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this:\n\n\u2022 The scenario suggests an incomplete video with a hidden middle segment\n\u2022 We need to predict the most likely outcome based on commonsense understanding of skiing dynamics\n\nAnalyzing the options:\n(A) Going down a hill at night - neutral, no inherent risk suggested\n(B) Completing a trick without issue - seems overly optimistic\n(C) Losing balance and falling during a rail grind - most realistic outcome\n\nRail grinding is a challenging skiing/snowboarding technique that requires precise balance. Even skilled athletes frequently lose balance or fall during such maneuvers. The hidden segment most likely represents a moment of instability or a fall.\n\nThe most probable scenario is that the skier attempting a rail grind will lose their balance and fall.\n\nAnswer: C"
+    },
+    {
+      "q_id": 1223,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll consider the physical constraints and typical child behavior\n2. The scenario suggests a sequence of events involving a baby and a chair\n3. I'll evaluate each option's physical plausibility\n\nOption A: Walking away seems unlikely if the baby was initially on a chair, as it suggests a controlled, balanced movement.\n\nOption B: Jumping back and hitting head seems improbable and would require complex, purposeful motion from a baby.\n\nOption C: A baby trying to sit and falling into a chair hole is the most physically probable scenario. Babies have limited motor control, are top-heavy, and can easily lose balance when attempting to sit, especially near an unstable surface like a chair with a hole.\n\nThe physics and typical infant movement patterns suggest the most likely event is the baby losing balance and falling into the chair hole.\n\nTherefore, the answer is:\n\nC"
+    },
+    {
+      "q_id": 1122,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We know there's a pre-event and post-event segment visible\n2. The goal is to infer the most likely hidden middle segment\n3. We want the explanation that most naturally connects the visible segments\n\nThe key is to look for the most logical transition between the pre and post states.\n\nIf the boy starts sad and ends happy, the most commonsense explanation is that something positive happened to cause the mood change - like receiving candy.\n\nOption (A) \"the boy on the left gets candy and becomes happy\" perfectly explains this transition.\n\nOption (B) suggests an external distraction, which is less directly linked to the mood change.\nOption (C) contradicts the visible outcome of the boy being happy.\n\nTherefore, the most reasonable inference is:\n\nA"
+    },
+    {
+      "q_id": 416,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The goal is to infer the most likely middle segment based on context and commonsense reasoning\n\nKey observations:\n- The scenario suggests a physical action/movement is happening\n- There's a potential risk of falling or losing balance\n- Terrain seems to involve either grass/trail or water nearby\n\nReasoning:\n- Option A implies a failed jump with a backward fall and mud\n- Option B suggests a neutral running scenario\n- Option C suggests a near-miss with water, where the person trips but stops themselves\n\nThe most plausible scenario that connects pre and post event segments is Option C:\n- It implies a controlled near-miss\n- Suggests the person maintained some balance\n- Matches the sense of a potential risk being narrowly avoided\n\nTherefore, the most likely description of the hidden middle frames is:\n\nC"
+    },
+    {
+      "q_id": 826,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "C\n\nReasoning: A garbage truck typically parks on the side of the road to collect trash from bins. The description in option C is the most logical and routine scenario for a garbage truck's operation. Options A and B describe improbable or nonsensical events involving a tree and a truck."
+    },
+    {
+      "q_id": 557,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nReasoning: The answer B provides the most specific and likely scenario that explains a potential \"cause and effect\" sequence. The description suggests an unintended consequence (hitting the basket and spilling eggs) which would create an interesting or dramatic moment that might explain why the middle segment is hidden. The details are concrete and suggest a plausible chain of events that could occur in a real-life situation."
+    },
+    {
+      "q_id": 1229,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most detailed and precise account of the event, capturing the specific motion of the sled going down the hill horizontally, rolling over, breaking into two parts, and the person falling out before reaching the water."
+    },
+    {
+      "q_id": 237,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 This is a scenario where we're trying to predict a likely event based on limited visual information.\n\n\u2022 Option A suggests something random happening with an object in her mouth, which seems unlikely.\n\n\u2022 Option B describes a logical, predictable physical action - dropping a card and then bending to retrieve it. This follows a clear cause-and-effect sequence that makes practical sense.\n\n\u2022 Option C suggests an unexpected, random event (a fart) that might cause laughter, which seems less probable.\n\nThe most commonsense and likely scenario is the card-dropping sequence.\n\nB"
+    },
+    {
+      "q_id": 1442,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The pre-event and post-event segments are key to understanding what likely happened.\n\n2. If the pre-event shows a man with monkeys around him, and the post-event shows the man in a different position or state, that suggests some interaction occurred.\n\n3. The description of the post-event as having the man surrounded by monkeys sitting on his shoulders and chest implies that the monkeys were already in close proximity to him.\n\n4. This makes option (C) the most likely scenario - that during the hidden middle segment, the monkeys positioned themselves on the man, sitting on his shoulders and chest.\n\n5. Option (A) seems less likely because stealing food would be a quick action, not a sustained state.\n\n6. Option (B) suggests a forceful action that doesn't match the calm positioning described in the post-event.\n\nTherefore, the most probable description of the hidden middle segment is:\n\nC"
+    },
+    {
+      "q_id": 262,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C provides the most detailed and likely scenario based on the phrasing \"loses balance\", \"falls\", \"landing on her head\", and \"stumbles away\". This suggests an unexpected and somewhat chaotic sequence of events that matches a real-world physical mishap during what seems to be an attempted dance or movement."
+    },
+    {
+      "q_id": 128,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look at the pre-event and post-event segments to understand the context.\n2. I'll consider what physical actions are most likely and consistent with the visible frames.\n3. I'll evaluate the plausibility of each option.\n\nWithout seeing the actual video, I'll choose the most probable action based on typical human behavior when climbing onto a bunk bed.\n\nThe most likely and natural action when climbing onto a bunk bed is to either sit or lie down. Option B suggests an unusual and unlikely scenario of falling through the mattress, which seems improbable.\n\nBetween sitting (A) and lying down (C), lying down is a more complete and typical action after climbing onto a bed.\n\nTherefore, the most reasonable inference is:\n\nC"
+    },
+    {
+      "q_id": 1014,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We know there's a boulder involved\n2. We see pre-event and post-event segments\n3. We need to infer the most logical middle sequence\n\nAnalyzing the options:\n- Option A suggests the boulder goes into the truck and causes tire damage\n- Option B suggests the boulder is lifted by a machine\n- Option C suggests the boulder lands in the truck bed and breaks through it\n\nReasoning:\n- If a heavy boulder were simply placed in a truck, it would likely cause tire stress\n- A machine lifting a boulder is possible but seems less likely\n- A boulder crashing through a truck bed seems physically improbable without significant damage\n\nThe most commonsense, physically plausible scenario is that the boulder enters the truck and causes tire stress.\n\nTherefore, the answer is:\n\nA"
+    },
+    {
+      "q_id": 62,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment after a cyclist's initial state.\n\n2. The pre-event and post-event segments are visible, which provides context.\n\n3. The most likely scenario would be something that smoothly connects the visible segments.\n\n4. If the cyclist crashes, the most probable outcome is that they get assistance or recover and continue.\n\n5. Option A (helped up by a spectator) or Option B (gets up and continues riding) are more plausible than causing a massive secondary crash.\n\n6. Between A and B, option B seems more likely - cyclists are typically trained to quickly recover and continue racing.\n\nTherefore, the most commonsense answer is:\n\nB"
+    },
+    {
+      "q_id": 1322,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The scenario involves a dog, a branch, and a boy\n\u2022 The key is understanding the dog's motion and interaction with the branch\n\nFrom the description, the most physically plausible scenario is:\n\n(B) Dog bites onto the branch and does a back flip off of it\n\nThis description suggests a dynamic, acrobatic motion that seems most consistent with an \"unexpected event\" in a video. A dog biting a branch and then flipping backwards would indeed be surprising and unusual.\n\nThe other options seem less likely:\n\u2022 Option A implies the dog lands on the boy's head, which sounds improbable\n\u2022 Option C suggests the boy somehow causes the dog's motion, which doesn't make physical sense\n\nTherefore, the answer is:\n\nB"
+    },
+    {
+      "q_id": 71,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 The scenario describes a video with an unexpected event involving a woman and a chicken\n\u2022 I'll evaluate each option's plausibility based on typical physical interactions\n\n(A) Dropping and then picking up a chicken seems possible, but the additional detail of singing seems unusual\n(B) Chickens can peck, but a deliberate face-pecking suggests an unusual level of intentionality\n(C) This description has multiple specific actions: holding a chicken, stepping back, falling, getting up, dancing - which seems the most detailed and vivid\n\nThe level of specific detail in option (C) suggests it is the most likely description of an actual video event. The sequence of actions feels more like a genuine, quirky real-life moment.\n\nC"
+    },
+    {
+      "q_id": 1604,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the context of the scenario and the given options.\n2. I'll look for logical progression and physical plausibility.\n\nKey observations:\n- There's a silver car and a black car/SUV\n- There's a turning movement involved\n- A potential collision scenario is suggested\n\nReasoning:\n- Option A suggests a near-miss scenario with a turn\n- Option B implies a direct collision\n- Option C suggests a traffic light violation\n\nThe most likely scenario based on typical traffic interactions is:\n\n(B) The oncoming car speeds up and runs into the turning black SUV\n\nThis option represents the most probable physical interaction between two vehicles, where one car (oncoming) fails to yield to a turning vehicle, resulting in a collision.\n\nB"
+    },
+    {
+      "q_id": 1226,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this:\n\n\u2022 The scenario involves a video with a hidden middle segment\n\u2022 The pre-event and post-event segments suggest something involving a baby and a lemon\n\u2022 The post-event context implies the baby has already bitten the lemon\n\nGiven this sequence, the most logical inference is that the baby would react negatively to the sour taste of the lemon. \n\nBabies typically have strong reactions to sour tastes, and saying \"yucky\" is a common verbal response.\n\nTherefore, the most likely hidden middle segment is the baby expressing displeasure after biting the lemon.\n\nThe answer is:\n\nC"
+    },
+    {
+      "q_id": 160,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C provides the most detailed and precise account of the event, capturing the specific sequence of actions: attempting to climb a snowy hill, the ATV successfully reaching the top, the man losing his grip and doing a backwards flip off the vehicle, and then being seen scrambling towards the ATV apparently unharmed."
+    },
+    {
+      "q_id": 626,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me help you reason through this systematically:\n\n\u2022 The scenario describes a video showing an \"unexpected event\"\n\u2022 This suggests something unusual or unplanned happened\n\u2022 The options involve skateboarding scenarios\n\u2022 Option A describes a routine skateboarding activity\n\u2022 Option B suggests an accident/injury has occurred\n\u2022 Option C describes a collision between two people\n\nGiven the phrase \"unexpected event\", the most likely scenario is an accident or unintended outcome.\n\nOption B specifically describes an injury resulting from an incorrect landing, which matches the description of an unexpected event.\n\nTherefore, the answer is:\n\nB"
+    },
+    {
+      "q_id": 1342,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The goal is to infer the most likely middle segment based on context and physical plausibility\n\nAnalyzing the options:\n- Option A suggests the vehicle gets stuck on a pallet\n- Option B suggests an extreme and unlikely scenario of vehicle flipping and being put back\n- Option C suggests the vehicle collides with a pallet and knocks it over\n\nReasoning:\n- Option B seems highly improbable and physically complex\n- Option A implies a complete stoppage, which seems less likely\n- Option C represents a straightforward, physically plausible interaction between vehicle and pallet\n\nThe most commonsense scenario is that the vehicle strikes the pallet and knocks it over during its movement.\n\nTherefore, the answer is:\n\nC"
+    },
+    {
+      "q_id": 978,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible.\n2. The post-event description is key to understanding what likely happened.\n\nLooking at the post-event descriptions:\n- Option A provides no post-event details\n- Option B describes a successful flip with a landing and celebration\n- Option C describes a less controlled flip resulting in falling to the ground\n\nThe most likely scenario based on the post-event description is Option B, which suggests a smooth, intentional flip with a successful landing and positive reaction.\n\nThe details of a successful flip, landing on both feet, walking away smiling, and getting cheered on indicate a planned and executed maneuver.\n\nOption C implies a less controlled outcome with falling, which seems less probable given the confident post-event scenario.\n\nTherefore, the answer is:\n\nB"
+    },
+    {
+      "q_id": 1676,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nReasoning: The description in option C provides the most specific and dramatic explanation of an unexpected event. It describes a telephone pole and line falling across the road, which would be a highly unusual and dangerous scenario that would immediately capture attention and require urgent driver reaction. The details about emitting smoke and light, and the pole falling directly into the driver's path, suggest a sudden, dramatic incident that would be both visually striking and potentially hazardous."
+    },
+    {
+      "q_id": 642,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C provides the most specific and likely scenario based on the typical behavior of a camera operator. The phrase \"shifts their attention\" suggests a deliberate change in focus from one subject (the boy with shades) to another (the man laying down in the street), which implies an unexpected or unusual event occurring that would naturally draw the camera's view."
+    },
+    {
+      "q_id": 440,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look at the pre-event and post-event segments to understand the context.\n2. The key is to predict the most likely outcome based on the visible parts.\n3. If the woman is skating towards the beams, and the post-event suggests something went wrong, the most probable scenario is that she attempted to pass through but failed.\n\nThe most likely outcome is that she hits the beams and gets stuck.\n\nC"
+    },
+    {
+      "q_id": 511,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nReasoning:\n- The scenario suggests a trampoline-related event\n- The pre-event and post-event context implies a jumping motion\n- Option B describes a logical, expected outcome of jumping on a trampoline\n- Option A suggests an unexpected and potentially harmful outcome\n- Option C describes an ongoing action, not a specific result\n- Landing on feet is the most probable and safe outcome for a trampoline jump"
+    },
+    {
+      "q_id": 171,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A"
+    },
+    {
+      "q_id": 681,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a pre-event, hidden middle, and post-event segment.\n\n2. Without seeing the middle frames, we need to use commonsense reasoning about likely outcomes.\n\n3. The options suggest different potential dance scenarios.\n\n4. Option A implies something goes wrong (slippery floor, tripping)\n5. Option B suggests a performance with a mistake\n6. Option C suggests a successful, surprising performance\n\n7. Given the limited information, the most likely scenario based on typical human experience is that something unexpected or slightly negative happens.\n\n8. The mention of a \"slippery floor\" and \"tripping\" provides a specific, plausible explanation for what might occur in the hidden frames.\n\n9. The other options are more vague or overly positive.\n\nTherefore, the most likely scenario is:\n\nA"
+    },
+    {
+      "q_id": 1347,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event segment of video\n2. The middle segment is hidden/unseen\n3. We need to infer the most likely scenario based on physical logic\n\nTo determine the most likely event, I'll consider the physical dynamics and typical vehicle behavior:\n\n\u2022 Option A suggests a collision with stationary goods\n\u2022 Option B suggests a vehicle dynamics problem during turning\n\u2022 Option C suggests a human action (driver fleeing)\n\nThe key is to look for physical continuity and most probable motion.\n\nIf the vehicle was turning (as implied in Option B), and then becomes unstable and tips over, this follows a clear mechanical sequence that would be consistent with vehicle physics. Turning at an unsafe speed or angle can cause a vehicle to lose balance and roll.\n\nOptions A and C seem less mechanically probable - a sudden collision or a driver abruptly abandoning the vehicle would likely show more dramatic pre/post event changes.\n\nTherefore, the most likely hidden event is the vehicle becoming unstable and tipping over during a turn.\n\nB"
+    },
+    {
+      "q_id": 274,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me analyze this systematically:\n\n1. I'll look at the pre-event and post-event segments to understand context and predict the most likely middle segment.\n\n2. Without seeing the actual video, I'll use logical reasoning about human behavior and physical actions.\n\n3. Option A seems unlikely - a stationary bike suggests active motion, not standing still.\n\n4. Option B suggests a deliberate, controlled action of pausing and demonstrating equipment, which seems somewhat plausible.\n\n5. Option C provides a more detailed narrative that implies an unexpected physical mishap - moving backwards while exercising, accidentally hitting his face, and then sitting down in pain.\n\n6. Option C sounds the most dynamically consistent with typical human movement and accident scenarios during exercise.\n\nThe scenario suggests an unexpected event occurred in the hidden frames, and Option C provides the most coherent and probable sequence of events.\n\nC"
+    },
+    {
+      "q_id": 1727,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the context clues from the pre-event and post-event segments.\n\n2. The key is to find the most logical transition between the visible segments.\n\n3. Without seeing the actual video, I'll use commonsense physical reasoning.\n\n4. If the scenario involves a silver SUV and lane dynamics, option (B) seems the most plausible unexpected event.\n\n5. Option (A) sounds like a routine lane change, which wouldn't typically be hidden.\n\n6. Option (C) about a motorcycle seems random and less connected to the SUV's trajectory.\n\n7. The phrase \"runs over the median and gets stuck\" suggests an unusual, dramatic event that would explain why those frames would be hidden.\n\nTherefore, the most likely hidden event is:\n\nB"
+    },
+    {
+      "q_id": 1139,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event segment of a video\n2. The middle segment is hidden/unseen\n3. We need to infer the most likely scenario based on logical progression\n\nKey observations:\n- This seems to involve a woman doing some physical activity (yoga/exercise)\n- There's mention of a band and a yoga mat\n\nMost likely scenario progression:\n- If a band is mentioned and she's doing an exercise, it suggests she's using an exercise band\n- A band \"slipping\" implies an unintended movement\n- The context suggests an active physical scenario\n\nThe most plausible explanation that connects the pre and post event segments is that something unexpected happened with the band during her exercise.\n\nTherefore, the most logical inference is that the band slipped during her activity.\n\nAnswer: A"
+    },
+    {
+      "q_id": 547,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a scenario involving a boy, a rope, and some motion.\n2. The pre-event and post-event segments suggest some dynamic interaction.\n3. The key is to predict the most likely physical outcome based on commonsense reasoning.\n\nIf the guy is holding a rope and the boy is running, the most probable outcome is that the rope will interfere with the boy's movement, causing him to fall.\n\nTherefore, the most likely scenario in the hidden middle frames is that the rope will get caught around the boy, causing him to fall.\n\nThe answer is:\n\nB"
+    },
+    {
+      "q_id": 779,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nReasoning: In a typical pinata scenario, the person tries to hit the suspended pinata with a stick. The most likely outcome is a direct hit (or attempt to hit) the pinata. Option B suggests the girl actually strikes the man instead of the pinata, which seems less probable. Option A is unrelated to a pinata scene, and Option C suggests a complete miss, which is less likely than a strike. The most commonsense interpretation is that the girl attempts to hit the pinata and actually connects with it or the man holding it."
+    },
+    {
+      "q_id": 513,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. We have a pre-event and post-event segment\n2. The middle segment is hidden/unseen\n3. I'll analyze the most logical sequence of events\n\nKey observations:\n- There's a container involved\n- Something dramatic seems to have happened\n- The post-event suggests some kind of sudden action/movement\n\nMost likely scenario:\n- If the container explodes while being held, the natural reaction would be for the person to run\n- This matches the description of \"the container explodes while the kid is still holding it and he runs\"\n\nThis implies a sudden, unexpected event that would cause immediate movement.\n\nThe other options (putting the container down or playing frisbee) do not explain the implied dramatic action.\n\nTherefore, the most logical explanation for the hidden middle segment is:\n\nC"
+    },
+    {
+      "q_id": 999,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most detailed and logical sequence of events. It describes the cat's movement with the bag stuck on its head, moving backwards, and then falling off the table - which sounds like a plausible and specific scenario involving a cat in an awkward situation with a bag."
+    },
+    {
+      "q_id": 555,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this:\n\n\u2022 We have a video with a pre-event, hidden middle, and post-event segment\n\u2022 The scenario involves a horse and some kind of inflated/ball-like object\n\u2022 We need to infer the most likely sequence of events\n\nReasoning:\n- Option A suggests the horse fell after stepping on something\n- Option B suggests the horse stepped on a ball and caused it to burst\n- Option C suggests a calm, unrelated scenario of grazing\n\nThe most logical progression based on typical physical interactions would be:\n1. Horse approaches an inflated object\n2. Horse steps on the object\n3. Object bursts under the horse's weight\n\nThis matches Option B perfectly - the horse stepping on the ball and causing it to burst.\n\nB"
+    },
+    {
+      "q_id": 876,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I see a pre-event and post-event segment of a video involving a man and a scooter.\n\n2. The pre-event likely shows the man preparing to ride the scooter.\n\n3. The post-event segment will reveal the outcome of the middle segment.\n\n4. If the man was unable to ride (option A), the post-event would likely show him fallen or stopped.\n\n5. If nothing happened (option C), the post-event would look similar to the pre-event.\n\n6. Option B seems unlikely as it provides a specific detail not supported by context.\n\n7. The most commonsense interpretation is that something disrupted the ride.\n\nTherefore, the most likely scenario is that the man was unable to successfully ride the scooter.\n\nThe answer is A."
+    },
+    {
+      "q_id": 565,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nReasoning: Based on the typical progression of events and the context of someone showing off a gun, option B suggests a logical sequence where the person continues demonstrating the firearm and then uses it to shoot a bird, which would be consistent with the pre-event and post-event segments likely showing the person handling and then having shot something."
+    },
+    {
+      "q_id": 403,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The goal is to infer the most likely middle segment based on physical logic\n\nLooking at the options:\n- Option A suggests a slip and fall\n- Option B suggests an athletic, controlled leap over the handlebar\n- Option C suggests a clumsy, uncontrolled leap resulting in falling\n\nAnalyzing the context:\n- If someone is moving towards a handlebar with enough momentum to leap\n- And the post-event suggests a ground impact\n- The most probable scenario is a somewhat uncontrolled leap that results in falling\n\nThe clumsy, less-controlled leap that ends with ground impact matches the implied sequence of events.\n\nTherefore, the most likely hidden middle segment is:\n\nC"
+    },
+    {
+      "q_id": 456,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe description in option A provides the most specific and likely outcome for a potentially risky backflip attempt. The phrase \"hit their head off the deck\" suggests a specific, unexpected negative consequence that could realistically occur during an amateur backflip attempt, leading to a fall onto the grass."
+    },
+    {
+      "q_id": 635,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C suggests an unexpected, messy event involving a shaken beverage that erupts when the man tries to drink it, which sounds like the most likely scenario for an \"unexpected event\" in a video."
+    },
+    {
+      "q_id": 1431,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 The scenario describes a video with an unexpected event involving someone on a vehicle on a rocky/rugged path\n\n\u2022 Key details to consider:\n- The vehicle is specifically a unicycle (one-wheeled), not a bicycle\n- The path seems to be rocky/rough terrain\n- The person experiences an unexpected fall\n\n\u2022 Option A describes:\n- A unicycle rider\n- Losing balance while descending rocks\n- Falling forward off the unicycle\n- Landing on a dirt path\n- This matches the scenario's description of an unexpected event\n\n\u2022 Option B introduces an implausible scenario of being hit by a bird\n\u2022 Option C incorrectly states a bicycle, not a unicycle\n\nThe most logical and reasonable description is A.\n\nA"
+    },
+    {
+      "q_id": 1766,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. We have a scenario involving a young boy and a dog with food.\n2. We see the pre-event and post-event segments, but not the middle.\n3. I'll consider the most likely sequence based on typical child-dog interactions.\n\nThe most probable scenario is that the dog takes the food from the child's hand. This is a common interaction where a dog might quickly snatch food from a child who is not fully in control.\n\nThe other options seem less likely:\n- Option A (boy taking food back) suggests an unlikely reversal\n- Option B (boy offering another treat but eating it) seems contrived\n\nThe natural progression would be the dog taking food from the child.\n\nTherefore, the answer is:\n\nC"
+    },
+    {
+      "q_id": 1296,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event scene of a girl standing in a doorway\n2. We have a post-event scene showing the result of some action\n3. The question is about what most likely happened in the hidden middle frames\n\nThe key is to choose the scenario that most logically connects the pre-event and post-event states.\n\nGiven the options:\n- Option A just describes the pre-event state\n- Option B suggests a self-caused fall (slipping during a high kick)\n- Option C suggests an external cause of falling (being hit by a flying object)\n\nThe most commonsense explanation that links a standing pose to a fall would be the girl's own action causing her to lose balance - which is Option B.\n\nA person attempting a high kick could easily lose balance and fall, especially near stairs. This scenario requires the least number of additional assumptions compared to being randomly hit by a flying object.\n\nTherefore, the answer is:\n\nB"
+    },
+    {
+      "q_id": 236,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n\u2022 We want to predict the most plausible event based on context and common sense\n\n\u2022 Option A (fart causing laughter) seems random and lacks setup\n\u2022 Option B suggests something about an object in her mouth falling, but lacks context\n\u2022 Option C describes a logical, predictable physical action - dropping a card and bending to retrieve it\n\nThe most commonsense and likely scenario is that she drops a card and needs to bend down to pick it up.\n\nC"
+    },
+    {
+      "q_id": 1686,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The post-event likely shows a consequence or result of the hidden middle segment\n3. The scenario suggests something dramatic happened in the hidden frames\n\nLooking at the options:\n- Option A seems passive and unlikely to cause a dramatic change\n- Option C suggests a sudden, forceful movement that could result in a significant outcome\n- Option B implies a dynamic action that could cause structural damage\n\nThe key is to infer what most likely happened based on the implied result.\n\nIf the man breaks the bed by putting too much weight on the middle, this would explain a dramatic change between the visible segments.\n\nTherefore, the most likely scenario is:\n\nB"
+    },
+    {
+      "q_id": 395,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event segment, with a hidden middle segment.\n2. The context suggests a pool-related incident.\n3. The post-event likely indicates some kind of negative outcome.\n\nAnalyzing the options:\n(A) Seems unrelated to the pool scenario\n(B) Matches a typical pool-related accident sequence\n(C) Suggests a serious injury scenario\n\nThe most likely progression would be: someone near a pool \u2192 slips \u2192 falls into the pool\n\nTherefore, the most commonsense explanation for the hidden middle segment is that the man gets up and slips and falls in the pool.\n\nB"
+    },
+    {
+      "q_id": 1271,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The key details are a dirt biker driving down a hill and another biker being present\n\u2022 The phrase \"sideswipes\" in option A implies direct contact between the bikes\n\u2022 Option B suggests the dirt biker simply falls without interaction\n\u2022 Option C suggests the dirt biker falls but comes very close to the other biker without hitting them\n\nWithout seeing the actual video, the most likely scenario based on typical physics and motion is option (C) - the dirt biker falls while narrowly missing the other biker.\n\nC"
+    },
+    {
+      "q_id": 990,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a skateboarding event with multiple participants\n2. We have pre-event and post-event segments visible\n3. The key is to use commonsense reasoning about what's most probable\n\nAnalyzing the options:\n- Option A suggests one skateboarder successfully landed\n- Option B suggests both skateboarders successfully landed\n- Option C suggests a collision occurred during landing\n\nWithout seeing the actual video, the most likely scenario based on typical skateboarding dynamics is that one skateboarder successfully landed while the other did not.\n\nTherefore, the most probable outcome is:\n\nA"
+    },
+    {
+      "q_id": 767,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. This is a physics/motion problem involving a swing and human movement.\n\n2. When someone falls or is thrown from a swing, gravity and momentum will determine their landing orientation.\n\n3. A typical swing motion involves an arc and potential momentum at the peak.\n\n4. Considering the most likely physical outcome:\n- Landing on one's back (A) suggests an uncontrolled fall\n- Landing on feet (B) suggests an intentional, controlled flip\n- Landing on stomach (C) is an awkward, less natural landing position\n\n5. Of these options, landing on one's back (A) is the most probable result of an unintentional swing motion.\n\nA"
+    },
+    {
+      "q_id": 77,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's use reasoning to analyze this scenario:\n\nIf the video shows shows a-segment and a post-middle segment where where the kicannottten is not visible,,, most logical explanation is that the kithe kitten is attempting to move squeeze through the a hole in the the the but gets stuck or struggles.\n\nThe phr-asing almost too fat to fit fat to fit\" suggests the the the kiistten is having difficulty passing through the the hole in the door.\n\n.\n\nTherefore, the most reasonable answer is:\n\nB"
+    },
+    {
+      "q_id": 1533,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments of a skateboarding video.\n2. The goal is to infer the most likely middle segment based on typical skateboarding physics and mechanics.\n\nAnalyzing the options:\n- Option A suggests a successful trick completion\n- Option B suggests a failure/accident\n- Option C is just a description of setup, not an actual event\n\nTo determine the most likely scenario, I'll consider typical skateboarding dynamics:\n- Half pipes involve challenging maneuvers\n- Not every trick attempt is successful\n- Falls are more common than perfect landings\n\nThe most probable outcome, given limited information, is a fall.\n\nTherefore, the most likely hidden middle segment is the skateboarder losing control and falling off the skateboard.\n\nB"
+    },
+    {
+      "q_id": 481,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. The pre-event and post-event frames likely provide context\n3. If the truck is shown falling or tilting in the pre-event, and is on its side in the post-event, the most logical explanation is that it actually fell over\n\nTherefore, the most likely event in the hidden middle frames is:\n\nA\n\nThe truck slipping in the mud and falling on its side matches the physical evidence and follows a logical sequence of events."
+    },
+    {
+      "q_id": 1593,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The scenario provides pre-event and post-event segments, but the middle is hidden\n\u2022 We want to infer the most likely middle segment based on context and commonsense reasoning\n\nAnalyzing the options:\n(A) A neutral, plausible action of the monkey staring and then moving\n(B) An unusual, specific scenario involving a rocking horse that seems oddly detailed\n(C) A vague suggestion of an \"inappropriate act\" which sounds potentially problematic\n\nThe most reasonable, neutral option that fits typical animal behavior is (A).\n\nA: The monkey stares, then simply moves away - this is a natural, expected sequence of events.\n\nThe other options either seem contrived (B) or inappropriate (C).\n\nA"
+    },
+    {
+      "q_id": 155,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the pre-event and post-event segments to infer what likely happened in the hidden middle segment.\n\n2. The key is to understand the most probable physical sequence of events based on the context.\n\n3. If the person is attempting to jump a metal fence and the post-event shows a fall or impact, option (A) or (C) are more likely than a successful jump.\n\n4. Option (B) seems least probable, as it suggests a clean, successful jump.\n\n5. Between (A) and (C), option (C) seems more dynamic and explains a more complex motion - jumping, flipping forward, and falling into lockers.\n\n6. The \"flipping forward\" in option (C) matches a more likely physical trajectory after an unsuccessful fence jump.\n\nTherefore, the most likely scenario for the hidden frames is:\n\nC"
+    },
+    {
+      "q_id": 111,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look at the pre-event and post-event segments to infer what likely happened.\n\n2. If the scenario involves a woman and an object/pool, and the result is a fall, I'll analyze the most probable sequence.\n\n3. The key is to use commonsense physical reasoning about motion and likely human actions.\n\n4. Option A suggests an attempted jump over an object with a fall\n5. Option B suggests an attempt to jump into a pool, resulting in a fall\n6. Option C suggests an attempted cartwheel that fails\n\nWithout seeing the actual video, I'll choose the most plausible scenario based on typical human movement and physics.\n\nOption B seems the most natural and likely scenario - someone attempting to jump into a pool but not executing it successfully, resulting in a fall.\n\nThe answer is:\n\nB"
+    },
+    {
+      "q_id": 951,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe description in option A provides the most specific and unusual detail about an unexpected event happening during a cake-blowing moment, which suggests a unique and humorous scenario. The other options are more generic descriptions of candle-blowing."
+    },
+    {
+      "q_id": 1247,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests an unexpected event occurred in the hidden middle segment.\n\n2. The options range from calm (option C) to increasingly chaotic (options A and B).\n\n3. The phrasing \"suddenly\" in options A and B implies an unexpected, comedic moment.\n\n4. Option B specifically suggests an active, surprising interaction with the dog causing physical comedy.\n\n5. The dog kicking the guy in the groin is a classic comedic trope that would create a sudden, unexpected transition from a calm scene.\n\n6. The language implies something humorous and unexpected happened.\n\nBased on the context and typical comedic video scenarios, the most likely hidden event is:\n\nB"
+    },
+    {
+      "q_id": 1607,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look for contextual clues in the scenario description.\n2. I'll consider the most logical sequence of events based on typical traffic interactions.\n\nKey observations:\n- There's a black car (SUV)\n- An oncoming car is involved\n- The middle segment is hidden\n\nMost likely scenario based on typical traffic dynamics:\n- If a car is speeding and another car is turning, the most probable outcome is a collision.\n- Running a red light suggests a high-risk situation.\n- The description suggests the oncoming car is moving at high speed.\n\nThe most logical and physically probable sequence is that the speeding car runs into the turning black SUV.\n\nTherefore, the answer is:\n\nB"
+    },
+    {
+      "q_id": 754,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario involves a floatation device, likely an inflatable raft or similar object\n2. There are pre-event and post-event segments visible\n3. We need to infer the most likely middle segment based on commonsense physics and human behavior\n\nAnalyzing the options:\n- Option A suggests an intentional launch of a girl, which seems risky and unlikely\n- Option B describes a stable, plausible scenario of standing on a raft with a child\n- Option C suggests an attempted stunt that results in falling, which is a common outcome of risky behavior\n\nThe most reasonable and likely scenario is:\n\nB\n\nThe reasoning is that option B represents a stable, predictable situation that could naturally occur, without implying deliberate dangerous action. Standing on a raft with a child is a more typical scene than an intentional launch or a failed stunt."
+    },
+    {
+      "q_id": 477,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario involves a video with a hidden middle segment\n2. We need to determine the most likely event based on context and physical probability\n\nAnalyzing the options:\n\u2022 Option A suggests the man loses control of nunchucks and strikes himself\n\u2022 Option B describes a calm, normal frisbee-throwing scenario\n\u2022 Option C suggests the nunchucks fly towards the camera person\n\nReasoning:\n- Nunchucks are a difficult martial arts weapon to control\n- When mishandled, they tend to swing unpredictably\n- The most likely unintended outcome is the weapon striking something unintended (either the user or nearby people)\n\nOption A is the most plausible scenario - a person accidentally hitting themselves while attempting to use nunchucks, which requires skill to handle safely.\n\nThe other options seem less probable:\n- Option B is too mundane and lacks tension\n- Option C seems less likely than self-impact\n\nTherefore, the answer is:\n\nA"
+    },
+    {
+      "q_id": 209,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a video with pre-event, hidden middle, and post-event segments.\n2. We need to infer what most likely happened in the hidden middle segment.\n\nReasoning:\n- If the ball hit the pitcher in the groin (A), there would likely be a reaction of pain and stopping.\n- If a player caught the ball in the field (B), this would suggest a normal play continuation.\n- If the ball went out of the field as a home run (C), this would indicate a significant scoring event.\n\nGiven the context of a baseball scenario, the most likely and commonsense outcome is:\n\nB\n\nThe most probable event in a baseball play is a fielder attempting to catch the ball, which represents a standard, routine action in the game."
+    },
+    {
+      "q_id": 1565,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll first consider the context of a soccer scenario with a goal and a goalie.\n\n2. I'll evaluate each option's physical plausibility:\n\u2022 Option A (ball hitting two people) seems random and unlikely\n\u2022 Option B (ball hitting goal edge causing goal to tip) seems improbable - soccer goals are typically sturdy\n\u2022 Option C (goalie jumping and hitting head on goal) seems most physically reasonable and consistent with typical soccer goalkeeper actions\n\n3. Option C describes a realistic physical interaction: a goalkeeper making an athletic attempt to block a ball, potentially misjudging the jump and accidentally contacting the goal structure.\n\nThe scenario suggests a momentary, plausible mishap during a soccer play.\n\nTherefore, the most likely description of the hidden middle segment is:\n\nC"
+    },
+    {
+      "q_id": 934,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a sequence of events with a hidden middle segment.\n2. We can see the pre-event and post-event parts.\n3. The key is to use commonsense reasoning to predict the most likely outcome.\n\nLooking at the options:\n- Option A suggests a dramatic escalation (chandelier falling)\n- Option B suggests an interaction with the blinds\n- Option C suggests a limited interaction with the blinds and then stopping\n\nThe most likely scenario based on commonsense reasoning is:\n\n(B) The guy accidentally swings his sword into the blinds, knocking the blinds down.\n\nThis option:\n- Follows a logical progression\n- Seems most consistent with an accidental action\n- Doesn't require an extreme or unlikely outcome\n\nB"
+    },
+    {
+      "q_id": 1334,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nReasoning: Based on the scenario description, option B suggests the most likely outcome for a jet ski encountering an obstacle like a tree stump or hill. Such terrain would cause the jet ski to abruptly stop or change direction, potentially causing it to flip over. This is a more plausible and physically realistic scenario compared to the other options."
+    },
+    {
+      "q_id": 1286,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a video with pre-event, hidden middle, and post-event segments.\n2. We want to infer what most likely happened in the hidden middle segment.\n\nLooking at the options:\n- Option A suggests a direct, intentional action of dropping something on one's own foot\n- Option B suggests an accidental action of tripping and falling\n- Option C suggests an external action of something being thrown at the person\n\nGiven the limited context, Option B (tripping and falling) seems the most plausible and natural sequence of events. Tripping is a common, unintentional action that could easily occur when someone is moving.\n\nThe other options seem less likely:\n- Deliberately dropping something on one's foot (Option A) is unusual\n- Having an exercise equipment thrown at someone (Option C) seems improbable without more context\n\nTherefore, the most reasonable inference is that the person trips and falls.\n\nB"
+    },
+    {
+      "q_id": 439,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C provides the most detailed and likely accurate account of the video scenario. It describes a sequence of events where the person attempts to hit a punching bag-like machine, slips, falls forward, and then laughs while facing the ground. This matches the typical humorous outcome of an attempted physical interaction gone wrong."
+    },
+    {
+      "q_id": 1421,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. We have visual context of pre-event and post-event\n3. The key is to determine the most plausible transition between those segments\n\nAnalyzing the options:\n- Option A suggests an extreme scenario of a fish dragging an entire boat\n- Option B suggests a fish pulling a fishing pole\n- Option C suggests a balance/stability issue leading to both men falling\n\nConsidering physical likelihood:\n- Fish pulling a pole out of a hand is more physically probable than a fish dragging an entire boat\n- Losing balance on a boat is also a very plausible scenario\n\nBetween B and C, losing balance seems more likely to result in both men falling into the water.\n\nTherefore, the most commonsense explanation for the hidden middle segment is:\n\nC"
+    },
+    {
+      "q_id": 476,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most detailed and specific account of the event, including the turtle's attempt to climb, losing balance, falling, and the lady's reaction with a possible name (\"oh diamond\"). It captures the nuanced sequence of actions and the human response, which suggests a more comprehensive understanding of the scene compared to the other options."
+    },
+    {
+      "q_id": 265,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The goal is to infer the most likely middle segment based on physical plausibility\n\nKey observations:\n- This seems to be a bike trick scenario\n- The outcome suggests something went wrong\n\nReasoning:\n- Option A (going backwards and landing well) seems unlikely given the context\n- Option C (keeping perfect balance) also seems improbable\n- Option B suggests a loss of control and a fall, which matches the implied outcome\n\nThe most physically reasonable scenario is that the rider attempted a trick, lost control, and fell backwards off the bike.\n\nTherefore, the most likely explanation for the hidden middle frames is:\n\nB"
+    },
+    {
+      "q_id": 19,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nThe description that best captures the event is (B) \"The man misses the paddle board on the landing of the spin and falls into the water.\" This suggests an unsuccessful attempt to land on the paddle board after performing a spin, resulting in the man falling into the water."
+    },
+    {
+      "q_id": 1006,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\nThe scenario involves a girl receiving a vaccine, and the question asks about her reaction.\n\nThe key elements to consider are:\n- Her emotional/physical response\n- Her interaction with the nurse\n- The actual vaccination process\n\nLooking at the options:\n(A) Suggests a calm, composed reaction\n(B) Suggests resistance and emotional distress\n(C) Suggests the vaccine was administered despite her emotional response\n\nMost children find vaccine injections scary and often cry or resist. This is a normal, expected reaction.\n\nThe description that sounds most typical and realistic is option (C): The nurse injected the girl with the vaccine and the girl cried.\n\nThis implies the vaccination occurred despite her emotional response, which is common in medical settings.\n\nAnswer: C"
+    },
+    {
+      "q_id": 1074,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The middle segment is hidden\n3. We need to infer the most likely scenario\n\nThe key is to look for the most logical progression that connects the visible segments.\n\nIf the post-event suggests a fall or crash, option (A) becomes the most probable scenario. This implies something went wrong in the middle segment that led to a collision.\n\nIf the post-event suggests a smooth ride, option (B) would be most likely.\n\nIf the post-event suggests a near-miss or narrow escape, option (C) would fit best.\n\nWithout seeing the actual video, I'll choose based on the language used in the options.\n\nOption (A) provides the most specific and dramatic narrative that suggests a clear cause-and-effect sequence: losing focus \u2192 riding into mountain \u2192 falling off.\n\nThe language implies a definitive outcome, not just a near-miss.\n\nTherefore, the answer is:\n\nA"
+    },
+    {
+      "q_id": 226,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have a pre-event and post-event segment, with a hidden middle segment.\n2. The goal is to infer the most likely sequence of events based on commonsense reasoning.\n\nAnalyzing the options:\n- Option A suggests exploring the walker, which seems less dynamic\n- Option B suggests an active interaction that could lead to a fall\n- Option C suggests a direct fall without intermediate action\n\nThe most likely scenario is that the boy attempts to move or manipulate the walker, which results in losing balance and falling backward.\n\nTherefore, the most probable hidden middle segment is:\n\nB"
+    },
+    {
+      "q_id": 1364,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nReasoning:\n- The description of \"does a couple flips and then lands upside down\" suggests a dynamic, complex crash sequence\n- This matches the typical physics of a high-speed collision with an angled surface like a mountain slope\n- The scenario implies a dramatic, multi-stage impact that would create significant motion and rotation\n- Option B provides the most plausible and detailed description of a vehicle crash with a mountain"
+    },
+    {
+      "q_id": 1305,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario mentions a video with an \"unexpected event\"\n2. The options suggest different scenarios involving a person in a Santa costume\n3. The language implies something dramatic happened\n4. Option A suggests a fall from a hoverboard\n5. Option B suggests a fall from a hoverboard that also involves collision with a boy\n6. Option C describes a calm, stationary scene\n\nGiven the phrase \"unexpected event\", the most likely scenario is a dramatic incident involving movement and potential mishap.\n\nOption B provides the most dynamic and specific description, suggesting both a fall and a collision.\n\nB"
+    },
+    {
+      "q_id": 336,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The goal is to infer the most likely middle segment based on commonsense logic\n\nLooking at the options:\n- Option A suggests the toy car hits the man\n- Option B suggests the boy actively breaks the car\n- Option C suggests the toy car hits the Christmas tree\n\nTo determine the most likely scenario, I'll consider:\n- Toy cars are typically hard to control precisely\n- Children/people often struggle to steer small remote control vehicles\n- Obstacles like trees are stationary and more likely collision targets\n\nThe most probable sequence of events would be the toy car veering off course and hitting a stationary object (the Christmas tree) rather than a moving person or being deliberately broken.\n\nTherefore, the most logical hidden middle segment is the car hitting the Christmas tree.\n\nAnswer: C"
+    },
+    {
+      "q_id": 1053,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. This sounds like a motorcycle jump/crossing scenario over a body of water.\n\n2. The pre-event and post-event segments likely show context about the rider's trajectory and speed.\n\n3. If the rider was attempting a jump, the most likely outcome is a partial landing - not a complete fall or a perfect clear.\n\n4. Option B suggests a split landing - partially in water, partially on ground - which matches typical jump dynamics where complete precision is difficult.\n\n5. Option A (completely clearing the water) seems too perfect/unlikely.\n\n6. Option C (completely falling/sinking) seems too catastrophic and unlikely.\n\nThe most probable physical outcome based on typical motorcycle jump mechanics is a partially successful landing.\n\nB"
+    },
+    {
+      "q_id": 1428,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 The scenario involves a fishing situation\n\u2022 We need to determine the most logical sequence of events\n\u2022 I'll evaluate each option's plausibility\n\n(A) \"The man slips and falls into the boat while letting go of his pole\"\n- This sounds like a potential accident\n- Slipping and losing grip on a pole is a realistic scenario\n- Seems physically plausible\n\n(B) \"The fish pulls the pole out of the man's hand\"\n- This is highly unlikely\n- Fish do not have the strength or mechanism to pull a pole from a human's grip\n- Physically improbable\n\n(C) \"The man tips over and falls into the water while his friend helps him out\"\n- This description seems less coherent\n- If a friend is helping, why would the man fall?\n- Less logical compared to option A\n\nBased on commonsense reasoning about physical events, the most reasonable explanation is:\n\nA"
+    },
+    {
+      "q_id": 1667,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The post-event state will give us clues about what likely happened in the hidden middle segment\n\nKey observations:\n- The scenario suggests something unexpected occurred\n- The final state implies some disruption to normal driving\n\nAnalyzing the options:\n(A) Suggests a dramatic, sudden loss of vehicle control\n(B) Suggests a normal, gradual traffic slowdown\n(C) Suggests a minor collision followed by controlled deceleration\n\nThe most likely scenario based on the description is option (C). This is because:\n- It explains a cause (being bumped) for the subsequent effect (slowing down)\n- It matches a typical minor traffic incident\n- It provides a logical transition between pre-event and post-event states\n\nTherefore, the answer is:\n\nC"
+    },
+    {
+      "q_id": 874,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look at the pre-event and post-event segments to understand the context and likely sequence.\n\n2. The key is to predict the most probable physical interaction based on the visible parts of the video.\n\n3. If the person in black is positioned to try to stop the tube, and the post-event scene shows some aftermath, I'll consider the most logical progression.\n\n4. Option A suggests the person pulls the tube down, which seems unlikely and counterintuitive.\n\n5. Option B suggests the person misses and falls, which seems possible but less probable.\n\n6. Option C suggests the person tries to stop the tube and gets dragged along - this matches typical physical dynamics when someone tries to halt a moving object but gets caught up in its momentum.\n\nThe most commonsense and physically realistic scenario is that the person attempts to stop the tube, gets caught by its motion, and is dragged along.\n\nC"
+    },
+    {
+      "q_id": 204,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments, but the middle is hidden\n2. We want to infer the most plausible scenario based on commonsense reasoning\n\nAnalyzing the options:\n\u2022 Option A seems very specific and oddly detailed without context\n\u2022 Option B suggests a specific action (ball dropping, camera being knocked over)\n\u2022 Option C implies a more dramatic scenario with people falling and getting hurt\n\nThe most reasonable inference would be Option B. Why?\n- Balls are involved in the scenario\n- Dropping a ball could reasonably cause a disruption like knocking over a camera\n- It's a plausible, low-stakes event that could explain a video interruption\n\nThe scenario suggests a simple, likely physical event rather than a complex or extreme situation.\n\nB"
+    },
+    {
+      "q_id": 247,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The scenario suggests a video with some unexpected event involving people/children\n\u2022 The options provide different potential outcomes\n\u2022 I'll analyze each option's likelihood\n\n(A) Suggests a deliberate attempt to scare children with a dinosaur costume\n(B) Suggests a calm, normal play scenario\n(C) Suggests an outcome where everyone remains safe despite something happening\n\nWithout seeing the actual video, option (C) sounds most like a reasonable, commonsense resolution to an unexpected event. It implies something might happen, but ultimately everyone will be okay.\n\nThe phrase \"wind up unharmed\" suggests some action or surprise occurred, but with a positive/neutral outcome.\n\nC"
+    },
+    {
+      "q_id": 625,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. We have pre-event and post-event segments visible\n2. The question is about inferring what happened in the hidden middle segment\n3. I'll look for contextual clues that suggest the most likely scenario\n\nKey reasoning steps:\n\u2022 If the pre and post segments suggest a collision aftermath, that points to option B\n\u2022 If the segments show a skateboarder in motion near a ramp, that suggests option C\n\u2022 If the segments don't provide clear context, I'll choose the most plausible scenario\n\nWithout seeing the actual video, I'll choose the most probable event based on typical skate park dynamics.\n\nB\n\nThe answer is B because:\n- Collisions are common in skate parks\n- The hidden segment likely represents the actual moment of impact\n- The pre and post segments would show the lead-up and result of the collision"
+    },
+    {
+      "q_id": 965,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The scenario describes a video with an unexpected event involving a snowboarder\n\u2022 The key is to understand the most likely physical sequence of events\n\nAnalyzing the options:\n(A) Suggests the snowboarder is stationary and taking a moment to pause\n(B) Implies another skiier is approaching from behind and might collide\n(C) Describes a scenario where another falling snowboarder is coming towards the first snowboarder from behind\n\nBased on the phrasing \"unexpected event\" and the dynamic nature of the description, option (C) seems the most plausible. The description of another falling snowboarder approaching suggests an unexpected and potentially chaotic moment.\n\nThe answer is:\n\nC"
+    },
+    {
+      "q_id": 523,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 1,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "B\n\nThe description in option B provides the most detailed and logical account of the event. It describes a sequence of actions that seems plausible: the man finishing his speech, attempting to sit down, the seat unexpectedly giving way, causing him to fall while still holding his glass, and then getting up and laughing along with others present. This suggests an accidental, somewhat humorous incident rather than a deliberate fall (A) or a serious medical event (C)."
+    },
+    {
+      "q_id": 113,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the pre-event and post-event segments to infer what likely happened in the hidden middle segment.\n\n2. The key is to look for physical consistency and most probable outcome.\n\n3. Without seeing the actual video, I'll use logical deduction based on the options.\n\n4. Option A suggests a successful jump over an object\n5. Option B suggests an attempted cartwheel that fails\n6. Option C suggests an attempt to jump into a pool that results in falling\n\nThe most likely scenario depends on context clues not provided. However, based on typical human movement and probability:\n\n\u2022 Jumping over an object requires skill and precision\n\u2022 Cartwheels are complex gymnastic moves that often fail\n\u2022 Running and jumping into a pool is a relatively straightforward action\n\nThe most commonsense, physically probable scenario is: (C) The woman runs to jump in the pool and falls into it.\n\nC"
+    },
+    {
+      "q_id": 1522,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nReasoning: Option A provides the most plausible and detailed description of a potential drone accident. When a drone collides with a ship, it would likely lose stability and fall into the water. The description includes realistic details like the drone being low near the water, hitting the ship, losing balance, and sinking, with a likely frustrated reaction from the owner. Options B and C are less credible - B suggests an unrealistic recovery after a collision, and C seems overly specific about breaking a sail."
+    },
+    {
+      "q_id": 241,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. We have a pre-event and post-event view, with a hidden middle segment.\n2. The key is to find the most logical transition between the visible segments.\n\nAnalyzing the options:\n- Option A suggests a sudden, unexplained mattress movement\n- Option B describes a standard gym exercise\n- Option C describes a dynamic movement where the mattress pulls the person off a surface\n\nThe most plausible scenario that connects a pre-event and post-event state would be Option C. This implies a continuous, causal motion where the mattress's movement directly affects the person's position.\n\nThe description suggests a sequence where the mattress slips out from under the person, pulling them along with it - which provides a logical explanation for a change in position between the visible segments.\n\nC"
+    },
+    {
+      "q_id": 1240,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n\u2022 We have a pre-event and post-event scene, with a hidden middle segment\n\u2022 The scenario involves a water bottle being dropped/losing grip\n\u2022 We want to infer the most likely sequence of events\n\nAnalyzing the options:\n(A) Seems unrelated to the water bottle scenario\n(B) Suggests the water bottle veers left and hits a passing car\n(C) Suggests the water bottle falls between the person's legs and hits something hard\n\nThe most plausible sequence based on typical physics and human reaction time is option (C). When someone drops something, it typically falls straight down, and they often can't react quickly enough to catch it. The description of it going between the legs and hitting hard matches a natural, uncontrolled drop.\n\nTherefore, the answer is:\n\nC"
+    },
+    {
+      "q_id": 1703,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most detailed and plausible scenario of an unexpected and dramatic event involving a construction vehicle and a building collapse. The description suggests a sudden, violent backlash where the operator is forcefully pushed back as the building structure crashes down, which implies an unexpected and dangerous situation during demolition work."
+    },
+    {
+      "q_id": 496,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario describes a video with a hidden middle segment\n2. The context involves a girl attempting to inflate something (a balloon/ball)\n3. We need to infer the most logical progression of events\n\nAnalyzing the options:\n- Option A suggests a physical transformation (ball expanding/floating) which seems unlikely without clear context\n- Option B suggests a change in action (girl stopping her attempt and asking for help)\n- Option C suggests a verbal explanation about why inflation isn't working\n\nThe most commonsense progression would be that if someone is struggling to inflate something, they would likely:\n- Try for a while\n- Become frustrated\n- Ask for help or guidance\n\nThis matches Option B most closely. The girl would naturally turn to the man behind the camera for assistance if she cannot inflate the ball/balloon herself.\n\nB"
+    },
+    {
+      "q_id": 919,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nReasoning:\n- Option A describes a plausible physical scenario of someone losing balance on a swing\n- Option B suggests a speculative and extreme outcome\n- Option C is an unrealistic description involving an improbable sequence of events\n- The most commonsense and likely description is that the boy slips and falls off the swing"
+    },
+    {
+      "q_id": 20,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "Let's reason through this systematically:\n\n1. The scenario suggests we have limited information, with only pre and post event segments visible.\n\n2. The key is to find the most plausible transition between the visible segments.\n\n3. Option A seems too generic and doesn't suggest a clear progression.\n\n4. Option B implies a dynamic action (attempting to dunk) that could reasonably result in a chair flip.\n\n5. Option C suggests a successful, complex maneuver (dunking while on a chair) which seems less likely and more physically challenging.\n\n6. The phrasing \"flips over the chair\" in Option B suggests a natural, somewhat accidental progression from an attempted action.\n\nTherefore, Option B represents the most commonsense likely scenario for what happened in the hidden frames.\n\nB"
+    },
+    {
+      "q_id": 606,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nReasoning: Option B provides the most logical and complete description of a typical soccer goal scenario. It describes a dynamic action where a player kicks a ball towards the goal, the goalie attempts to block but misses, and consequently falls to the ground. This matches the typical sequence of events in a soccer goal attempt. Option A seems overly specific and unlikely, while Option C describes a static scene that does not involve any action."
+    },
+    {
+      "q_id": 126,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll analyze the pre-event and post-event segments to infer what likely happened in the hidden middle segment.\n\n2. The key is to look for physical clues and logical progression.\n\n3. If the boy is climbing and loses balance, option (A) suggests a fall.\n   If he successfully climbs up, options (B) and (C) suggest different outcomes.\n\n4. The phrase \"he and the mattress fall through the frame\" in option (C) suggests an unexpected structural failure.\n\n5. This implies something dramatic and unexpected happened during his climb - not just a simple fall or successful climb.\n\n6. The mention of both the boy AND the mattress falling suggests a sudden collapse of the bunk structure.\n\n7. This scenario is the most surprising and least predictable outcome, which makes it the most likely explanation for why the middle segment is hidden.\n\nTherefore, the most likely event in the hidden frames is:\n\nC"
+    },
+    {
+      "q_id": 335,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. I'll look at the pre-event and post-event segments to infer what likely happened.\n\n2. Pre-event details: A man is controlling a toy car, with a boy nearby and a Christmas tree in the background.\n\n3. Post-event details: If the car ran into the man, he would likely show a reaction of surprise or pain. If it hit the boy, the boy would be crying. If it hit the tree, the tree would be knocked over.\n\n4. The scenario specifically mentions the tree being knocked over in option A.\n\n5. This suggests the most likely sequence is the toy car losing control and colliding with the Christmas tree, causing it to fall.\n\nThe answer that best matches the physical scenario and implied sequence of events is:\n\nA"
+    },
+    {
+      "q_id": 1718,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n\u2022 This is about an unexpected event during a music performance\n\u2022 I need to evaluate which scenario seems most plausible and likely to occur\n\nAnalyzing each option:\n(A) Guitar smashing - While dramatic, this is a deliberate act some performers do, so it's not truly \"unexpected\"\n(B) Drummer falling off stool - This suggests an unintentional, surprising moment that could genuinely be unexpected\n(C) Guitarist getting tangled in cord - This is a realistic mishap that could happen spontaneously during a performance\n\nThe most likely scenario for an unexpected event that would catch people by surprise is the drummer losing balance and falling off the stool.\n\nB"
+    },
+    {
+      "q_id": 201,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario provides a video with three segments: pre-event, hidden middle, and post-event.\n\n2. The key is to use the context and logical inference.\n\n3. Looking at the options:\n- Option A suggests both the kid AND mother fall\n- Option B suggests the kid runs away into a parking lot\n- Option C suggests only the kid falls and scrapes his knee\n\n4. Since the scenario doesn't mention the mother falling or a parking lot, those details seem unsupported.\n\n5. Option C is the most straightforward and likely scenario based on the limited information.\n\nC"
+    },
+    {
+      "q_id": 1732,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\nThe scenario suggests a video showing an unexpected event involving someone riding a bike across water. \n\nPhysically, riding a bike completely across water is not possible without some special mechanism like a boat or water-crossing device. So options that suggest simply riding \"all the way across\" are unlikely.\n\nOption A suggests riding across water and then hitting someone, which seems improbable.\n\nOption B suggests hitting an incoming boat, which seems more realistic as a potential unexpected event.\n\nOption C suggests riding across water and hitting a dirt mound, which is also physically implausible since bikes cannot naturally travel across water.\n\nBy process of elimination and considering physical constraints, Option B seems the most reasonable description of an unexpected event.\n\nB"
+    },
+    {
+      "q_id": 72,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A"
+    },
+    {
+      "q_id": 1775,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nThe description in option B best captures the physical action and outcome. The phrase \"tip the bowl towards him which causes the cereal to spray up on his face\" suggests a deliberate motion that results in the cereal being projected upwards, consistent with a sudden, unexpected event."
+    },
+    {
+      "q_id": 1534,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nReasoning:\n- The scenario describes a video with pre-event, hidden middle, and post-event segments\n- The most logical and commonsense sequence for a golf scene would be a standard golf swing\n- Option B describes a typical golf action: a man swinging a golf club at a ball on a green field\n- Options A and C describe unlikely or unusual outcomes that don't match the standard golf swing motion\n\nThe most probable event in the hidden frames is the standard golf swing action."
+    },
+    {
+      "q_id": 686,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. The pre-event and post-event segments likely provide context\n3. I'll analyze the most probable sequence based on the options\n\nThe key is to choose the most logical transition between what seems to be happening before and after the hidden frames.\n\nOption A suggests a failed attempt with an unintended fall\nOption B suggests a successful jump into a forest\nOption C suggests a partial jump attempt into water\n\nWithout seeing the actual video, I'll choose based on the most plausible scenario.\n\nOption B seems the most coherent - a complete, intentional jump into a forest environment.\n\nB"
+    },
+    {
+      "q_id": 460,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 2,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment, implying some uncertain action occurred.\n\n2. The pre-event and post-event segments suggest a dynamic situation involving a car skidding.\n\n3. Analyzing the options:\n- Option A suggests a near-miss scenario\n- Option B suggests the car stops before any potential collision\n- Option C suggests a collision actually occurs\n\n4. The key is to determine the most likely outcome based on commonsense reasoning.\n\n5. Factors to consider:\n- Skidding implies loss of vehicle control\n- The presence of a pole suggests a potential hazard\n- The mention of a pedestrian adds complexity\n\n6. The most plausible scenario that balances risk and avoidance is Option A: narrowly missing the pole.\n\nThis outcome represents a fortunate resolution that avoids both a pedestrian collision and hitting the pole.\n\nA"
+    },
+    {
+      "q_id": 1350,
+      "task": "Detective",
+      "difficulty": "hard",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. The scenario suggests a video with a hidden middle segment\n2. I need to use commonsense reasoning about what's most plausible\n\nLooking at the options:\n\u2022 Option A (third dog attacking) seems random and unlikely\n\u2022 Option B (woman with party-hatted dogs) seems static and uninteresting\n\u2022 Option C (dog jumping on table and pushing off food) follows a typical dog behavior pattern\n\nDogs are known for:\n- Being curious\n- Jumping on surfaces\n- Wanting food\n- Creating chaos around food\n\nOption C represents the most probable and natural dog behavior based on typical canine actions.\n\nTherefore, the most likely scenario in the hidden frames is a dog jumping on the table and pushing off food.\n\nAnswer: C"
+    },
+    {
+      "q_id": 244,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "B\n\nThe description suggests a scenario of a potential collision being narrowly avoided through quick braking/stopping, which matches the phrase \"able to stop hard and avoid a near crash\". This indicates a moment of sudden danger that is averted through driver reaction, which is a common type of unexpected event in traffic situations."
+    },
+    {
+      "q_id": 216,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nReasoning: Based on the description of an \"unexpected event\" involving a log truck and a traffic light, option C suggests the log truck accidentally knocks over the traffic light while attempting to turn. This seems like the most plausible scenario that would create an unexpected and dramatic moment in a video."
+    },
+    {
+      "q_id": 1083,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": null,
+      "pred_letter": null,
+      "correct": false,
+      "full_response": "I apologize, but I cannot actually see the video you're referring to. Without being able to view the specific video, I cannot determine which description is correct. To provide an accurate answer, I would need to see the actual video and observe the sequence of events."
+    },
+    {
+      "q_id": 1773,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": true,
+      "full_response": "C\n\nThe description in option C best captures the scenario of a child struggling with a seat stuck around their neck, persistently trying to push it up and off, while crying in frustration. This description suggests a realistic physical situation where the child is actively attempting to remove the seat but is unable to do so."
+    },
+    {
+      "q_id": 1771,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 2,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let's reason through this:\n\n\u2022 The scenario suggests a child has a seat stuck on their head\n\u2022 We know the pre and post event segments, but not the middle\n\u2022 We want the most logical resolution\n\nReasoning:\n- Option A suggests the child is trying to solve the problem independently, but pulling from the back is unlikely to work\n- Option B implies an external helper (family member) who would know the most effective way to remove the seat\n- Option C suggests continued unsuccessful struggling by the child\n\nThe most commonsense solution would be a family member helping the child, using their greater strength and perspective to remove the seat safely.\n\nTherefore, the most likely scenario is:\n\nB"
+    },
+    {
+      "q_id": 648,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": false,
+      "full_response": "Let me reason through this carefully:\n\n\u2022 The scenario describes a video with an unexpected event involving a scooter and a ramp\n\n\u2022 The key is to determine what most likely happened based on the description\n\n\u2022 Option A suggests a deliberate but failed attempt to jump onto a building\n\u2022 Option B suggests an accidental fall due to misjudging the ramp's trajectory\n\u2022 Option C suggests a fall from the scooter resulting in injury\n\nWithout seeing the actual video, Option B seems the most plausible and neutral description of an unexpected event. A misjudged ramp is a common accident scenario.\n\nB"
+    },
+    {
+      "q_id": 1032,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We know there's a pre-event and post-event visible, with a hidden middle segment.\n\n2. The key is to find the most likely sequence of events based on common physical interactions.\n\n3. Option A suggests a small movement causing a spill - this seems plausible and a typical coffee-related accident.\n\n4. Option B involves adding sugar, then an unlikely slip that dunks the entire cup - this seems overly complex and less probable.\n\n5. Option C is similar to A, but adds the specific detail of burning the hand - while possible, it's a more specific claim that isn't necessarily more likely.\n\n6. The simplest, most probable scenario is a small movement causing a minor spill.\n\nTherefore, the most likely hidden event is:\n\nA"
+    },
+    {
+      "q_id": 1195,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B\n\nThe description in option B provides the most detailed and likely scenario for a skateboarding video showing an unexpected event. It describes the person going over a ramp, becoming airborne, and then failing to land properly, resulting in a crash. This matches the typical outcome of an amateur or risky skateboarding attempt where the rider loses control mid-air."
+    },
+    {
+      "q_id": 357,
+      "task": "Reporter",
+      "difficulty": "hard",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe reasoning is:\n- The scenario describes a collision between a catcher and base runner while attempting to catch a ball\n- The collision results in both falling to the ground\n- The base runner then gets up and scores a run by touching home plate\n- This matches the detailed description in option A precisely\n- Options B and C do not capture the full sequence of events described in the scenario"
+    },
+    {
+      "q_id": 968,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let me reason through this systematically:\n\n1. We have a pre-event and post-event segment of video\n2. The scenario involves a boy on a bike near a wall\n3. I'll consider the most likely physical progression\n\nIf the boy was riding near a wall and the post-event suggests he is no longer on the wall, the most probable sequence is that he was pushed or fell off the wall.\n\nThe options suggest:\n(A) Direct physical intervention - someone pushing him off\n(B) Continued riding on the wall\n(C) Stopping before going off the wall\n\nGiven the context implies motion and displacement, option (A) seems the most logical explanation for how he would transition from being on the wall to not being on the wall.\n\nA"
+    },
+    {
+      "q_id": 1330,
+      "task": "Reporter",
+      "difficulty": "medium",
+      "gt_idx": 1,
+      "pred_idx": 1,
+      "pred_letter": "B",
+      "correct": true,
+      "full_response": "B"
+    },
+    {
+      "q_id": 1399,
+      "task": "Reporter",
+      "difficulty": "easy",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "A\n\nThe description in option A provides the most specific and logical explanation of an unexpected physical event involving a woman, a box, and accidentally hitting her head on a mounted bear head. The scenario describes a clear sequence of actions and an unintended consequence, which matches the typical characteristics of an unexpected video moment."
+    },
+    {
+      "q_id": 880,
+      "task": "Detective",
+      "difficulty": "medium",
+      "gt_idx": 0,
+      "pred_idx": 0,
+      "pred_letter": "A",
+      "correct": true,
+      "full_response": "Let's reason through this:\n\n\u2022 The scenario suggests a video with a hidden middle segment\n\u2022 We need to infer the most likely physical event based on context and commonsense reasoning\n\nLooking at the options:\n(A) Suggests a chain reaction/domino effect where one person's fall causes another's fall\n(B) Suggests a passive continuation with no change\n(C) Suggests a planned skateboarding action on a sandy hill\n\nGiven the limited information, option (A) seems the most plausible based on typical physical interactions and momentum. When one person falls in a sequence, it's likely to affect the person behind them, especially if they are close together.\n\nThe chain reaction of falling is a more probable scenario than either passive sliding or a skateboarding event.\n\nTherefore, the answer is:\n\nA"
+    },
+    {
+      "q_id": 569,
+      "task": "Detective",
+      "difficulty": "easy",
+      "gt_idx": 1,
+      "pred_idx": 2,
+      "pred_letter": "C",
+      "correct": false,
+      "full_response": "Let's reason through this systematically:\n\n1. We know there's a pre-event and post-event segment.\n2. The post-event likely shows the result of what happened in the hidden middle segment.\n3. The scenario involves a sheep stuck in a fence.\n\nIf the sheep becomes more stuck (option B), the post-event would likely show continued entanglement.\n\nIf a person cuts the fence (option A), the post-event would likely show a partially cut fence.\n\nIf a person removes the fence (option C), the post-event would likely show the sheep free from the fence.\n\nThe most logical and practical solution to free a sheep stuck in a fence would be to remove the fence directly.\n\nTherefore, the most likely scenario is that someone removes the fence from the sheep's head.\n\nC"
+    }
+  ]
+}
