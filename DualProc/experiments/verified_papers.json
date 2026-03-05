@@ -1,0 +1,179 @@
+[
+  {
+    "status": "OK",
+    "title": "Metacognitive Prompting Improves Understanding in Large Language Models",
+    "authors": "Yuqing Wang, Yun Zhao",
+    "year": "2023",
+    "arxiv_id": "2308.05342",
+    "label": "Metacognitive Prompting - Wang & Zhao"
+  },
+  {
+    "status": "OK",
+    "title": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+    "authors": "Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao",
+    "year": "2023",
+    "arxiv_id": "2303.11366",
+    "label": "Reflexion - Shinn et al"
+  },
+  {
+    "status": "OK",
+    "title": "Self-Reflection in LLM Agents: Effects on Problem-Solving Performance",
+    "authors": "Matthew Renze, Erhan Guven",
+    "year": "2024",
+    "arxiv_id": "2405.06682",
+    "label": "Self-Reflection in LLM Agents - Renze & Guven"
+  },
+  {
+    "status": "OK",
+    "title": "Tree of Thoughts: Deliberate Problem Solving with Large Language Models",
+    "authors": "Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Thomas L. Griffiths, Yuan Cao, Karthik Narasimhan",
+    "year": "2023",
+    "arxiv_id": "2305.10601",
+    "label": "Tree of Thoughts - Yao et al"
+  },
+  {
+    "status": "OK",
+    "title": "An Empirical Study Into What Matters for Calibrating Vision-Language Models",
+    "authors": "Weijie Tu, Weijian Deng, Dylan Campbell, Stephen Gould, Tom Gedeon",
+    "year": "2024",
+    "arxiv_id": "2402.07417",
+    "label": "Calibrating VLMs - Tu et al"
+  },
+  {
+    "status": "OK",
+    "title": "Uncertainty-Aware Evaluation for Vision-Language Models",
+    "authors": "Vasily Kostumov, Bulat Nutfullin, Oleg Pilipenko, Eugene Ilyushin",
+    "year": "2024",
+    "arxiv_id": "2402.14418",
+    "label": "Uncertainty-Aware Eval VLMs - Kostumov et al"
+  },
+  {
+    "status": "OK",
+    "title": "Seeing is Believing, but How Much? A Comprehensive Analysis of Verbalized Calibration in Vision-Language Models",
+    "authors": "Weihao Xuan, Qingcheng Zeng, Heli Qi, Junjue Wang, Naoto Yokoya",
+    "year": "2025",
+    "arxiv_id": "2505.20236",
+    "label": "Verbalized Calibration VLMs - Xuan et al"
+  },
+  {
+    "status": "OK",
+    "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "authors": "Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei Xia, Ed Chi, Quoc Le, Denny Zhou",
+    "year": "2022",
+    "arxiv_id": "2201.11903",
+    "label": "Chain-of-Thought - Wei et al"
+  },
+  {
+    "status": "OK",
+    "title": "Multi-Step Reasoning with Large Language Models, a Survey",
+    "authors": "Aske Plaat, Annie Wong, Suzan Verberne, Joost Broekens, Niki van Stein, Thomas Back",
+    "year": "2024",
+    "arxiv_id": "2407.11511",
+    "label": "Multi-Step Reasoning Survey"
+  },
+  {
+    "status": "OK",
+    "title": "Beyond Chain-of-Thought: A Survey of Chain-of-X Paradigms for LLMs",
+    "authors": "Yu Xia, Rui Wang, Xu Liu, Mingyan Li, Tong Yu, Xiang Chen, Julian McAuley, Shuai Li",
+    "year": "2024",
+    "arxiv_id": "2404.15676",
+    "label": "Beyond Chain-of-Thought Survey"
+  },
+  {
+    "status": "OK",
+    "title": "Prompting Techniques for Reducing Social Bias in LLMs through System 1 and System 2 Cognitive Processes",
+    "authors": "Mahammed Kamruzzaman, Gene Louis Kim",
+    "year": "2024",
+    "arxiv_id": "2404.17218",
+    "label": "Dual-process prompting bias - Kamruzzaman"
+  },
+  {
+    "status": "OK",
+    "title": "Leveraging Dual Process Theory in Language Agent Framework for Real-time Simultaneous Human-AI Collaboration",
+    "authors": "Shao Zhang, Xihuai Wang, Wenhao Zhang, Chaoran Li, Junru Song, Tingyu Li, Lin Qiu, Xuezhi Cao, Xunliang Cai, Wen Yao, Weinan Zhang, Xinbing Wang, Ying Wen",
+    "year": "2025",
+    "arxiv_id": "2502.11882",
+    "label": "DPT-Agent - Zhang et al"
+  },
+  {
+    "status": "OK",
+    "title": "AAAI 2022 Fall Symposium: System-1 and System-2 realized within the Common Model of Cognition",
+    "authors": "Brendan Conway-Smith, Robert L. West",
+    "year": "2023",
+    "arxiv_id": "2305.09091",
+    "label": "System 1/2 Common Model Cognition"
+  },
+  {
+    "status": "OK",
+    "title": "Deep Reasoning Networks: Thinking Fast and Slow",
+    "authors": "Di Chen, Yiwei Bai, Wenting Zhao, Sebastian Ament, John M. Gregoire, Carla P. Gomes",
+    "year": "2019",
+    "arxiv_id": "1906.00855",
+    "label": "Deep Reasoning Networks - Chen et al"
+  },
+  {
+    "status": "OK",
+    "title": "Thinking Fast and Slow with Deep Learning and Tree Search",
+    "authors": "Thomas Anthony, Zheng Tian, David Barber",
+    "year": "2017",
+    "arxiv_id": "1705.08439",
+    "label": "Thinking Fast Slow Deep Learning Tree Search - Anthony et al"
+  },
+  {
+    "status": "OK",
+    "title": "Deliberate Reasoning in Language Models as Structure-Aware Planning with an Accurate World Model",
+    "authors": "Siheng Xiong, Ali Payani, Yuan Yang, Faramarz Fekri",
+    "year": "2024",
+    "arxiv_id": "2410.03136",
+    "label": "Deliberate Reasoning SWAP - Xiong et al"
+  },
+  {
+    "status": "OK",
+    "title": "Self-Refine: Iterative Refinement with Self-Feedback",
+    "authors": "Aman Madaan, Niket Tandon, Prakhar Gupta, Skyler Hallinan, Luyu Gao, Sarah Wiegreffe, Uri Alon, Nouha Dziri, Shrimai Prabhumoye, Yiming Yang, Shashank Gupta, Bodhisattwa Prasad Majumder, Katherine Hermann, Sean Welleck, Amir Yazdanbakhsh, Peter Clark",
+    "year": "2023",
+    "arxiv_id": "2303.17651",
+    "label": "Self-Refine - Madaan et al"
+  },
+  {
+    "status": "OK",
+    "title": "On Calibration of Modern Neural Networks",
+    "authors": "Chuan Guo, Geoff Pleiss, Yu Sun, Kilian Q. Weinberger",
+    "year": "2017",
+    "arxiv_id": "1706.04599",
+    "label": "On Calibration Modern Neural Networks - Guo et al"
+  },
+  {
+    "status": "OK",
+    "title": "Full-ECE: A Metric For Token-level Calibration on Large Language Models",
+    "authors": "Han Liu, Yupeng Zhang, Bingning Wang, Weipeng Chen, Xiaolin Hu",
+    "year": "2024",
+    "arxiv_id": "2406.11345",
+    "label": "Full-ECE Token-level - Liu et al"
+  },
+  {
+    "status": "OK",
+    "title": "Overconfidence is Key: Verbalized Uncertainty Evaluation in Large Language and Vision-Language Models",
+    "authors": "Groot, Tobias and Valdenegro - Toro, Matias",
+    "year": "2024",
+    "venue": "Proceedings of the 4th Workshop on Trustworthy Natural Language Processing (TrustNLP 2024)",
+    "doi": "10.18653/v1/2024.trustnlp-1.13",
+    "label": "Overconfidence Verbalized Uncertainty - Groot"
+  },
+  {
+    "status": "OK",
+    "title": "Graph Ranking Contrastive Learning: A Extremely Simple yet Efficient Method",
+    "authors": "Yulan Hu, Sheng Ouyang, Jingyu Liu, Ge Chen, Zhirui Yang, Junchen Wan, Fuzheng Zhang, Zhongyuan Wang, Yong Liu",
+    "year": "2023",
+    "arxiv_id": "2310.14525",
+    "label": "HallusionBench - Tang et al"
+  },
+  {
+    "status": "OK",
+    "title": "Overconfidence is Key: Verbalized Uncertainty Evaluation in Large Language and Vision-Language Models",
+    "authors": "Tobias Groot, Matias Valdenegro-Toro",
+    "year": "2024",
+    "arxiv_id": "2405.02917",
+    "label": "Overconfidence VLMs - Groot & Valdenegro-Toro"
+  }
+]

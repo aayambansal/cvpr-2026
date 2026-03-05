@@ -144,67 +144,29 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 
 ---
 
-## Paper 11: DualProc
-
-**Title:** DualProc: Dual-Process Prompting Reduces Confident Errors in Vision-Language Models for Grounded Retrieval and Agentic Pipelines
-
-**Authors:** Aayam Bansal
-
-**Venue:** CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026)
-
-**Abstract:** Vision-language models (VLMs) frequently produce confident errors—incorrect answers accompanied by high self-reported confidence—undermining their reliability in grounded retrieval and agentic pipelines. We introduce DualProc (Dual-Process Prompting), a three-stage inference protocol inspired by Kahneman's dual-process theory: (1) a fast System 1 guess with confidence, (2) a forced deliberation checklist that generates alternative hypotheses and verifies them against visual evidence, and (3) a revised System 2 answer with updated confidence. Across 500 visual reasoning items spanning five categories and five VLMs (GPT-4o-mini, Gemini-2.0-Flash, Claude-3.5-Sonnet, LLaVA-1.6-34B, InternVL2-26B), DualProc reduces the confident error rate by 83–100% while maintaining or improving accuracy. In downstream applications, DualProc improves evidence precision by 8% while reducing confident errors by 86–93% in retrieval, and reduces tool misuse by 75–95% while increasing task completion by 3–20 pp in agentic loops. We further introduce adaptive DualProc, which conditionally triggers deliberation only when System 1 confidence exceeds a threshold, achieving 98% of the calibration benefit at 97% of the token cost.
-
-[Paper PDF](DualProc/latex/main.pdf) | [Code & Data](DualProc/)
+## GRAIL-V / GRAIV Workshop Papers (Papers 11--15)
 
 ---
 
-## Paper 12: MetamorphicVLM
-
-**Title:** MetamorphicVLM: Probing Vision-Language Model Robustness Through Metamorphic Testing
-
-**Authors:** Aayam Bansal
-
-**Venue:** CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026)
-
-**Abstract:** We introduce MetamorphicVLM, a systematic metamorphic testing framework for evaluating the robustness of vision-language models (VLMs) to semantics-preserving image transformations. Our framework applies six families of image transformations (resize, crop, rotation, JPEG compression, Gaussian blur, and border text overlay) at four severity levels to a controlled test suite of 60 images spanning six visual reasoning categories, yielding 3,000 total evaluations across two open-source VLMs. We propose the Metamorphic Consistency Index (MCI), a novel metric that quantifies the fraction of semantics-preserving transformations under which a model's answer remains stable, and find that LLaVA-v1.6-Mistral-7B achieves an MCI of 96.5% while Qwen2-VL-2B-Instruct achieves 94.4%, revealing that even state-of-the-art VLMs change their answers on 3.5–5.6% of trivially transformed inputs. Most remarkably, we discover that certain transformations such as resizing and blur can improve Qwen2-VL accuracy from 75.0% to 83.3%, suggesting that VLMs have not learned human-like perceptual invariances but instead exploit fragile, resolution-dependent features.
-
-[Paper PDF](MetamorphicVLM/latex/main.pdf) | [Code & Data](MetamorphicVLM/)
-
----
-
-## Paper 13: BeliefRevision
-
-**Title:** Do Vision-Language Models Revise Beliefs or Just Rationalize? Evidence Update Prompting for Non-Monotonic Visual Reasoning
-
-**Authors:** Aayam Bansal
-
-**Venue:** CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026)
-
-**Abstract:** When new visual evidence contradicts an initial interpretation, do vision-language models (VLMs) genuinely revise their beliefs, or do they merely rationalize their first guess? We introduce Evidence Update Prompting (EUP), a two-phase evaluation protocol inspired by defeasible and non-monotonic reasoning from cognitive science. In Phase A, a model receives limited pre-event evidence and forms an initial hypothesis; in Phase B, additional post-event evidence arrives that often requires the model to revise. We compare three prompting strategies—Baseline, Belief-State (explicit hypothesis tracking with confidence), and Counterfactual Update ("would your answer differ without the new evidence?")—across three frontier VLMs (GPT-4o, Gemini 2.0 Flash, Claude 3.5 Sonnet) on 52 BlackSwan-style scenarios requiring abductive reasoning about surprising events. Our findings reveal that (i) all models exhibit substantial stubbornness: 37–62% of initially incorrect answers are never revised despite conflicting evidence; (ii) Belief-State prompting reduces stubbornness by 13–18 percentage points and increases accuracy by 4–8 pp over baseline; (iii) Counterfactual prompting helps models recognize when evidence matters but produces only modest behavioral change; and (iv) models display striking confidence inflation in Phase B, with high-confidence predictions rising 2–3x regardless of whether the answer actually changed.
-
-[Paper PDF](BeliefRevision/latex/main.pdf) | [Code & Data](BeliefRevision/)
-
----
-
-## Paper 14: CounterBench
+## Paper 11: CounterBench-GRAILV
 
 **Title:** CounterBench: A Cheap, Controllable Counterfactual Testbed Reveals Systematic Failures in Vision-Language Models
 
 **Authors:** Aayam Bansal, Ishaan Gangwani
 
-**Venue:** Workshop on Grounded Retrieval and Agentic Intelligence for Vision-Language (CVPR 2026)
+**Venue:** Workshop on Grounded Retrieval and Agentic Intelligence for Vision-Language (GRAIL-V, CVPR 2026)
 
 **Abstract:** Standard vision-language model (VLM) benchmarks evaluate whether a model can answer a question correctly given a single image, but they cannot distinguish genuine visual understanding from spurious pattern matching. We introduce CounterBench, a counterfactual consistency benchmark that pairs each synthetic scene with a minimal intervention---removing an object, swapping positions, or changing an attribute---and checks whether the model's answer changes if and only if it should. CounterBench comprises 325 programmatically generated image pairs spanning five reasoning categories (spatial, causal, compositional, counting, and occlusion) and nine intervention types, all produced with a fully deterministic PIL pipeline at zero annotation cost. We evaluate six VLMs---three proprietary (GPT-4o, Claude 3.5 Sonnet, Gemini 2.0 Flash) and three open-weight (Qwen2.5-VL 72B, Pixtral Large, Llama 3.2 11B)---using the Counterfactual Consistency Score (CCS), which measures the fraction of pairs where the model's answer changes only when the ground-truth answer changes. Results reveal a striking 19.5-point gap in CCS across models (99.7% for Gemini 2.0 Flash vs. 80.2% for Llama 3.2 11B), even though all models exceed 82% accuracy on individual images. We decompose CCS into sensitivity (correct change detection) and specificity (correct invariance), uncovering distinct failure profiles: Claude 3.5 Sonnet suffers from low specificity (spurious answer changes), while Llama 3.2 11B suffers from low sensitivity (sticky answers). Notably, Qwen2.5-VL 72B achieves 97.5% CCS with perfect specificity, rivaling proprietary models.
 
-[Paper PDF](CounterBench/latex/main.pdf) | [Code & Data](CounterBench/)
+[Paper PDF](CounterBench-GRAILV/latex/main.pdf) | [Code & Data](CounterBench-GRAILV/)
 
 ---
 
-## Paper 15: UIDrift-Bench
+## Paper 12: UIDrift-Bench
 
 **Title:** UIDrift-Bench: Measuring Vision-Language Model Robustness to UI Layout and Style Perturbations for Grounded Retrieval
 
-**Authors:** Aayam Bansal
+**Authors:** Aayam Bansal, Ishaan Gangwani
 
 **Venue:** Workshop on Grounded Retrieval and Agentic Intelligence for Vision-Language (GRAIL-V, CVPR 2026)
 
@@ -214,16 +176,118 @@ A collection of papers submitted to CVPR 2026 workshops and the main conference.
 
 ---
 
-## Paper 16: BlackSwanPrompt
+## Paper 13: DualProc
+
+**Title:** DualProc: Dual-Process Prompting Reduces Confident Errors in Vision-Language Models for Grounded Retrieval and Agentic Pipelines
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** Workshop on Grounded Retrieval and Agentic Intelligence for Vision-Language (GRAIL-V, CVPR 2026)
+
+**Abstract:** Vision-language models (VLMs) frequently produce confident errors---incorrect answers accompanied by high self-reported confidence---undermining their reliability in grounded retrieval and agentic pipelines. We introduce DualProc (Dual-Process Prompting), a three-stage inference protocol inspired by Kahneman's dual-process theory: (1) a fast System 1 guess with confidence, (2) a forced deliberation checklist that generates alternative hypotheses and verifies them against visual evidence, and (3) a revised System 2 answer with updated confidence. Across 500 visual reasoning items spanning five categories and five VLMs (three commercial: GPT-4o-mini, Gemini-2.0-Flash, Claude-3.5-Sonnet; two open-source: LLaVA-1.6-34B, InternVL2-26B), DualProc reduces the confident error rate by 83--100% while maintaining or improving accuracy. These improvements transfer to downstream applications: in a retrieval-augmented pipeline, DualProc improves evidence precision by 8% while reducing confident errors by 86--93%; in a 5-step agentic loop, it reduces tool misuse by 75--95% and increases task completion by 3--20 pp. We further introduce adaptive DualProc, which conditionally triggers deliberation only when System 1 confidence exceeds a threshold, achieving 98% of the calibration benefit at 97% of the token cost.
+
+[Paper PDF](DualProc/latex/main.pdf) | [Code & Data](DualProc/)
+
+---
+
+## Paper 14: MetaMorph
+
+**Title:** MetaMorph: Metamorphic Testing Reveals Fragile Robustness in Vision-Language Models Under Benign Image Transformations
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** Workshop on Grounded Retrieval and Agentic Intelligence for Vision-Language (GRAIV, CVPR 2026)
+
+**Abstract:** Vision-Language Models (VLMs) are increasingly deployed in safety-critical applications ranging from autonomous driving to medical image analysis, yet their robustness under routine, semantics-preserving image transformations remains poorly understood. We introduce MetaMorph, a metamorphic testing framework that systematically evaluates whether VLM outputs remain consistent under six transformation families---resize, crop, rotation, JPEG compression, Gaussian blur, and irrelevant border text---applied at five severity levels. Unlike adversarial robustness studies that craft malicious perturbations, MetaMorph focuses on benign transformations that commonly occur in real-world image pipelines and should not alter model answers. We evaluate three state-of-the-art commercial VLMs (GPT-4o, GPT-4o Mini, and Gemini 2.0 Flash) across 14 visual question-answering probes spanning six task categories. Our experiments (965 metamorphic test pairs) reveal three critical findings: (1) counting tasks exhibit alarming fragility, with mean consistency of only 0.515 across all models; (2) margin cropping is the most destabilizing transformation (mean consistency 0.700), causing models to hallucinate entirely new answers; and (3) even mild perturbations (severity level 1) trigger answer changes in 8--12% of cases.
+
+[Paper PDF](MetaMorph/latex/main.pdf) | [Code & Data](MetaMorph/)
+
+---
+
+## Paper 15: PromptSwan
+
+**Title:** How Should We Prompt for Unexpected Events? Prompting Baselines for Abductive and Defeasible Video Reasoning on BlackSwan
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** BlackSwan Challenge (CVPR 2026)
+
+**Abstract:** Large language models (LLMs) are increasingly used as reasoning backbones in video understanding pipelines, yet their ability to perform abductive reasoning (inferring hidden causes) and defeasible reasoning (retracting beliefs given new evidence) remains poorly characterized. We present a systematic evaluation of five prompting strategies---Naive, Chain-of-Thought (CoT), Abductive CoT, Hypothesis-Elimination, and Counterfactual---across three frontier LLMs (GPT-4o-mini, Claude 3.5 Haiku, Gemini 2.0 Flash) on the BlackSwanSuite-MCQ benchmark. Our experiments reveal three key findings: (1) Abductive CoT achieves the highest accuracy (61.0%) by explicitly scaffolding inference-to-the-best-explanation, yet gains are modest and task-dependent; (2) defeasible reasoning (Reporter) is substantially easier than abductive reasoning (Detective), with a 20--30 percentage point gap across all models and strategies; and (3) structured prompting can degrade performance when the scaffold mismatches the reasoning task---Hypothesis-Elimination and generic CoT underperform Naive prompting on abductive tasks. We further contribute a fine-grained error taxonomy identifying five failure modes: surface matching (65--69% of errors), positional bias (20--37%), causal confusion, failure to retract prior beliefs, and hallucinated hidden causes.
+
+[Paper PDF](PromptSwan/latex/main.pdf) | [Code & Data](PromptSwan/)
+
+---
+
+## CogVL Workshop Papers (Papers 16--20)
+
+---
+
+## Paper 16: CounterBench
+
+**Title:** CounterBench: A Controllable Counterfactual Testbed Reveals Systematic Reasoning Failures in Vision-Language Models
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 1st CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026)
+
+**Abstract:** Vision-language models (VLMs) achieve impressive accuracy on standard visual question answering benchmarks, yet it remains unclear whether they reason about scenes or merely pattern-match from surface cues. We introduce CounterBench, a fully synthetic, controllable benchmark for evaluating counterfactual consistency in VLMs. For each of 550 test items, we programmatically generate a paired scene: an original and an intervened variant where exactly one semantic property is changed (an object's position, color, count, containment, or a causal link). We pose the same question to both images and measure whether the model's answer changes if and only if the intervention is relevant---the Counterfactual Consistency Score (CCS). Evaluating four state-of-the-art VLMs (GPT-4o, Gemini 2.0 Flash, Qwen2.5-VL-72B, GPT-4o mini), we find that while all models achieve 85--91% single-image accuracy, CCS drops to 80--90%, with dramatic category-specific failures: all models score <=66% on causal arrow-following tasks, GPT-4o mini achieves only 48% CCS on counting, and even the strongest model (Qwen2.5-VL) reaches only 89.5% overall CCS. Crucially, spatial and containment reasoning are near-perfect (97--100%), revealing that failures are selective, not uniform.
+
+[Paper PDF](CounterBench/latex/main.pdf) | [Code & Data](CounterBench/)
+
+---
+
+## Paper 17: DualProcess
+
+**Title:** Think Slow, See Better? Dual-Process Prompting for Vision-Language Model Calibration
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 1st CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026)
+
+**Abstract:** Large vision-language models (VLMs) tend to produce overconfident yet incorrect answers, particularly on questions requiring careful visual reasoning. Inspired by Kahneman's dual-process theory---which distinguishes fast, intuitive System 1 thinking from slow, deliberate System 2 reasoning---we propose DualVis, a three-stage prompting protocol that elicits (1) a rapid initial answer with confidence, (2) a structured deliberation checklist that forces the model to enumerate alternative hypotheses and verify them against visual evidence, and (3) a final integrated answer with updated confidence. We evaluate DualVis on 200 image-based questions from ScienceQA using GPT-4o and Gemini 2.0 Flash. Our results reveal a deliberation asymmetry: GPT-4o benefits from dual-process prompting (+0.5% accuracy, favorable 4:3 flip-to-correct ratio, and improved System 1 ECE from 0.127 to 0.105), while Gemini 2.0 Flash exhibits an overthinking effect where deliberation degrades performance (-3.5% accuracy, 4:11 adverse flip ratio). This asymmetry mirrors findings from cognitive psychology that System 2 engagement does not uniformly improve judgments and can introduce new errors through rationalized confabulation.
+
+[Paper PDF](DualProcess/latex/main.pdf) | [Code & Data](DualProcess/)
+
+---
+
+## Paper 18: MetamorphicVLM
+
+**Title:** MetamorphicVLM: Probing Vision-Language Model Robustness Through Metamorphic Testing and Cognitive Constancy Analysis
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 1st CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026)
+
+**Abstract:** We present MetamorphicVLM v2, a substantially expanded metamorphic testing framework for evaluating whether vision-language models (VLMs) exhibit the perceptual constancy that human vision achieves effortlessly. Building on cognitive science principles of brightness constancy, contrast constancy, viewpoint invariance, and amodal completion, our framework applies ten families of semantics-preserving image transformations at four severity levels to 100 images spanning six visual reasoning categories, yielding 12,900 evaluations across three open-source VLMs. We introduce a dual evaluation protocol combining embedding-based semantic similarity with substring matching, addressing a key limitation of prior string-matching approaches. The Metamorphic Consistency Index (MCI) reveals that LLaVA-v1.6-Mistral-7B achieves 97.75%, Qwen2-VL-2B-Instruct 96.05%, and InternVL2-2B 90.65%, all below the estimated human baseline of 98.5%. We identify 407 metamorphic violations and discover that partial occlusion is universally the most damaging transformation, consistent with cognitive theories of Gestalt grouping. Most remarkably, a novel prompt sensitivity analysis reveals that VLMs are more sensitive to paraphrased questions than to image transformations: InternVL2 achieves only 45.0% answer consistency across prompt variants versus 90.65% MCI under visual perturbations.
+
+[Paper PDF](MetamorphicVLM/latex/main.pdf) | [Code & Data](MetamorphicVLM/)
+
+---
+
+## Paper 19: BlackSwanPrompt
 
 **Title:** How Far Can Text Alone Go? Prompting Baselines for Abductive and Defeasible Reasoning on BlackSwanSuite
 
-**Authors:** Aayam Bansal
+**Authors:** Aayam Bansal, Ishaan Gangwani
 
-**Venue:** CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026) / BlackSwan Challenge
+**Venue:** 1st CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026) / BlackSwan Challenge
 
-**Abstract:** The BlackSwanSuite benchmark evaluates vision-language models on abductive reasoning (inferring hidden causes) and defeasible reasoning (revising beliefs given new evidence) in videos of unexpected events. While the benchmark is designed around video understanding, we ask a more fundamental question: how much of BlackSwanSuite can be solved from text alone? We systematically evaluate five cognitively-motivated prompting strategies---Direct, Chain-of-Thought, Abductive Framing, Process-of-Elimination, and Counterfactual Contrastive---across three frontier language models (GPT-4o-mini, Claude 3.5 Haiku, Gemini 2.0 Flash) on the full 1,793-question MCQ validation set, without any visual input. Our text-only baselines achieve up to 55.5% overall accuracy (vs. 33.3% random chance), with Chain-of-Thought prompting yielding the strongest performance. Strikingly, Reporter (defeasible) questions are substantially easier than Detective (abductive) questions in the text-only setting (69.0% vs. 48.2%), revealing that linguistic cues in answer options leak task-relevant information. We further contribute a five-category error taxonomy and show that different prompting strategies induce qualitatively different error profiles. Our results establish a rigorous text-only ceiling for BlackSwanSuite and quantify the "visual gap" that remains for multimodal models to exploit.
+**Abstract:** The BlackSwanSuite benchmark evaluates vision-language models on abductive reasoning (inferring hidden causes) and defeasible reasoning (revising beliefs given new evidence) in videos of unexpected events. While the benchmark is designed around video understanding, we ask a more fundamental question: how much of BlackSwanSuite can be solved from text alone? We systematically evaluate five cognitively-motivated prompting strategies---Direct, Chain-of-Thought, Abductive Framing, Process-of-Elimination, and Counterfactual Contrastive---across three frontier language models (GPT-4o-mini, Claude 3.5 Haiku, Gemini 2.0 Flash) on the full 1,793-question MCQ validation set, without any visual input. Our text-only baselines achieve up to 55.5% overall accuracy (vs. 33.3% random chance), with Chain-of-Thought prompting yielding the strongest performance. Strikingly, Reporter (defeasible) questions are substantially easier than Detective (abductive) questions in the text-only setting (69.0% vs. 48.2%), revealing that linguistic cues in answer options leak task-relevant information. We further contribute a five-category error taxonomy and show that different prompting strategies induce qualitatively different error profiles.
 
 [Paper PDF](BlackSwanPrompt/latex/main.pdf) | [Code & Data](BlackSwanPrompt/)
+
+---
+
+## Paper 20: BeliefRevision
+
+**Title:** Do Vision-Language Models Revise Beliefs or Just Rationalize? Evidence Update Prompting for Non-Monotonic Visual Reasoning
+
+**Authors:** Aayam Bansal, Ishaan Gangwani
+
+**Venue:** 1st CogVL: Cognitive Foundations for Multimodal Models Workshop (CVPR 2026)
+
+**Abstract:** When new visual evidence contradicts an initial interpretation, do vision-language models (VLMs) genuinely revise their beliefs, or do they merely rationalize their first guess? We introduce Evidence Update Prompting (EUP), a two-phase evaluation protocol inspired by defeasible and non-monotonic reasoning from cognitive science. In Phase A, a model receives limited pre-event evidence and forms an initial hypothesis; in Phase B, additional post-event evidence arrives that often requires the model to revise. We compare three prompting strategies---Baseline, Belief-State (explicit hypothesis tracking with confidence), and Counterfactual Update ("would your answer differ without the new evidence?")---across three frontier VLMs (GPT-4o, Gemini 2.0 Flash, Claude 3.5 Sonnet) on 52 BlackSwan-style scenarios requiring abductive reasoning about surprising events. Our findings reveal that (i) all models exhibit substantial stubbornness: 37--62% of initially incorrect answers are never revised despite conflicting evidence; (ii) Belief-State prompting reduces stubbornness by 13--18 percentage points and increases accuracy by 4--8 pp over baseline; (iii) Counterfactual prompting helps models recognize when evidence matters but produces only modest behavioral change; and (iv) models display striking confidence inflation in Phase B, with high-confidence predictions rising 2--3x regardless of whether the answer actually changed.
+
+[Paper PDF](BeliefRevision/latex/main.pdf) | [Code & Data](BeliefRevision/)
 
 ---

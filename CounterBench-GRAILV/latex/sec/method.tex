@@ -1,0 +1,76 @@
+\section{CounterBench}
+\label{sec:method}
+
+\subsection{Overview}
+
+\method is designed around one principle: a model that truly understands a visual scene should change its answer when a causally relevant change is made, and should \emph{not} change its answer when an irrelevant change is made. We operationalize this by generating paired images $(\mathbf{I}_\text{orig}, \mathbf{I}_\text{intv})$ that differ by exactly one controlled intervention, along with a question $q$ and ground-truth answers $a_\text{orig}$ and $a_\text{intv}$.
+
+\subsection{Scene Generation Pipeline}
+
+All scenes are generated using Python's PIL (Pillow) library on a $512 \times 512$ white canvas. Each scene is constructed from a vocabulary of six colors (red, blue, green, yellow, purple, orange) and four shapes (square, circle, triangle, diamond), drawn with labeled positions. The full pipeline runs in approximately 30 seconds and requires no external data or annotation.
+
+\subsection{Reasoning Categories}
+\label{sec:categories}
+
+\method spans five categories of visual reasoning:
+
+\paragraph{Spatial Reasoning (115 pairs).} Tests understanding of spatial relations: left/right, above/below, and inside/outside containment. Interventions include position swaps and object repositioning.
+
+\paragraph{Causal Reasoning (70 pairs).} Tests understanding of cause-effect relationships depicted through arrows (causal links), tilted containers (spill causation), and A$\to$B$\to$C causal chains. Interventions include arrow removal and chain disruption.
+
+\paragraph{Compositional Reasoning (60 pairs).} Tests attribute-object binding: recognizing that a ``red square'' is both red and square, and tracking these bindings across interventions. Interventions include color replacement and attribute modification.
+
+\paragraph{Counting (55 pairs).} Tests numerical reasoning: counting objects of a specific type. Interventions include removing a target object (count should change) and removing a distractor (count should not change).
+
+\paragraph{Occlusion Reasoning (25 pairs).} Tests understanding of visibility and occlusion: determining whether an object is fully visible or partially hidden. Interventions move occluding objects to reveal hidden ones.
+
+\subsection{Intervention Types}
+\label{sec:interventions}
+
+Each pair involves one of nine intervention types:
+\begin{itemize}[leftmargin=*,nosep]
+    \item \textbf{Swap}: Exchange positions of two objects
+    \item \textbf{Move}: Relocate an object (e.g., inside$\to$outside)
+    \item \textbf{Remove arrow}: Delete a causal indicator
+    \item \textbf{Replace color}: Change an object's color attribute
+    \item \textbf{Remove object}: Delete a target object
+    \item \textbf{Remove occluder}: Move an occluding object away
+    \item \textbf{Remove distractor}: Delete a non-target object
+    \item \textbf{Upright container}: Change a tilted container to upright
+    \item \textbf{Remove mediator}: Delete a middle node in a causal chain
+\end{itemize}
+
+\subsection{Should-Change vs.\ Should-Not-Change Pairs}
+\label{sec:change}
+
+A critical design choice is the inclusion of both \emph{should-change} pairs (82.5\%, $n=268$) where the intervention alters the correct answer, and \emph{should-not-change} pairs (17.5\%, $n=57$) where it does not. The latter are essential: a model that always changes its answer would achieve perfect sensitivity but zero specificity. The should-not-change pairs include (i) removing a distractor that does not affect the target count, and (ii) changing the color of an object whose color is irrelevant to the spatial question being asked.
+
+\subsection{Counterfactual Consistency Score}
+\label{sec:ccs}
+
+We define the \emph{Counterfactual Consistency Score} (\ccs) as:
+\begin{equation}
+    \text{CCS} = \frac{|\text{TP}| + |\text{TN}|}{N}
+\end{equation}
+where $N$ is the total number of pairs, and:
+\begin{itemize}[leftmargin=*,nosep]
+    \item \textbf{True Positive (TP)}: should change, model correctly changes answer
+    \item \textbf{True Negative (TN)}: should not change, model maintains answer
+    \item \textbf{False Positive (FP)}: should not change, but model changes answer
+    \item \textbf{False Negative (FN)}: should change, but model does not change (or changes incorrectly)
+\end{itemize}
+
+We further decompose \ccs into:
+\begin{align}
+    \text{Sensitivity} &= \frac{|\text{TP}|}{|\text{TP}| + |\text{FN}|} \\
+    \text{Specificity} &= \frac{|\text{TN}|}{|\text{TN}| + |\text{FP}|}
+\end{align}
+
+Sensitivity measures how well the model detects genuine visual changes. Specificity measures how well it ignores irrelevant changes. Both are necessary: a model that always outputs ``yes'' has high sensitivity but zero specificity; a model that never changes its answer has perfect specificity but zero sensitivity.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=0.85\textwidth,height=0.42\textheight,keepaspectratio]{fig7_examples.pdf}
+    \caption{\textbf{Example \method pairs.} Each row shows an original scene (left) and its intervened counterpart (right). Top: spatial (swap). Second: causal (arrow removal). Third: compositional (color change). Bottom: counting (object removal).}
+    \label{fig:examples}
+\end{figure*}

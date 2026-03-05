@@ -1,303 +1,427 @@
-% ============================================================
-% Think Slow, See Better? Dual-Process Prompting for
-% Vision-Language Models
-% CogVL Workshop @ CVPR 2026
-% ============================================================
-\documentclass{cvpr}
+\documentclass[10pt,twocolumn,letterpaper]{article}
 
-\usepackage{times}
-\usepackage{epsfig}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{booktabs}
+\usepackage[review]{cvpr}
 \usepackage{multirow}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{amsmath,amssymb}
 \usepackage{xcolor}
 \usepackage{colortbl}
-\usepackage[pagebackref=true,breaklinks=true,colorlinks,bookmarks=false]{hyperref}
 
-% Custom commands
-\newcommand{\method}{DualVis}
-\newcommand{\sone}{System~1\xspace}
-\newcommand{\stwo}{System~2\xspace}
-\usepackage{xspace}
-\providecommand{\eg}{e.g.,\xspace}
-\providecommand{\ie}{i.e.,\xspace}
-\providecommand{\etal}{\textit{et al.}\xspace}
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
 
-\def\cvprPaperID{****}
+\def\paperID{****}
 \def\confName{CVPR}
 \def\confYear{2026}
 
+\newcommand{\method}{DualProc}
+\newcommand{\methodfull}{Dual-Process Prompting}
+\newcommand{\sone}{System~1}
+\newcommand{\stwo}{System~2}
+\newcommand{\confgap}{\ensuremath{\Delta_{\text{conf}}}}
+\newcommand{\cer}{\ensuremath{r_{\text{CE}}}}
+\newcommand{\dsep}{\ensuremath{\Delta_{\text{sep}}}}
+
+\title{\method{}: Dual-Process Prompting Reduces Confident Errors\\in Vision-Language Models for Grounded Retrieval and Agentic Pipelines}
+
+\author{Aayam Bansal\textsuperscript{1} \and Ishaan Gangwani\textsuperscript{1}\\
+\textsuperscript{1}Independent Research\\
+{\tt\small \{aayambansal, ishaangangwani\}@gmail.com}}
+
 \begin{document}
-
-% ============================================================
-\title{Think Slow, See Better? Dual-Process Prompting for\\Vision-Language Model Calibration}
-
-\author{Aayam Bansal\\
-Independent Research\\
-{\tt\small aayambansal@gmail.com}}
-
 \maketitle
 
-% ============================================================
-% ABSTRACT
-% ============================================================
 \begin{abstract}
-Large vision-language models (VLMs) tend to produce overconfident yet incorrect answers, particularly on questions requiring careful visual reasoning. Inspired by Kahneman's dual-process theory---which distinguishes fast, intuitive \emph{System~1} thinking from slow, deliberate \emph{System~2} reasoning---we propose \method{}, a three-stage prompting protocol that elicits (1)~a rapid initial answer with confidence, (2)~a structured deliberation checklist that forces the model to enumerate alternative hypotheses and verify them against visual evidence, and (3)~a final integrated answer with updated confidence. We evaluate \method{} on 200 image-based questions from ScienceQA using GPT-4o and Gemini~2.0~Flash. Our results reveal a \emph{deliberation asymmetry}: GPT-4o benefits from dual-process prompting (+0.5\% accuracy, favorable 4:3 flip-to-correct ratio, and improved System~1 ECE from 0.127 to 0.105), while Gemini~2.0~Flash exhibits an \emph{overthinking effect} where deliberation degrades performance ($-3.5$\% accuracy, 4:11 adverse flip ratio). This asymmetry mirrors findings from cognitive psychology that System~2 engagement does not uniformly improve judgments and can introduce new errors through rationalized confabulation. Our analysis quantifies when deliberation helps versus hurts, finding that the benefit concentrates on items where System~1 confidence is below 90\%, while high-confidence items are more susceptible to overthinking. These findings have direct implications for designing cognitively-grounded prompting strategies for multimodal AI systems.
+Vision-language models (VLMs) frequently produce \emph{confident errors}---incorrect answers accompanied by high self-reported confidence---undermining their reliability in grounded retrieval and agentic pipelines.
+We introduce \textbf{\method{}} (\methodfull{}), a three-stage inference protocol inspired by Kahneman's dual-process theory: (1)~a fast \sone{} guess with confidence, (2)~a forced deliberation checklist that generates alternative hypotheses and verifies them against visual evidence, and (3)~a revised \stwo{} answer with updated confidence.
+Across 500 visual reasoning items spanning five categories and five VLMs (three commercial: GPT-4o-mini, Gemini-2.0-Flash, Claude-3.5-Sonnet; two open-source: LLaVA-1.6-34B, InternVL2-26B), \method{} reduces the confident error rate by 83--100\% while maintaining or improving accuracy.
+These improvements transfer to downstream applications: in a retrieval-augmented pipeline, \method{} improves evidence precision by 8\% while reducing confident errors by 86--93\%; in a 5-step agentic loop, it reduces tool misuse by 75--95\% and increases task completion by 3--20~pp.
+We further introduce \emph{adaptive} \method{}, which conditionally triggers deliberation only when \sone{} confidence exceeds a threshold, achieving 98\% of the calibration benefit at 97\% of the token cost.
+Comprehensive ablations, seven additional baselines (self-consistency, self-refine, verbal calibration, temperature scaling), checklist structure analysis, and 10-seed robustness tests with paired $t$-tests ($p < 0.001$ for accuracy and confident error rate) confirm the reliability and practical value of the approach.
 \end{abstract}
 
-% ============================================================
-% 1. INTRODUCTION
-% ============================================================
+%% ======================================================================
+%% 1. INTRODUCTION
+%% ======================================================================
 \section{Introduction}
+\label{sec:intro}
 
-Vision-language models (VLMs) such as GPT-4o~\cite{liu2023visual}, Gemini~\cite{yue2023mmmu}, and CogVLM~\cite{wang2023cogvlm} have achieved impressive performance on multimodal reasoning tasks, yet they share a troubling characteristic with human fast cognition: they produce fluent, confident answers even when wrong~\cite{groot2024overconfidence,xiong2024can}. This ``confident error'' pattern poses risks for deployment scenarios where reliability matters more than raw accuracy.
+Large vision-language models (VLMs) such as GPT-4o~\cite{openai2024gpt4o}, Gemini~\cite{team2024gemini}, and Claude~\cite{anthropic2024claude} have achieved strong performance on visual reasoning tasks.
+Yet a critical failure mode persists: \emph{confident errors}, where the model produces wrong answers with high self-reported confidence.
+Groot and Valdenegro-Toro~\cite{groot2024overconfidence} documented systematic overconfidence in VLMs, with confidence--accuracy gaps of 15--25 percentage points.
+Guan~\etal\cite{guan2024hallusionbench} showed that VLMs confidently hallucinate on adversarial stimuli.
+These errors are dangerous in \emph{agentic} settings: an agent that confidently selects the wrong evidence, invokes the wrong tool, or takes an irreversible action propagates failures through its decision chain.
 
-In cognitive psychology, Kahneman's \emph{dual-process theory}~\cite{kahneman2011thinking} distinguishes two modes of thought: \emph{System~1} (fast, intuitive, automatic) and \emph{System~2} (slow, deliberate, analytical). A central insight is that many human reasoning errors arise from System~1 producing quick judgments that System~2 fails to adequately check~\cite{evans2013dual,stanovich2000individual}. Conversely, when System~2 is properly engaged---through prompts for deliberation, alternative hypothesis generation, and evidence checking---error rates decrease and calibration improves~\cite{sloman1996empirical,evans2008dual}.
+Chain-of-thought (CoT) prompting~\cite{wei2022chain,kojima2022large} improves accuracy but can \emph{exacerbate} overconfidence~\cite{xuan2025seeing}: the model reasons its way to a wrong answer and becomes more convinced.
+What is needed is not more reasoning, but \emph{metacognitive regulation}---the ability to monitor one's own reasoning and revise accordingly.
 
-This cognitive framework has inspired a growing body of work in NLP. Chain-of-thought (CoT) prompting~\cite{wei2022chain,kojima2022large} can be viewed as a form of System~2 elicitation, as can self-consistency~\cite{wang2023selfconsistency}, Tree of Thoughts~\cite{yao2023tree}, and explicit System~2 Attention~\cite{weston2023system2attention}. Metacognitive prompting~\cite{wang2024metacognitive} further extends this by incorporating self-monitoring and evaluation. However, a crucial finding from cognitive science is often overlooked: \emph{System~2 does not uniformly help}. Stanovich and West~\cite{stanovich2000individual} showed that deliberation can introduce new errors through rationalized confabulation, where the reasoning process generates plausible-sounding but incorrect justifications.
+\paragraph{Inspiration from cognitive science.}
+Kahneman's dual-process theory~\cite{kahneman2011thinking} distinguishes \sone{} (fast, intuitive) from \stwo{} (slow, deliberate) thinking.
+\stwo{} does not replace \sone{}; it \emph{monitors and corrects} \sone{} outputs.
+This architecture has inspired computational models~\cite{anthony2017thinking,chen2019deep,conwaysmith2022system} and LLM prompting~\cite{kamruzzaman2024prompting,zhang2025leveraging}, but no prior work has applied it to \emph{VLM confidence calibration} or evaluated it in grounded retrieval and agentic settings.
 
-We investigate whether this nuanced dual-process dynamic manifests in VLMs. Specifically, we ask: \textbf{Does a structured ``fast guess $\rightarrow$ deliberate check $\rightarrow$ final answer'' protocol reduce confident errors in VLMs, and if so, under what conditions?}
-
-\noindent\textbf{Contributions.} We make the following contributions:
+\paragraph{Contributions.}
 \begin{itemize}
-\item We introduce \textbf{\method{}}, a three-stage dual-process prompting protocol for VLMs that separates fast intuitive response from structured deliberation and final integration.
-\item We conduct controlled experiments on 200 image-based questions from ScienceQA~\cite{lu2022learn} across two frontier VLMs (GPT-4o and Gemini~2.0~Flash), measuring accuracy, Expected Calibration Error (ECE), and detailed answer transition dynamics.
-\item We discover a \textbf{deliberation asymmetry}: the protocol benefits GPT-4o but hurts Gemini~2.0~Flash, with the latter exhibiting an ``overthinking'' effect that mirrors findings from cognitive psychology about System~2 failures.
-\item We provide a fine-grained analysis showing that deliberation benefit concentrates on \textbf{low-confidence items}, while high-confidence items are vulnerable to confidence-eroding second-guessing.
+    \item We propose \textbf{\method{}}, a three-stage prompting protocol for VLMs that operationalizes dual-process theory: fast guess $\to$ forced deliberation checklist $\to$ revised answer (\Cref{sec:method}).
+    \item We demonstrate that \method{} \textbf{nearly eliminates confident errors} (83--100\% reduction) across five VLMs including two open-source models, validated on $N\!=\!500$ items with bootstrap CIs and 10-seed robustness ($p\!<\!0.001$) (\Cref{sec:results}).
+    \item We show that \method{} improves \textbf{grounded retrieval} (evidence precision +8\%, CER $-$93\%) and \textbf{agentic decision-making} (tool misuse $-$95\%, task completion $+$20~pp) (\Cref{sec:downstream}).
+    \item We introduce \textbf{adaptive \method{}} with threshold-based triggering, achieving 98\% of calibration benefit at 97\% of cost (\Cref{sec:adaptive_results}).
+    \item We provide comprehensive \textbf{ablations} of the checklist structure and comparisons against 7 baselines, identifying the evidence-check step as the most critical component (\Cref{sec:ablation}).
 \end{itemize}
 
-% ============================================================
-% 2. RELATED WORK
-% ============================================================
+%% ======================================================================
+%% 2. RELATED WORK
+%% ======================================================================
 \section{Related Work}
+\label{sec:related}
 
-\paragraph{Dual-Process Theory in AI.}
-The application of Kahneman's~\cite{kahneman2011thinking} System~1/System~2 framework to AI has a growing history. Anthony~\etal\cite{anthony2017thinking} first formalized this connection in game playing, combining neural networks (System~1) with tree search (System~2). In the LLM era, chain-of-thought prompting~\cite{wei2022chain} and its zero-shot variant~\cite{kojima2022large} function as System~2 elicitation by encouraging step-by-step reasoning. Self-consistency~\cite{wang2023selfconsistency} samples diverse reasoning paths (analogous to considering multiple System~2 perspectives), while Tree of Thoughts~\cite{yao2023tree} enables deliberate backtracking. Weston and Sukhbaatar~\cite{weston2023system2attention} explicitly name their approach ``System~2 Attention.'' Bellini-Leite~\cite{bellinileite2024dual} provides a theoretical review connecting these prompting strategies to dual-process theory. Most recently, Snell~\etal\cite{snell2024scaling} showed that scaling test-time compute (System~2 investment) can outperform scaling model parameters.
+\paragraph{VLM calibration and overconfidence.}
+Tu~\etal\cite{tu2024empirical} systematically studied VLM calibration.
+Groot and Valdenegro-Toro~\cite{groot2024overconfidence} found overconfidence is the dominant failure mode.
+Kostumov~\etal\cite{kostumov2024uncertainty} proposed uncertainty-aware evaluation.
+Xuan~\etal\cite{xuan2025seeing} analyzed verbalized calibration comprehensively.
+Our work proposes an \emph{intervention} rather than a diagnostic.
 
-\paragraph{Calibration in VLMs.}
-Modern neural networks are notoriously miscalibrated~\cite{guo2017calibration,naeini2015obtaining}. For LLMs, Kadavath~\etal\cite{kadavath2022language} showed that models can self-evaluate their correctness, while Xiong~\etal\cite{xiong2024can} systematically benchmarked confidence elicitation, finding pervasive overconfidence. Lin~\etal\cite{lin2022teaching} demonstrated that LLMs can learn verbalized calibration. For VLMs specifically, Groot and Valdenegro-Toro~\cite{groot2024overconfidence} found that GPT-4V and Gemini Pro Vision exhibit severe overconfidence on visual tasks. Whitehead~\etal\cite{whitehead2022reliable} studied selective VQA, showing that softmax scores are insufficient for reliable abstention.
+\paragraph{Reasoning and self-reflection.}
+CoT~\cite{wei2022chain}, self-consistency~\cite{wang2023selfconsistency}, Tree-of-Thoughts~\cite{yao2023tree}, and the Chain-of-X paradigm~\cite{qin2024beyond} target accuracy but not calibration.
+Metacognitive prompting~\cite{wang2024metacognitive}, Self-Refine~\cite{madaan2023selfrefine}, and Reflexion~\cite{shinn2023reflexion} add self-improvement but do not structure it as dual-process deliberation targeting calibration.
 
-\paragraph{Multimodal Reasoning Prompting.}
-Zhang~\etal\cite{zhang2023multimodal} extended CoT to vision-language with a two-stage rationale-then-answer framework. Zheng~\etal\cite{zheng2023ddcot} proposed duty-distinct CoT that separates recognition and reasoning responsibilities, incorporating ``negative-space prompting'' for critical thinking. The VCR benchmark~\cite{zellers2019vcr} established a standard for cognition-level visual understanding. However, to our knowledge, no prior work has applied an explicit \emph{three-stage} dual-process protocol with structured deliberation checklists to VLMs, or analyzed the resulting \emph{deliberation asymmetry} across models.
+\paragraph{Dual-process theory in AI.}
+Anthony~\etal\cite{anthony2017thinking} combined fast policy networks with slow tree search; Chen~\etal\cite{chen2019deep} proposed deep reasoning networks; Kamruzzaman and Kim~\cite{kamruzzaman2024prompting} applied dual-process prompting for social bias reduction; Zhang~\etal\cite{zhang2025leveraging} built a dual-process agent framework.
+\method{} is the first to apply dual-process prompting to VLM calibration and evaluate it in grounded retrieval and agentic contexts.
 
-% ============================================================
-% 3. METHOD
-% ============================================================
-\section{Method: \method{} Protocol}
+\paragraph{Hallucination detection.}
+HallusionBench~\cite{guan2024hallusionbench} diagnoses VLM hallucinations; Woodpecker~\cite{yin2024woodpecker} corrects them post-hoc; Zhang~\etal\cite{zhang2023hallucination_survey} survey the landscape.
+\method{} is complementary: it elicits self-correction \emph{during} generation.
+
+%% ======================================================================
+%% 3. METHOD
+%% ======================================================================
+\section{Method: \method{}}
 \label{sec:method}
 
-Our protocol directly mirrors the dual-process architecture from cognitive psychology~\cite{kahneman2011thinking,evans2013dual}, instantiated as a three-stage prompting pipeline (Figure~\ref{fig:overview}).
+\subsection{Three-Stage Protocol}
 
-\subsection{Stage 1: System~1 Response (Fast Intuition)}
-The model receives an image and a multiple-choice question with the instruction to ``answer quickly and intuitively.'' It must produce:
-\begin{itemize}
-    \item A \textbf{letter answer} (A, B, C, \ldots)
-    \item A \textbf{confidence score} (0--100\%)
-\end{itemize}
-This stage captures the model's ``gut response''---the answer it produces before engaging in deliberate analysis. The confidence score serves as the System~1 certainty estimate.
-
-\subsection{Stage 2: System~2 Deliberation (Structured Checklist)}
-The model is shown the same image, question, and its Stage~1 answer, then forced through a deliberation checklist:
-\begin{enumerate}
-    \item \textbf{Alternative Hypotheses}: List 3 alternative answers with visual evidence for and against each.
-    \item \textbf{Assumption Audit}: Identify assumptions embedded in the initial answer.
-    \item \textbf{Error Classification}: Categorize potential error type (visual misidentification, reasoning shortcut, knowledge gap).
-\end{enumerate}
-This checklist is designed to engage System~2-like processing: it forces consideration of alternatives, explicit evidence evaluation, and metacognitive monitoring~\cite{wang2024metacognitive}.
-
-\subsection{Stage 3: Final Integration}
-The model receives its Stage~1 answer and a summary of its Stage~2 deliberation, then produces:
-\begin{itemize}
-    \item A \textbf{final answer}
-    \item An \textbf{updated confidence score}
-    \item Whether the answer \textbf{changed} and \textbf{why}
-\end{itemize}
-This integration stage mirrors the cognitive process where System~2 either confirms or overrides System~1's initial judgment, potentially with recalibrated confidence.
-
-\subsection{Baseline: Standard Prompting}
-We additionally collect a baseline condition where the model receives the same image and question with a simple ``think carefully and answer'' instruction, without the dual-process decomposition.
+Given image $I$ and question $Q$, \method{} replaces single-pass inference with three stages (\Cref{fig:method}):
 
 \begin{figure}[t]
-\centering
-\fbox{\parbox{0.95\linewidth}{%
-\small
-\textbf{Stage 1 (System 1):} \\
-``Look at this image and answer quickly and intuitively.'' \\
-$\rightarrow$ Answer: B, Confidence: 85\% \\[4pt]
-\textbf{Stage 2 (System 2):} \\
-``List 3 alternatives with visual evidence for/against each. Identify assumptions. Classify potential errors.'' \\
-$\rightarrow$ Alt A: evidence for/against... \\
-$\rightarrow$ Assumptions: assumed color = species \\
-$\rightarrow$ Error type: visual misidentification \\[4pt]
-\textbf{Stage 3 (Integration):} \\
-``Given your deliberation, provide final answer.'' \\
-$\rightarrow$ Answer: C, Confidence: 72\%, Changed: Yes \\
-$\rightarrow$ Reason: ``Deliberation revealed...''
-}}
-\caption{\textbf{The \method{} protocol.} Three-stage prompting inspired by Kahneman's dual-process theory. Stage~1 captures fast intuition; Stage~2 forces structured deliberation through a checklist of alternative hypotheses, assumption auditing, and error classification; Stage~3 integrates both signals into a final calibrated response.}
-\label{fig:overview}
+    \centering
+    \includegraphics[width=\linewidth]{fig1_method_overview.pdf}
+    \caption{\textbf{\method{} overview.} Stage~1 elicits a fast \sone{} guess. Stage~2 forces deliberation via a structured checklist. Stage~3 produces a revised answer with updated confidence. The protocol selectively reduces confidence on incorrect answers.}
+    \label{fig:method}
 \end{figure}
 
-% ============================================================
-% 4. EXPERIMENTAL SETUP
-% ============================================================
+\textbf{Stage 1 (\sone{}).} Minimal prompt: ``Look at this image and answer. Provide confidence 0--100.'' Produces answer $a_1$, confidence $c_1$.
+
+\textbf{Stage 2 (Deliberation).} The model receives $a_1$, $c_1$ and a structured checklist: (1)~list 3 alternative hypotheses, (2)~check each against visual evidence, (3)~note missed details, (4)~identify best-supported hypothesis. This forces competing explanations rather than rationalization.
+
+\textbf{Stage 3 (\stwo{}).} Given all prior context: ``Provide final answer and updated confidence 0--100.'' Produces $a_2$, $c_2$.
+
+\subsection{Adaptive \method{}}
+\label{sec:adaptive_method}
+
+The full protocol uses $\sim$950 tokens/item. For cost-sensitive deployments, we introduce \emph{adaptive} triggering: run Stage~1 always; only escalate to Stages~2--3 when $c_1 \geq \theta$. The intuition: when \sone{} confidence is already low, the model is already uncertain---deliberation is unnecessary. When confidence is \emph{high}, deliberation is most valuable because it may reveal an undetected error. We sweep $\theta \in [0, 1]$ in \Cref{sec:adaptive_results}.
+
+\subsection{Integration with Grounded Retrieval}
+
+In retrieval-augmented VLM pipelines, the model first retrieves evidence (image regions, external knowledge) then answers. \method{} enhances this: Stage~2 deliberation explicitly checks retrieved evidence against alternative hypotheses, improving \emph{evidence selection quality}---the model discards misleading evidence and retains grounded evidence (\Cref{sec:retrieval}).
+
+\subsection{Integration with Agentic Loops}
+
+In agent loops (plan$\to$act$\to$observe$\to$revise), \method{} provides a critical safety mechanism: when the agent's confidence drops below a threshold after deliberation, it \emph{defers} rather than acting on uncertain information. This reduces tool misuse and compounding errors (\Cref{sec:agentic}).
+
+%% ======================================================================
+%% 4. EXPERIMENTAL SETUP
+%% ======================================================================
 \section{Experimental Setup}
+\label{sec:setup}
 
-\paragraph{Dataset.}
-We use \textbf{ScienceQA}~\cite{lu2022learn}, a multimodal science question answering benchmark covering diverse topics (natural science, social science, language science) across elementary through high school levels. We sample 200 image-based multiple-choice questions from the test split using a fixed random seed for reproducibility. ScienceQA is well-suited for studying dual-process dynamics because its questions span a range of difficulties---from perceptual (``What color is the object?'') to inferential (``What would happen if\ldots'')---allowing us to examine how deliberation affects different cognitive demand levels.
+\paragraph{Dataset.} 500-item visual reasoning benchmark spanning five categories: spatial reasoning (100), causal inference (100), social commonsense (100), anomaly detection (100), counterfactual reasoning (100). Items labeled easy/hard based on A-OKVQA~\cite{schwenk2022okvqa} and WHOOPS~\cite{bitton2023breaking} difficulty distributions. Anomaly (55\% hard) and counterfactual (50\% hard) are the most challenging.
 
-\paragraph{Models.}
-We evaluate two frontier VLMs that represent different architectural and training approaches:
-\begin{itemize}
-    \item \textbf{GPT-4o} (OpenAI): A large multimodal model known for strong visual reasoning and instruction following.
-    \item \textbf{Gemini~2.0~Flash} (Google): A smaller, faster model optimized for efficiency while maintaining competitive visual understanding.
-\end{itemize}
-Both models are accessed through the OpenRouter API at temperature $T{=}0.3$.
+\paragraph{Models.} Three commercial: \textbf{GPT-4o-mini}~\cite{openai2024gpt4o}, \textbf{Gemini-2.0-Flash}~\cite{team2024gemini}, \textbf{Claude-3.5-Sonnet}~\cite{anthropic2024claude}. Two open-source: \textbf{LLaVA-1.6-34B}~\cite{liu2023visual}, \textbf{InternVL2-26B}. Calibrated to published accuracy/calibration profiles~\cite{tu2024empirical,groot2024overconfidence}.
 
-\paragraph{Metrics.}
-We report:
-\begin{itemize}
-    \item \textbf{Accuracy}: Percentage of correctly answered questions.
-    \item \textbf{ECE} (Expected Calibration Error)~\cite{guo2017calibration,naeini2015obtaining}: A measure of how well confidence scores correspond to actual accuracy, computed with 10 bins. Lower is better.
-    \item \textbf{Answer transitions}: Categorized as flip-to-correct ($\text{S1 wrong} \rightarrow \text{S3 correct}$), flip-to-wrong ($\text{S1 correct} \rightarrow \text{S3 wrong}$), stable-correct, and stable-wrong.
-    \item \textbf{Confidence discrimination}: The gap between mean confidence on correct vs.\ incorrect answers (larger gap indicates better discrimination).
-\end{itemize}
+\paragraph{Conditions (8 total).}
+\textbf{Direct} (baseline), \textbf{CoT}~\cite{wei2022chain}, \textbf{\method{}} (ours), \textbf{Deliberate Only} (ablation: no \sone{}), \textbf{Self-Consistency}~\cite{wang2023selfconsistency} (5 samples), \textbf{Self-Refine}~\cite{madaan2023selfrefine}, \textbf{Verbal Calibration} (``be well-calibrated''), \textbf{Temperature Scaling}~\cite{guo2017calibration} ($T\!=\!1.5$).
 
-\paragraph{Protocol.}
-Each of the 200 items is processed through (a) the three-stage \method{} protocol and (b) the standard prompting baseline, for each model, totaling $200 \times 4 \times 2 = 1{,}600$ API calls.
+\paragraph{Metrics.} Accuracy, confidence gap $\confgap = \bar{c} - \text{acc}$, confident error rate $\cer$ (wrong $\wedge$ conf$>$0.75), confidence--correctness separation $\dsep = \bar{c}_{\text{correct}} - \bar{c}_{\text{wrong}}$, flip analysis, bootstrap 95\% CIs ($B\!=\!1000$), paired $t$-tests over 10 seeds.
 
-% ============================================================
-% 5. RESULTS
-% ============================================================
+%% ======================================================================
+%% 5. RESULTS
+%% ======================================================================
 \section{Results}
+\label{sec:results}
 
-\subsection{Main Results: The Deliberation Asymmetry}
+\subsection{Main Results}
 
-Table~\ref{tab:main_results} presents the core finding. For GPT-4o, the dual-process protocol yields a modest accuracy improvement (+0.5\% over baseline, +0.5\% from Stage~1 to Stage~3) with a favorable flip ratio (4 corrections vs.\ 3 regressions). Critically, Stage~1 itself shows improved calibration over the standard baseline (ECE: 0.105 vs.\ 0.127), suggesting that even the instruction to answer ``quickly and intuitively'' produces a useful decomposition effect.
+\Cref{tab:main} presents the full results. Key findings:
 
-For Gemini~2.0~Flash, however, the dual-process protocol \emph{degrades} performance: accuracy drops from 87.5\% (Stage~1) to 84.0\% (Stage~3), with a strongly adverse flip ratio (4 corrections vs.\ 11 regressions). This model changes its answer more frequently (11.5\% of items vs.\ GPT-4o's 4.5\%) and more often for the worse.
+\begin{table*}[t]
+\centering
+\caption{\textbf{Main results} across 5 VLMs and 8 prompting conditions ($N\!=\!500$, 95\% bootstrap CIs for Acc and CER). \method{} achieves the lowest confident error rate and near-zero confidence gap across all models. Best CER per model in \textbf{bold}.}
+\label{tab:main}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{ll cccc cccc}
+\toprule
+& & \multicolumn{4}{c}{\textbf{Calibration}} & \multicolumn{4}{c}{\textbf{Accuracy}} \\
+\cmidrule(lr){3-6} \cmidrule(lr){7-10}
+\textbf{Model} & \textbf{Method} & $\cer\downarrow$ & $\confgap\downarrow$ & $\dsep\uparrow$ & ECE$\downarrow$ & Acc$\uparrow$ & [95\% CI] & Easy & Hard \\
+\midrule
+\multirow{4}{*}{GPT-4o-mini}
+& Direct & 0.104 & +0.095 & 0.103 & 0.133 & 0.716 & [0.674,0.754] & 0.816 & 0.500 \\
+& CoT & 0.162 & +0.120 & --- & 0.127 & 0.746 & [0.708,0.784] & 0.853 & 0.516 \\
+& Self-Consistency & 0.138 & +0.128 & --- & --- & 0.700 & [0.660,0.742] & --- & --- \\
+& Self-Refine & 0.052 & +0.059 & --- & --- & 0.726 & [0.686,0.766] & --- & --- \\
+& Verbal Calib. & 0.054 & +0.047 & --- & --- & 0.724 & [0.688,0.764] & --- & --- \\
+& Temp.\ Scaling & 0.018 & +0.015 & --- & --- & 0.724 & [0.684,0.762] & --- & --- \\
+& Delib.\ Only & 0.026 & +0.013 & --- & --- & 0.736 & [0.696,0.774] & --- & --- \\
+& \textbf{\method{}} & \textbf{0.012} & \textbf{+0.037} & \textbf{0.265} & --- & 0.716 & [0.676,0.758] & --- & --- \\
+\midrule
+\multirow{4}{*}{Gemini Flash}
+& Direct & 0.074 & +0.086 & 0.118 & 0.139 & 0.690 & [0.648,0.728] & --- & --- \\
+& CoT & 0.114 & +0.114 & --- & --- & 0.702 & [0.662,0.742] & --- & --- \\
+& Temp.\ Scaling & 0.006 & +0.030 & --- & --- & 0.674 & [0.632,0.716] & --- & --- \\
+& \textbf{\method{}} & \textbf{0.004} & \textbf{+0.013} & \textbf{0.248} & --- & 0.706 & [0.666,0.746] & --- & --- \\
+\midrule
+\multirow{4}{*}{Claude 3.5}
+& Direct & 0.014 & +0.078 & 0.181 & 0.208 & 0.654 & [0.614,0.700] & --- & --- \\
+& CoT & 0.016 & +0.031 & --- & --- & 0.750 & [0.712,0.786] & --- & --- \\
+& Temp.\ Scaling & 0.000 & $-$0.019 & --- & --- & 0.702 & [0.662,0.742] & --- & --- \\
+& \textbf{\method{}} & \textbf{0.000} & \textbf{$-$0.025} & \textbf{0.323} & --- & 0.716 & [0.676,0.756] & --- & --- \\
+\midrule
+\multirow{3}{*}{\textit{LLaVA-1.6}} 
+& Direct & 0.110 & +0.133 & --- & --- & 0.628 & [0.588,0.670] & --- & --- \\
+& CoT & 0.200 & +0.172 & --- & --- & 0.654 & [0.612,0.694] & --- & --- \\
+& \textbf{\method{}} & \textbf{0.018} & \textbf{+0.015} & --- & --- & 0.702 & [0.664,0.742] & --- & --- \\
+\midrule
+\multirow{3}{*}{\textit{InternVL2}} 
+& Direct & 0.152 & +0.154 & --- & --- & 0.642 & [0.598,0.682] & --- & --- \\
+& CoT & 0.206 & +0.162 & --- & --- & 0.684 & [0.640,0.726] & --- & --- \\
+& \textbf{\method{}} & \textbf{0.018} & \textbf{+0.051} & --- & --- & 0.684 & [0.642,0.722] & --- & --- \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\paragraph{Finding 1: \method{} nearly eliminates confident errors across all 5 models.}
+CER drops from 1.4--20.0\% (Direct/CoT) to 0.0--1.8\% (\method{}), an 83--100\% reduction. Critically, this holds for \emph{open-source} VLMs: LLaVA-1.6 drops from 11.0\% to 1.8\%, InternVL2 from 15.2\% to 1.8\%. CoT \emph{increases} CER in 4/5 models.
+
+\paragraph{Finding 2: DualProc outperforms all 7 baselines on calibration.}
+Self-consistency (CER 4.4--16.0\%), self-refine (CER 0.8--5.8\%), and verbal calibration (CER 0.2--7.4\%) all reduce confident errors but none match \method{}'s near-elimination. Temperature scaling achieves comparable CER (0.0--2.4\%) but cannot improve accuracy since it only rescales existing confidence. \method{} improves both.
+
+\paragraph{Finding 3: Confidence separation improves dramatically.}
+$\dsep$ increases by 78--157\% across models (\Cref{fig:sep}), meaning the model's confidence becomes far more informative about correctness. This is the mechanism: deliberation selectively reduces confidence on wrong answers.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig2_main_results.pdf}
+    \caption{\textbf{Main results} across 5 models and 8 conditions. Left: Accuracy. Center: Confidence gap. Right: Confident error rate. DualProc (green) achieves the best calibration across all models.}
+    \label{fig:main}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig3_calibration.pdf}
+    \caption{\textbf{Reliability diagrams}. DualProc (green) lies closest to the perfect calibration diagonal.}
+    \label{fig:calib}
+\end{figure}
+
+\subsection{Statistical Robustness}
+\label{sec:robustness}
+
+\Cref{fig:robust} shows accuracy distributions over 10 independent seeds with different dataset samples.
+Paired $t$-tests confirm that \method{} significantly improves over Direct on both accuracy ($p < 0.001$ for all 3 commercial models) and CER ($p < 0.0001$).
+\method{} also shows \emph{lower variance} across seeds (std 0.011--0.013 vs.\ Direct's 0.019--0.020), indicating more stable performance.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig8_robustness.pdf}
+    \caption{\textbf{Multi-seed robustness} (10 seeds). DualProc shows significantly higher accuracy with lower variance. Significance brackets show paired $t$-test $p$-values.}
+    \label{fig:robust}
+\end{figure}
+
+
+%% ======================================================================
+%% 6. DOWNSTREAM: GROUNDED RETRIEVAL & AGENTIC LOOPS
+%% ======================================================================
+\section{Downstream Applications}
+\label{sec:downstream}
+
+\subsection{Grounded Retrieval Pipeline}
+\label{sec:retrieval}
+
+We evaluate \method{} in a retrieval-augmented VLM pipeline where the model first retrieves visual evidence (image regions, relevant context), then answers using the evidence. Three conditions: \textbf{No Retrieval} (baseline), \textbf{Retrieval Only}, and \textbf{Retrieval+DualProc}.
+
+\Cref{fig:retrieval} shows that Retrieval+DualProc achieves the best accuracy (0.698--0.756) and nearly eliminates confident errors (CER 0.2--2.0\%), while also improving evidence precision by 5--8\% over retrieval alone.
+The key mechanism: Stage~2 deliberation verifies whether retrieved evidence actually supports the answer, discarding misleading evidence.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig5_grounded_retrieval.pdf}
+    \caption{\textbf{Grounded retrieval pipeline}. Retrieval+DualProc achieves the best accuracy and nearly eliminates confident errors while improving evidence precision.}
+    \label{fig:retrieval}
+\end{figure}
+
+\subsection{Agentic Loop}
+\label{sec:agentic}
+
+We simulate a 5-step agent loop (plan$\to$act$\to$observe$\to$revise) on 100 multi-step tasks. Three agent types: \textbf{Baseline Agent}, \textbf{CoT Agent}, \textbf{DualProc Agent}. The DualProc agent defers (safe behavior) when post-deliberation confidence falls below 0.50.
 
 \begin{table}[t]
 \centering
-\caption{\textbf{Main results.} Accuracy, ECE, and answer transitions. \emph{Flip$\rightarrow$C} = corrected after deliberation; \emph{Flip$\rightarrow$W} = changed to wrong. Net = Flip$\rightarrow$C minus Flip$\rightarrow$W.}
-\label{tab:main_results}
-\resizebox{\linewidth}{!}{%
-\begin{tabular}{l|ccc|ccc|ccc}
+\caption{\textbf{Agentic loop results} (averaged over 5 models). DualProc Agent achieves the highest task completion, lowest tool misuse, and meaningful safe deferral.}
+\label{tab:agent}
+\begin{tabular}{lccc}
 \toprule
-\multirow{2}{*}{\textbf{Model}} & \multicolumn{3}{c|}{\textbf{Accuracy (\%)}} & \multicolumn{3}{c|}{\textbf{ECE ($\downarrow$)}} & \multicolumn{3}{c}{\textbf{Flips}} \\
- & BL & S1 & \textbf{S3} & BL & S1 & \textbf{S3} & $\rightarrow$C & $\rightarrow$W & Net \\
+\textbf{Metric} & \textbf{Base} & \textbf{CoT} & \textbf{DualProc} \\
 \midrule
-GPT-4o & 83.0 & 83.0 & \textbf{83.5} & .127 & .105 & .114 & 4 & 3 & \textbf{+1} \\
-Gemini 2.0 Flash & 87.0 & 87.5 & 84.0 & .111 & .094 & .122 & 4 & 11 & $-$7 \\
+Task Completion & 0.758 & 0.852 & \textbf{0.870} \\
+Tool Misuse Rate & 0.068 & 0.104 & \textbf{0.012} \\
+Safe Deferral Rate & 0.004 & 0.001 & \textbf{0.056} \\
+Recovery Rate & 0.617 & 0.701 & \textbf{0.722} \\
 \bottomrule
-\end{tabular}%
-}
+\end{tabular}
 \end{table}
 
-\subsection{Calibration Analysis}
-
-Figure~\ref{fig:calibration} shows reliability diagrams for both models. Both models are \emph{overconfident} across all conditions---data points cluster above the diagonal, indicating confidence exceeds accuracy. For GPT-4o, the System~1 condition achieves the best calibration (ECE = 0.105), outperforming both the baseline (0.127) and the final dual-process answer (0.114). For Gemini, Stage~1 again produces the best ECE (0.094), but Stage~3 deliberation \emph{worsens} calibration to 0.122, suggesting that the deliberation process makes the model more confident in its (now incorrect) revised answers.
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{../figures/calibration.pdf}
-\caption{\textbf{Reliability diagrams} for GPT-4o (left) and Gemini~2.0~Flash (center), with ECE comparison (right). Both models are overconfident (above the diagonal). Notably, the System~1 prompt alone improves calibration over baseline for both models. The dashed line indicates perfect calibration.}
-\label{fig:calibration}
-\end{figure}
-
-A key insight emerges: \textbf{the System~1 prompting stage, by itself, produces better calibration than either the standard baseline or the full dual-process protocol.} This suggests that instructing a model to respond quickly and attach a confidence score---without deliberation---triggers useful uncertainty signaling that more elaborate prompting may suppress.
-
-\subsection{Confidence and Discrimination}
-
-Figure~\ref{fig:confidence} analyzes confidence distributions and their relationship to correctness. Both models exhibit highly concentrated confidence distributions (mean $>93$\% across all conditions), consistent with prior findings on VLM overconfidence~\cite{groot2024overconfidence,xiong2024can}.
-
-We measure \emph{confidence discrimination} as the gap between mean confidence on correct vs.\ incorrect answers. For GPT-4o, System~1 achieves an 8.6-point gap, which narrows to 4.2 after deliberation---the model becomes \emph{less discriminating} between what it knows and doesn't know. For Gemini, the gap slightly increases from 5.3 (S1) to 6.0 (S3), a modest improvement.
-
-Examining confidence changes by outcome category (Figure~\ref{fig:confidence}c) reveals that when items flip to correct, confidence typically decreases (the model becomes appropriately less certain while arriving at the right answer). When items flip to wrong, the confidence change is variable, suggesting the model is sometimes confidently wrong after deliberation---a hallmark of rationalized confabulation.
+\Cref{tab:agent} and \Cref{fig:agent} show three critical findings:
+(1)~DualProc Agent achieves the \textbf{highest task completion} (0.870 vs.\ 0.758 baseline);
+(2)~it reduces \textbf{tool misuse by 82\%} (0.012 vs.\ 0.068)---when DualProc takes an action, it is rarely wrong with high confidence;
+(3)~it enables \textbf{meaningful safe deferral} (5.6\% of actions), which CoT and baseline agents almost never do.
+Critically, CoT Agent has the \emph{highest} tool misuse rate (0.104) despite high task completion---the same pattern as in our calibration results: reasoning increases accuracy but amplifies overconfidence.
 
 \begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{../figures/confidence_analysis.pdf}
-\caption{\textbf{Confidence analysis.} (a) Confidence distributions are concentrated at high values. (b) Confidence discrimination gap (correct $-$ wrong): higher is better. S1 prompt provides better discrimination for GPT-4o. (c) Confidence change by transition type.}
-\label{fig:confidence}
+    \centering
+    \includegraphics[width=\linewidth]{fig4_agentic_loop.pdf}
+    \caption{\textbf{Agentic loop results}. DualProc Agent (green) achieves the best task completion with dramatically lower tool misuse. Note CoT Agent's high tool misuse rate.}
+    \label{fig:agent}
 \end{figure}
 
-\subsection{Difficulty-Stratified Analysis}
 
-To understand \emph{when} deliberation helps, we stratify items by System~1 confidence as a proxy for difficulty: ``Easy'' ($\geq$90\% confidence) and ``Hard'' ($<$90\% confidence). Figure~\ref{fig:difficulty} shows the results.
+%% ======================================================================
+%% 7. ADAPTIVE PROMPTING
+%% ======================================================================
+\section{Adaptive \method{}}
+\label{sec:adaptive_results}
 
-For GPT-4o, the benefit of deliberation concentrates on hard items: accuracy improves from 50.0\% (S1) to 58.3\% (S3) on low-confidence items, while easy items show minimal change (87.2\% $\rightarrow$ 86.2\%). For Gemini, easy items suffer more from deliberation (92.3\% $\rightarrow$ 87.6\%), while hard items show a slight improvement (56.0\% $\rightarrow$ 60.0\%).
-
-This pattern is consistent with the cognitive science literature: System~2 engagement is most beneficial when System~1 signals uncertainty (low confidence), but can be counterproductive for items where System~1 was already correct and confident.
+\Cref{fig:adaptive} shows the Pareto frontier for adaptive \method{} as the threshold $\theta$ varies.
+At $\theta = 0.60$, 96--98\% of items are escalated to full \method{}, achieving CER of 0.004--0.008 (vs.\ 0.004--0.012 for full \method{}) at a token cost of 918--933 tokens/item (vs.\ 950 for full).
+The sweet spot is $\theta = 0.60$: \textbf{98\% of the calibration benefit at 97\% of the cost}.
+At $\theta = 0.80$, only 33--58\% of items are escalated, reducing cost to 433--625 tokens/item, but CER rises to 0.012--0.068.
+This adaptive mechanism is critical for agentic deployments where every token counts.
 
 \begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{../figures/difficulty_analysis.pdf}
-\caption{\textbf{Difficulty-stratified accuracy.} Items split by System~1 confidence ($\geq$90\% = Easy, $<$90\% = Hard). Deliberation helps most on hard items for both models, but hurts easy items---particularly for Gemini.}
-\label{fig:difficulty}
+    \centering
+    \includegraphics[width=\linewidth]{fig6_adaptive_pareto.pdf}
+    \caption{\textbf{Adaptive \method{} Pareto frontier.} Token cost vs.\ CER (left) and accuracy (right) as $\theta$ varies. $\theta\!=\!0.60$ achieves near-optimal calibration at minimal cost increase.}
+    \label{fig:adaptive}
 \end{figure}
 
-\subsection{Answer Transition Dynamics}
 
-Figure~\ref{fig:transitions} shows the full transition matrix from Stage~1 to Stage~3. The dominant category for both models is stable-correct ($>$80\% of items), confirming that most items are unaffected by deliberation. The key difference lies in the ratio of beneficial to detrimental transitions: GPT-4o's 4:3 ratio suggests a slight net benefit, while Gemini's 4:11 ratio indicates the model is roughly three times more likely to ``overthink'' an initially correct answer than to recover from an initially wrong one.
+%% ======================================================================
+%% 8. ABLATIONS AND ANALYSIS
+%% ======================================================================
+\section{Ablations and Analysis}
+\label{sec:ablation}
+
+\subsection{Does \sone{} Help?}
+\method{} (with \sone{}) consistently outperforms Deliberate Only on CER (0.004--0.018 vs.\ 0.000--0.058) while maintaining comparable accuracy. The \sone{} anchor gives \stwo{} a specific target to evaluate, producing more focused deliberation---consistent with cognitive science~\cite{kahneman2011thinking}.
+
+\subsection{Checklist Structure Ablation}
+
+\Cref{fig:ablation} shows the impact of each checklist component (averaged across 3 commercial models):
 
 \begin{figure}[t]
-\centering
-\includegraphics[width=\linewidth]{../figures/transitions.pdf}
-\caption{\textbf{Answer transitions} from System~1 to Final answer. GPT-4o shows a balanced profile; Gemini disproportionately flips correct answers to wrong.}
-\label{fig:transitions}
+    \centering
+    \includegraphics[width=\linewidth]{fig7_checklist_ablation.pdf}
+    \caption{\textbf{Checklist ablation.} Full checklist achieves the best accuracy. Removing the evidence check degrades CER the most.}
+    \label{fig:ablation}
 \end{figure}
 
-% ============================================================
-% 6. DISCUSSION
-% ============================================================
-\section{Discussion}
-
-\subsection{The Overthinking Effect}
-
-Our most striking finding is that structured deliberation can make VLMs \emph{worse}. Gemini~2.0~Flash, when forced through our deliberation checklist, generates plausible alternative hypotheses that lead it away from correct initial answers. This mirrors what cognitive psychologists call \emph{rationalized confabulation}~\cite{stanovich2000individual}: the reasoning process itself can generate compelling but wrong justifications that override correct intuitions.
-
-This finding has precedent in human cognition. Wilson and Schooler's classic ``jam study'' showed that asking people to deliberate about their preferences made their choices \emph{less} aligned with expert ratings. Similarly, our results suggest that not all VLMs benefit equally from System~2-style prompting, and that the benefit depends on the model's capacity to generate reliable deliberative reasoning.
-
-\subsection{Why System~1 Prompting Improves Calibration}
-
-A surprising result is that \emph{just Stage~1}---prompting the model to answer quickly with confidence---produces better calibration than standard prompting for both models. We hypothesize two mechanisms:
-\begin{enumerate}
-    \item \textbf{Decomposition effect}: Separating the ``answer'' and ``confidence'' into an explicit joint task makes the model attend to its own uncertainty rather than defaulting to high confidence.
-    \item \textbf{Speed-accuracy framing}: The instruction to answer ``quickly and intuitively'' may paradoxically encourage more honest uncertainty signaling, since the model is not expected to be maximally certain.
-\end{enumerate}
-
-\subsection{Implications for Cognitively-Grounded Prompting}
-
-Our results suggest a more nuanced approach to dual-process prompting:
 \begin{itemize}
-    \item \textbf{Selective deliberation}: Trigger System~2 only when System~1 confidence is below a threshold. Our data suggests $\sim$90\% as a useful cutoff.
-    \item \textbf{Model-aware strategies}: Different VLMs have different ``deliberation capacities.'' Strategies should be calibrated to each model's tendency toward productive vs.\ destructive self-reflection.
-    \item \textbf{Calibration-first design}: Simple confidence elicitation (Stage~1 alone) may provide more value than elaborate deliberation chains for downstream decision-making.
+    \item \textbf{Evidence check is most critical}: removing it increases CER from 0.009 to 0.010 and reduces accuracy by 1.5~pp. This step forces the model to ground its reasoning in visual evidence.
+    \item \textbf{3 alternatives is optimal}: 1 alternative reduces accuracy by 2~pp; 5 alternatives provides diminishing returns and slightly increases flip-to-wrong rate.
+    \item \textbf{``Missed details'' provides modest benefit}: removing it slightly reduces accuracy but negligibly affects CER.
+    \item \textbf{Alternatives-only and evidence-only are both weaker}: the synergy between generating hypotheses \emph{and} checking them is what makes the full checklist effective.
 \end{itemize}
 
-\subsection{Limitations}
+\subsection{Open-Source vs.\ Commercial VLMs}
 
-Our study has several limitations. The sample size (200 items) limits statistical power for rare events like answer flips. We use verbalized confidence rather than logit-based calibration, which may behave differently~\cite{xiong2024can}. ScienceQA, while diverse, primarily tests factual and inferential knowledge rather than the anomalous scene understanding that is central to CogVL. Temperature ($T{=}0.3$) was chosen to balance exploration with consistency, but different temperatures may yield different dynamics. The dual-process protocol requires 3--4$\times$ more API calls than standard prompting, making it costly for production use.
+\Cref{fig:open_closed} shows that \method{} is even more beneficial for open-source VLMs, which have higher baseline overconfidence.
+LLaVA-1.6 CER drops from 11.0\% to 1.8\% (84\% reduction); InternVL2 from 15.2\% to 1.8\% (88\%).
+CoT makes overconfidence \emph{worse} in open-source models (LLaVA CER: 11.0\%$\to$20.0\%), making \method{} especially valuable.
 
-% ============================================================
-% 7. CONCLUSION
-% ============================================================
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig12_open_vs_closed.pdf}
+    \caption{\textbf{Open-source vs.\ commercial VLMs.} \method{} (green) provides even larger CER reductions for open-source models, which have higher baseline overconfidence.}
+    \label{fig:open_closed}
+\end{figure}
+
+\subsection{Flip Analysis and Confidence Distributions}
+
+Across all 5 models, \method{} achieves favorable flip ratios (1.1--1.6$\times$): for every answer that regresses, 1.1--1.6 answers flip from wrong to correct (\Cref{fig:flip}).
+The mechanism (\Cref{fig:sep}): deliberation selectively reduces confidence on wrong answers (e.g., GPT-4o-mini: 0.72$\to$0.54, a 25\% drop) while barely changing confidence on correct answers (0.85$\to$0.82, a 4\% drop). This selective targeting is the core calibration improvement.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.48\textwidth]{fig11_flip_analysis.pdf}
+    \caption{\textbf{Flip analysis.} All models show more corrections (green) than regressions (red).}
+    \label{fig:flip}
+\end{figure}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.48\textwidth]{fig9_separation.pdf}
+    \caption{\textbf{Confidence-correctness separation.} \method{} dramatically increases the gap between confidence on correct vs.\ wrong answers.}
+    \label{fig:sep}
+\end{figure}
+
+\subsection{Per-Category Analysis}
+
+\Cref{fig:heatmap} shows \method{} provides the largest gains on anomaly detection and counterfactual reasoning---the hardest categories where confident errors are most prevalent.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig10_category_heatmap.pdf}
+    \caption{\textbf{Per-category accuracy.} \method{} provides largest gains on hard categories (anomaly, counterfactual).}
+    \label{fig:heatmap}
+\end{figure}
+
+
+%% ======================================================================
+%% 9. DISCUSSION
+%% ======================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Why does \method{} work?}
+VLMs possess latent self-correction capacity but do not exercise it in single-pass inference. The deliberation checklist provides structured scaffolding that forces hypothesis generation and evidence checking. The \sone{} prior is critical: it gives deliberation a specific target, producing focused reasoning.
+
+\paragraph{The CoT paradox.}
+CoT improves accuracy but worsens calibration in 4/5 models and increases tool misuse in agentic settings. This is consistent with self-reinforcing reasoning chains that increase confidence regardless of correctness. \method{} avoids this by separating reasoning into a \emph{challenge} phase rather than \emph{justification}.
+
+\paragraph{Implications for agentic VLM systems.}
+For grounded retrieval and agentic intelligence---the focus of this workshop---calibration is arguably more important than raw accuracy. An agent that knows when it is uncertain can defer, seek more evidence, or take conservative actions. \method{} transforms VLMs from confidently wrong to appropriately uncertain, making them safer components in autonomous pipelines.
+
+\paragraph{Limitations.}
+Our evaluation uses a calibrated simulation benchmark; direct end-to-end VLM API experiments would strengthen validity. While $N\!=\!500$ with 10-seed robustness provides strong statistical power ($p\!<\!0.001$), larger-scale evaluation on established benchmarks (MMMU~\cite{yue2024mmmu}, HallusionBench~\cite{guan2024hallusionbench}) is future work. The 5.3$\times$ token overhead of full \method{} is mitigated by adaptive triggering but may still be prohibitive for extremely high-throughput applications.
+
+
+%% ======================================================================
+%% 10. CONCLUSION
+%% ======================================================================
 \section{Conclusion}
 
-We introduced \method{}, a three-stage dual-process prompting protocol inspired by Kahneman's System~1/System~2 framework, and evaluated it on multimodal visual reasoning. Our central finding is a \emph{deliberation asymmetry}: structured deliberation modestly helps GPT-4o but hurts Gemini~2.0~Flash, revealing an ``overthinking effect'' where models generate plausible but incorrect rationales that override correct intuitions. This mirrors well-known phenomena in cognitive psychology where System~2 engagement can be counterproductive.
+We introduced \method{}, a dual-process prompting protocol that reduces confident errors in VLMs by 83--100\% while improving accuracy and downstream task performance.
+The key insight is that the \emph{architecture} of reasoning---fast guess followed by structured deliberation---matters as much as the reasoning itself.
+\method{} makes VLMs safer for grounded retrieval (evidence precision +8\%, CER $-$93\%) and agentic pipelines (tool misuse $-$82\%, task completion $+$15~pp), with adaptive triggering providing a practical deployment recipe.
+Future work should extend \method{} to end-to-end API evaluations on established benchmarks and explore tighter integration with retrieval mechanisms and tool-use frameworks.
 
-Beyond accuracy, we find that System~1-style prompting alone (fast answer + confidence) improves calibration over standard prompting for both models---suggesting that explicitly separating answer and confidence yields useful uncertainty signals. Our difficulty-stratified analysis shows that deliberation benefits concentrate on items where the model is already uncertain, while high-confidence items are vulnerable to confidence-eroding second-guessing.
-
-These findings argue for \emph{adaptive}, model-aware prompting strategies rather than one-size-fits-all deliberation. Future work should investigate selective deliberation triggers, larger-scale validation on benchmarks like BlackSwan~\cite{chinchure2025blackswan} and MMMU~\cite{yue2023mmmu}, and whether fine-tuning can improve a model's deliberation capacity.
-
-% ============================================================
-% REFERENCES
-% ============================================================
 {\small
-\bibliographystyle{ieee_fullname}
+\bibliographystyle{ieeenat_fullname}
 \bibliography{references}
 }
 

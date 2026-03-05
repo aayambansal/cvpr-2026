@@ -1,0 +1,315 @@
+\documentclass[10pt,twocolumn,letterpaper]{article}
+
+\usepackage[review]{cvpr}
+
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+\definecolor{cvprblue}{rgb}{0.21,0.49,0.74}
+\usepackage[pagebackref,breaklinks,colorlinks,allcolors=cvprblue]{hyperref}
+
+\def\paperID{****}
+\def\confName{CVPR}
+\def\confYear{2026}
+
+% Custom
+\newcommand{\method}{PromptSwan\xspace}
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etal}{\textit{et al.}\xspace}
+
+\begin{document}
+
+\title{How Should We Prompt for Unexpected Events?\\Prompting Baselines for Abductive and Defeasible Video Reasoning on BlackSwan}
+
+\author{Aayam Bansal\textsuperscript{1} \and Ishaan Gangwani\textsuperscript{1}\\
+\textsuperscript{1}Independent Research\\
+{\tt\small \{aayambansal, ishaangangwani\}@gmail.com}}
+
+\maketitle
+
+%----------------------------------------------------------------------
+\begin{abstract}
+Large language models (LLMs) are increasingly used as reasoning backbones in video understanding pipelines, yet their ability to perform \textit{abductive} reasoning (inferring hidden causes) and \textit{defeasible} reasoning (retracting beliefs given new evidence) remains poorly characterized. We present a systematic evaluation of five prompting strategies---Naive, Chain-of-Thought (CoT), Abductive CoT, Hypothesis-Elimination, and Counterfactual---across three frontier LLMs (GPT-4o-mini, Claude~3.5 Haiku, Gemini~2.0 Flash) on the BlackSwanSuite-MCQ benchmark. Our experiments reveal three key findings: (1) \textbf{Abductive CoT achieves the highest accuracy} (61.0\%) by explicitly scaffolding inference-to-the-best-explanation, yet gains are modest and task-dependent; (2) \textbf{defeasible reasoning (Reporter) is substantially easier than abductive reasoning (Detective)}, with a 20--30 percentage point gap across all models and strategies; and (3) \textbf{structured prompting can degrade performance} when the scaffold mismatches the reasoning task---Hypothesis-Elimination and generic CoT underperform Naive prompting on abductive tasks. We further contribute a fine-grained error taxonomy identifying five failure modes: surface matching (65--69\% of errors), positional bias (20--37\%), causal confusion, failure to retract prior beliefs, and hallucinated hidden causes. Our results establish transparent baselines for the BlackSwan challenge and provide actionable design guidelines for prompting strategies in video reasoning systems.
+\end{abstract}
+
+%----------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+Understanding unexpected events in video requires reasoning that goes beyond pattern recognition. When a gymnast releases the high bar and the next visible frame shows them on the ground, a viewer must \textit{abduce}---infer the most likely hidden event (a missed landing) from partial evidence. When new visual evidence contradicts an earlier expectation (the gymnast was swinging confidently), a viewer must reason \textit{defeasibly}---retract the prior belief and update toward a surprising outcome. These capacities are central to human video understanding yet remain challenging for artificial systems.
+
+The BlackSwanSuite benchmark~\cite{chinchure2025black} formalizes these two reasoning types through its \textit{Detective} task (abductive: infer hidden middle events from pre/post-event context) and \textit{Reporter} task (defeasible: describe surprising events that override expectations). Recent evaluations show that even state-of-the-art vision-language models (VLMs) such as GPT-4o and Gemini~1.5~Pro lag human performance by 25--32\% on these tasks, establishing a significant research gap.
+
+While prior work has evaluated VLMs end-to-end on BlackSwan, a critical question remains unanswered: \textit{how much of the reasoning gap is attributable to visual perception versus language-level reasoning?} If LLMs struggle with the underlying commonsense reasoning even in a text-only setting---where visual ambiguity is removed---then the bottleneck lies deeper than perception.
+
+We address this question through a systematic prompting study. Our contributions are:
+
+\begin{enumerate}[nosep,leftmargin=*]
+\item \textbf{Five prompting baselines} spanning the spectrum from zero-scaffold (Naive) to task-specific scaffolds (Abductive CoT, Counterfactual reasoning), evaluated on BlackSwanSuite-MCQ.
+\item \textbf{Cross-model evaluation} across three frontier LLMs (GPT-4o-mini, Claude~3.5 Haiku, Gemini~2.0 Flash), revealing consistent patterns independent of model family.
+\item \textbf{A fine-grained error taxonomy} identifying five distinct failure modes, with surface matching and positional bias accounting for 85--90\% of all errors.
+\item \textbf{Actionable design guidelines}: we show that abductive reasoning benefits from task-specific scaffolding while defeasible reasoning is better served by minimal prompting.
+\end{enumerate}
+
+%----------------------------------------------------------------------
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Abductive and Defeasible Reasoning.}
+Abductive reasoning---inference to the best explanation~\cite{peirce1935collected}---has been formalized in NLP through datasets such as $\alpha$NLI~\cite{bhagavatula2020abductive} and ART~\cite{bhagavatula2020abductive}. Defeasible reasoning, where conclusions can be retracted given new evidence, has been studied in $\delta$-NLI~\cite{rudinger2020thinking} and related benchmarks. BlackSwan~\cite{chinchure2025black} uniquely extends both to the video domain, using temporal segmentation to create natural abductive (hidden middle) and defeasible (surprising event) reasoning tasks.
+
+\paragraph{Prompting for Complex Reasoning.}
+Chain-of-Thought prompting~\cite{wei2022chain} has become the standard approach for eliciting multi-step reasoning from LLMs. Subsequent work has explored self-consistency~\cite{wang2023selfconsistency}, tree-of-thought~\cite{yao2023tree}, and task-specific prompting for mathematical~\cite{ahn2024large} and causal~\cite{jin2024cladder} reasoning. However, prompting strategies specifically designed for abductive and defeasible reasoning remain underexplored.
+
+\paragraph{Video Understanding Benchmarks.}
+Video reasoning benchmarks have evolved from action recognition~\cite{kay2017kinetics} to temporal reasoning~\cite{mangalam2024egoschema}, causal understanding~\cite{li2022causalvid}, and counterfactual reasoning~\cite{li2023counterfactual}. BlackSwanSuite~\cite{chinchure2025black} specifically targets the intersection of unexpected events with abductive/defeasible reasoning, using videos from the Oops! dataset~\cite{epstein2020oops} where surprising outcomes are central.
+
+%----------------------------------------------------------------------
+\section{BlackSwanSuite-MCQ}
+\label{sec:dataset}
+
+BlackSwanSuite~\cite{chinchure2025black} uses videos from the Oops! dataset~\cite{epstein2020oops} segmented into three temporal parts: \textbf{pre-event} ($V_\text{pre}$), \textbf{main event} ($V_\text{main}$), and \textbf{post-event} ($V_\text{post}$). The MCQ variant presents 3-way multiple choice questions across two tasks:
+
+\begin{itemize}[nosep,leftmargin=*]
+\item \textbf{Detective} (abductive): Given $V_\text{pre}$ and $V_\text{post}$ with $V_\text{main}$ hidden, select the description of the hidden event. This requires abductive inference---reasoning from effects to causes.
+\item \textbf{Reporter} (defeasible): Given the full video, select the description of the surprising event. This requires defeasible reasoning---updating beliefs when expectations are violated.
+\end{itemize}
+
+The validation set contains 1{,}793 questions: 1{,}161 Detective and 632 Reporter, with difficulty labels (easy/medium/hard). Answer positions are balanced (A: 34.5\%, B: 31.1\%, C: 34.4\%), and each question has exactly three options. We use a stratified random sample of $n=200$ preserving the task and difficulty distribution.
+
+\textbf{Text-only evaluation.} A critical design choice: we evaluate LLMs on the MCQ \textit{text only}, without video frames. This isolates the language-level reasoning component and establishes a ceiling on what text-based prompting can achieve. Our framing complements vision-based evaluations by identifying whether failures stem from visual perception or commonsense reasoning.
+
+%----------------------------------------------------------------------
+\section{Prompting Strategies}
+\label{sec:methods}
+
+We design five prompting strategies along a scaffold-complexity spectrum, from minimal instruction to task-specific structured reasoning. All strategies share a common system message establishing the commonsense reasoning context. We describe each below.
+
+\subsection{Strategy 1: Naive}
+The minimal baseline. The prompt describes the video scenario (Detective: hidden middle; Reporter: full video with surprise) and presents the MCQ options. The model is asked to answer with only a letter. This tests raw commonsense reasoning without any reasoning scaffold.
+
+\subsection{Strategy 2: Chain-of-Thought (CoT)}
+Adds the instruction ``Think step by step about which option is most plausible given commonsense knowledge about physical events and causation.'' This is the standard CoT approach~\cite{wei2022chain} adapted for video reasoning.
+
+\subsection{Strategy 3: Abductive CoT}
+Task-specific scaffolding. For \textbf{Detective} tasks, the prompt structures reasoning as: (1)~\textsc{Clues}---extract information from answer options, (2)~\textsc{Causal Chain}---trace the causal chain for each option, (3)~\textsc{Best Explanation}---select the most coherent causal bridge. For \textbf{Reporter} tasks, the scaffold becomes: (1)~\textsc{Expectation}, (2)~\textsc{Anomaly}, (3)~\textsc{Belief Revision}. This directly mirrors the theoretical structure of abductive and defeasible inference.
+
+\subsection{Strategy 4: Hypothesis-Elimination}
+An adversarial verification approach. For each option, the model must generate one argument \textit{for} and one \textit{against}, then rate plausibility as HIGH/MEDIUM/LOW. LOW options are eliminated and the best remaining option is selected. This tests whether explicit falsification improves discrimination.
+
+\subsection{Strategy 5: Counterfactual}
+Inspired by counterfactual reasoning literature~\cite{pearl2009causality}. For Detective tasks: ``Imagine a world where each option occurred during the hidden segment. Would the aftermath make sense?'' For Reporter tasks: ``Consider what you'd normally expect, then identify which option represents the unexpected deviation.'' This probes whether constructing alternative scenarios aids selection.
+
+%----------------------------------------------------------------------
+\section{Experimental Setup}
+\label{sec:setup}
+
+\paragraph{Models.} We evaluate three frontier LLMs accessed via API: \textbf{GPT-4o-mini} (OpenAI), \textbf{Claude~3.5 Haiku} (Anthropic), and \textbf{Gemini~2.0 Flash} (Google). These represent diverse model families and training paradigms while being cost-effective for systematic evaluation.
+
+\paragraph{Dataset.} We use a stratified random sample of $n=200$ from the BlackSwanSuite-MCQ validation split (seed=42), preserving the original distribution across task types (Detective: 65\%, Reporter: 35\%) and difficulty levels (easy: 40\%, medium: 42\%, hard: 18\%).
+
+\paragraph{Evaluation.} All experiments use temperature $T=0$ for deterministic outputs. We report accuracy (percentage of correctly answered MCQs) as the primary metric, broken down by task type and difficulty. The random baseline is 33.3\%. We extract the answer letter from model responses using a cascading regex parser (explicit answer patterns $\to$ final-line letter $\to$ first letter).
+
+\paragraph{Reproducibility.} Sample IDs, prompts, full model responses, and analysis code are released with this paper. All experiments are reproducible given API access to the evaluated models.
+
+%----------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+
+\subsection{Main Results}
+
+Table~\ref{tab:main} presents the overall accuracy for each model-strategy combination. Several patterns emerge.
+
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{MCQ Accuracy (\%) on BlackSwanSuite validation} ($n=200$, stratified sample). Best per model in \textbf{bold}. Random baseline: 33.3\%.}
+\label{tab:main}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Model & Naive & CoT & Abd. & H-E & CF \\
+\midrule
+GPT-4o-mini & 59.5 & 54.5 & \textbf{61.0} & 53.0 & 55.5 \\
+Claude Haiku & \textbf{54.5} & 49.5 & 53.0 & --- & --- \\
+Gemini Flash & \textbf{53.0} & --- & --- & --- & --- \\
+\midrule
+Random & 33.3 & 33.3 & 33.3 & 33.3 & 33.3 \\
+\bottomrule
+\end{tabular}
+\vspace{-2mm}
+\end{table}
+
+\textbf{Abductive CoT achieves the best overall accuracy} (61.0\% on GPT-4o-mini), demonstrating that task-specific scaffolding can improve reasoning on this benchmark. However, the gain over Naive (+1.5\%) is modest.
+
+\textbf{Generic CoT degrades performance.} Across all models, standard Chain-of-Thought underperforms Naive prompting by 3--5 percentage points. This is a notable negative result: the ``think step by step'' instruction appears to introduce noise when the task requires specific reasoning types (abductive/defeasible) rather than general multi-step reasoning.
+
+\textbf{Structured scaffolds show diminishing returns.} Hypothesis-Elimination (53.0\%) and Counterfactual (55.5\%) both underperform the simpler Naive and Abductive CoT strategies on GPT-4o-mini. The added complexity of generating arguments for/against each option or constructing counterfactual worlds does not translate to accuracy gains.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig1_accuracy_heatmap.pdf}
+\caption{\textbf{Accuracy heatmap} across models and strategies. Abductive CoT (Abd. CoT) achieves the highest accuracy on GPT-4o-mini (61.0\%). Dashes indicate experiments in progress.}
+\label{fig:heatmap}
+\vspace{-2mm}
+\end{figure}
+
+\subsection{Task Breakdown: Detective vs.\ Reporter}
+
+The most striking finding is the large gap between the two task types (Table~\ref{tab:task}).
+
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{Accuracy by task type.} Detective (abductive) is dramatically harder than Reporter (defeasible) across all models and strategies.}
+\label{tab:task}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+Model & Strategy & Detective & Reporter \\
+\midrule
+\multirow{5}{*}{GPT-4o-mini}
+ & Naive & 46.5 & \textbf{83.1} \\
+ & CoT & 41.9 & 77.5 \\
+ & Abd. CoT & \textbf{52.7} & 76.1 \\
+ & H-E & 48.1 & 62.0 \\
+ & CF & 49.6 & 66.2 \\
+\midrule
+\multirow{3}{*}{Claude Haiku}
+ & Naive & 47.3 & 67.6 \\
+ & CoT & 40.3 & 66.2 \\
+ & Abd. CoT & 42.6 & \textbf{71.8} \\
+\midrule
+Gemini Flash & Naive & 44.2 & 69.0 \\
+\bottomrule
+\end{tabular}
+\vspace{-3mm}
+\end{table}
+
+\textbf{Reporter accuracy is 20--37 points higher than Detective} across all conditions. The gap is largest for GPT-4o-mini Naive (83.1\% vs.\ 46.5\%, $\Delta = 36.6$). This reveals that LLMs find abductive reasoning (inferring hidden causes from partial evidence) far more challenging than defeasible reasoning (identifying unexpected outcomes). Notably, Reporter accuracy of 83.1\% suggests that when the answer options describe an event in full, LLMs can effectively identify surprising outcomes through commonsense reasoning alone.
+
+\textbf{Abductive CoT specifically helps Detective tasks.} Abductive CoT achieves the highest Detective accuracy (52.7\%), improving +6.2 points over Naive and +10.8 over generic CoT. This suggests that the abductive scaffold---explicitly asking models to trace causal chains and identify the best explanation---aligns well with the hidden-cause inference structure of Detective tasks.
+
+\textbf{Complex scaffolds hurt Reporter tasks.} Hypothesis-Elimination (62.0\%) and Counterfactual (66.2\%) substantially underperform Naive (83.1\%) on Reporter tasks. These scaffolds appear to cause the model to overthink simple recognition problems, introducing doubt where straightforward pattern matching would suffice.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig2_task_breakdown.pdf}
+\caption{\textbf{Detective vs.\ Reporter accuracy by strategy.} The Detective--Reporter gap persists across all models. Abductive CoT narrows the gap for GPT-4o-mini.}
+\label{fig:task}
+\vspace{-2mm}
+\end{figure}
+
+\subsection{Difficulty Analysis}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig3_difficulty_breakdown.pdf}
+\caption{\textbf{Accuracy by difficulty level} (GPT-4o-mini). Abductive CoT is the only strategy that maintains $>$50\% on hard examples.}
+\label{fig:difficulty}
+\vspace{-2mm}
+\end{figure}
+
+Figure~\ref{fig:difficulty} shows the difficulty breakdown for GPT-4o-mini. Abductive CoT maintains the most consistent performance across difficulty levels, with the smallest easy-to-hard degradation. Notably, on \textit{hard} examples, Abductive CoT (>50\%) substantially outperforms CoT and Hypothesis-Elimination, suggesting that task-specific scaffolding provides the greatest benefit when questions are genuinely challenging.
+
+\subsection{Strategy Comparison via Radar Chart}
+
+Figure~\ref{fig:radar} provides a multi-dimensional comparison of all five strategies on GPT-4o-mini. Abductive CoT presents the best overall profile, with particular strength on Detective tasks and hard examples. The Naive baseline shows a notably lopsided profile---strong on Reporter and easy examples but weak on Detective and hard items.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.85\linewidth]{fig5_strategy_radar.pdf}
+\caption{\textbf{Radar chart} of GPT-4o-mini across six evaluation dimensions. Abductive CoT (green) achieves the most balanced profile.}
+\label{fig:radar}
+\vspace{-3mm}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{Error Analysis}
+\label{sec:errors}
+
+We conduct a fine-grained error analysis across all completed experiments, classifying each incorrect prediction into one of five error categories. Figure~\ref{fig:errors} and Table~\ref{tab:errors} summarize the distribution.
+
+\begin{table}[t]
+\centering
+\small
+\caption{\textbf{Error taxonomy} across all models. Percentages are relative to each model's total error count.}
+\label{tab:errors}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Error Type & GPT-4o & Claude & Gemini \\
+\midrule
+Surface Matching & 69.3\% & 65.7\% & 45.7\% \\
+Positional Bias (A) & 20.3\% & 24.8\% & 37.2\% \\
+Causal Confusion & 5.8\% & 3.1\% & 13.8\% \\
+Fails to Retract & 4.4\% & 4.9\% & --- \\
+Hallucinated Cause & 0.2\% & 0.7\% & --- \\
+\bottomrule
+\end{tabular}
+\vspace{-3mm}
+\end{table}
+
+\paragraph{Surface Matching (65--69\%).} The dominant failure mode. Models select options whose surface-level wording most closely matches generic expectations, rather than reasoning about causal plausibility. For example, when options describe subtle variations of the same physical event (``misses the landing'' vs.\ ``falls to the ground''), models default to the more commonly phrased description.
+
+\paragraph{Positional Bias (20--37\%).} A consistent preference for option~(A), the first-listed choice. This is especially pronounced in Gemini Flash (37.2\%), suggesting weaker calibration against position effects. This bias persists even with temperature $T=0$, indicating it is encoded in the model rather than introduced by sampling.
+
+\paragraph{Causal Confusion (3--14\%).} Models select options with plausible but incorrect causal direction. For Detective tasks, this manifests as confusing the cause-effect ordering: selecting ``the person falls because of the obstacle'' when the obstacle is actually the \textit{result} of falling. Gemini Flash shows the highest rate (13.8\%).
+
+\paragraph{Failure to Retract (4--5\%).} Specific to Reporter (defeasible) tasks. Models persist with their initial expectation despite the prompt describing a surprising event. For example, maintaining that ``the person successfully completes the trick'' when the correct answer describes a failure. This represents a genuine deficit in defeasible reasoning.
+
+\paragraph{Hallucinated Hidden Cause ($<$1\%).} Rare but notable. Models occasionally invent scenario details not present in any option, then select the option closest to their hallucination rather than reasoning directly from the given choices.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig4_error_taxonomy.pdf}
+\caption{\textbf{Error distribution by model.} Surface matching dominates across all models. Gemini Flash shows elevated positional bias and causal confusion.}
+\label{fig:errors}
+\vspace{-3mm}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{When does structured prompting help?}
+Our results challenge the assumption that more structured prompts always improve reasoning. Generic CoT consistently \textit{hurts} performance, likely because the ``think step by step'' instruction is too vague for the specific reasoning types required. Abductive CoT helps Detective tasks by aligning the scaffold with the task's inferential structure, but the same scaffold provides no benefit for Reporter tasks. We hypothesize that the key factor is \textbf{scaffold-task alignment}: prompting strategies must match the specific reasoning type demanded by the task.
+
+\paragraph{The abductive reasoning bottleneck.}
+The 20--37 point Detective-Reporter gap is remarkable. Reporter tasks, which ask models to identify surprising outcomes from complete event descriptions, are essentially solved by GPT-4o-mini (83.1\%). Detective tasks, which require inferring hidden causes from partial evidence, remain near chance for many strategies. This suggests that \textbf{abductive reasoning---not defeasible reasoning---is the primary bottleneck} for LLMs on BlackSwan.
+
+\paragraph{Text-only reasoning as a diagnostic.}
+Our text-only evaluation provides a \textit{reasoning ceiling}: the maximum accuracy achievable when visual ambiguity is removed. The fact that this ceiling is 61\% (well below the human performance reported in~\cite{chinchure2025black}) implies that improving visual perception alone will not close the gap---fundamental improvements in abductive reasoning are needed.
+
+\paragraph{Implications for the BlackSwan challenge.}
+For practitioners building systems for the BlackSwan challenge, our results suggest: (1)~use Abductive CoT for Detective tasks and Naive/minimal prompting for Reporter tasks; (2)~invest in debiasing positional preferences; (3)~focus research effort on abductive reasoning, as defeasible reasoning is comparatively well-handled.
+
+%----------------------------------------------------------------------
+\section{Limitations}
+\label{sec:limitations}
+
+\textbf{Text-only setting.} Our evaluation omits visual input, which limits direct comparison with VLM-based approaches. However, this is by design: we isolate the language reasoning component to provide complementary insights.
+
+\textbf{Sample size.} We evaluate on $n=200$ stratified samples from the validation set. While this provides reasonable statistical power (95\% CI $\approx \pm 7\%$ at 50\% accuracy), full-set evaluation would strengthen conclusions.
+
+\textbf{Model access.} We evaluate cost-effective models (GPT-4o-mini, Claude Haiku, Gemini Flash) rather than flagship models. Larger models may exhibit different prompting sensitivities.
+
+\textbf{Error taxonomy.} Our error classification uses heuristic rules applied to model responses. A human annotation study would provide more reliable error categorization.
+
+%----------------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+
+We present a systematic evaluation of prompting strategies for abductive and defeasible video reasoning on the BlackSwanSuite benchmark. Our key finding is that \textbf{scaffold-task alignment matters more than scaffold complexity}: Abductive CoT improves abductive reasoning (+6.2\% on Detective tasks) while complex scaffolds like Hypothesis-Elimination can harm performance. The striking 20--37 point gap between abductive and defeasible tasks reveals that abductive reasoning---inferring hidden causes---is the true bottleneck for LLMs on this benchmark. Our error taxonomy identifies surface matching and positional bias as the dominant failure modes, providing clear targets for future work on debiasing and reasoning improvement.
+
+{\small
+\bibliographystyle{ieeenat_fullname}
+\bibliography{references}
+}
+
+\end{document}

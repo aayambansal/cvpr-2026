@@ -1,0 +1,81 @@
+\section{Analysis}
+\label{sec:analysis}
+
+\subsection{Error Taxonomy}
+
+We categorize all consistency errors into three types:
+\begin{itemize}[leftmargin=*,nosep]
+    \item \textbf{Sticky Answer}: The intervention should change the answer, but the model gives the same response for both images. This indicates the model is not sensitive to the visual change.
+    \item \textbf{Wrong Change}: The intervention should change the answer, and the model does change it, but to the wrong answer. This indicates the model detects a change but misinterprets it.
+    \item \textbf{Spurious Change}: The intervention should \emph{not} change the answer, but the model changes it anyway. This indicates over-sensitivity to irrelevant visual changes.
+\end{itemize}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig5_error_types.pdf}
+    \caption{\textbf{Error type distribution.} Claude~3.5 Sonnet's errors are dominated by sticky answers (27) and spurious changes (11), while GPT-4o has only 7 total errors.}
+    \label{fig:error_types}
+\end{figure}
+
+Figure~\ref{fig:error_types} shows the error distribution. GPT-4o makes only 7 errors total (3 sticky, 2 wrong change, 2 spurious). Gemini~2.0 Flash makes just 1 spurious change error. Claude~3.5 Sonnet, however, makes 40 errors: 27 sticky answers, 2 wrong changes, and 11 spurious changes. The high spurious change count (19.3\% of its should-not-change pairs) confirms our earlier finding about its low specificity.
+
+\subsection{Sensitivity--Specificity Trade-off}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig3_sens_spec.pdf}
+    \caption{\textbf{Sensitivity vs.\ specificity.} The ideal model lies at $(1,1)$. Claude~3.5 Sonnet shows notably lower specificity, indicating over-sensitivity to visual perturbations.}
+    \label{fig:sens_spec}
+\end{figure}
+
+Figure~\ref{fig:sens_spec} plots sensitivity against specificity for each model. The ideal model achieves $(1, 1)$---it always changes its answer when it should, and never changes it when it should not. Gemini~2.0 Flash and GPT-4o cluster near the ideal point, while Claude~3.5 Sonnet is pulled away primarily along the specificity axis. This asymmetry is clinically informative: it suggests that Claude~3.5 Sonnet may rely on a ``change detection'' heuristic---detecting \emph{any} visual difference and adjusting its answer accordingly---rather than tracking which specific visual information is relevant to the question.
+
+\subsection{Subcategory Heatmap}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig6_heatmap.pdf}
+    \caption{\textbf{\ccs by subcategory and model.} Fine-grained breakdown reveals that causal chain reasoning and spill causation are particularly challenging for Claude~3.5 Sonnet.}
+    \label{fig:heatmap}
+\end{figure}
+
+Figure~\ref{fig:heatmap} provides a detailed subcategory-level heatmap. All models achieve perfect \ccs on left/right, above/below, and attribute binding tasks. The most challenging subcategories are:
+\begin{enumerate}[leftmargin=*,nosep]
+    \item \textbf{Causal chain} (removing mediator B from A$\to$B$\to$C): Claude~3.5 Sonnet drops to 0.65.
+    \item \textbf{Spill causation} (upright vs.\ tilted container): Claude~3.5 Sonnet drops to 0.70.
+    \item \textbf{Count no-change} (removing distractor): This is a specificity test---Claude~3.5 Sonnet scores only 0.68, incorrectly changing its count when a non-target object is removed.
+\end{enumerate}
+
+\subsection{Accuracy vs.\ Consistency}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig4_acc_vs_ccs.pdf}
+    \caption{\textbf{Average accuracy vs.\ \ccs.} While accuracy and consistency are correlated, the gap between them varies: Claude~3.5 Sonnet's accuracy (90.4\%) substantially overstates its consistency (87.7\%).}
+    \label{fig:acc_vs_ccs}
+\end{figure}
+
+Figure~\ref{fig:acc_vs_ccs} shows that accuracy and \ccs are correlated but not identical. All models lie near but below the diagonal, indicating that consistency is a strictly harder criterion than accuracy. The gap is smallest for Gemini~2.0 Flash (0.3 points) and largest for Claude~3.5 Sonnet (2.7 points). This confirms that \ccs provides non-redundant information beyond what accuracy alone captures.
+
+\subsection{Intervention Type Analysis}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\linewidth]{fig8_intervention_types.pdf}
+    \caption{\textbf{\ccs by intervention type.} Swap and color replacement are universally easy; container manipulation and mediator removal are harder.}
+    \label{fig:intervention}
+\end{figure}
+
+Figure~\ref{fig:intervention} breaks down \ccs by the type of intervention applied. Position swaps and color replacements are handled perfectly by all models, likely because these produce large, salient visual differences. The hardest interventions for Claude~3.5 Sonnet are \textit{upright container} (0.70), \textit{remove mediator} (0.65), and \textit{remove distractor} (0.68). These require understanding the \emph{functional role} of visual elements (a tilted container causes spilling; a mediator connects cause and effect; a distractor is irrelevant to counting) rather than merely detecting their presence or absence.
+
+\subsection{Discussion}
+
+Our results reveal a hierarchy of counterfactual reasoning difficulty in current VLMs:
+
+\begin{enumerate}[leftmargin=*,nosep]
+    \item \textbf{Easy}: Spatial relations, attribute detection. All models handle these perfectly.
+    \item \textbf{Medium}: Counting, basic causal links. GPT-4o handles these well; Claude~3.5 Sonnet struggles.
+    \item \textbf{Hard}: Functional role understanding (mediators, containment physics, distractor irrelevance). Even strong models show weaknesses.
+\end{enumerate}
+
+This hierarchy maps naturally onto Pearl's ladder of causation~\cite{pearl2009causality}: spatial and attribute questions require only \emph{association} (what is in the image), while causal chain and container physics questions require \emph{interventional} reasoning (what would happen if we change X), and distractor-irrelevance questions require \emph{counterfactual} reasoning (would the answer be different if we hadn't made this change). The fact that VLMs perform well at the associational level but degrade at higher levels supports the hypothesis that they learn surface-level visual correlations rather than causal models of the scene.
